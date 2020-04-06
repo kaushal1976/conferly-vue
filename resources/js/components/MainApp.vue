@@ -19,7 +19,7 @@
 
     <v-app-bar app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-toolbar-title>Application</v-toolbar-title>
+      <v-toolbar-title >Application</v-toolbar-title>
     </v-app-bar>
 
     <!-- Sizes your content based upon application components -->
@@ -41,7 +41,7 @@ import Footer from "./layout/Footer";
 export default {
   data: function () {
     return {
-      drawer: null,
+      drawer: false,
       mini: true
     }
   },

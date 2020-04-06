@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/test','API\AuthController@test')->name('test');
 Route::post('/conferences','API\AuthController@test')->name('conferences');
+Route::post('/domain/search','API\DomainController@doSearch')->name('domain-search');

@@ -30,4 +30,12 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'resell' => [
+
+        'url' => env('RESELL_URL'),
+        'auth-userid' => env('RESELL_AUTH_USER_ID'),
+        'api-key'=>env('RESELL_API_KEY')
+
+    ]
+
 ];

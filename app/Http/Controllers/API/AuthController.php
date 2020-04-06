@@ -51,6 +51,7 @@ class AuthController extends Controller
             );
 
             return json_decode((string) $response->getBody(), true);
+
         } catch (\Exception $exception) {
 
             return response($exception->getMessage(), 401);
@@ -65,14 +66,4 @@ class AuthController extends Controller
     {
     }
 
-    public function test(Request $request)
-    {
-        $validatedData = $request->validate([
-
-            'title' => 'required|email',
-
-            'description' => 'required|string'
-        ]);
-
-    }
 }

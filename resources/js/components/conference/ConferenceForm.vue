@@ -15,6 +15,13 @@
           >
            <Step1/>
     </v-stepper-content>
+    <v-stepper-content
+            :key="`2-content`"
+            :step="2"
+            class="py-0"
+    >
+        <Step2/>
+    </v-stepper-content>
   </v-stepper>
 
   
@@ -25,48 +32,23 @@
 
 </style>
 <script>
-import axios from "axios"
 import Step1 from './Step1.vue'
+import Step2 from './Step2.vue'
 export default {
   data() {
     return {
-      conference: {},
-      valid: false,
       e1: 1,
-      titleRules: [v => !!v || "Title is required"],
-      locationRules: [v => !!v || "Location is required"],
-      tagLineRules: [v => !!v || "Tag Line is required"],
-      dates: ["2019-09-10", "2019-09-20"],
-      modal: false
     };
   },
   methods: {
-    testPost() {
-      if (this.$refs.form.validate()) {
-        axios
-          .post("/api/test", this.test)
-          .then(response => {
-            console.log(JSON.stringify(response));
-          })
-          .catch(error => {
-            console.log(JSON.stringify(error));
-          });
-      }
-    },
-    clear() {
-      this.$refs.form.reset();
-    },
-    addConference: function(test) {
-      this.$store.dispatch("addConference", { ...this.test });
-    }
   },
+
   computed: {
-    dateRangeText() {
-      return this.dates.join(" ~ ");
-    }
   },
   components: {
-    Step1,
+
+      Step1,
+      Step2
   }
 };
 </script>

@@ -2,6 +2,7 @@ import Home from './components/Home.vue';
 import Login from './components/auth/Login';
 import Logout from './components/auth/Logout';
 import Conference from './components/conference/ConferenceForm.vue'
+import Search from './components/domain/Search.vue'
 
 export const routes = [
 
@@ -24,7 +25,13 @@ export const routes = [
     {
         path: '/conference',
         component: Conference
+    },
+
+    {
+        path: '/domain/search',
+        component: Search
     }
+
 
 ];
     
