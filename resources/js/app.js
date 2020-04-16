@@ -2,6 +2,7 @@
 
 require('./bootstrap');
 import 'element-ui/lib/theme-chalk/index.css';
+import 'material-design-icons-iconfont/dist/material-design-icons.css'
 import locale from 'element-ui/lib/locale/lang/en';
 import Vuetify from 'vuetify'
 

@@ -1,7 +1,7 @@
 <template>
     <div>
         <h2>Conference Details</h2>
-        <v-form v-model="valid" ref="conferenceForm" @submit.prevent class="py-0">
+        <v-form v-model="valid" ref="conferenceForm" @submit.stop.prevent class="py-0">
             <v-row class="justify-center py-0 px-5">
                 <v-col cols="12">
                     <v-text-field
@@ -32,7 +32,7 @@
                     >
                         <template v-slot:activator="{ on }">
                             <v-text-field
-                                    v-model="sDate"
+                                    v-model="conference.sDate"
                                     label="Start Date"
                                     append-icon="mdi-calendar"
                                     :rules="dateRules"
@@ -42,7 +42,7 @@
                             ></v-text-field>
                         </template>
                         <v-date-picker
-                                v-model="sDate"
+                                v-model="conference.sDate"
                                 @change="sDateChanged"
                         ></v-date-picker>
                     </v-menu>
@@ -58,7 +58,7 @@
                     >
                         <template v-slot:activator="{ on }">
                             <v-text-field
-                                    v-model="fDate"
+                                    v-model="conference.fDate"
                                     label="End Date"
                                     append-icon="mdi-calendar"
                                     :rules="dateRules"
@@ -69,7 +69,7 @@
                             ></v-text-field>
                         </template>
                         <v-date-picker
-                                v-model="fDate"
+                                v-model="conference.fDate"
                                 @change="fDateMenu = false"
                                 :min="minDate"
                         >
@@ -105,7 +105,7 @@
                 </v-col>
                 <v-col cols="12" class="py-0">
                     <v-btn
-                            @click="addConference(conference)"
+                            @click="addConference"
                             :class="{ 'blue darken-4 white--text' : valid, disabled: !valid }"
                             outlined
                             large
@@ -150,25 +150,26 @@
                 'addConference'
             ]),
 
-            addConference(conference) {
+            addConference() {
 
                 if (this.$refs.conferenceForm.validate()) {
                     this.$store.dispatch('addConference', {...this.conference})
+                    this.$emit('complete')
                 }
+
             },
 
             sDateChanged() {
                 this.fDateDisabled = false
                 this.sDateMenu = false
-                if (new Date(this.sDate).getTime() >= new Date(this.fDate).getTime()) {
-                    this.fDate = this.sDate
+                if (new Date(this.conference.sDate).getTime() >= new Date(this.conference.fDate).getTime()) {
+                    this.conference.fDate = this.conference.sDate
                 }
             },
-
         },
         computed: {
             minDate() {
-                return this.sDate
+                return this.conference.sDate
             },
         },
     };
