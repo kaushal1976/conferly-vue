@@ -19,8 +19,13 @@
                 </v-btn>
             </p>
         </v-card>
+        <v-skeleton-loader
+            v-if="loading"
+            class="mx-auto my-2"
+            type="list-item-avatar-three-line"
+        ></v-skeleton-loader>
         <v-row justify="center">
-            <v-template v-for="conference in conferences" :key="conference.id">
+            <template v-for="conference in conferences">
                 <v-col class="mx-2">
                     <v-card
                         class="my-2"
@@ -57,7 +62,6 @@
                         <v-card-title>Tonight's availability</v-card-title>
                         <v-card-text>
                             <v-chip-group
-                                v-model="selection"
                                 active-class="deep-purple accent-4 white--text"
                                 column
                             >
@@ -71,14 +75,13 @@
                             <v-btn
                                 color="deep-purple lighten-2"
                                 text
-                                @click="reserve"
                             >
                                 Reserve
                             </v-btn>
                         </v-card-actions>
                     </v-card>
                 </v-col>
-            </v-template>
+            </template>
         </v-row>
         <v-row>
 
@@ -89,6 +92,7 @@
     import {mapState} from 'vuex'
 
     export default {
+        name:"conferences",
         data: function () {
             return {
                 loading: false
@@ -110,6 +114,11 @@
                     .then(response => {
                         this.loading = false
                     })
+            }
+        },
+        watch: {
+            conferences(oldVal, newVal) {
+                console.log (newVal)
             }
         }
     }

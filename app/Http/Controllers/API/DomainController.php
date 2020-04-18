@@ -13,7 +13,7 @@ class DomainController extends Controller
     public function doSearch(Request $request)
     {
         $validatedData = $request->validate([
-            'search' => 'required',
+            'search' => 'required|email',
         ]);
         try {
             $http = new Client;

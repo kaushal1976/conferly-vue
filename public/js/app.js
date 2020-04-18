@@ -2272,8 +2272,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: "conferences",
   data: function data() {
     return {
       loading: false
@@ -2292,6 +2296,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.$store.dispatch('fetchConferences').then(function (response) {
         _this.loading = false;
       });
+    }
+  },
+  watch: {
+    conferences: function conferences(oldVal, newVal) {
+      console.log(newVal);
     }
   }
 });
@@ -2314,6 +2323,12 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2462,33 +2477,51 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       subjectRules: [function (v) {
         return !!v || "Subject is required";
       }],
-      sDate: new Date().toISOString().substr(0, 10),
-      fDate: new Date().toISOString().substr(0, 10),
+      start_date: new Date().toISOString().substr(0, 10),
+      end_date: new Date().toISOString().substr(0, 10),
       fDateDisabled: true,
       sDateMenu: false,
       fDateMenu: false,
       modal: false
     };
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['addConference']), {
+  methods: {
     addConference: function addConference() {
+      var _this2 = this;
+
       if (this.$refs.conferenceForm.validate()) {
-        this.$store.dispatch('addConference', _objectSpread({}, this.conference));
-        this.$emit('complete');
+        this.$store.dispatch('addConference', _objectSpread({}, this.conference)).then(function (response) {
+          _this2.$emit('complete');
+        })["catch"](function (error) {
+          _this2.asyncErrors = error.response.data.errors;
+        });
       }
     },
     sDateChanged: function sDateChanged() {
       this.fDateDisabled = false;
       this.sDateMenu = false;
 
-      if (new Date(this.conference.sDate).getTime() >= new Date(this.conference.fDate).getTime()) {
-        this.conference.fDate = this.conference.sDate;
+      if (new Date(this.conference.start_date).getTime() >= new Date(this.conference.end_date).getTime()) {
+        this.conference.end_date = this.conference.start_date;
+      }
+    },
+    fetchConference: function fetchConference() {
+      var _this3 = this;
+
+      if (this.$route.params.id) {
+        this.loading = true, this.$store.dispatch('fetchConference', this.id = this.$route.params.id).then(function (response) {
+          _this3.loading = false;
+          _this3.conference = _this3.$store.state.conference;
+        });
       }
     }
-  }),
+  },
+  mounted: function mounted() {
+    this.fetchConference();
+  },
   computed: {
     minDate: function minDate() {
-      return this.conference.sDate;
+      return this.conference.start_date;
     }
   }
 });
@@ -2814,6 +2847,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.loading = true;
         this.$store.dispatch('doSearch', _objectSpread({}, this.searchForm)).then(function (response) {
           _this.loading = false;
+        })["catch"](function (error) {
+          console.log(error);
         });
       }
     }
@@ -39483,14 +39518,19 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
+      _vm.loading
+        ? _c("v-skeleton-loader", {
+            staticClass: "mx-auto my-2",
+            attrs: { type: "list-item-avatar-three-line" }
+          })
+        : _vm._e(),
+      _vm._v(" "),
       _c(
         "v-row",
         { attrs: { justify: "center" } },
-        _vm._l(_vm.conferences, function(conference) {
-          return _c(
-            "v-template",
-            { key: conference.id },
-            [
+        [
+          _vm._l(_vm.conferences, function(conference) {
+            return [
               _c(
                 "v-col",
                 { staticClass: "mx-2" },
@@ -39583,13 +39623,6 @@ var render = function() {
                                 "active-class":
                                   "deep-purple accent-4 white--text",
                                 column: ""
-                              },
-                              model: {
-                                value: _vm.selection,
-                                callback: function($$v) {
-                                  _vm.selection = $$v
-                                },
-                                expression: "selection"
                               }
                             },
                             [
@@ -39616,8 +39649,7 @@ var render = function() {
                               attrs: {
                                 color: "deep-purple lighten-2",
                                 text: ""
-                              },
-                              on: { click: _vm.reserve }
+                              }
                             },
                             [
                               _vm._v(
@@ -39634,11 +39666,10 @@ var render = function() {
                 ],
                 1
               )
-            ],
-            1
-          )
-        }),
-        1
+            ]
+          })
+        ],
+        2
       ),
       _vm._v(" "),
       _c("v-row")
@@ -39727,15 +39758,16 @@ var render = function() {
                     attrs: {
                       label: "Enter a Tag Line for the Conference",
                       rules: _vm.tagLineRules,
+                      "error-messages": _vm.asyncErrors.tag_line,
                       outlined: "",
                       required: ""
                     },
                     model: {
-                      value: _vm.conference.tagLine,
+                      value: _vm.conference.tag_line,
                       callback: function($$v) {
-                        _vm.$set(_vm.conference, "tagLine", $$v)
+                        _vm.$set(_vm.conference, "tag_line", $$v)
                       },
-                      expression: "conference.tagLine"
+                      expression: "conference.tag_line"
                     }
                   })
                 ],
@@ -39773,15 +39805,21 @@ var render = function() {
                                       label: "Start Date",
                                       "append-icon": "mdi-calendar",
                                       rules: _vm.dateRules,
+                                      "error-messages":
+                                        _vm.asyncErrors.start_date,
                                       outlined: "",
                                       readonly: ""
                                     },
                                     model: {
-                                      value: _vm.conference.sDate,
+                                      value: _vm.conference.start_date,
                                       callback: function($$v) {
-                                        _vm.$set(_vm.conference, "sDate", $$v)
+                                        _vm.$set(
+                                          _vm.conference,
+                                          "start_date",
+                                          $$v
+                                        )
                                       },
-                                      expression: "conference.sDate"
+                                      expression: "conference.start_date"
                                     }
                                   },
                                   on
@@ -39804,11 +39842,11 @@ var render = function() {
                       _c("v-date-picker", {
                         on: { change: _vm.sDateChanged },
                         model: {
-                          value: _vm.conference.sDate,
+                          value: _vm.conference.start_date,
                           callback: function($$v) {
-                            _vm.$set(_vm.conference, "sDate", $$v)
+                            _vm.$set(_vm.conference, "start_date", $$v)
                           },
-                          expression: "conference.sDate"
+                          expression: "conference.start_date"
                         }
                       })
                     ],
@@ -39849,16 +39887,22 @@ var render = function() {
                                       label: "End Date",
                                       "append-icon": "mdi-calendar",
                                       rules: _vm.dateRules,
+                                      "error-messages":
+                                        _vm.asyncErrors.end_date,
                                       outlined: "",
                                       readonly: "",
                                       disabled: _vm.fDateDisabled
                                     },
                                     model: {
-                                      value: _vm.conference.fDate,
+                                      value: _vm.conference.end_date,
                                       callback: function($$v) {
-                                        _vm.$set(_vm.conference, "fDate", $$v)
+                                        _vm.$set(
+                                          _vm.conference,
+                                          "end_date",
+                                          $$v
+                                        )
                                       },
-                                      expression: "conference.fDate"
+                                      expression: "conference.end_date"
                                     }
                                   },
                                   on
@@ -39886,11 +39930,11 @@ var render = function() {
                           }
                         },
                         model: {
-                          value: _vm.conference.fDate,
+                          value: _vm.conference.end_date,
                           callback: function($$v) {
-                            _vm.$set(_vm.conference, "fDate", $$v)
+                            _vm.$set(_vm.conference, "end_date", $$v)
                           },
-                          expression: "conference.fDate"
+                          expression: "conference.end_date"
                         }
                       })
                     ],
@@ -39908,6 +39952,7 @@ var render = function() {
                     attrs: {
                       label: "Enter the venue of the Conference",
                       rules: _vm.venueRules,
+                      "error-messages": _vm.asyncErrors.venue,
                       outlined: "",
                       required: ""
                     },
@@ -39924,15 +39969,16 @@ var render = function() {
                     attrs: {
                       label: "Enter Subject Area the Conference",
                       rules: _vm.subjectRules,
+                      "error-messages": _vm.asyncErrors.subject_area,
                       outlined: "",
                       required: ""
                     },
                     model: {
-                      value: _vm.conference.subject,
+                      value: _vm.conference.subject_area,
                       callback: function($$v) {
-                        _vm.$set(_vm.conference, "subject", $$v)
+                        _vm.$set(_vm.conference, "subject_area", $$v)
                       },
-                      expression: "conference.subject"
+                      expression: "conference.subject_area"
                     }
                   })
                 ],
@@ -39948,6 +39994,7 @@ var render = function() {
                       label: "A description for the Conference",
                       rows: "5",
                       rules: _vm.descriptionRules,
+                      "error-messages": _vm.asyncErrors.description,
                       outlined: "",
                       required: ""
                     },
@@ -103022,10 +103069,10 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
+vue__WEBPACK_IMPORTED_MODULE_3___default.a.use(vue_moment__WEBPACK_IMPORTED_MODULE_2___default.a);
 vue__WEBPACK_IMPORTED_MODULE_3___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_4__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_3___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_5__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_3___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_1___default.a);
-vue__WEBPACK_IMPORTED_MODULE_3___default.a.use(vue_moment__WEBPACK_IMPORTED_MODULE_2___default.a);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_4__["default"]({
   routes: _routes__WEBPACK_IMPORTED_MODULE_6__["routes"],
   mode: 'history'
@@ -103039,8 +103086,8 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_3___default.a({
   },
   router: router,
   store: store,
-  vuetify: vuetify,
-  moment: vue_moment__WEBPACK_IMPORTED_MODULE_2___default.a
+  moment: vue_moment__WEBPACK_IMPORTED_MODULE_2___default.a,
+  vuetify: vuetify
 });
 
 /***/ }),
@@ -103305,6 +103352,38 @@ component.options.__file = "resources/js/components/auth/Logout.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/conference/Conference.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/conference/Conference.vue ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/components/conference/Conference.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/conference/ConferenceForm.vue":
 /*!***************************************************************!*\
   !*** ./resources/js/components/conference/ConferenceForm.vue ***!
@@ -103378,15 +103457,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************************************************!*\
   !*** ./resources/js/components/conference/Conferences.vue ***!
   \************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Conferences_vue_vue_type_template_id_50aaaf62_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Conferences.vue?vue&type=template&id=50aaaf62&scoped=true& */ "./resources/js/components/conference/Conferences.vue?vue&type=template&id=50aaaf62&scoped=true&");
 /* harmony import */ var _Conferences_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Conferences.vue?vue&type=script&lang=js& */ "./resources/js/components/conference/Conferences.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Conferences_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Conferences_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _Conferences_vue_vue_type_style_index_0_id_50aaaf62_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Conferences.vue?vue&type=style&index=0&id=50aaaf62&scoped=true&lang=css& */ "./resources/js/components/conference/Conferences.vue?vue&type=style&index=0&id=50aaaf62&scoped=true&lang=css&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Conferences_vue_vue_type_style_index_0_id_50aaaf62_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Conferences.vue?vue&type=style&index=0&id=50aaaf62&scoped=true&lang=css& */ "./resources/js/components/conference/Conferences.vue?vue&type=style&index=0&id=50aaaf62&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -103418,7 +103496,7 @@ component.options.__file = "resources/js/components/conference/Conferences.vue"
 /*!*************************************************************************************!*\
   !*** ./resources/js/components/conference/Conferences.vue?vue&type=script&lang=js& ***!
   \*************************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -103822,14 +103900,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_auth_Logout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/auth/Logout */ "./resources/js/components/auth/Logout.vue");
 /* harmony import */ var _components_conference_ConferenceForm_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/conference/ConferenceForm.vue */ "./resources/js/components/conference/ConferenceForm.vue");
 /* harmony import */ var _components_conference_Conferences_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/conference/Conferences.vue */ "./resources/js/components/conference/Conferences.vue");
-/* harmony import */ var _components_domain_Search_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/domain/Search.vue */ "./resources/js/components/domain/Search.vue");
+/* harmony import */ var _components_conference_Conference_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/conference/Conference.vue */ "./resources/js/components/conference/Conference.vue");
+/* harmony import */ var _components_domain_Search_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/domain/Search.vue */ "./resources/js/components/domain/Search.vue");
 
 
 
 
 
 
-var routes = [{
+
+var routes = [//Auth
+{
   path: '/',
   component: _components_Home_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
 }, {
@@ -103838,15 +103919,23 @@ var routes = [{
 }, {
   path: '/logout',
   component: _components_auth_Logout__WEBPACK_IMPORTED_MODULE_2__["default"]
-}, {
+}, //Conference
+{
   path: '/conference',
-  component: _components_conference_ConferenceForm_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
-}, {
-  path: '/conferences',
   component: _components_conference_Conferences_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
 }, {
+  path: '/conference/create',
+  component: _components_conference_ConferenceForm_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+}, {
+  path: '/conference/:id/',
+  component: _components_conference_Conference_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+}, {
+  path: '/conference/:id/edit',
+  component: _components_conference_ConferenceForm_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+}, //Domains
+{
   path: '/domain/search',
-  component: _components_domain_Search_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+  component: _components_domain_Search_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
 }];
 
 /***/ }),
@@ -103869,13 +103958,9 @@ __webpack_require__.r(__webpack_exports__);
     domains: [],
     themes: [],
     conference: {},
-    theme: {},
-    loading: false
+    theme: {}
   },
   mutations: {
-    'SET_LOADING': function SET_LOADING(state, payload) {
-      state.loading = payload;
-    },
     'ADD_CONFERENCE': function ADD_CONFERENCE(state, payload) {
       state.conference = payload;
       state.conferences.push(payload);
@@ -103894,6 +103979,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     FETCH_CONFERENCES: function FETCH_CONFERENCES(state, conferences) {
       state.conferences = conferences;
+    },
+    FETCH_CONFERENCE: function FETCH_CONFERENCE(state, conference) {
+      state.conference = conference;
     }
   },
   getters: {
@@ -103904,7 +103992,11 @@ __webpack_require__.r(__webpack_exports__);
   actions: {
     addConference: function addConference(_ref, payload) {
       var commit = _ref.commit;
-      commit('ADD_CONFERENCE', payload);
+      return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/conference/', payload).then(function (response) {
+        commit('ADD_CONFERENCE', payload);
+      })["catch"](function (error) {
+        throw error;
+      });
     },
     addTheme: function addTheme(_ref2, payload) {
       var commit = _ref2.commit;
@@ -103920,9 +104012,18 @@ __webpack_require__.r(__webpack_exports__);
     },
     fetchConferences: function fetchConferences(_ref4) {
       var commit = _ref4.commit;
-      return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/conferences').then(function (response) {
+      return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/conference').then(function (response) {
         console.log(response.data);
         commit('FETCH_CONFERENCES', response.data);
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    fetchConference: function fetchConference(_ref5, payload) {
+      var commit = _ref5.commit;
+      return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/conference/' + payload).then(function (response) {
+        console.log(response.data);
+        commit('FETCH_CONFERENCE', response.data);
       })["catch"](function (error) {
         console.log(error);
       });

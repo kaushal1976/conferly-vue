@@ -20,7 +20,7 @@ class ConferenceController extends Controller
     public function __construct()
     {
         $this->middleware('auth', ['except' => [
-            'index', 'show', 'displayImage'
+            'index', 'show', 'displayImage', 'edit', 'store'
         ]]);
     }
     /**
@@ -48,27 +48,23 @@ class ConferenceController extends Controller
             'venue'=>'required|max:255',
             'tag_line'=>'required|max:255',
             'subject_area'=>'required|max:255',
-            'start_date' => 'required|date_format:d-m-Y|after:yesterday',
-            'end_date' => 'required|date_format:d-m-Y|after:start_date',
+            'start_date' => 'required|date_format:Y-m-d|after:yesterday',
+            'end_date' => 'required|date_format:Y-m-d|after:start_date',
         ]);
-
         $validatedData['start_date'] = Carbon::parse($validatedData['start_date']);
         $validatedData['end_date'] = Carbon::parse($validatedData['end_date']);
         try {
             $conference = Conference::create($validatedData);
             $conference->save();
-            request()->session()->flash('message', 'Conference created successfully.');
-            request()->session()->flash('message-type', 'success');
         } catch (\Exception $exception) {
             abort(403, $exception->getMessage());
         }
-        return redirect(route('themes', ['conference'=>$conference]));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Conference  $conference
+     * @param
      * @return \Illuminate\Http\Response
      */
     public function show(Conference $conference)
@@ -79,12 +75,12 @@ class ConferenceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Conference  $conference
+     * @param  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Conference $conference)
+    public function edit($id)
     {
-        return view('conferences.form')->with(compact('conference', $conference));
+        return response()->json(Conference::findOrFail($id));
     }
 
     /**

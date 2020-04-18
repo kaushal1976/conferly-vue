@@ -15,8 +15,9 @@
                     ></v-text-field>
                     <v-text-field
                             label="Enter a Tag Line for the Conference"
-                            v-model="conference.tagLine"
+                            v-model="conference.tag_line"
                             :rules="tagLineRules"
+                            :error-messages="asyncErrors.tag_line"
                             outlined
                             required
                     ></v-text-field>
@@ -32,17 +33,18 @@
                     >
                         <template v-slot:activator="{ on }">
                             <v-text-field
-                                    v-model="conference.sDate"
+                                    v-model="conference.start_date"
                                     label="Start Date"
                                     append-icon="mdi-calendar"
                                     :rules="dateRules"
+                                    :error-messages="asyncErrors.start_date"
                                     outlined
                                     readonly
                                     v-on="on"
                             ></v-text-field>
                         </template>
                         <v-date-picker
-                                v-model="conference.sDate"
+                                v-model="conference.start_date"
                                 @change="sDateChanged"
                         ></v-date-picker>
                     </v-menu>
@@ -58,10 +60,11 @@
                     >
                         <template v-slot:activator="{ on }">
                             <v-text-field
-                                    v-model="conference.fDate"
+                                    v-model="conference.end_date"
                                     label="End Date"
                                     append-icon="mdi-calendar"
                                     :rules="dateRules"
+                                    :error-messages="asyncErrors.end_date"
                                     outlined
                                     readonly
                                     v-on="on"
@@ -69,7 +72,7 @@
                             ></v-text-field>
                         </template>
                         <v-date-picker
-                                v-model="conference.fDate"
+                                v-model="conference.end_date"
                                 @change="fDateMenu = false"
                                 :min="minDate"
                         >
@@ -81,13 +84,15 @@
                             label="Enter the venue of the Conference"
                             v-model="conference.venue"
                             :rules="venueRules"
+                            :error-messages="asyncErrors.venue"
                             outlined
                             required
                     ></v-text-field>
                     <v-text-field
                             label="Enter Subject Area the Conference"
-                            v-model="conference.subject"
+                            v-model="conference.subject_area"
                             :rules="subjectRules"
+                            :error-messages="asyncErrors.subject_area"
                             outlined
                             required
                     ></v-text-field>
@@ -98,6 +103,7 @@
                             v-model="conference.description"
                             rows="5"
                             :rules="descriptionRules"
+                            :error-messages="asyncErrors.description"
                             outlined
                             required
 
@@ -135,8 +141,8 @@
                 descriptionRules: [v => !!v || "Description is required"],
                 venueRules: [v => !!v || "Venue is required"],
                 subjectRules: [v => !!v || "Subject is required"],
-                sDate: new Date().toISOString().substr(0, 10),
-                fDate: new Date().toISOString().substr(0, 10),
+                start_date: new Date().toISOString().substr(0, 10),
+                end_date: new Date().toISOString().substr(0, 10),
                 fDateDisabled: true,
                 sDateMenu: false,
                 fDateMenu: false,
@@ -145,26 +151,41 @@
         },
 
         methods: {
-            ...mapActions([
-                'addConference'
-            ]),
             addConference() {
                 if (this.$refs.conferenceForm.validate()) {
                     this.$store.dispatch('addConference', {...this.conference})
-                    this.$emit('complete')
+                    .then(response => {
+                        this.$emit('complete')
+                    })
+                    .catch(error => {
+                        this.asyncErrors = error.response.data.errors
+                    })
                 }
             },
             sDateChanged() {
                 this.fDateDisabled = false
                 this.sDateMenu = false
-                if (new Date(this.conference.sDate).getTime() >= new Date(this.conference.fDate).getTime()) {
-                    this.conference.fDate = this.conference.sDate
+                if (new Date(this.conference.start_date).getTime() >= new Date(this.conference.end_date).getTime()) {
+                    this.conference.end_date = this.conference.start_date
                 }
             },
+            fetchConference() {
+                if (this.$route.params.id) {
+                    this.loading = true,
+                    this.$store.dispatch('fetchConference', this.id = this.$route.params.id)
+                    .then(response => {
+                        this.loading = false
+                        this.conference = this.$store.state.conference
+                        });
+                }
+            }
+        },
+        mounted() {
+          this.fetchConference()
         },
         computed: {
             minDate() {
-                return this.conference.sDate
+                return this.conference.start_date
             },
         },
     };

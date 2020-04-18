@@ -9,10 +9,10 @@ import {routes} from './routes';
 import MainApp from './components/MainApp.vue'
 import StoreData from './store'
 
+Vue.use(moment)
 Vue.use(VueRouter);
 Vue.use(Vuex);
 Vue.use(Vuetify);
-Vue.use(moment)
 
 const router = new VueRouter({
     routes,
@@ -29,6 +29,6 @@ const app = new Vue({
     },
     router,
     store,
+    moment,
     vuetify,
-    moment
 });

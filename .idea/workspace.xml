@@ -2,23 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba9d416c-ac0e-419b-bbff-0a49ee5f1007" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Conference.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/API/ConferenceController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/ConferenceFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_02_19_105132_create_conferences_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/conference/Conferences.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/conference/Step3.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/blogapp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/blogapp.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/ConferenceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/ConferenceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/DomainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/DomainController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/MainApp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/MainApp.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/auth/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/auth/Login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/conference/Conferences.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/conference/Conferences.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/conference/Step1.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/conference/Step1.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/domain/Search.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/domain/Search.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
@@ -223,7 +214,9 @@
       <workItem from="1587162329920" duration="287000" />
       <workItem from="1587162735260" duration="18000" />
       <workItem from="1587162795738" duration="74000" />
-      <workItem from="1587193000420" duration="22509000" />
+      <workItem from="1587193000420" duration="22655000" />
+      <workItem from="1587226186841" duration="93000" />
+      <workItem from="1587229060058" duration="14579000" />
     </task>
     <task id="LOCAL-00001" summary="Store updated">
       <created>1586174799654</created>
@@ -239,7 +232,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587061163610</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Conference model added">
+      <created>1587225293226</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1587225293226</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,7 +247,18 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Store updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="Store updated" />
+    <MESSAGE value="Conference model added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Conference model added" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="265" y="23" key="CommitChangelistDialog2" timestamp="1587225292165">
+      <screen x="0" y="23" width="1280" height="737" />
+    </state>
+    <state x="265" y="23" key="CommitChangelistDialog2/0.23.1280.737@0.23.1280.737" timestamp="1587225292165" />
+    <state x="292" y="131" key="Vcs.Push.Dialog.v2" timestamp="1587225295236">
+      <screen x="0" y="23" width="1280" height="737" />
+    </state>
+    <state x="292" y="131" key="Vcs.Push.Dialog.v2/0.23.1280.737@0.23.1280.737" timestamp="1587225295236" />
   </component>
   <component name="masterDetails">
     <states>
