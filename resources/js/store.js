@@ -5,9 +5,13 @@ export default {
         domains: [],
         themes:[],
         conference: {},
-        theme:{}
+        theme:{},
+        loading:false
     },
     mutations:{
+        'SET_LOADING' (state,payload) {
+          state.loading = payload
+        },
         'ADD_CONFERENCE'(state, payload) {
             state.conference = payload
             state.conferences.push(payload)
@@ -24,9 +28,14 @@ export default {
                 state.domains.push(domain)
             });
         },
+        FETCH_CONFERENCES (state, conferences) {
+           state.conferences = conferences
+        }
     },
     getters:{
-
+        getConferences: state => {
+            return state.conferences
+        }
     },
     actions:{
         addConference: ({ commit }, payload) => {
@@ -45,6 +54,16 @@ export default {
                     console.log(error)
                 })
 
+        },
+        fetchConferences: ({ commit }) => {
+            return axios.get('/api/conferences')
+                .then(response => {
+                    console.log(response.data)
+                    commit('FETCH_CONFERENCES', response.data)
+                })
+                .catch(error=> {
+                    console.log(error)
+                })
         },
     }
 

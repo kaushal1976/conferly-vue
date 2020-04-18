@@ -15,6 +15,7 @@
               label="Enter your e-mail address"
               v-model="test.email"
               :rules="emailRules"
+              :error-messages="manualErrors.email"
               outlined
               required
             ></v-text-field>
@@ -31,7 +32,7 @@
             ></v-text-field>
             <v-layout justify-space-between>
               <v-btn
-                @click.prevent="addConference(test)"
+                @click.prevent="testPost()"
                 :class="{ 'blue darken-4 white--text' : valid, disabled: !valid }"
                 outlined
               >Login</v-btn>
@@ -53,6 +54,7 @@ export default {
       test: {},
       valid: false,
       e1: false,
+      manualErrors: [],
       passwordRules: [v => !!v || "Password is required"],
       emailRules: [
         v => !!v || "E-mail is required",
@@ -65,10 +67,12 @@ export default {
         axios
           .post("/api/test", this.test)
           .then(response => {
+            this.manualErrors = [];
             console.log(JSON.stringify(response));
           })
           .catch(error => {
-            console.log(JSON.stringify(error));
+            this.manualErrors = error.response.data.errors;
+            console.log(this.manualError.email)
           });
       }
     },

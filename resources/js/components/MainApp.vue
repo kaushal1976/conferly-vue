@@ -16,9 +16,15 @@
             </v-list-item>
             <Navigation/>
         </v-navigation-drawer>
-        <v-app-bar app>
+        <v-app-bar
+                app
+                color="indigo darken-2"
+                dark
+                flat
+                dense
+        >
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"/>
-            <v-toolbar-title>Application</v-toolbar-title>
+            <v-toolbar-title>Confer<b>ly</b></v-toolbar-title>
         </v-app-bar>
         <!-- Sizes your content based upon application components -->
         <v-content>

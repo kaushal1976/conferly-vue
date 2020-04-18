@@ -125,7 +125,7 @@
         data() {
             return {
                 conference: {},
-                asyncErrors: '',
+                asyncErrors: [],
                 valid: false,
                 tagLineRules: [v => !!v || "Tag line is required"],
                 titleRules: [
@@ -145,20 +145,15 @@
         },
 
         methods: {
-
             ...mapActions([
                 'addConference'
             ]),
-
             addConference() {
-
                 if (this.$refs.conferenceForm.validate()) {
                     this.$store.dispatch('addConference', {...this.conference})
                     this.$emit('complete')
                 }
-
             },
-
             sDateChanged() {
                 this.fDateDisabled = false
                 this.sDateMenu = false

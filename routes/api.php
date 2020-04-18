@@ -18,6 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/conferences','API\ConferenceController@index')->name('get-conferences');
 Route::post('/test','API\AuthController@test')->name('test');
-Route::post('/conferences','API\AuthController@test')->name('conferences');
+Route::post('/conferences','API\AuthController@test')->name('post-conferences');
 Route::post('/domain/search','API\DomainController@doSearch')->name('domain-search');
