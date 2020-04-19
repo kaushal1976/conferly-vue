@@ -2295,6 +2295,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.$store.dispatch('fetchConferences').then(function (response) {
         _this.loading = false;
       });
+    },
+    fetchImage: function fetchImage(imagePath) {
+      var _this2 = this;
+
+      return axios.post('/api/files/image', imagePath);
+      this.loading = true.then(function (response) {
+        _this2.loading = false;
+      })["catch"](function (error) {
+        _this2.loading = false;
+      });
     }
   }
 });
@@ -2444,6 +2454,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2453,6 +2481,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       conference: {},
       asyncErrors: [],
       valid: false,
+      fileRecords: [],
+      uploadUrl: "",
       tagLineRules: [function (v) {
         return !!v || "Tag line is required";
       }],
@@ -2854,6 +2884,49 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['domains'])
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/general/Image.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/general/Image.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      image: null
+    };
+  },
+  methods: {
+    getImage: function getImage() {
+      var _this = this;
+
+      return axios.post('/api/images/pull', payload).then(function (response) {
+        _this.image = response;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -7464,6 +7537,25 @@ exports = module.exports = __webpack_require__(/*! ../../css-loader/lib/css-base
 
 // module
 exports.push([module.i, "@charset \"UTF-8\";\r\n@font-face {\r\n  font-family: 'Material Icons';\r\n  font-style: normal;\r\n  font-weight: 400;\r\n  font-display: block;\r\n  src: url(" + escape(__webpack_require__(/*! ./fonts/MaterialIcons-Regular.eot */ "./node_modules/material-design-icons-iconfont/dist/fonts/MaterialIcons-Regular.eot")) + ");\r\n  /* For IE6-8 */\r\n  src: local(\"\\263A\"), url(" + escape(__webpack_require__(/*! ./fonts/MaterialIcons-Regular.woff2 */ "./node_modules/material-design-icons-iconfont/dist/fonts/MaterialIcons-Regular.woff2")) + ") format(\"woff2\"), url(" + escape(__webpack_require__(/*! ./fonts/MaterialIcons-Regular.woff */ "./node_modules/material-design-icons-iconfont/dist/fonts/MaterialIcons-Regular.woff")) + ") format(\"woff\"), url(" + escape(__webpack_require__(/*! ./fonts/MaterialIcons-Regular.ttf */ "./node_modules/material-design-icons-iconfont/dist/fonts/MaterialIcons-Regular.ttf")) + ") format(\"truetype\"); }\r\n\r\n.material-icons {\r\n  font-family: 'Material Icons';\r\n  font-weight: normal;\r\n  font-style: normal;\r\n  font-size: 24px;\r\n  /* Preferred icon size */\r\n  display: inline-block;\r\n  line-height: 1;\r\n  text-transform: none;\r\n  letter-spacing: normal;\r\n  word-wrap: normal;\r\n  white-space: nowrap;\r\n  direction: ltr;\r\n  /* Support for all WebKit browsers. */\r\n  -webkit-font-smoothing: antialiased;\r\n  /* Support for Safari and Chrome. */\r\n  text-rendering: optimizeLegibility;\r\n  /* Support for Firefox. */\r\n  -moz-osx-font-smoothing: grayscale;\r\n  /* Support for IE. */\r\n  font-feature-settings: 'liga'; }\r\n  .material-icons._10k:before {\r\n    content: \"\\E951\"; }\r\n  .material-icons._10mp:before {\r\n    content: \"\\E952\"; }\r\n  .material-icons._11mp:before {\r\n    content: \"\\E953\"; }\r\n  .material-icons._12mp:before {\r\n    content: \"\\E954\"; }\r\n  .material-icons._13mp:before {\r\n    content: \"\\E955\"; }\r\n  .material-icons._14mp:before {\r\n    content: \"\\E956\"; }\r\n  .material-icons._15mp:before {\r\n    content: \"\\E957\"; }\r\n  .material-icons._16mp:before {\r\n    content: \"\\E958\"; }\r\n  .material-icons._17mp:before {\r\n    content: \"\\E959\"; }\r\n  .material-icons._18mp:before {\r\n    content: \"\\E95A\"; }\r\n  .material-icons._19mp:before {\r\n    content: \"\\E95B\"; }\r\n  .material-icons._1k:before {\r\n    content: \"\\E95C\"; }\r\n  .material-icons._1k_plus:before {\r\n    content: \"\\E95D\"; }\r\n  .material-icons._20mp:before {\r\n    content: \"\\E95E\"; }\r\n  .material-icons._21mp:before {\r\n    content: \"\\E95F\"; }\r\n  .material-icons._22mp:before {\r\n    content: \"\\E960\"; }\r\n  .material-icons._23mp:before {\r\n    content: \"\\E961\"; }\r\n  .material-icons._24mp:before {\r\n    content: \"\\E962\"; }\r\n  .material-icons._2k:before {\r\n    content: \"\\E963\"; }\r\n  .material-icons._2k_plus:before {\r\n    content: \"\\E964\"; }\r\n  .material-icons._2mp:before {\r\n    content: \"\\E965\"; }\r\n  .material-icons._360:before {\r\n    content: \"\\E577\"; }\r\n  .material-icons._3d_rotation:before {\r\n    content: \"\\E84D\"; }\r\n  .material-icons._3k:before {\r\n    content: \"\\E966\"; }\r\n  .material-icons._3k_plus:before {\r\n    content: \"\\E967\"; }\r\n  .material-icons._3mp:before {\r\n    content: \"\\E968\"; }\r\n  .material-icons._4k:before {\r\n    content: \"\\E072\"; }\r\n  .material-icons._4k_plus:before {\r\n    content: \"\\E969\"; }\r\n  .material-icons._4mp:before {\r\n    content: \"\\E96A\"; }\r\n  .material-icons._5k:before {\r\n    content: \"\\E96B\"; }\r\n  .material-icons._5k_plus:before {\r\n    content: \"\\E96C\"; }\r\n  .material-icons._5mp:before {\r\n    content: \"\\E96D\"; }\r\n  .material-icons._6k:before {\r\n    content: \"\\E96E\"; }\r\n  .material-icons._6k_plus:before {\r\n    content: \"\\E96F\"; }\r\n  .material-icons._6mp:before {\r\n    content: \"\\E970\"; }\r\n  .material-icons._7k:before {\r\n    content: \"\\E971\"; }\r\n  .material-icons._7k_plus:before {\r\n    content: \"\\E972\"; }\r\n  .material-icons._7mp:before {\r\n    content: \"\\E973\"; }\r\n  .material-icons._8k:before {\r\n    content: \"\\E974\"; }\r\n  .material-icons._8k_plus:before {\r\n    content: \"\\E975\"; }\r\n  .material-icons._8mp:before {\r\n    content: \"\\E976\"; }\r\n  .material-icons._9k:before {\r\n    content: \"\\E977\"; }\r\n  .material-icons._9k_plus:before {\r\n    content: \"\\E978\"; }\r\n  .material-icons._9mp:before {\r\n    content: \"\\E979\"; }\r\n  .material-icons.ac_unit:before {\r\n    content: \"\\EB3B\"; }\r\n  .material-icons.access_alarm:before {\r\n    content: \"\\E190\"; }\r\n  .material-icons.access_alarms:before {\r\n    content: \"\\E191\"; }\r\n  .material-icons.access_time:before {\r\n    content: \"\\E192\"; }\r\n  .material-icons.accessibility:before {\r\n    content: \"\\E84E\"; }\r\n  .material-icons.accessibility_new:before {\r\n    content: \"\\E92C\"; }\r\n  .material-icons.accessible:before {\r\n    content: \"\\E914\"; }\r\n  .material-icons.accessible_forward:before {\r\n    content: \"\\E934\"; }\r\n  .material-icons.account_balance:before {\r\n    content: \"\\E84F\"; }\r\n  .material-icons.account_balance_wallet:before {\r\n    content: \"\\E850\"; }\r\n  .material-icons.account_box:before {\r\n    content: \"\\E851\"; }\r\n  .material-icons.account_circle:before {\r\n    content: \"\\E853\"; }\r\n  .material-icons.account_tree:before {\r\n    content: \"\\E97A\"; }\r\n  .material-icons.adb:before {\r\n    content: \"\\E60E\"; }\r\n  .material-icons.add:before {\r\n    content: \"\\E145\"; }\r\n  .material-icons.add_a_photo:before {\r\n    content: \"\\E439\"; }\r\n  .material-icons.add_alarm:before {\r\n    content: \"\\E193\"; }\r\n  .material-icons.add_alert:before {\r\n    content: \"\\E003\"; }\r\n  .material-icons.add_box:before {\r\n    content: \"\\E146\"; }\r\n  .material-icons.add_call:before {\r\n    content: \"\\E0E8\"; }\r\n  .material-icons.add_chart:before {\r\n    content: \"\\E97B\"; }\r\n  .material-icons.add_circle:before {\r\n    content: \"\\E147\"; }\r\n  .material-icons.add_circle_outline:before {\r\n    content: \"\\E148\"; }\r\n  .material-icons.add_comment:before {\r\n    content: \"\\E266\"; }\r\n  .material-icons.add_ic_call:before {\r\n    content: \"\\E97C\"; }\r\n  .material-icons.add_link:before {\r\n    content: \"\\E178\"; }\r\n  .material-icons.add_location:before {\r\n    content: \"\\E567\"; }\r\n  .material-icons.add_moderator:before {\r\n    content: \"\\E97D\"; }\r\n  .material-icons.add_photo_alternate:before {\r\n    content: \"\\E43E\"; }\r\n  .material-icons.add_shopping_cart:before {\r\n    content: \"\\E854\"; }\r\n  .material-icons.add_to_home_screen:before {\r\n    content: \"\\E1FE\"; }\r\n  .material-icons.add_to_photos:before {\r\n    content: \"\\E39D\"; }\r\n  .material-icons.add_to_queue:before {\r\n    content: \"\\E05C\"; }\r\n  .material-icons.adjust:before {\r\n    content: \"\\E39E\"; }\r\n  .material-icons.airline_seat_flat:before {\r\n    content: \"\\E630\"; }\r\n  .material-icons.airline_seat_flat_angled:before {\r\n    content: \"\\E631\"; }\r\n  .material-icons.airline_seat_individual_suite:before {\r\n    content: \"\\E632\"; }\r\n  .material-icons.airline_seat_legroom_extra:before {\r\n    content: \"\\E633\"; }\r\n  .material-icons.airline_seat_legroom_normal:before {\r\n    content: \"\\E634\"; }\r\n  .material-icons.airline_seat_legroom_reduced:before {\r\n    content: \"\\E635\"; }\r\n  .material-icons.airline_seat_recline_extra:before {\r\n    content: \"\\E636\"; }\r\n  .material-icons.airline_seat_recline_normal:before {\r\n    content: \"\\E637\"; }\r\n  .material-icons.airplanemode_active:before {\r\n    content: \"\\E195\"; }\r\n  .material-icons.airplanemode_inactive:before {\r\n    content: \"\\E194\"; }\r\n  .material-icons.airplanemode_off:before {\r\n    content: \"\\E194\"; }\r\n  .material-icons.airplanemode_on:before {\r\n    content: \"\\E195\"; }\r\n  .material-icons.airplay:before {\r\n    content: \"\\E055\"; }\r\n  .material-icons.airport_shuttle:before {\r\n    content: \"\\EB3C\"; }\r\n  .material-icons.alarm:before {\r\n    content: \"\\E855\"; }\r\n  .material-icons.alarm_add:before {\r\n    content: \"\\E856\"; }\r\n  .material-icons.alarm_off:before {\r\n    content: \"\\E857\"; }\r\n  .material-icons.alarm_on:before {\r\n    content: \"\\E858\"; }\r\n  .material-icons.album:before {\r\n    content: \"\\E019\"; }\r\n  .material-icons.all_inbox:before {\r\n    content: \"\\E97F\"; }\r\n  .material-icons.all_inclusive:before {\r\n    content: \"\\EB3D\"; }\r\n  .material-icons.all_out:before {\r\n    content: \"\\E90B\"; }\r\n  .material-icons.alternate_email:before {\r\n    content: \"\\E0E6\"; }\r\n  .material-icons.amp_stories:before {\r\n    content: \"\\EA13\"; }\r\n  .material-icons.android:before {\r\n    content: \"\\E859\"; }\r\n  .material-icons.announcement:before {\r\n    content: \"\\E85A\"; }\r\n  .material-icons.apartment:before {\r\n    content: \"\\EA40\"; }\r\n  .material-icons.approval:before {\r\n    content: \"\\E982\"; }\r\n  .material-icons.apps:before {\r\n    content: \"\\E5C3\"; }\r\n  .material-icons.archive:before {\r\n    content: \"\\E149\"; }\r\n  .material-icons.arrow_back:before {\r\n    content: \"\\E5C4\"; }\r\n  .material-icons.arrow_back_ios:before {\r\n    content: \"\\E5E0\"; }\r\n  .material-icons.arrow_downward:before {\r\n    content: \"\\E5DB\"; }\r\n  .material-icons.arrow_drop_down:before {\r\n    content: \"\\E5C5\"; }\r\n  .material-icons.arrow_drop_down_circle:before {\r\n    content: \"\\E5C6\"; }\r\n  .material-icons.arrow_drop_up:before {\r\n    content: \"\\E5C7\"; }\r\n  .material-icons.arrow_forward:before {\r\n    content: \"\\E5C8\"; }\r\n  .material-icons.arrow_forward_ios:before {\r\n    content: \"\\E5E1\"; }\r\n  .material-icons.arrow_left:before {\r\n    content: \"\\E5DE\"; }\r\n  .material-icons.arrow_right:before {\r\n    content: \"\\E5DF\"; }\r\n  .material-icons.arrow_right_alt:before {\r\n    content: \"\\E941\"; }\r\n  .material-icons.arrow_upward:before {\r\n    content: \"\\E5D8\"; }\r\n  .material-icons.art_track:before {\r\n    content: \"\\E060\"; }\r\n  .material-icons.aspect_ratio:before {\r\n    content: \"\\E85B\"; }\r\n  .material-icons.assessment:before {\r\n    content: \"\\E85C\"; }\r\n  .material-icons.assignment:before {\r\n    content: \"\\E85D\"; }\r\n  .material-icons.assignment_ind:before {\r\n    content: \"\\E85E\"; }\r\n  .material-icons.assignment_late:before {\r\n    content: \"\\E85F\"; }\r\n  .material-icons.assignment_return:before {\r\n    content: \"\\E860\"; }\r\n  .material-icons.assignment_returned:before {\r\n    content: \"\\E861\"; }\r\n  .material-icons.assignment_turned_in:before {\r\n    content: \"\\E862\"; }\r\n  .material-icons.assistant:before {\r\n    content: \"\\E39F\"; }\r\n  .material-icons.assistant_direction:before {\r\n    content: \"\\E988\"; }\r\n  .material-icons.assistant_navigation:before {\r\n    content: \"\\E989\"; }\r\n  .material-icons.assistant_photo:before {\r\n    content: \"\\E3A0\"; }\r\n  .material-icons.atm:before {\r\n    content: \"\\E573\"; }\r\n  .material-icons.attach_file:before {\r\n    content: \"\\E226\"; }\r\n  .material-icons.attach_money:before {\r\n    content: \"\\E227\"; }\r\n  .material-icons.attachment:before {\r\n    content: \"\\E2BC\"; }\r\n  .material-icons.attractions:before {\r\n    content: \"\\EA52\"; }\r\n  .material-icons.audiotrack:before {\r\n    content: \"\\E3A1\"; }\r\n  .material-icons.autorenew:before {\r\n    content: \"\\E863\"; }\r\n  .material-icons.av_timer:before {\r\n    content: \"\\E01B\"; }\r\n  .material-icons.backspace:before {\r\n    content: \"\\E14A\"; }\r\n  .material-icons.backup:before {\r\n    content: \"\\E864\"; }\r\n  .material-icons.badge:before {\r\n    content: \"\\EA67\"; }\r\n  .material-icons.bakery_dining:before {\r\n    content: \"\\EA53\"; }\r\n  .material-icons.ballot:before {\r\n    content: \"\\E172\"; }\r\n  .material-icons.bar_chart:before {\r\n    content: \"\\E26B\"; }\r\n  .material-icons.bathtub:before {\r\n    content: \"\\EA41\"; }\r\n  .material-icons.battery_alert:before {\r\n    content: \"\\E19C\"; }\r\n  .material-icons.battery_charging_full:before {\r\n    content: \"\\E1A3\"; }\r\n  .material-icons.battery_full:before {\r\n    content: \"\\E1A4\"; }\r\n  .material-icons.battery_std:before {\r\n    content: \"\\E1A5\"; }\r\n  .material-icons.battery_unknown:before {\r\n    content: \"\\E1A6\"; }\r\n  .material-icons.beach_access:before {\r\n    content: \"\\EB3E\"; }\r\n  .material-icons.beenhere:before {\r\n    content: \"\\E52D\"; }\r\n  .material-icons.block:before {\r\n    content: \"\\E14B\"; }\r\n  .material-icons.bluetooth:before {\r\n    content: \"\\E1A7\"; }\r\n  .material-icons.bluetooth_audio:before {\r\n    content: \"\\E60F\"; }\r\n  .material-icons.bluetooth_connected:before {\r\n    content: \"\\E1A8\"; }\r\n  .material-icons.bluetooth_disabled:before {\r\n    content: \"\\E1A9\"; }\r\n  .material-icons.bluetooth_searching:before {\r\n    content: \"\\E1AA\"; }\r\n  .material-icons.blur_circular:before {\r\n    content: \"\\E3A2\"; }\r\n  .material-icons.blur_linear:before {\r\n    content: \"\\E3A3\"; }\r\n  .material-icons.blur_off:before {\r\n    content: \"\\E3A4\"; }\r\n  .material-icons.blur_on:before {\r\n    content: \"\\E3A5\"; }\r\n  .material-icons.bolt:before {\r\n    content: \"\\EA0B\"; }\r\n  .material-icons.book:before {\r\n    content: \"\\E865\"; }\r\n  .material-icons.bookmark:before {\r\n    content: \"\\E866\"; }\r\n  .material-icons.bookmark_border:before {\r\n    content: \"\\E867\"; }\r\n  .material-icons.bookmark_outline:before {\r\n    content: \"\\E867\"; }\r\n  .material-icons.bookmarks:before {\r\n    content: \"\\E98B\"; }\r\n  .material-icons.border_all:before {\r\n    content: \"\\E228\"; }\r\n  .material-icons.border_bottom:before {\r\n    content: \"\\E229\"; }\r\n  .material-icons.border_clear:before {\r\n    content: \"\\E22A\"; }\r\n  .material-icons.border_color:before {\r\n    content: \"\\E22B\"; }\r\n  .material-icons.border_horizontal:before {\r\n    content: \"\\E22C\"; }\r\n  .material-icons.border_inner:before {\r\n    content: \"\\E22D\"; }\r\n  .material-icons.border_left:before {\r\n    content: \"\\E22E\"; }\r\n  .material-icons.border_outer:before {\r\n    content: \"\\E22F\"; }\r\n  .material-icons.border_right:before {\r\n    content: \"\\E230\"; }\r\n  .material-icons.border_style:before {\r\n    content: \"\\E231\"; }\r\n  .material-icons.border_top:before {\r\n    content: \"\\E232\"; }\r\n  .material-icons.border_vertical:before {\r\n    content: \"\\E233\"; }\r\n  .material-icons.branding_watermark:before {\r\n    content: \"\\E06B\"; }\r\n  .material-icons.breakfast_dining:before {\r\n    content: \"\\EA54\"; }\r\n  .material-icons.brightness_1:before {\r\n    content: \"\\E3A6\"; }\r\n  .material-icons.brightness_2:before {\r\n    content: \"\\E3A7\"; }\r\n  .material-icons.brightness_3:before {\r\n    content: \"\\E3A8\"; }\r\n  .material-icons.brightness_4:before {\r\n    content: \"\\E3A9\"; }\r\n  .material-icons.brightness_5:before {\r\n    content: \"\\E3AA\"; }\r\n  .material-icons.brightness_6:before {\r\n    content: \"\\E3AB\"; }\r\n  .material-icons.brightness_7:before {\r\n    content: \"\\E3AC\"; }\r\n  .material-icons.brightness_auto:before {\r\n    content: \"\\E1AB\"; }\r\n  .material-icons.brightness_high:before {\r\n    content: \"\\E1AC\"; }\r\n  .material-icons.brightness_low:before {\r\n    content: \"\\E1AD\"; }\r\n  .material-icons.brightness_medium:before {\r\n    content: \"\\E1AE\"; }\r\n  .material-icons.broken_image:before {\r\n    content: \"\\E3AD\"; }\r\n  .material-icons.brunch_dining:before {\r\n    content: \"\\EA73\"; }\r\n  .material-icons.brush:before {\r\n    content: \"\\E3AE\"; }\r\n  .material-icons.bubble_chart:before {\r\n    content: \"\\E6DD\"; }\r\n  .material-icons.bug_report:before {\r\n    content: \"\\E868\"; }\r\n  .material-icons.build:before {\r\n    content: \"\\E869\"; }\r\n  .material-icons.burst_mode:before {\r\n    content: \"\\E43C\"; }\r\n  .material-icons.bus_alert:before {\r\n    content: \"\\E98F\"; }\r\n  .material-icons.business:before {\r\n    content: \"\\E0AF\"; }\r\n  .material-icons.business_center:before {\r\n    content: \"\\EB3F\"; }\r\n  .material-icons.cached:before {\r\n    content: \"\\E86A\"; }\r\n  .material-icons.cake:before {\r\n    content: \"\\E7E9\"; }\r\n  .material-icons.calendar_today:before {\r\n    content: \"\\E935\"; }\r\n  .material-icons.calendar_view_day:before {\r\n    content: \"\\E936\"; }\r\n  .material-icons.call:before {\r\n    content: \"\\E0B0\"; }\r\n  .material-icons.call_end:before {\r\n    content: \"\\E0B1\"; }\r\n  .material-icons.call_made:before {\r\n    content: \"\\E0B2\"; }\r\n  .material-icons.call_merge:before {\r\n    content: \"\\E0B3\"; }\r\n  .material-icons.call_missed:before {\r\n    content: \"\\E0B4\"; }\r\n  .material-icons.call_missed_outgoing:before {\r\n    content: \"\\E0E4\"; }\r\n  .material-icons.call_received:before {\r\n    content: \"\\E0B5\"; }\r\n  .material-icons.call_split:before {\r\n    content: \"\\E0B6\"; }\r\n  .material-icons.call_to_action:before {\r\n    content: \"\\E06C\"; }\r\n  .material-icons.camera:before {\r\n    content: \"\\E3AF\"; }\r\n  .material-icons.camera_alt:before {\r\n    content: \"\\E3B0\"; }\r\n  .material-icons.camera_enhance:before {\r\n    content: \"\\E8FC\"; }\r\n  .material-icons.camera_front:before {\r\n    content: \"\\E3B1\"; }\r\n  .material-icons.camera_rear:before {\r\n    content: \"\\E3B2\"; }\r\n  .material-icons.camera_roll:before {\r\n    content: \"\\E3B3\"; }\r\n  .material-icons.cancel:before {\r\n    content: \"\\E5C9\"; }\r\n  .material-icons.cancel_presentation:before {\r\n    content: \"\\E0E9\"; }\r\n  .material-icons.cancel_schedule_send:before {\r\n    content: \"\\EA39\"; }\r\n  .material-icons.car_rental:before {\r\n    content: \"\\EA55\"; }\r\n  .material-icons.car_repair:before {\r\n    content: \"\\EA56\"; }\r\n  .material-icons.card_giftcard:before {\r\n    content: \"\\E8F6\"; }\r\n  .material-icons.card_membership:before {\r\n    content: \"\\E8F7\"; }\r\n  .material-icons.card_travel:before {\r\n    content: \"\\E8F8\"; }\r\n  .material-icons.cases:before {\r\n    content: \"\\E992\"; }\r\n  .material-icons.casino:before {\r\n    content: \"\\EB40\"; }\r\n  .material-icons.cast:before {\r\n    content: \"\\E307\"; }\r\n  .material-icons.cast_connected:before {\r\n    content: \"\\E308\"; }\r\n  .material-icons.category:before {\r\n    content: \"\\E574\"; }\r\n  .material-icons.celebration:before {\r\n    content: \"\\EA65\"; }\r\n  .material-icons.cell_wifi:before {\r\n    content: \"\\E0EC\"; }\r\n  .material-icons.center_focus_strong:before {\r\n    content: \"\\E3B4\"; }\r\n  .material-icons.center_focus_weak:before {\r\n    content: \"\\E3B5\"; }\r\n  .material-icons.change_history:before {\r\n    content: \"\\E86B\"; }\r\n  .material-icons.chat:before {\r\n    content: \"\\E0B7\"; }\r\n  .material-icons.chat_bubble:before {\r\n    content: \"\\E0CA\"; }\r\n  .material-icons.chat_bubble_outline:before {\r\n    content: \"\\E0CB\"; }\r\n  .material-icons.check:before {\r\n    content: \"\\E5CA\"; }\r\n  .material-icons.check_box:before {\r\n    content: \"\\E834\"; }\r\n  .material-icons.check_box_outline_blank:before {\r\n    content: \"\\E835\"; }\r\n  .material-icons.check_circle:before {\r\n    content: \"\\E86C\"; }\r\n  .material-icons.check_circle_outline:before {\r\n    content: \"\\E92D\"; }\r\n  .material-icons.chevron_left:before {\r\n    content: \"\\E5CB\"; }\r\n  .material-icons.chevron_right:before {\r\n    content: \"\\E5CC\"; }\r\n  .material-icons.child_care:before {\r\n    content: \"\\EB41\"; }\r\n  .material-icons.child_friendly:before {\r\n    content: \"\\EB42\"; }\r\n  .material-icons.chrome_reader_mode:before {\r\n    content: \"\\E86D\"; }\r\n  .material-icons.circle_notifications:before {\r\n    content: \"\\E994\"; }\r\n  .material-icons.class:before {\r\n    content: \"\\E86E\"; }\r\n  .material-icons.clear:before {\r\n    content: \"\\E14C\"; }\r\n  .material-icons.clear_all:before {\r\n    content: \"\\E0B8\"; }\r\n  .material-icons.close:before {\r\n    content: \"\\E5CD\"; }\r\n  .material-icons.closed_caption:before {\r\n    content: \"\\E01C\"; }\r\n  .material-icons.closed_caption_off:before {\r\n    content: \"\\E996\"; }\r\n  .material-icons.cloud:before {\r\n    content: \"\\E2BD\"; }\r\n  .material-icons.cloud_circle:before {\r\n    content: \"\\E2BE\"; }\r\n  .material-icons.cloud_done:before {\r\n    content: \"\\E2BF\"; }\r\n  .material-icons.cloud_download:before {\r\n    content: \"\\E2C0\"; }\r\n  .material-icons.cloud_off:before {\r\n    content: \"\\E2C1\"; }\r\n  .material-icons.cloud_queue:before {\r\n    content: \"\\E2C2\"; }\r\n  .material-icons.cloud_upload:before {\r\n    content: \"\\E2C3\"; }\r\n  .material-icons.code:before {\r\n    content: \"\\E86F\"; }\r\n  .material-icons.collections:before {\r\n    content: \"\\E3B6\"; }\r\n  .material-icons.collections_bookmark:before {\r\n    content: \"\\E431\"; }\r\n  .material-icons.color_lens:before {\r\n    content: \"\\E3B7\"; }\r\n  .material-icons.colorize:before {\r\n    content: \"\\E3B8\"; }\r\n  .material-icons.comment:before {\r\n    content: \"\\E0B9\"; }\r\n  .material-icons.commute:before {\r\n    content: \"\\E940\"; }\r\n  .material-icons.compare:before {\r\n    content: \"\\E3B9\"; }\r\n  .material-icons.compare_arrows:before {\r\n    content: \"\\E915\"; }\r\n  .material-icons.compass_calibration:before {\r\n    content: \"\\E57C\"; }\r\n  .material-icons.compress:before {\r\n    content: \"\\E94D\"; }\r\n  .material-icons.computer:before {\r\n    content: \"\\E30A\"; }\r\n  .material-icons.confirmation_num:before {\r\n    content: \"\\E638\"; }\r\n  .material-icons.confirmation_number:before {\r\n    content: \"\\E638\"; }\r\n  .material-icons.connected_tv:before {\r\n    content: \"\\E998\"; }\r\n  .material-icons.contact_mail:before {\r\n    content: \"\\E0D0\"; }\r\n  .material-icons.contact_phone:before {\r\n    content: \"\\E0CF\"; }\r\n  .material-icons.contact_support:before {\r\n    content: \"\\E94C\"; }\r\n  .material-icons.contactless:before {\r\n    content: \"\\EA71\"; }\r\n  .material-icons.contacts:before {\r\n    content: \"\\E0BA\"; }\r\n  .material-icons.content_copy:before {\r\n    content: \"\\E14D\"; }\r\n  .material-icons.content_cut:before {\r\n    content: \"\\E14E\"; }\r\n  .material-icons.content_paste:before {\r\n    content: \"\\E14F\"; }\r\n  .material-icons.control_camera:before {\r\n    content: \"\\E074\"; }\r\n  .material-icons.control_point:before {\r\n    content: \"\\E3BA\"; }\r\n  .material-icons.control_point_duplicate:before {\r\n    content: \"\\E3BB\"; }\r\n  .material-icons.copyright:before {\r\n    content: \"\\E90C\"; }\r\n  .material-icons.create:before {\r\n    content: \"\\E150\"; }\r\n  .material-icons.create_new_folder:before {\r\n    content: \"\\E2CC\"; }\r\n  .material-icons.credit_card:before {\r\n    content: \"\\E870\"; }\r\n  .material-icons.crop:before {\r\n    content: \"\\E3BE\"; }\r\n  .material-icons.crop_16_9:before {\r\n    content: \"\\E3BC\"; }\r\n  .material-icons.crop_3_2:before {\r\n    content: \"\\E3BD\"; }\r\n  .material-icons.crop_5_4:before {\r\n    content: \"\\E3BF\"; }\r\n  .material-icons.crop_7_5:before {\r\n    content: \"\\E3C0\"; }\r\n  .material-icons.crop_din:before {\r\n    content: \"\\E3C1\"; }\r\n  .material-icons.crop_free:before {\r\n    content: \"\\E3C2\"; }\r\n  .material-icons.crop_landscape:before {\r\n    content: \"\\E3C3\"; }\r\n  .material-icons.crop_original:before {\r\n    content: \"\\E3C4\"; }\r\n  .material-icons.crop_portrait:before {\r\n    content: \"\\E3C5\"; }\r\n  .material-icons.crop_rotate:before {\r\n    content: \"\\E437\"; }\r\n  .material-icons.crop_square:before {\r\n    content: \"\\E3C6\"; }\r\n  .material-icons.dangerous:before {\r\n    content: \"\\E99A\"; }\r\n  .material-icons.dashboard:before {\r\n    content: \"\\E871\"; }\r\n  .material-icons.dashboard_customize:before {\r\n    content: \"\\E99B\"; }\r\n  .material-icons.data_usage:before {\r\n    content: \"\\E1AF\"; }\r\n  .material-icons.date_range:before {\r\n    content: \"\\E916\"; }\r\n  .material-icons.deck:before {\r\n    content: \"\\EA42\"; }\r\n  .material-icons.dehaze:before {\r\n    content: \"\\E3C7\"; }\r\n  .material-icons.delete:before {\r\n    content: \"\\E872\"; }\r\n  .material-icons.delete_forever:before {\r\n    content: \"\\E92B\"; }\r\n  .material-icons.delete_outline:before {\r\n    content: \"\\E92E\"; }\r\n  .material-icons.delete_sweep:before {\r\n    content: \"\\E16C\"; }\r\n  .material-icons.delivery_dining:before {\r\n    content: \"\\EA72\"; }\r\n  .material-icons.departure_board:before {\r\n    content: \"\\E576\"; }\r\n  .material-icons.description:before {\r\n    content: \"\\E873\"; }\r\n  .material-icons.desktop_access_disabled:before {\r\n    content: \"\\E99D\"; }\r\n  .material-icons.desktop_mac:before {\r\n    content: \"\\E30B\"; }\r\n  .material-icons.desktop_windows:before {\r\n    content: \"\\E30C\"; }\r\n  .material-icons.details:before {\r\n    content: \"\\E3C8\"; }\r\n  .material-icons.developer_board:before {\r\n    content: \"\\E30D\"; }\r\n  .material-icons.developer_mode:before {\r\n    content: \"\\E1B0\"; }\r\n  .material-icons.device_hub:before {\r\n    content: \"\\E335\"; }\r\n  .material-icons.device_thermostat:before {\r\n    content: \"\\E1FF\"; }\r\n  .material-icons.device_unknown:before {\r\n    content: \"\\E339\"; }\r\n  .material-icons.devices:before {\r\n    content: \"\\E1B1\"; }\r\n  .material-icons.devices_other:before {\r\n    content: \"\\E337\"; }\r\n  .material-icons.dialer_sip:before {\r\n    content: \"\\E0BB\"; }\r\n  .material-icons.dialpad:before {\r\n    content: \"\\E0BC\"; }\r\n  .material-icons.dinner_dining:before {\r\n    content: \"\\EA57\"; }\r\n  .material-icons.directions:before {\r\n    content: \"\\E52E\"; }\r\n  .material-icons.directions_bike:before {\r\n    content: \"\\E52F\"; }\r\n  .material-icons.directions_boat:before {\r\n    content: \"\\E532\"; }\r\n  .material-icons.directions_bus:before {\r\n    content: \"\\E530\"; }\r\n  .material-icons.directions_car:before {\r\n    content: \"\\E531\"; }\r\n  .material-icons.directions_ferry:before {\r\n    content: \"\\E532\"; }\r\n  .material-icons.directions_railway:before {\r\n    content: \"\\E534\"; }\r\n  .material-icons.directions_run:before {\r\n    content: \"\\E566\"; }\r\n  .material-icons.directions_subway:before {\r\n    content: \"\\E533\"; }\r\n  .material-icons.directions_train:before {\r\n    content: \"\\E534\"; }\r\n  .material-icons.directions_transit:before {\r\n    content: \"\\E535\"; }\r\n  .material-icons.directions_walk:before {\r\n    content: \"\\E536\"; }\r\n  .material-icons.disc_full:before {\r\n    content: \"\\E610\"; }\r\n  .material-icons.dnd_forwardslash:before {\r\n    content: \"\\E611\"; }\r\n  .material-icons.dns:before {\r\n    content: \"\\E875\"; }\r\n  .material-icons.do_not_disturb:before {\r\n    content: \"\\E612\"; }\r\n  .material-icons.do_not_disturb_alt:before {\r\n    content: \"\\E611\"; }\r\n  .material-icons.do_not_disturb_off:before {\r\n    content: \"\\E643\"; }\r\n  .material-icons.do_not_disturb_on:before {\r\n    content: \"\\E644\"; }\r\n  .material-icons.dock:before {\r\n    content: \"\\E30E\"; }\r\n  .material-icons.domain:before {\r\n    content: \"\\E7EE\"; }\r\n  .material-icons.domain_disabled:before {\r\n    content: \"\\E0EF\"; }\r\n  .material-icons.done:before {\r\n    content: \"\\E876\"; }\r\n  .material-icons.done_all:before {\r\n    content: \"\\E877\"; }\r\n  .material-icons.done_outline:before {\r\n    content: \"\\E92F\"; }\r\n  .material-icons.donut_large:before {\r\n    content: \"\\E917\"; }\r\n  .material-icons.donut_small:before {\r\n    content: \"\\E918\"; }\r\n  .material-icons.double_arrow:before {\r\n    content: \"\\EA50\"; }\r\n  .material-icons.drafts:before {\r\n    content: \"\\E151\"; }\r\n  .material-icons.drag_handle:before {\r\n    content: \"\\E25D\"; }\r\n  .material-icons.drag_indicator:before {\r\n    content: \"\\E945\"; }\r\n  .material-icons.drive_eta:before {\r\n    content: \"\\E613\"; }\r\n  .material-icons.drive_file_move_outline:before {\r\n    content: \"\\E9A1\"; }\r\n  .material-icons.drive_file_rename_outline:before {\r\n    content: \"\\E9A2\"; }\r\n  .material-icons.drive_folder_upload:before {\r\n    content: \"\\E9A3\"; }\r\n  .material-icons.dry_cleaning:before {\r\n    content: \"\\EA58\"; }\r\n  .material-icons.duo:before {\r\n    content: \"\\E9A5\"; }\r\n  .material-icons.dvr:before {\r\n    content: \"\\E1B2\"; }\r\n  .material-icons.dynamic_feed:before {\r\n    content: \"\\EA14\"; }\r\n  .material-icons.eco:before {\r\n    content: \"\\EA35\"; }\r\n  .material-icons.edit:before {\r\n    content: \"\\E3C9\"; }\r\n  .material-icons.edit_attributes:before {\r\n    content: \"\\E578\"; }\r\n  .material-icons.edit_location:before {\r\n    content: \"\\E568\"; }\r\n  .material-icons.edit_off:before {\r\n    content: \"\\E950\"; }\r\n  .material-icons.eject:before {\r\n    content: \"\\E8FB\"; }\r\n  .material-icons.email:before {\r\n    content: \"\\E0BE\"; }\r\n  .material-icons.emoji_emotions:before {\r\n    content: \"\\EA22\"; }\r\n  .material-icons.emoji_events:before {\r\n    content: \"\\EA23\"; }\r\n  .material-icons.emoji_flags:before {\r\n    content: \"\\EA1A\"; }\r\n  .material-icons.emoji_food_beverage:before {\r\n    content: \"\\EA1B\"; }\r\n  .material-icons.emoji_nature:before {\r\n    content: \"\\EA1C\"; }\r\n  .material-icons.emoji_objects:before {\r\n    content: \"\\EA24\"; }\r\n  .material-icons.emoji_people:before {\r\n    content: \"\\EA1D\"; }\r\n  .material-icons.emoji_symbols:before {\r\n    content: \"\\EA1E\"; }\r\n  .material-icons.emoji_transportation:before {\r\n    content: \"\\EA1F\"; }\r\n  .material-icons.enhance_photo_translate:before {\r\n    content: \"\\E8FC\"; }\r\n  .material-icons.enhanced_encryption:before {\r\n    content: \"\\E63F\"; }\r\n  .material-icons.equalizer:before {\r\n    content: \"\\E01D\"; }\r\n  .material-icons.error:before {\r\n    content: \"\\E000\"; }\r\n  .material-icons.error_outline:before {\r\n    content: \"\\E001\"; }\r\n  .material-icons.euro:before {\r\n    content: \"\\EA15\"; }\r\n  .material-icons.euro_symbol:before {\r\n    content: \"\\E926\"; }\r\n  .material-icons.ev_station:before {\r\n    content: \"\\E56D\"; }\r\n  .material-icons.event:before {\r\n    content: \"\\E878\"; }\r\n  .material-icons.event_available:before {\r\n    content: \"\\E614\"; }\r\n  .material-icons.event_busy:before {\r\n    content: \"\\E615\"; }\r\n  .material-icons.event_note:before {\r\n    content: \"\\E616\"; }\r\n  .material-icons.event_seat:before {\r\n    content: \"\\E903\"; }\r\n  .material-icons.exit_to_app:before {\r\n    content: \"\\E879\"; }\r\n  .material-icons.expand:before {\r\n    content: \"\\E94F\"; }\r\n  .material-icons.expand_less:before {\r\n    content: \"\\E5CE\"; }\r\n  .material-icons.expand_more:before {\r\n    content: \"\\E5CF\"; }\r\n  .material-icons.explicit:before {\r\n    content: \"\\E01E\"; }\r\n  .material-icons.explore:before {\r\n    content: \"\\E87A\"; }\r\n  .material-icons.explore_off:before {\r\n    content: \"\\E9A8\"; }\r\n  .material-icons.exposure:before {\r\n    content: \"\\E3CA\"; }\r\n  .material-icons.exposure_minus_1:before {\r\n    content: \"\\E3CB\"; }\r\n  .material-icons.exposure_minus_2:before {\r\n    content: \"\\E3CC\"; }\r\n  .material-icons.exposure_neg_1:before {\r\n    content: \"\\E3CB\"; }\r\n  .material-icons.exposure_neg_2:before {\r\n    content: \"\\E3CC\"; }\r\n  .material-icons.exposure_plus_1:before {\r\n    content: \"\\E3CD\"; }\r\n  .material-icons.exposure_plus_2:before {\r\n    content: \"\\E3CE\"; }\r\n  .material-icons.exposure_zero:before {\r\n    content: \"\\E3CF\"; }\r\n  .material-icons.extension:before {\r\n    content: \"\\E87B\"; }\r\n  .material-icons.face:before {\r\n    content: \"\\E87C\"; }\r\n  .material-icons.fast_forward:before {\r\n    content: \"\\E01F\"; }\r\n  .material-icons.fast_rewind:before {\r\n    content: \"\\E020\"; }\r\n  .material-icons.fastfood:before {\r\n    content: \"\\E57A\"; }\r\n  .material-icons.favorite:before {\r\n    content: \"\\E87D\"; }\r\n  .material-icons.favorite_border:before {\r\n    content: \"\\E87E\"; }\r\n  .material-icons.favorite_outline:before {\r\n    content: \"\\E87E\"; }\r\n  .material-icons.featured_play_list:before {\r\n    content: \"\\E06D\"; }\r\n  .material-icons.featured_video:before {\r\n    content: \"\\E06E\"; }\r\n  .material-icons.feedback:before {\r\n    content: \"\\E87F\"; }\r\n  .material-icons.festival:before {\r\n    content: \"\\EA68\"; }\r\n  .material-icons.fiber_dvr:before {\r\n    content: \"\\E05D\"; }\r\n  .material-icons.fiber_manual_record:before {\r\n    content: \"\\E061\"; }\r\n  .material-icons.fiber_new:before {\r\n    content: \"\\E05E\"; }\r\n  .material-icons.fiber_pin:before {\r\n    content: \"\\E06A\"; }\r\n  .material-icons.fiber_smart_record:before {\r\n    content: \"\\E062\"; }\r\n  .material-icons.file_copy:before {\r\n    content: \"\\E173\"; }\r\n  .material-icons.file_download:before {\r\n    content: \"\\E2C4\"; }\r\n  .material-icons.file_download_done:before {\r\n    content: \"\\E9AA\"; }\r\n  .material-icons.file_present:before {\r\n    content: \"\\EA0E\"; }\r\n  .material-icons.file_upload:before {\r\n    content: \"\\E2C6\"; }\r\n  .material-icons.filter:before {\r\n    content: \"\\E3D3\"; }\r\n  .material-icons.filter_1:before {\r\n    content: \"\\E3D0\"; }\r\n  .material-icons.filter_2:before {\r\n    content: \"\\E3D1\"; }\r\n  .material-icons.filter_3:before {\r\n    content: \"\\E3D2\"; }\r\n  .material-icons.filter_4:before {\r\n    content: \"\\E3D4\"; }\r\n  .material-icons.filter_5:before {\r\n    content: \"\\E3D5\"; }\r\n  .material-icons.filter_6:before {\r\n    content: \"\\E3D6\"; }\r\n  .material-icons.filter_7:before {\r\n    content: \"\\E3D7\"; }\r\n  .material-icons.filter_8:before {\r\n    content: \"\\E3D8\"; }\r\n  .material-icons.filter_9:before {\r\n    content: \"\\E3D9\"; }\r\n  .material-icons.filter_9_plus:before {\r\n    content: \"\\E3DA\"; }\r\n  .material-icons.filter_b_and_w:before {\r\n    content: \"\\E3DB\"; }\r\n  .material-icons.filter_center_focus:before {\r\n    content: \"\\E3DC\"; }\r\n  .material-icons.filter_drama:before {\r\n    content: \"\\E3DD\"; }\r\n  .material-icons.filter_frames:before {\r\n    content: \"\\E3DE\"; }\r\n  .material-icons.filter_hdr:before {\r\n    content: \"\\E3DF\"; }\r\n  .material-icons.filter_list:before {\r\n    content: \"\\E152\"; }\r\n  .material-icons.filter_list_alt:before {\r\n    content: \"\\E94E\"; }\r\n  .material-icons.filter_none:before {\r\n    content: \"\\E3E0\"; }\r\n  .material-icons.filter_tilt_shift:before {\r\n    content: \"\\E3E2\"; }\r\n  .material-icons.filter_vintage:before {\r\n    content: \"\\E3E3\"; }\r\n  .material-icons.find_in_page:before {\r\n    content: \"\\E880\"; }\r\n  .material-icons.find_replace:before {\r\n    content: \"\\E881\"; }\r\n  .material-icons.fingerprint:before {\r\n    content: \"\\E90D\"; }\r\n  .material-icons.fireplace:before {\r\n    content: \"\\EA43\"; }\r\n  .material-icons.first_page:before {\r\n    content: \"\\E5DC\"; }\r\n  .material-icons.fit_screen:before {\r\n    content: \"\\EA10\"; }\r\n  .material-icons.fitness_center:before {\r\n    content: \"\\EB43\"; }\r\n  .material-icons.flag:before {\r\n    content: \"\\E153\"; }\r\n  .material-icons.flare:before {\r\n    content: \"\\E3E4\"; }\r\n  .material-icons.flash_auto:before {\r\n    content: \"\\E3E5\"; }\r\n  .material-icons.flash_off:before {\r\n    content: \"\\E3E6\"; }\r\n  .material-icons.flash_on:before {\r\n    content: \"\\E3E7\"; }\r\n  .material-icons.flight:before {\r\n    content: \"\\E539\"; }\r\n  .material-icons.flight_land:before {\r\n    content: \"\\E904\"; }\r\n  .material-icons.flight_takeoff:before {\r\n    content: \"\\E905\"; }\r\n  .material-icons.flip:before {\r\n    content: \"\\E3E8\"; }\r\n  .material-icons.flip_camera_android:before {\r\n    content: \"\\EA37\"; }\r\n  .material-icons.flip_camera_ios:before {\r\n    content: \"\\EA38\"; }\r\n  .material-icons.flip_to_back:before {\r\n    content: \"\\E882\"; }\r\n  .material-icons.flip_to_front:before {\r\n    content: \"\\E883\"; }\r\n  .material-icons.folder:before {\r\n    content: \"\\E2C7\"; }\r\n  .material-icons.folder_open:before {\r\n    content: \"\\E2C8\"; }\r\n  .material-icons.folder_shared:before {\r\n    content: \"\\E2C9\"; }\r\n  .material-icons.folder_special:before {\r\n    content: \"\\E617\"; }\r\n  .material-icons.font_download:before {\r\n    content: \"\\E167\"; }\r\n  .material-icons.format_align_center:before {\r\n    content: \"\\E234\"; }\r\n  .material-icons.format_align_justify:before {\r\n    content: \"\\E235\"; }\r\n  .material-icons.format_align_left:before {\r\n    content: \"\\E236\"; }\r\n  .material-icons.format_align_right:before {\r\n    content: \"\\E237\"; }\r\n  .material-icons.format_bold:before {\r\n    content: \"\\E238\"; }\r\n  .material-icons.format_clear:before {\r\n    content: \"\\E239\"; }\r\n  .material-icons.format_color_fill:before {\r\n    content: \"\\E23A\"; }\r\n  .material-icons.format_color_reset:before {\r\n    content: \"\\E23B\"; }\r\n  .material-icons.format_color_text:before {\r\n    content: \"\\E23C\"; }\r\n  .material-icons.format_indent_decrease:before {\r\n    content: \"\\E23D\"; }\r\n  .material-icons.format_indent_increase:before {\r\n    content: \"\\E23E\"; }\r\n  .material-icons.format_italic:before {\r\n    content: \"\\E23F\"; }\r\n  .material-icons.format_line_spacing:before {\r\n    content: \"\\E240\"; }\r\n  .material-icons.format_list_bulleted:before {\r\n    content: \"\\E241\"; }\r\n  .material-icons.format_list_numbered:before {\r\n    content: \"\\E242\"; }\r\n  .material-icons.format_list_numbered_rtl:before {\r\n    content: \"\\E267\"; }\r\n  .material-icons.format_paint:before {\r\n    content: \"\\E243\"; }\r\n  .material-icons.format_quote:before {\r\n    content: \"\\E244\"; }\r\n  .material-icons.format_shapes:before {\r\n    content: \"\\E25E\"; }\r\n  .material-icons.format_size:before {\r\n    content: \"\\E245\"; }\r\n  .material-icons.format_strikethrough:before {\r\n    content: \"\\E246\"; }\r\n  .material-icons.format_textdirection_l_to_r:before {\r\n    content: \"\\E247\"; }\r\n  .material-icons.format_textdirection_r_to_l:before {\r\n    content: \"\\E248\"; }\r\n  .material-icons.format_underline:before {\r\n    content: \"\\E249\"; }\r\n  .material-icons.format_underlined:before {\r\n    content: \"\\E249\"; }\r\n  .material-icons.forum:before {\r\n    content: \"\\E0BF\"; }\r\n  .material-icons.forward:before {\r\n    content: \"\\E154\"; }\r\n  .material-icons.forward_10:before {\r\n    content: \"\\E056\"; }\r\n  .material-icons.forward_30:before {\r\n    content: \"\\E057\"; }\r\n  .material-icons.forward_5:before {\r\n    content: \"\\E058\"; }\r\n  .material-icons.free_breakfast:before {\r\n    content: \"\\EB44\"; }\r\n  .material-icons.fullscreen:before {\r\n    content: \"\\E5D0\"; }\r\n  .material-icons.fullscreen_exit:before {\r\n    content: \"\\E5D1\"; }\r\n  .material-icons.functions:before {\r\n    content: \"\\E24A\"; }\r\n  .material-icons.g_translate:before {\r\n    content: \"\\E927\"; }\r\n  .material-icons.gamepad:before {\r\n    content: \"\\E30F\"; }\r\n  .material-icons.games:before {\r\n    content: \"\\E021\"; }\r\n  .material-icons.gavel:before {\r\n    content: \"\\E90E\"; }\r\n  .material-icons.gesture:before {\r\n    content: \"\\E155\"; }\r\n  .material-icons.get_app:before {\r\n    content: \"\\E884\"; }\r\n  .material-icons.gif:before {\r\n    content: \"\\E908\"; }\r\n  .material-icons.goat:before {\r\n    content: \"\\DBFF\"; }\r\n  .material-icons.golf_course:before {\r\n    content: \"\\EB45\"; }\r\n  .material-icons.gps_fixed:before {\r\n    content: \"\\E1B3\"; }\r\n  .material-icons.gps_not_fixed:before {\r\n    content: \"\\E1B4\"; }\r\n  .material-icons.gps_off:before {\r\n    content: \"\\E1B5\"; }\r\n  .material-icons.grade:before {\r\n    content: \"\\E885\"; }\r\n  .material-icons.gradient:before {\r\n    content: \"\\E3E9\"; }\r\n  .material-icons.grain:before {\r\n    content: \"\\E3EA\"; }\r\n  .material-icons.graphic_eq:before {\r\n    content: \"\\E1B8\"; }\r\n  .material-icons.grid_off:before {\r\n    content: \"\\E3EB\"; }\r\n  .material-icons.grid_on:before {\r\n    content: \"\\E3EC\"; }\r\n  .material-icons.grid_view:before {\r\n    content: \"\\E9B0\"; }\r\n  .material-icons.group:before {\r\n    content: \"\\E7EF\"; }\r\n  .material-icons.group_add:before {\r\n    content: \"\\E7F0\"; }\r\n  .material-icons.group_work:before {\r\n    content: \"\\E886\"; }\r\n  .material-icons.hail:before {\r\n    content: \"\\E9B1\"; }\r\n  .material-icons.hardware:before {\r\n    content: \"\\EA59\"; }\r\n  .material-icons.hd:before {\r\n    content: \"\\E052\"; }\r\n  .material-icons.hdr_off:before {\r\n    content: \"\\E3ED\"; }\r\n  .material-icons.hdr_on:before {\r\n    content: \"\\E3EE\"; }\r\n  .material-icons.hdr_strong:before {\r\n    content: \"\\E3F1\"; }\r\n  .material-icons.hdr_weak:before {\r\n    content: \"\\E3F2\"; }\r\n  .material-icons.headset:before {\r\n    content: \"\\E310\"; }\r\n  .material-icons.headset_mic:before {\r\n    content: \"\\E311\"; }\r\n  .material-icons.headset_off:before {\r\n    content: \"\\E33A\"; }\r\n  .material-icons.healing:before {\r\n    content: \"\\E3F3\"; }\r\n  .material-icons.hearing:before {\r\n    content: \"\\E023\"; }\r\n  .material-icons.height:before {\r\n    content: \"\\EA16\"; }\r\n  .material-icons.help:before {\r\n    content: \"\\E887\"; }\r\n  .material-icons.help_outline:before {\r\n    content: \"\\E8FD\"; }\r\n  .material-icons.high_quality:before {\r\n    content: \"\\E024\"; }\r\n  .material-icons.highlight:before {\r\n    content: \"\\E25F\"; }\r\n  .material-icons.highlight_off:before {\r\n    content: \"\\E888\"; }\r\n  .material-icons.highlight_remove:before {\r\n    content: \"\\E888\"; }\r\n  .material-icons.history:before {\r\n    content: \"\\E889\"; }\r\n  .material-icons.home:before {\r\n    content: \"\\E88A\"; }\r\n  .material-icons.home_filled:before {\r\n    content: \"\\E9B2\"; }\r\n  .material-icons.home_work:before {\r\n    content: \"\\EA09\"; }\r\n  .material-icons.horizontal_split:before {\r\n    content: \"\\E947\"; }\r\n  .material-icons.hot_tub:before {\r\n    content: \"\\EB46\"; }\r\n  .material-icons.hotel:before {\r\n    content: \"\\E53A\"; }\r\n  .material-icons.hourglass_empty:before {\r\n    content: \"\\E88B\"; }\r\n  .material-icons.hourglass_full:before {\r\n    content: \"\\E88C\"; }\r\n  .material-icons.house:before {\r\n    content: \"\\EA44\"; }\r\n  .material-icons.how_to_reg:before {\r\n    content: \"\\E174\"; }\r\n  .material-icons.how_to_vote:before {\r\n    content: \"\\E175\"; }\r\n  .material-icons.http:before {\r\n    content: \"\\E902\"; }\r\n  .material-icons.https:before {\r\n    content: \"\\E88D\"; }\r\n  .material-icons.icecream:before {\r\n    content: \"\\EA69\"; }\r\n  .material-icons.image:before {\r\n    content: \"\\E3F4\"; }\r\n  .material-icons.image_aspect_ratio:before {\r\n    content: \"\\E3F5\"; }\r\n  .material-icons.image_search:before {\r\n    content: \"\\E43F\"; }\r\n  .material-icons.imagesearch_roller:before {\r\n    content: \"\\E9B4\"; }\r\n  .material-icons.import_contacts:before {\r\n    content: \"\\E0E0\"; }\r\n  .material-icons.import_export:before {\r\n    content: \"\\E0C3\"; }\r\n  .material-icons.important_devices:before {\r\n    content: \"\\E912\"; }\r\n  .material-icons.inbox:before {\r\n    content: \"\\E156\"; }\r\n  .material-icons.indeterminate_check_box:before {\r\n    content: \"\\E909\"; }\r\n  .material-icons.info:before {\r\n    content: \"\\E88E\"; }\r\n  .material-icons.info_outline:before {\r\n    content: \"\\E88F\"; }\r\n  .material-icons.input:before {\r\n    content: \"\\E890\"; }\r\n  .material-icons.insert_chart:before {\r\n    content: \"\\E24B\"; }\r\n  .material-icons.insert_chart_outlined:before {\r\n    content: \"\\E26A\"; }\r\n  .material-icons.insert_comment:before {\r\n    content: \"\\E24C\"; }\r\n  .material-icons.insert_drive_file:before {\r\n    content: \"\\E24D\"; }\r\n  .material-icons.insert_emoticon:before {\r\n    content: \"\\E24E\"; }\r\n  .material-icons.insert_invitation:before {\r\n    content: \"\\E24F\"; }\r\n  .material-icons.insert_link:before {\r\n    content: \"\\E250\"; }\r\n  .material-icons.insert_photo:before {\r\n    content: \"\\E251\"; }\r\n  .material-icons.inventory:before {\r\n    content: \"\\E179\"; }\r\n  .material-icons.invert_colors:before {\r\n    content: \"\\E891\"; }\r\n  .material-icons.invert_colors_off:before {\r\n    content: \"\\E0C4\"; }\r\n  .material-icons.invert_colors_on:before {\r\n    content: \"\\E891\"; }\r\n  .material-icons.iso:before {\r\n    content: \"\\E3F6\"; }\r\n  .material-icons.keyboard:before {\r\n    content: \"\\E312\"; }\r\n  .material-icons.keyboard_arrow_down:before {\r\n    content: \"\\E313\"; }\r\n  .material-icons.keyboard_arrow_left:before {\r\n    content: \"\\E314\"; }\r\n  .material-icons.keyboard_arrow_right:before {\r\n    content: \"\\E315\"; }\r\n  .material-icons.keyboard_arrow_up:before {\r\n    content: \"\\E316\"; }\r\n  .material-icons.keyboard_backspace:before {\r\n    content: \"\\E317\"; }\r\n  .material-icons.keyboard_capslock:before {\r\n    content: \"\\E318\"; }\r\n  .material-icons.keyboard_control:before {\r\n    content: \"\\E5D3\"; }\r\n  .material-icons.keyboard_hide:before {\r\n    content: \"\\E31A\"; }\r\n  .material-icons.keyboard_return:before {\r\n    content: \"\\E31B\"; }\r\n  .material-icons.keyboard_tab:before {\r\n    content: \"\\E31C\"; }\r\n  .material-icons.keyboard_voice:before {\r\n    content: \"\\E31D\"; }\r\n  .material-icons.king_bed:before {\r\n    content: \"\\EA45\"; }\r\n  .material-icons.kitchen:before {\r\n    content: \"\\EB47\"; }\r\n  .material-icons.label:before {\r\n    content: \"\\E892\"; }\r\n  .material-icons.label_important:before {\r\n    content: \"\\E937\"; }\r\n  .material-icons.label_important_outline:before {\r\n    content: \"\\E948\"; }\r\n  .material-icons.label_off:before {\r\n    content: \"\\E9B6\"; }\r\n  .material-icons.label_outline:before {\r\n    content: \"\\E893\"; }\r\n  .material-icons.landscape:before {\r\n    content: \"\\E3F7\"; }\r\n  .material-icons.language:before {\r\n    content: \"\\E894\"; }\r\n  .material-icons.laptop:before {\r\n    content: \"\\E31E\"; }\r\n  .material-icons.laptop_chromebook:before {\r\n    content: \"\\E31F\"; }\r\n  .material-icons.laptop_mac:before {\r\n    content: \"\\E320\"; }\r\n  .material-icons.laptop_windows:before {\r\n    content: \"\\E321\"; }\r\n  .material-icons.last_page:before {\r\n    content: \"\\E5DD\"; }\r\n  .material-icons.launch:before {\r\n    content: \"\\E895\"; }\r\n  .material-icons.layers:before {\r\n    content: \"\\E53B\"; }\r\n  .material-icons.layers_clear:before {\r\n    content: \"\\E53C\"; }\r\n  .material-icons.leak_add:before {\r\n    content: \"\\E3F8\"; }\r\n  .material-icons.leak_remove:before {\r\n    content: \"\\E3F9\"; }\r\n  .material-icons.lens:before {\r\n    content: \"\\E3FA\"; }\r\n  .material-icons.library_add:before {\r\n    content: \"\\E02E\"; }\r\n  .material-icons.library_add_check:before {\r\n    content: \"\\E9B7\"; }\r\n  .material-icons.library_books:before {\r\n    content: \"\\E02F\"; }\r\n  .material-icons.library_music:before {\r\n    content: \"\\E030\"; }\r\n  .material-icons.lightbulb:before {\r\n    content: \"\\E0F0\"; }\r\n  .material-icons.lightbulb_outline:before {\r\n    content: \"\\E90F\"; }\r\n  .material-icons.line_style:before {\r\n    content: \"\\E919\"; }\r\n  .material-icons.line_weight:before {\r\n    content: \"\\E91A\"; }\r\n  .material-icons.linear_scale:before {\r\n    content: \"\\E260\"; }\r\n  .material-icons.link:before {\r\n    content: \"\\E157\"; }\r\n  .material-icons.link_off:before {\r\n    content: \"\\E16F\"; }\r\n  .material-icons.linked_camera:before {\r\n    content: \"\\E438\"; }\r\n  .material-icons.liquor:before {\r\n    content: \"\\EA60\"; }\r\n  .material-icons.list:before {\r\n    content: \"\\E896\"; }\r\n  .material-icons.list_alt:before {\r\n    content: \"\\E0EE\"; }\r\n  .material-icons.live_help:before {\r\n    content: \"\\E0C6\"; }\r\n  .material-icons.live_tv:before {\r\n    content: \"\\E639\"; }\r\n  .material-icons.local_activity:before {\r\n    content: \"\\E53F\"; }\r\n  .material-icons.local_airport:before {\r\n    content: \"\\E53D\"; }\r\n  .material-icons.local_atm:before {\r\n    content: \"\\E53E\"; }\r\n  .material-icons.local_attraction:before {\r\n    content: \"\\E53F\"; }\r\n  .material-icons.local_bar:before {\r\n    content: \"\\E540\"; }\r\n  .material-icons.local_cafe:before {\r\n    content: \"\\E541\"; }\r\n  .material-icons.local_car_wash:before {\r\n    content: \"\\E542\"; }\r\n  .material-icons.local_convenience_store:before {\r\n    content: \"\\E543\"; }\r\n  .material-icons.local_dining:before {\r\n    content: \"\\E556\"; }\r\n  .material-icons.local_drink:before {\r\n    content: \"\\E544\"; }\r\n  .material-icons.local_florist:before {\r\n    content: \"\\E545\"; }\r\n  .material-icons.local_gas_station:before {\r\n    content: \"\\E546\"; }\r\n  .material-icons.local_grocery_store:before {\r\n    content: \"\\E547\"; }\r\n  .material-icons.local_hospital:before {\r\n    content: \"\\E548\"; }\r\n  .material-icons.local_hotel:before {\r\n    content: \"\\E549\"; }\r\n  .material-icons.local_laundry_service:before {\r\n    content: \"\\E54A\"; }\r\n  .material-icons.local_library:before {\r\n    content: \"\\E54B\"; }\r\n  .material-icons.local_mall:before {\r\n    content: \"\\E54C\"; }\r\n  .material-icons.local_movies:before {\r\n    content: \"\\E54D\"; }\r\n  .material-icons.local_offer:before {\r\n    content: \"\\E54E\"; }\r\n  .material-icons.local_parking:before {\r\n    content: \"\\E54F\"; }\r\n  .material-icons.local_pharmacy:before {\r\n    content: \"\\E550\"; }\r\n  .material-icons.local_phone:before {\r\n    content: \"\\E551\"; }\r\n  .material-icons.local_pizza:before {\r\n    content: \"\\E552\"; }\r\n  .material-icons.local_play:before {\r\n    content: \"\\E553\"; }\r\n  .material-icons.local_post_office:before {\r\n    content: \"\\E554\"; }\r\n  .material-icons.local_print_shop:before {\r\n    content: \"\\E555\"; }\r\n  .material-icons.local_printshop:before {\r\n    content: \"\\E555\"; }\r\n  .material-icons.local_restaurant:before {\r\n    content: \"\\E556\"; }\r\n  .material-icons.local_see:before {\r\n    content: \"\\E557\"; }\r\n  .material-icons.local_shipping:before {\r\n    content: \"\\E558\"; }\r\n  .material-icons.local_taxi:before {\r\n    content: \"\\E559\"; }\r\n  .material-icons.location_city:before {\r\n    content: \"\\E7F1\"; }\r\n  .material-icons.location_disabled:before {\r\n    content: \"\\E1B6\"; }\r\n  .material-icons.location_history:before {\r\n    content: \"\\E55A\"; }\r\n  .material-icons.location_off:before {\r\n    content: \"\\E0C7\"; }\r\n  .material-icons.location_on:before {\r\n    content: \"\\E0C8\"; }\r\n  .material-icons.location_searching:before {\r\n    content: \"\\E1B7\"; }\r\n  .material-icons.lock:before {\r\n    content: \"\\E897\"; }\r\n  .material-icons.lock_open:before {\r\n    content: \"\\E898\"; }\r\n  .material-icons.lock_outline:before {\r\n    content: \"\\E899\"; }\r\n  .material-icons.logout:before {\r\n    content: \"\\E9BA\"; }\r\n  .material-icons.looks:before {\r\n    content: \"\\E3FC\"; }\r\n  .material-icons.looks_3:before {\r\n    content: \"\\E3FB\"; }\r\n  .material-icons.looks_4:before {\r\n    content: \"\\E3FD\"; }\r\n  .material-icons.looks_5:before {\r\n    content: \"\\E3FE\"; }\r\n  .material-icons.looks_6:before {\r\n    content: \"\\E3FF\"; }\r\n  .material-icons.looks_one:before {\r\n    content: \"\\E400\"; }\r\n  .material-icons.looks_two:before {\r\n    content: \"\\E401\"; }\r\n  .material-icons.loop:before {\r\n    content: \"\\E028\"; }\r\n  .material-icons.loupe:before {\r\n    content: \"\\E402\"; }\r\n  .material-icons.low_priority:before {\r\n    content: \"\\E16D\"; }\r\n  .material-icons.loyalty:before {\r\n    content: \"\\E89A\"; }\r\n  .material-icons.lunch_dining:before {\r\n    content: \"\\EA61\"; }\r\n  .material-icons.mail:before {\r\n    content: \"\\E158\"; }\r\n  .material-icons.mail_outline:before {\r\n    content: \"\\E0E1\"; }\r\n  .material-icons.map:before {\r\n    content: \"\\E55B\"; }\r\n  .material-icons.margin:before {\r\n    content: \"\\E9BB\"; }\r\n  .material-icons.mark_as_unread:before {\r\n    content: \"\\E9BC\"; }\r\n  .material-icons.markunread:before {\r\n    content: \"\\E159\"; }\r\n  .material-icons.markunread_mailbox:before {\r\n    content: \"\\E89B\"; }\r\n  .material-icons.maximize:before {\r\n    content: \"\\E930\"; }\r\n  .material-icons.meeting_room:before {\r\n    content: \"\\EB4F\"; }\r\n  .material-icons.memory:before {\r\n    content: \"\\E322\"; }\r\n  .material-icons.menu:before {\r\n    content: \"\\E5D2\"; }\r\n  .material-icons.menu_book:before {\r\n    content: \"\\EA19\"; }\r\n  .material-icons.menu_open:before {\r\n    content: \"\\E9BD\"; }\r\n  .material-icons.merge_type:before {\r\n    content: \"\\E252\"; }\r\n  .material-icons.message:before {\r\n    content: \"\\E0C9\"; }\r\n  .material-icons.messenger:before {\r\n    content: \"\\E0CA\"; }\r\n  .material-icons.messenger_outline:before {\r\n    content: \"\\E0CB\"; }\r\n  .material-icons.mic:before {\r\n    content: \"\\E029\"; }\r\n  .material-icons.mic_none:before {\r\n    content: \"\\E02A\"; }\r\n  .material-icons.mic_off:before {\r\n    content: \"\\E02B\"; }\r\n  .material-icons.minimize:before {\r\n    content: \"\\E931\"; }\r\n  .material-icons.missed_video_call:before {\r\n    content: \"\\E073\"; }\r\n  .material-icons.mms:before {\r\n    content: \"\\E618\"; }\r\n  .material-icons.mobile_friendly:before {\r\n    content: \"\\E200\"; }\r\n  .material-icons.mobile_off:before {\r\n    content: \"\\E201\"; }\r\n  .material-icons.mobile_screen_share:before {\r\n    content: \"\\E0E7\"; }\r\n  .material-icons.mode_comment:before {\r\n    content: \"\\E253\"; }\r\n  .material-icons.mode_edit:before {\r\n    content: \"\\E254\"; }\r\n  .material-icons.monetization_on:before {\r\n    content: \"\\E263\"; }\r\n  .material-icons.money:before {\r\n    content: \"\\E57D\"; }\r\n  .material-icons.money_off:before {\r\n    content: \"\\E25C\"; }\r\n  .material-icons.monochrome_photos:before {\r\n    content: \"\\E403\"; }\r\n  .material-icons.mood:before {\r\n    content: \"\\E7F2\"; }\r\n  .material-icons.mood_bad:before {\r\n    content: \"\\E7F3\"; }\r\n  .material-icons.more:before {\r\n    content: \"\\E619\"; }\r\n  .material-icons.more_horiz:before {\r\n    content: \"\\E5D3\"; }\r\n  .material-icons.more_vert:before {\r\n    content: \"\\E5D4\"; }\r\n  .material-icons.motorcycle:before {\r\n    content: \"\\E91B\"; }\r\n  .material-icons.mouse:before {\r\n    content: \"\\E323\"; }\r\n  .material-icons.move_to_inbox:before {\r\n    content: \"\\E168\"; }\r\n  .material-icons.movie:before {\r\n    content: \"\\E02C\"; }\r\n  .material-icons.movie_creation:before {\r\n    content: \"\\E404\"; }\r\n  .material-icons.movie_filter:before {\r\n    content: \"\\E43A\"; }\r\n  .material-icons.mp:before {\r\n    content: \"\\E9C3\"; }\r\n  .material-icons.multiline_chart:before {\r\n    content: \"\\E6DF\"; }\r\n  .material-icons.multitrack_audio:before {\r\n    content: \"\\E1B8\"; }\r\n  .material-icons.museum:before {\r\n    content: \"\\EA36\"; }\r\n  .material-icons.music_note:before {\r\n    content: \"\\E405\"; }\r\n  .material-icons.music_off:before {\r\n    content: \"\\E440\"; }\r\n  .material-icons.music_video:before {\r\n    content: \"\\E063\"; }\r\n  .material-icons.my_library_add:before {\r\n    content: \"\\E02E\"; }\r\n  .material-icons.my_library_books:before {\r\n    content: \"\\E02F\"; }\r\n  .material-icons.my_library_music:before {\r\n    content: \"\\E030\"; }\r\n  .material-icons.my_location:before {\r\n    content: \"\\E55C\"; }\r\n  .material-icons.nature:before {\r\n    content: \"\\E406\"; }\r\n  .material-icons.nature_people:before {\r\n    content: \"\\E407\"; }\r\n  .material-icons.navigate_before:before {\r\n    content: \"\\E408\"; }\r\n  .material-icons.navigate_next:before {\r\n    content: \"\\E409\"; }\r\n  .material-icons.navigation:before {\r\n    content: \"\\E55D\"; }\r\n  .material-icons.near_me:before {\r\n    content: \"\\E569\"; }\r\n  .material-icons.network_cell:before {\r\n    content: \"\\E1B9\"; }\r\n  .material-icons.network_check:before {\r\n    content: \"\\E640\"; }\r\n  .material-icons.network_locked:before {\r\n    content: \"\\E61A\"; }\r\n  .material-icons.network_wifi:before {\r\n    content: \"\\E1BA\"; }\r\n  .material-icons.new_releases:before {\r\n    content: \"\\E031\"; }\r\n  .material-icons.next_week:before {\r\n    content: \"\\E16A\"; }\r\n  .material-icons.nfc:before {\r\n    content: \"\\E1BB\"; }\r\n  .material-icons.nightlife:before {\r\n    content: \"\\EA62\"; }\r\n  .material-icons.nights_stay:before {\r\n    content: \"\\EA46\"; }\r\n  .material-icons.no_encryption:before {\r\n    content: \"\\E641\"; }\r\n  .material-icons.no_meeting_room:before {\r\n    content: \"\\EB4E\"; }\r\n  .material-icons.no_sim:before {\r\n    content: \"\\E0CC\"; }\r\n  .material-icons.not_interested:before {\r\n    content: \"\\E033\"; }\r\n  .material-icons.not_listed_location:before {\r\n    content: \"\\E575\"; }\r\n  .material-icons.note:before {\r\n    content: \"\\E06F\"; }\r\n  .material-icons.note_add:before {\r\n    content: \"\\E89C\"; }\r\n  .material-icons.notes:before {\r\n    content: \"\\E26C\"; }\r\n  .material-icons.notification_important:before {\r\n    content: \"\\E004\"; }\r\n  .material-icons.notifications:before {\r\n    content: \"\\E7F4\"; }\r\n  .material-icons.notifications_active:before {\r\n    content: \"\\E7F7\"; }\r\n  .material-icons.notifications_none:before {\r\n    content: \"\\E7F5\"; }\r\n  .material-icons.notifications_off:before {\r\n    content: \"\\E7F6\"; }\r\n  .material-icons.notifications_on:before {\r\n    content: \"\\E7F7\"; }\r\n  .material-icons.notifications_paused:before {\r\n    content: \"\\E7F8\"; }\r\n  .material-icons.now_wallpaper:before {\r\n    content: \"\\E1BC\"; }\r\n  .material-icons.now_widgets:before {\r\n    content: \"\\E1BD\"; }\r\n  .material-icons.offline_bolt:before {\r\n    content: \"\\E932\"; }\r\n  .material-icons.offline_pin:before {\r\n    content: \"\\E90A\"; }\r\n  .material-icons.offline_share:before {\r\n    content: \"\\E9C5\"; }\r\n  .material-icons.ondemand_video:before {\r\n    content: \"\\E63A\"; }\r\n  .material-icons.opacity:before {\r\n    content: \"\\E91C\"; }\r\n  .material-icons.open_in_browser:before {\r\n    content: \"\\E89D\"; }\r\n  .material-icons.open_in_new:before {\r\n    content: \"\\E89E\"; }\r\n  .material-icons.open_with:before {\r\n    content: \"\\E89F\"; }\r\n  .material-icons.outdoor_grill:before {\r\n    content: \"\\EA47\"; }\r\n  .material-icons.outlined_flag:before {\r\n    content: \"\\E16E\"; }\r\n  .material-icons.padding:before {\r\n    content: \"\\E9C8\"; }\r\n  .material-icons.pages:before {\r\n    content: \"\\E7F9\"; }\r\n  .material-icons.pageview:before {\r\n    content: \"\\E8A0\"; }\r\n  .material-icons.palette:before {\r\n    content: \"\\E40A\"; }\r\n  .material-icons.pan_tool:before {\r\n    content: \"\\E925\"; }\r\n  .material-icons.panorama:before {\r\n    content: \"\\E40B\"; }\r\n  .material-icons.panorama_fish_eye:before {\r\n    content: \"\\E40C\"; }\r\n  .material-icons.panorama_fisheye:before {\r\n    content: \"\\E40C\"; }\r\n  .material-icons.panorama_horizontal:before {\r\n    content: \"\\E40D\"; }\r\n  .material-icons.panorama_photosphere:before {\r\n    content: \"\\E9C9\"; }\r\n  .material-icons.panorama_photosphere_select:before {\r\n    content: \"\\E9CA\"; }\r\n  .material-icons.panorama_vertical:before {\r\n    content: \"\\E40E\"; }\r\n  .material-icons.panorama_wide_angle:before {\r\n    content: \"\\E40F\"; }\r\n  .material-icons.park:before {\r\n    content: \"\\EA63\"; }\r\n  .material-icons.party_mode:before {\r\n    content: \"\\E7FA\"; }\r\n  .material-icons.pause:before {\r\n    content: \"\\E034\"; }\r\n  .material-icons.pause_circle_filled:before {\r\n    content: \"\\E035\"; }\r\n  .material-icons.pause_circle_outline:before {\r\n    content: \"\\E036\"; }\r\n  .material-icons.pause_presentation:before {\r\n    content: \"\\E0EA\"; }\r\n  .material-icons.payment:before {\r\n    content: \"\\E8A1\"; }\r\n  .material-icons.people:before {\r\n    content: \"\\E7FB\"; }\r\n  .material-icons.people_alt:before {\r\n    content: \"\\EA21\"; }\r\n  .material-icons.people_outline:before {\r\n    content: \"\\E7FC\"; }\r\n  .material-icons.perm_camera_mic:before {\r\n    content: \"\\E8A2\"; }\r\n  .material-icons.perm_contact_cal:before {\r\n    content: \"\\E8A3\"; }\r\n  .material-icons.perm_contact_calendar:before {\r\n    content: \"\\E8A3\"; }\r\n  .material-icons.perm_data_setting:before {\r\n    content: \"\\E8A4\"; }\r\n  .material-icons.perm_device_info:before {\r\n    content: \"\\E8A5\"; }\r\n  .material-icons.perm_device_information:before {\r\n    content: \"\\E8A5\"; }\r\n  .material-icons.perm_identity:before {\r\n    content: \"\\E8A6\"; }\r\n  .material-icons.perm_media:before {\r\n    content: \"\\E8A7\"; }\r\n  .material-icons.perm_phone_msg:before {\r\n    content: \"\\E8A8\"; }\r\n  .material-icons.perm_scan_wifi:before {\r\n    content: \"\\E8A9\"; }\r\n  .material-icons.person:before {\r\n    content: \"\\E7FD\"; }\r\n  .material-icons.person_add:before {\r\n    content: \"\\E7FE\"; }\r\n  .material-icons.person_add_disabled:before {\r\n    content: \"\\E9CB\"; }\r\n  .material-icons.person_outline:before {\r\n    content: \"\\E7FF\"; }\r\n  .material-icons.person_pin:before {\r\n    content: \"\\E55A\"; }\r\n  .material-icons.person_pin_circle:before {\r\n    content: \"\\E56A\"; }\r\n  .material-icons.personal_video:before {\r\n    content: \"\\E63B\"; }\r\n  .material-icons.pets:before {\r\n    content: \"\\E91D\"; }\r\n  .material-icons.phone:before {\r\n    content: \"\\E0CD\"; }\r\n  .material-icons.phone_android:before {\r\n    content: \"\\E324\"; }\r\n  .material-icons.phone_bluetooth_speaker:before {\r\n    content: \"\\E61B\"; }\r\n  .material-icons.phone_callback:before {\r\n    content: \"\\E649\"; }\r\n  .material-icons.phone_disabled:before {\r\n    content: \"\\E9CC\"; }\r\n  .material-icons.phone_enabled:before {\r\n    content: \"\\E9CD\"; }\r\n  .material-icons.phone_forwarded:before {\r\n    content: \"\\E61C\"; }\r\n  .material-icons.phone_in_talk:before {\r\n    content: \"\\E61D\"; }\r\n  .material-icons.phone_iphone:before {\r\n    content: \"\\E325\"; }\r\n  .material-icons.phone_locked:before {\r\n    content: \"\\E61E\"; }\r\n  .material-icons.phone_missed:before {\r\n    content: \"\\E61F\"; }\r\n  .material-icons.phone_paused:before {\r\n    content: \"\\E620\"; }\r\n  .material-icons.phonelink:before {\r\n    content: \"\\E326\"; }\r\n  .material-icons.phonelink_erase:before {\r\n    content: \"\\E0DB\"; }\r\n  .material-icons.phonelink_lock:before {\r\n    content: \"\\E0DC\"; }\r\n  .material-icons.phonelink_off:before {\r\n    content: \"\\E327\"; }\r\n  .material-icons.phonelink_ring:before {\r\n    content: \"\\E0DD\"; }\r\n  .material-icons.phonelink_setup:before {\r\n    content: \"\\E0DE\"; }\r\n  .material-icons.photo:before {\r\n    content: \"\\E410\"; }\r\n  .material-icons.photo_album:before {\r\n    content: \"\\E411\"; }\r\n  .material-icons.photo_camera:before {\r\n    content: \"\\E412\"; }\r\n  .material-icons.photo_filter:before {\r\n    content: \"\\E43B\"; }\r\n  .material-icons.photo_library:before {\r\n    content: \"\\E413\"; }\r\n  .material-icons.photo_size_select_actual:before {\r\n    content: \"\\E432\"; }\r\n  .material-icons.photo_size_select_large:before {\r\n    content: \"\\E433\"; }\r\n  .material-icons.photo_size_select_small:before {\r\n    content: \"\\E434\"; }\r\n  .material-icons.picture_as_pdf:before {\r\n    content: \"\\E415\"; }\r\n  .material-icons.picture_in_picture:before {\r\n    content: \"\\E8AA\"; }\r\n  .material-icons.picture_in_picture_alt:before {\r\n    content: \"\\E911\"; }\r\n  .material-icons.pie_chart:before {\r\n    content: \"\\E6C4\"; }\r\n  .material-icons.pie_chart_outlined:before {\r\n    content: \"\\E6C5\"; }\r\n  .material-icons.pin_drop:before {\r\n    content: \"\\E55E\"; }\r\n  .material-icons.pivot_table_chart:before {\r\n    content: \"\\E9CE\"; }\r\n  .material-icons.place:before {\r\n    content: \"\\E55F\"; }\r\n  .material-icons.play_arrow:before {\r\n    content: \"\\E037\"; }\r\n  .material-icons.play_circle_fill:before {\r\n    content: \"\\E038\"; }\r\n  .material-icons.play_circle_filled:before {\r\n    content: \"\\E038\"; }\r\n  .material-icons.play_circle_outline:before {\r\n    content: \"\\E039\"; }\r\n  .material-icons.play_for_work:before {\r\n    content: \"\\E906\"; }\r\n  .material-icons.playlist_add:before {\r\n    content: \"\\E03B\"; }\r\n  .material-icons.playlist_add_check:before {\r\n    content: \"\\E065\"; }\r\n  .material-icons.playlist_play:before {\r\n    content: \"\\E05F\"; }\r\n  .material-icons.plus_one:before {\r\n    content: \"\\E800\"; }\r\n  .material-icons.policy:before {\r\n    content: \"\\EA17\"; }\r\n  .material-icons.poll:before {\r\n    content: \"\\E801\"; }\r\n  .material-icons.polymer:before {\r\n    content: \"\\E8AB\"; }\r\n  .material-icons.pool:before {\r\n    content: \"\\EB48\"; }\r\n  .material-icons.portable_wifi_off:before {\r\n    content: \"\\E0CE\"; }\r\n  .material-icons.portrait:before {\r\n    content: \"\\E416\"; }\r\n  .material-icons.post_add:before {\r\n    content: \"\\EA20\"; }\r\n  .material-icons.power:before {\r\n    content: \"\\E63C\"; }\r\n  .material-icons.power_input:before {\r\n    content: \"\\E336\"; }\r\n  .material-icons.power_off:before {\r\n    content: \"\\E646\"; }\r\n  .material-icons.power_settings_new:before {\r\n    content: \"\\E8AC\"; }\r\n  .material-icons.pregnant_woman:before {\r\n    content: \"\\E91E\"; }\r\n  .material-icons.present_to_all:before {\r\n    content: \"\\E0DF\"; }\r\n  .material-icons.print:before {\r\n    content: \"\\E8AD\"; }\r\n  .material-icons.print_disabled:before {\r\n    content: \"\\E9CF\"; }\r\n  .material-icons.priority_high:before {\r\n    content: \"\\E645\"; }\r\n  .material-icons.public:before {\r\n    content: \"\\E80B\"; }\r\n  .material-icons.publish:before {\r\n    content: \"\\E255\"; }\r\n  .material-icons.query_builder:before {\r\n    content: \"\\E8AE\"; }\r\n  .material-icons.question_answer:before {\r\n    content: \"\\E8AF\"; }\r\n  .material-icons.queue:before {\r\n    content: \"\\E03C\"; }\r\n  .material-icons.queue_music:before {\r\n    content: \"\\E03D\"; }\r\n  .material-icons.queue_play_next:before {\r\n    content: \"\\E066\"; }\r\n  .material-icons.quick_contacts_dialer:before {\r\n    content: \"\\E0CF\"; }\r\n  .material-icons.quick_contacts_mail:before {\r\n    content: \"\\E0D0\"; }\r\n  .material-icons.radio:before {\r\n    content: \"\\E03E\"; }\r\n  .material-icons.radio_button_checked:before {\r\n    content: \"\\E837\"; }\r\n  .material-icons.radio_button_off:before {\r\n    content: \"\\E836\"; }\r\n  .material-icons.radio_button_on:before {\r\n    content: \"\\E837\"; }\r\n  .material-icons.radio_button_unchecked:before {\r\n    content: \"\\E836\"; }\r\n  .material-icons.railway_alert:before {\r\n    content: \"\\E9D1\"; }\r\n  .material-icons.ramen_dining:before {\r\n    content: \"\\EA64\"; }\r\n  .material-icons.rate_review:before {\r\n    content: \"\\E560\"; }\r\n  .material-icons.receipt:before {\r\n    content: \"\\E8B0\"; }\r\n  .material-icons.recent_actors:before {\r\n    content: \"\\E03F\"; }\r\n  .material-icons.recommend:before {\r\n    content: \"\\E9D2\"; }\r\n  .material-icons.record_voice_over:before {\r\n    content: \"\\E91F\"; }\r\n  .material-icons.redeem:before {\r\n    content: \"\\E8B1\"; }\r\n  .material-icons.redo:before {\r\n    content: \"\\E15A\"; }\r\n  .material-icons.refresh:before {\r\n    content: \"\\E5D5\"; }\r\n  .material-icons.remove:before {\r\n    content: \"\\E15B\"; }\r\n  .material-icons.remove_circle:before {\r\n    content: \"\\E15C\"; }\r\n  .material-icons.remove_circle_outline:before {\r\n    content: \"\\E15D\"; }\r\n  .material-icons.remove_done:before {\r\n    content: \"\\E9D3\"; }\r\n  .material-icons.remove_from_queue:before {\r\n    content: \"\\E067\"; }\r\n  .material-icons.remove_moderator:before {\r\n    content: \"\\E9D4\"; }\r\n  .material-icons.remove_red_eye:before {\r\n    content: \"\\E417\"; }\r\n  .material-icons.remove_shopping_cart:before {\r\n    content: \"\\E928\"; }\r\n  .material-icons.reorder:before {\r\n    content: \"\\E8FE\"; }\r\n  .material-icons.repeat:before {\r\n    content: \"\\E040\"; }\r\n  .material-icons.repeat_on:before {\r\n    content: \"\\E9D6\"; }\r\n  .material-icons.repeat_one:before {\r\n    content: \"\\E041\"; }\r\n  .material-icons.repeat_one_on:before {\r\n    content: \"\\E9D7\"; }\r\n  .material-icons.replay:before {\r\n    content: \"\\E042\"; }\r\n  .material-icons.replay_10:before {\r\n    content: \"\\E059\"; }\r\n  .material-icons.replay_30:before {\r\n    content: \"\\E05A\"; }\r\n  .material-icons.replay_5:before {\r\n    content: \"\\E05B\"; }\r\n  .material-icons.replay_circle_filled:before {\r\n    content: \"\\E9D8\"; }\r\n  .material-icons.reply:before {\r\n    content: \"\\E15E\"; }\r\n  .material-icons.reply_all:before {\r\n    content: \"\\E15F\"; }\r\n  .material-icons.report:before {\r\n    content: \"\\E160\"; }\r\n  .material-icons.report_off:before {\r\n    content: \"\\E170\"; }\r\n  .material-icons.report_problem:before {\r\n    content: \"\\E8B2\"; }\r\n  .material-icons.reset_tv:before {\r\n    content: \"\\E9D9\"; }\r\n  .material-icons.restaurant:before {\r\n    content: \"\\E56C\"; }\r\n  .material-icons.restaurant_menu:before {\r\n    content: \"\\E561\"; }\r\n  .material-icons.restore:before {\r\n    content: \"\\E8B3\"; }\r\n  .material-icons.restore_from_trash:before {\r\n    content: \"\\E938\"; }\r\n  .material-icons.restore_page:before {\r\n    content: \"\\E929\"; }\r\n  .material-icons.ring_volume:before {\r\n    content: \"\\E0D1\"; }\r\n  .material-icons.room:before {\r\n    content: \"\\E8B4\"; }\r\n  .material-icons.room_service:before {\r\n    content: \"\\EB49\"; }\r\n  .material-icons.rotate_90_degrees_ccw:before {\r\n    content: \"\\E418\"; }\r\n  .material-icons.rotate_left:before {\r\n    content: \"\\E419\"; }\r\n  .material-icons.rotate_right:before {\r\n    content: \"\\E41A\"; }\r\n  .material-icons.rounded_corner:before {\r\n    content: \"\\E920\"; }\r\n  .material-icons.router:before {\r\n    content: \"\\E328\"; }\r\n  .material-icons.rowing:before {\r\n    content: \"\\E921\"; }\r\n  .material-icons.rss_feed:before {\r\n    content: \"\\E0E5\"; }\r\n  .material-icons.rtt:before {\r\n    content: \"\\E9AD\"; }\r\n  .material-icons.rv_hookup:before {\r\n    content: \"\\E642\"; }\r\n  .material-icons.satellite:before {\r\n    content: \"\\E562\"; }\r\n  .material-icons.save:before {\r\n    content: \"\\E161\"; }\r\n  .material-icons.save_alt:before {\r\n    content: \"\\E171\"; }\r\n  .material-icons.saved_search:before {\r\n    content: \"\\EA11\"; }\r\n  .material-icons.scanner:before {\r\n    content: \"\\E329\"; }\r\n  .material-icons.scatter_plot:before {\r\n    content: \"\\E268\"; }\r\n  .material-icons.schedule:before {\r\n    content: \"\\E8B5\"; }\r\n  .material-icons.schedule_send:before {\r\n    content: \"\\EA0A\"; }\r\n  .material-icons.school:before {\r\n    content: \"\\E80C\"; }\r\n  .material-icons.score:before {\r\n    content: \"\\E269\"; }\r\n  .material-icons.screen_lock_landscape:before {\r\n    content: \"\\E1BE\"; }\r\n  .material-icons.screen_lock_portrait:before {\r\n    content: \"\\E1BF\"; }\r\n  .material-icons.screen_lock_rotation:before {\r\n    content: \"\\E1C0\"; }\r\n  .material-icons.screen_rotation:before {\r\n    content: \"\\E1C1\"; }\r\n  .material-icons.screen_share:before {\r\n    content: \"\\E0E2\"; }\r\n  .material-icons.sd:before {\r\n    content: \"\\E9DD\"; }\r\n  .material-icons.sd_card:before {\r\n    content: \"\\E623\"; }\r\n  .material-icons.sd_storage:before {\r\n    content: \"\\E1C2\"; }\r\n  .material-icons.search:before {\r\n    content: \"\\E8B6\"; }\r\n  .material-icons.security:before {\r\n    content: \"\\E32A\"; }\r\n  .material-icons.segment:before {\r\n    content: \"\\E94B\"; }\r\n  .material-icons.select_all:before {\r\n    content: \"\\E162\"; }\r\n  .material-icons.send:before {\r\n    content: \"\\E163\"; }\r\n  .material-icons.send_and_archive:before {\r\n    content: \"\\EA0C\"; }\r\n  .material-icons.sentiment_dissatisfied:before {\r\n    content: \"\\E811\"; }\r\n  .material-icons.sentiment_neutral:before {\r\n    content: \"\\E812\"; }\r\n  .material-icons.sentiment_satisfied:before {\r\n    content: \"\\E813\"; }\r\n  .material-icons.sentiment_satisfied_alt:before {\r\n    content: \"\\E0ED\"; }\r\n  .material-icons.sentiment_very_dissatisfied:before {\r\n    content: \"\\E814\"; }\r\n  .material-icons.sentiment_very_satisfied:before {\r\n    content: \"\\E815\"; }\r\n  .material-icons.settings:before {\r\n    content: \"\\E8B8\"; }\r\n  .material-icons.settings_applications:before {\r\n    content: \"\\E8B9\"; }\r\n  .material-icons.settings_backup_restore:before {\r\n    content: \"\\E8BA\"; }\r\n  .material-icons.settings_bluetooth:before {\r\n    content: \"\\E8BB\"; }\r\n  .material-icons.settings_brightness:before {\r\n    content: \"\\E8BD\"; }\r\n  .material-icons.settings_cell:before {\r\n    content: \"\\E8BC\"; }\r\n  .material-icons.settings_display:before {\r\n    content: \"\\E8BD\"; }\r\n  .material-icons.settings_ethernet:before {\r\n    content: \"\\E8BE\"; }\r\n  .material-icons.settings_input_antenna:before {\r\n    content: \"\\E8BF\"; }\r\n  .material-icons.settings_input_component:before {\r\n    content: \"\\E8C0\"; }\r\n  .material-icons.settings_input_composite:before {\r\n    content: \"\\E8C1\"; }\r\n  .material-icons.settings_input_hdmi:before {\r\n    content: \"\\E8C2\"; }\r\n  .material-icons.settings_input_svideo:before {\r\n    content: \"\\E8C3\"; }\r\n  .material-icons.settings_overscan:before {\r\n    content: \"\\E8C4\"; }\r\n  .material-icons.settings_phone:before {\r\n    content: \"\\E8C5\"; }\r\n  .material-icons.settings_power:before {\r\n    content: \"\\E8C6\"; }\r\n  .material-icons.settings_remote:before {\r\n    content: \"\\E8C7\"; }\r\n  .material-icons.settings_system_daydream:before {\r\n    content: \"\\E1C3\"; }\r\n  .material-icons.settings_voice:before {\r\n    content: \"\\E8C8\"; }\r\n  .material-icons.share:before {\r\n    content: \"\\E80D\"; }\r\n  .material-icons.shield:before {\r\n    content: \"\\E9E0\"; }\r\n  .material-icons.shop:before {\r\n    content: \"\\E8C9\"; }\r\n  .material-icons.shop_two:before {\r\n    content: \"\\E8CA\"; }\r\n  .material-icons.shopping_basket:before {\r\n    content: \"\\E8CB\"; }\r\n  .material-icons.shopping_cart:before {\r\n    content: \"\\E8CC\"; }\r\n  .material-icons.short_text:before {\r\n    content: \"\\E261\"; }\r\n  .material-icons.show_chart:before {\r\n    content: \"\\E6E1\"; }\r\n  .material-icons.shuffle:before {\r\n    content: \"\\E043\"; }\r\n  .material-icons.shuffle_on:before {\r\n    content: \"\\E9E1\"; }\r\n  .material-icons.shutter_speed:before {\r\n    content: \"\\E43D\"; }\r\n  .material-icons.signal_cellular_4_bar:before {\r\n    content: \"\\E1C8\"; }\r\n  .material-icons.signal_cellular_alt:before {\r\n    content: \"\\E202\"; }\r\n  .material-icons.signal_cellular_connected_no_internet_4_bar:before {\r\n    content: \"\\E1CD\"; }\r\n  .material-icons.signal_cellular_no_sim:before {\r\n    content: \"\\E1CE\"; }\r\n  .material-icons.signal_cellular_null:before {\r\n    content: \"\\E1CF\"; }\r\n  .material-icons.signal_cellular_off:before {\r\n    content: \"\\E1D0\"; }\r\n  .material-icons.signal_wifi_4_bar:before {\r\n    content: \"\\E1D8\"; }\r\n  .material-icons.signal_wifi_4_bar_lock:before {\r\n    content: \"\\E1D9\"; }\r\n  .material-icons.signal_wifi_off:before {\r\n    content: \"\\E1DA\"; }\r\n  .material-icons.sim_card:before {\r\n    content: \"\\E32B\"; }\r\n  .material-icons.sim_card_alert:before {\r\n    content: \"\\E624\"; }\r\n  .material-icons.single_bed:before {\r\n    content: \"\\EA48\"; }\r\n  .material-icons.skip_next:before {\r\n    content: \"\\E044\"; }\r\n  .material-icons.skip_previous:before {\r\n    content: \"\\E045\"; }\r\n  .material-icons.slideshow:before {\r\n    content: \"\\E41B\"; }\r\n  .material-icons.slow_motion_video:before {\r\n    content: \"\\E068\"; }\r\n  .material-icons.smartphone:before {\r\n    content: \"\\E32C\"; }\r\n  .material-icons.smoke_free:before {\r\n    content: \"\\EB4A\"; }\r\n  .material-icons.smoking_rooms:before {\r\n    content: \"\\EB4B\"; }\r\n  .material-icons.sms:before {\r\n    content: \"\\E625\"; }\r\n  .material-icons.sms_failed:before {\r\n    content: \"\\E626\"; }\r\n  .material-icons.snooze:before {\r\n    content: \"\\E046\"; }\r\n  .material-icons.sort:before {\r\n    content: \"\\E164\"; }\r\n  .material-icons.sort_by_alpha:before {\r\n    content: \"\\E053\"; }\r\n  .material-icons.spa:before {\r\n    content: \"\\EB4C\"; }\r\n  .material-icons.space_bar:before {\r\n    content: \"\\E256\"; }\r\n  .material-icons.speaker:before {\r\n    content: \"\\E32D\"; }\r\n  .material-icons.speaker_group:before {\r\n    content: \"\\E32E\"; }\r\n  .material-icons.speaker_notes:before {\r\n    content: \"\\E8CD\"; }\r\n  .material-icons.speaker_notes_off:before {\r\n    content: \"\\E92A\"; }\r\n  .material-icons.speaker_phone:before {\r\n    content: \"\\E0D2\"; }\r\n  .material-icons.speed:before {\r\n    content: \"\\E9E4\"; }\r\n  .material-icons.spellcheck:before {\r\n    content: \"\\E8CE\"; }\r\n  .material-icons.sports:before {\r\n    content: \"\\EA30\"; }\r\n  .material-icons.sports_baseball:before {\r\n    content: \"\\EA51\"; }\r\n  .material-icons.sports_basketball:before {\r\n    content: \"\\EA26\"; }\r\n  .material-icons.sports_cricket:before {\r\n    content: \"\\EA27\"; }\r\n  .material-icons.sports_esports:before {\r\n    content: \"\\EA28\"; }\r\n  .material-icons.sports_football:before {\r\n    content: \"\\EA29\"; }\r\n  .material-icons.sports_golf:before {\r\n    content: \"\\EA2A\"; }\r\n  .material-icons.sports_handball:before {\r\n    content: \"\\EA33\"; }\r\n  .material-icons.sports_hockey:before {\r\n    content: \"\\EA2B\"; }\r\n  .material-icons.sports_kabaddi:before {\r\n    content: \"\\EA34\"; }\r\n  .material-icons.sports_mma:before {\r\n    content: \"\\EA2C\"; }\r\n  .material-icons.sports_motorsports:before {\r\n    content: \"\\EA2D\"; }\r\n  .material-icons.sports_rugby:before {\r\n    content: \"\\EA2E\"; }\r\n  .material-icons.sports_soccer:before {\r\n    content: \"\\EA2F\"; }\r\n  .material-icons.sports_tennis:before {\r\n    content: \"\\EA32\"; }\r\n  .material-icons.sports_volleyball:before {\r\n    content: \"\\EA31\"; }\r\n  .material-icons.square_foot:before {\r\n    content: \"\\EA49\"; }\r\n  .material-icons.stacked_bar_chart:before {\r\n    content: \"\\E9E6\"; }\r\n  .material-icons.star:before {\r\n    content: \"\\E838\"; }\r\n  .material-icons.star_border:before {\r\n    content: \"\\E83A\"; }\r\n  .material-icons.star_half:before {\r\n    content: \"\\E839\"; }\r\n  .material-icons.star_outline:before {\r\n    content: \"\\E83A\"; }\r\n  .material-icons.stars:before {\r\n    content: \"\\E8D0\"; }\r\n  .material-icons.stay_current_landscape:before {\r\n    content: \"\\E0D3\"; }\r\n  .material-icons.stay_current_portrait:before {\r\n    content: \"\\E0D4\"; }\r\n  .material-icons.stay_primary_landscape:before {\r\n    content: \"\\E0D5\"; }\r\n  .material-icons.stay_primary_portrait:before {\r\n    content: \"\\E0D6\"; }\r\n  .material-icons.stop:before {\r\n    content: \"\\E047\"; }\r\n  .material-icons.stop_screen_share:before {\r\n    content: \"\\E0E3\"; }\r\n  .material-icons.storage:before {\r\n    content: \"\\E1DB\"; }\r\n  .material-icons.store:before {\r\n    content: \"\\E8D1\"; }\r\n  .material-icons.store_mall_directory:before {\r\n    content: \"\\E563\"; }\r\n  .material-icons.storefront:before {\r\n    content: \"\\EA12\"; }\r\n  .material-icons.straighten:before {\r\n    content: \"\\E41C\"; }\r\n  .material-icons.stream:before {\r\n    content: \"\\E9E9\"; }\r\n  .material-icons.streetview:before {\r\n    content: \"\\E56E\"; }\r\n  .material-icons.strikethrough_s:before {\r\n    content: \"\\E257\"; }\r\n  .material-icons.style:before {\r\n    content: \"\\E41D\"; }\r\n  .material-icons.subdirectory_arrow_left:before {\r\n    content: \"\\E5D9\"; }\r\n  .material-icons.subdirectory_arrow_right:before {\r\n    content: \"\\E5DA\"; }\r\n  .material-icons.subject:before {\r\n    content: \"\\E8D2\"; }\r\n  .material-icons.subscriptions:before {\r\n    content: \"\\E064\"; }\r\n  .material-icons.subtitles:before {\r\n    content: \"\\E048\"; }\r\n  .material-icons.subway:before {\r\n    content: \"\\E56F\"; }\r\n  .material-icons.supervised_user_circle:before {\r\n    content: \"\\E939\"; }\r\n  .material-icons.supervisor_account:before {\r\n    content: \"\\E8D3\"; }\r\n  .material-icons.surround_sound:before {\r\n    content: \"\\E049\"; }\r\n  .material-icons.swap_calls:before {\r\n    content: \"\\E0D7\"; }\r\n  .material-icons.swap_horiz:before {\r\n    content: \"\\E8D4\"; }\r\n  .material-icons.swap_horizontal_circle:before {\r\n    content: \"\\E933\"; }\r\n  .material-icons.swap_vert:before {\r\n    content: \"\\E8D5\"; }\r\n  .material-icons.swap_vert_circle:before {\r\n    content: \"\\E8D6\"; }\r\n  .material-icons.swap_vertical_circle:before {\r\n    content: \"\\E8D6\"; }\r\n  .material-icons.swipe:before {\r\n    content: \"\\E9EC\"; }\r\n  .material-icons.switch_account:before {\r\n    content: \"\\E9ED\"; }\r\n  .material-icons.switch_camera:before {\r\n    content: \"\\E41E\"; }\r\n  .material-icons.switch_video:before {\r\n    content: \"\\E41F\"; }\r\n  .material-icons.sync:before {\r\n    content: \"\\E627\"; }\r\n  .material-icons.sync_alt:before {\r\n    content: \"\\EA18\"; }\r\n  .material-icons.sync_disabled:before {\r\n    content: \"\\E628\"; }\r\n  .material-icons.sync_problem:before {\r\n    content: \"\\E629\"; }\r\n  .material-icons.system_update:before {\r\n    content: \"\\E62A\"; }\r\n  .material-icons.system_update_alt:before {\r\n    content: \"\\E8D7\"; }\r\n  .material-icons.system_update_tv:before {\r\n    content: \"\\E8D7\"; }\r\n  .material-icons.tab:before {\r\n    content: \"\\E8D8\"; }\r\n  .material-icons.tab_unselected:before {\r\n    content: \"\\E8D9\"; }\r\n  .material-icons.table_chart:before {\r\n    content: \"\\E265\"; }\r\n  .material-icons.tablet:before {\r\n    content: \"\\E32F\"; }\r\n  .material-icons.tablet_android:before {\r\n    content: \"\\E330\"; }\r\n  .material-icons.tablet_mac:before {\r\n    content: \"\\E331\"; }\r\n  .material-icons.tag:before {\r\n    content: \"\\E9EF\"; }\r\n  .material-icons.tag_faces:before {\r\n    content: \"\\E420\"; }\r\n  .material-icons.takeout_dining:before {\r\n    content: \"\\EA74\"; }\r\n  .material-icons.tap_and_play:before {\r\n    content: \"\\E62B\"; }\r\n  .material-icons.terrain:before {\r\n    content: \"\\E564\"; }\r\n  .material-icons.text_fields:before {\r\n    content: \"\\E262\"; }\r\n  .material-icons.text_format:before {\r\n    content: \"\\E165\"; }\r\n  .material-icons.text_rotate_up:before {\r\n    content: \"\\E93A\"; }\r\n  .material-icons.text_rotate_vertical:before {\r\n    content: \"\\E93B\"; }\r\n  .material-icons.text_rotation_angledown:before {\r\n    content: \"\\E93C\"; }\r\n  .material-icons.text_rotation_angleup:before {\r\n    content: \"\\E93D\"; }\r\n  .material-icons.text_rotation_down:before {\r\n    content: \"\\E93E\"; }\r\n  .material-icons.text_rotation_none:before {\r\n    content: \"\\E93F\"; }\r\n  .material-icons.textsms:before {\r\n    content: \"\\E0D8\"; }\r\n  .material-icons.texture:before {\r\n    content: \"\\E421\"; }\r\n  .material-icons.theater_comedy:before {\r\n    content: \"\\EA66\"; }\r\n  .material-icons.theaters:before {\r\n    content: \"\\E8DA\"; }\r\n  .material-icons.thumb_down:before {\r\n    content: \"\\E8DB\"; }\r\n  .material-icons.thumb_down_alt:before {\r\n    content: \"\\E816\"; }\r\n  .material-icons.thumb_down_off_alt:before {\r\n    content: \"\\E9F2\"; }\r\n  .material-icons.thumb_up:before {\r\n    content: \"\\E8DC\"; }\r\n  .material-icons.thumb_up_alt:before {\r\n    content: \"\\E817\"; }\r\n  .material-icons.thumb_up_off_alt:before {\r\n    content: \"\\E9F3\"; }\r\n  .material-icons.thumbs_up_down:before {\r\n    content: \"\\E8DD\"; }\r\n  .material-icons.time_to_leave:before {\r\n    content: \"\\E62C\"; }\r\n  .material-icons.timelapse:before {\r\n    content: \"\\E422\"; }\r\n  .material-icons.timeline:before {\r\n    content: \"\\E922\"; }\r\n  .material-icons.timer:before {\r\n    content: \"\\E425\"; }\r\n  .material-icons.timer_10:before {\r\n    content: \"\\E423\"; }\r\n  .material-icons.timer_3:before {\r\n    content: \"\\E424\"; }\r\n  .material-icons.timer_off:before {\r\n    content: \"\\E426\"; }\r\n  .material-icons.title:before {\r\n    content: \"\\E264\"; }\r\n  .material-icons.toc:before {\r\n    content: \"\\E8DE\"; }\r\n  .material-icons.today:before {\r\n    content: \"\\E8DF\"; }\r\n  .material-icons.toggle_off:before {\r\n    content: \"\\E9F5\"; }\r\n  .material-icons.toggle_on:before {\r\n    content: \"\\E9F6\"; }\r\n  .material-icons.toll:before {\r\n    content: \"\\E8E0\"; }\r\n  .material-icons.tonality:before {\r\n    content: \"\\E427\"; }\r\n  .material-icons.touch_app:before {\r\n    content: \"\\E913\"; }\r\n  .material-icons.toys:before {\r\n    content: \"\\E332\"; }\r\n  .material-icons.track_changes:before {\r\n    content: \"\\E8E1\"; }\r\n  .material-icons.traffic:before {\r\n    content: \"\\E565\"; }\r\n  .material-icons.train:before {\r\n    content: \"\\E570\"; }\r\n  .material-icons.tram:before {\r\n    content: \"\\E571\"; }\r\n  .material-icons.transfer_within_a_station:before {\r\n    content: \"\\E572\"; }\r\n  .material-icons.transform:before {\r\n    content: \"\\E428\"; }\r\n  .material-icons.transit_enterexit:before {\r\n    content: \"\\E579\"; }\r\n  .material-icons.translate:before {\r\n    content: \"\\E8E2\"; }\r\n  .material-icons.trending_down:before {\r\n    content: \"\\E8E3\"; }\r\n  .material-icons.trending_flat:before {\r\n    content: \"\\E8E4\"; }\r\n  .material-icons.trending_neutral:before {\r\n    content: \"\\E8E4\"; }\r\n  .material-icons.trending_up:before {\r\n    content: \"\\E8E5\"; }\r\n  .material-icons.trip_origin:before {\r\n    content: \"\\E57B\"; }\r\n  .material-icons.tune:before {\r\n    content: \"\\E429\"; }\r\n  .material-icons.turned_in:before {\r\n    content: \"\\E8E6\"; }\r\n  .material-icons.turned_in_not:before {\r\n    content: \"\\E8E7\"; }\r\n  .material-icons.tv:before {\r\n    content: \"\\E333\"; }\r\n  .material-icons.tv_off:before {\r\n    content: \"\\E647\"; }\r\n  .material-icons.two_wheeler:before {\r\n    content: \"\\E9F9\"; }\r\n  .material-icons.unarchive:before {\r\n    content: \"\\E169\"; }\r\n  .material-icons.undo:before {\r\n    content: \"\\E166\"; }\r\n  .material-icons.unfold_less:before {\r\n    content: \"\\E5D6\"; }\r\n  .material-icons.unfold_more:before {\r\n    content: \"\\E5D7\"; }\r\n  .material-icons.unsubscribe:before {\r\n    content: \"\\E0EB\"; }\r\n  .material-icons.update:before {\r\n    content: \"\\E923\"; }\r\n  .material-icons.upload_file:before {\r\n    content: \"\\E9FC\"; }\r\n  .material-icons.usb:before {\r\n    content: \"\\E1E0\"; }\r\n  .material-icons.verified_user:before {\r\n    content: \"\\E8E8\"; }\r\n  .material-icons.vertical_align_bottom:before {\r\n    content: \"\\E258\"; }\r\n  .material-icons.vertical_align_center:before {\r\n    content: \"\\E259\"; }\r\n  .material-icons.vertical_align_top:before {\r\n    content: \"\\E25A\"; }\r\n  .material-icons.vertical_split:before {\r\n    content: \"\\E949\"; }\r\n  .material-icons.vibration:before {\r\n    content: \"\\E62D\"; }\r\n  .material-icons.video_call:before {\r\n    content: \"\\E070\"; }\r\n  .material-icons.video_collection:before {\r\n    content: \"\\E04A\"; }\r\n  .material-icons.video_label:before {\r\n    content: \"\\E071\"; }\r\n  .material-icons.video_library:before {\r\n    content: \"\\E04A\"; }\r\n  .material-icons.videocam:before {\r\n    content: \"\\E04B\"; }\r\n  .material-icons.videocam_off:before {\r\n    content: \"\\E04C\"; }\r\n  .material-icons.videogame_asset:before {\r\n    content: \"\\E338\"; }\r\n  .material-icons.view_agenda:before {\r\n    content: \"\\E8E9\"; }\r\n  .material-icons.view_array:before {\r\n    content: \"\\E8EA\"; }\r\n  .material-icons.view_carousel:before {\r\n    content: \"\\E8EB\"; }\r\n  .material-icons.view_column:before {\r\n    content: \"\\E8EC\"; }\r\n  .material-icons.view_comfortable:before {\r\n    content: \"\\E42A\"; }\r\n  .material-icons.view_comfy:before {\r\n    content: \"\\E42A\"; }\r\n  .material-icons.view_compact:before {\r\n    content: \"\\E42B\"; }\r\n  .material-icons.view_day:before {\r\n    content: \"\\E8ED\"; }\r\n  .material-icons.view_headline:before {\r\n    content: \"\\E8EE\"; }\r\n  .material-icons.view_in_ar:before {\r\n    content: \"\\E9FE\"; }\r\n  .material-icons.view_list:before {\r\n    content: \"\\E8EF\"; }\r\n  .material-icons.view_module:before {\r\n    content: \"\\E8F0\"; }\r\n  .material-icons.view_quilt:before {\r\n    content: \"\\E8F1\"; }\r\n  .material-icons.view_stream:before {\r\n    content: \"\\E8F2\"; }\r\n  .material-icons.view_week:before {\r\n    content: \"\\E8F3\"; }\r\n  .material-icons.vignette:before {\r\n    content: \"\\E435\"; }\r\n  .material-icons.visibility:before {\r\n    content: \"\\E8F4\"; }\r\n  .material-icons.visibility_off:before {\r\n    content: \"\\E8F5\"; }\r\n  .material-icons.voice_chat:before {\r\n    content: \"\\E62E\"; }\r\n  .material-icons.voice_over_off:before {\r\n    content: \"\\E94A\"; }\r\n  .material-icons.voicemail:before {\r\n    content: \"\\E0D9\"; }\r\n  .material-icons.volume_down:before {\r\n    content: \"\\E04D\"; }\r\n  .material-icons.volume_mute:before {\r\n    content: \"\\E04E\"; }\r\n  .material-icons.volume_off:before {\r\n    content: \"\\E04F\"; }\r\n  .material-icons.volume_up:before {\r\n    content: \"\\E050\"; }\r\n  .material-icons.volunteer_activism:before {\r\n    content: \"\\EA70\"; }\r\n  .material-icons.vpn_key:before {\r\n    content: \"\\E0DA\"; }\r\n  .material-icons.vpn_lock:before {\r\n    content: \"\\E62F\"; }\r\n  .material-icons.wallet_giftcard:before {\r\n    content: \"\\E8F6\"; }\r\n  .material-icons.wallet_membership:before {\r\n    content: \"\\E8F7\"; }\r\n  .material-icons.wallet_travel:before {\r\n    content: \"\\E8F8\"; }\r\n  .material-icons.wallpaper:before {\r\n    content: \"\\E1BC\"; }\r\n  .material-icons.warning:before {\r\n    content: \"\\E002\"; }\r\n  .material-icons.watch:before {\r\n    content: \"\\E334\"; }\r\n  .material-icons.watch_later:before {\r\n    content: \"\\E924\"; }\r\n  .material-icons.waterfall_chart:before {\r\n    content: \"\\EA00\"; }\r\n  .material-icons.waves:before {\r\n    content: \"\\E176\"; }\r\n  .material-icons.wb_auto:before {\r\n    content: \"\\E42C\"; }\r\n  .material-icons.wb_cloudy:before {\r\n    content: \"\\E42D\"; }\r\n  .material-icons.wb_incandescent:before {\r\n    content: \"\\E42E\"; }\r\n  .material-icons.wb_iridescent:before {\r\n    content: \"\\E436\"; }\r\n  .material-icons.wb_shade:before {\r\n    content: \"\\EA01\"; }\r\n  .material-icons.wb_sunny:before {\r\n    content: \"\\E430\"; }\r\n  .material-icons.wb_twighlight:before {\r\n    content: \"\\EA02\"; }\r\n  .material-icons.wc:before {\r\n    content: \"\\E63D\"; }\r\n  .material-icons.web:before {\r\n    content: \"\\E051\"; }\r\n  .material-icons.web_asset:before {\r\n    content: \"\\E069\"; }\r\n  .material-icons.weekend:before {\r\n    content: \"\\E16B\"; }\r\n  .material-icons.whatshot:before {\r\n    content: \"\\E80E\"; }\r\n  .material-icons.where_to_vote:before {\r\n    content: \"\\E177\"; }\r\n  .material-icons.widgets:before {\r\n    content: \"\\E1BD\"; }\r\n  .material-icons.wifi:before {\r\n    content: \"\\E63E\"; }\r\n  .material-icons.wifi_lock:before {\r\n    content: \"\\E1E1\"; }\r\n  .material-icons.wifi_off:before {\r\n    content: \"\\E648\"; }\r\n  .material-icons.wifi_tethering:before {\r\n    content: \"\\E1E2\"; }\r\n  .material-icons.work:before {\r\n    content: \"\\E8F9\"; }\r\n  .material-icons.work_off:before {\r\n    content: \"\\E942\"; }\r\n  .material-icons.work_outline:before {\r\n    content: \"\\E943\"; }\r\n  .material-icons.workspaces_filled:before {\r\n    content: \"\\EA0D\"; }\r\n  .material-icons.workspaces_outline:before {\r\n    content: \"\\EA0F\"; }\r\n  .material-icons.wrap_text:before {\r\n    content: \"\\E25B\"; }\r\n  .material-icons.youtube_searched_for:before {\r\n    content: \"\\E8FA\"; }\r\n  .material-icons.zoom_in:before {\r\n    content: \"\\E8FF\"; }\r\n  .material-icons.zoom_out:before {\r\n    content: \"\\E900\"; }\r\n  .material-icons.zoom_out_map:before {\r\n    content: \"\\E56B\"; }\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-file-agent/dist/vue-file-agent.css":
+/*!*********************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-file-agent/dist/vue-file-agent.css ***!
+  \*********************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".vue-file-agent,.vue-file-agent *{-webkit-box-sizing:border-box;box-sizing:border-box}.is-drag-over *{pointer-events:none!important}.is-drag-over:before{content:\" \"}.is-disabled .vue-file-agent{opacity:.65;pointer-events:none}.grid-box-item{-webkit-transition-duration:.6s;transition-duration:.6s}.grid-box-enter,.grid-box-leave-to{opacity:0!important;-webkit-transform:translateZ(0) scale(.25)!important;transform:translateZ(0) scale(.25)!important}.grid-box-leave-active{position:absolute!important}.is-readonly .vue-file-agent.file-input-wrapper{border:0}.vue-file-agent .file-preview-wrapper{display:inline-block;margin:5px;position:relative;vertical-align:top;margin:16px;margin:8px}.vue-file-agent .file-preview-wrapper:before{content:\" \";position:absolute;left:0;top:0;right:0;bottom:0;background:rgba(0,0,0,.25)}.vue-file-agent .file-category-video-playable .file-preview .file-preview-overlay,.vue-file-agent .file-preview-wrapper-image .file-preview .file-preview-overlay{content:\" \";background:rgba(0,0,0,.25);position:absolute;top:0;right:0;bottom:0;left:0;z-index:-1}.vue-file-agent .file-category-video-playable .file-preview:before,.vue-file-agent .file-preview-wrapper-image .file-preview:before{-webkit-box-shadow:inset 0 40px 20px -25px rgba(0,0,0,.5);box-shadow:inset 0 40px 20px -25px rgba(0,0,0,.5);height:40px}.vue-file-agent .file-category-video-playable .file-preview:after,.vue-file-agent .file-preview-wrapper-image .file-preview:after{-webkit-box-shadow:inset 0 -40px 20px -25px rgba(0,0,0,.5);box-shadow:inset 0 -40px 20px -25px rgba(0,0,0,.5);height:40px}.vue-file-agent .file-category-audio-playable .file-preview .file-icon,.vue-file-agent .file-category-video-playable .file-preview .file-icon,.vue-file-agent .file-preview-wrapper-image .file-preview .file-icon{display:none}.vue-file-agent .file-category-video-playable .file-preview .file-preview-overlay{z-index:1}.vue-file-agent .file-preview-wrapper-image .file-preview.dark-content .file-preview-overlay{background:hsla(0,0%,100%,.25)}.vue-file-agent .file-preview{position:relative;z-index:1;float:left;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;z-index:9}.vue-file-agent .file-preview:after,.vue-file-agent .file-preview:before{content:\" \";position:absolute;left:0;top:0;right:0;bottom:0;z-index:2;top:auto;height:25px}.vue-file-agent .file-preview:before{height:28px;top:0;bottom:auto}.vue-file-agent .file-preview .file-preview-img{max-width:100%;max-height:100%;background:url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\"><rect x=\"0\" y=\"0\" width=\"100%\" height=\"100%\" fill=\"rgba(255, 255, 255, 0.1)\" /><rect x=\"50%\" y=\"0\" width=\"50%\" height=\"50%\" fill=\"rgba(0, 0, 0, 0.075)\" /><rect x=\"0\" y=\"50%\" width=\"50%\" height=\"50%\" fill=\"rgba(0, 0, 0, 0.075)\" /></svg>');background-repeat:repeat;position:absolute;left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}.vue-file-agent .file-preview .file-preview-img-clone{position:absolute;top:0;right:0;bottom:0;left:0;-o-object-fit:cover;object-fit:cover;-webkit-filter:blur(10px);filter:blur(10px);height:100%;width:100%}.vue-file-agent .file-preview .file-name{position:absolute;top:0;left:0;right:0;padding:0 5px;z-index:4;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:28px;height:28px;font-size:16px}.vue-file-agent .file-preview .file-delete{cursor:pointer;position:absolute;right:0;top:0;padding:0;font-size:16px;background:transparent;height:28px;width:22px;display:block;color:#fff;color:hsla(0,0%,100%,.75);z-index:500}.vue-file-agent .file-preview .file-delete svg{width:1em;height:1em;fill:currentColor;vertical-align:middle}.vue-file-agent .file-preview .file-icon{z-index:455;position:absolute;top:50%;height:72px;width:72px;margin-top:-36px;left:50%;margin-left:-36px}.vue-file-agent .file-preview .file-icon svg{width:72px;height:72px;fill:#fff}.vue-file-agent .file-preview .file-ext{text-align:left;left:0;z-index:3}.vue-file-agent .file-preview .file-ext,.vue-file-agent .file-preview .file-size{position:absolute;font-size:16px;text-transform:uppercase;display:block;right:0;bottom:0;line-height:25px;padding:0 5px}.vue-file-agent .file-preview .file-size{text-align:right;z-index:4}.vue-file-agent .file-preview .image-dimension .image-dimension-height,.vue-file-agent .file-preview .image-dimension .image-dimension-width{display:inline-block}.vue-file-agent .file-preview .image-dimension .image-dimension-width:after{content:\"x\"}.vue-file-agent .file-preview .image-dimension{position:absolute;font-size:12px;text-align:center;display:block;width:100%;right:0;bottom:0;line-height:25px;padding:0 5px;z-index:4}.vue-file-agent .file-preview .file-ext,.vue-file-agent .file-preview .file-name,.vue-file-agent .file-preview .file-size,.vue-file-agent .file-preview .image-dimension,.vue-file-agent .file-preview .image-dimension .image-dimension-width:after{color:#fff}.vue-file-agent.has-multiple .file-preview,.vue-file-agent.is-single .is-deletable .file-preview{z-index:11}.vue-file-agent .is-deletable .file-preview .file-name{padding-right:20px}.vue-file-agent.no-meta .file-preview .file-ext,.vue-file-agent.no-meta .file-preview .file-name,.vue-file-agent.no-meta .file-preview .file-size,.vue-file-agent.no-meta .file-preview .image-dimension,.vue-file-agent.no-meta .file-preview:after{display:none}.vue-file-agent .file-preview-new{text-align:center;padding:8px;z-index:1}.vue-file-agent .file-preview-new:before{background:rgba(0,0,0,.05)}.vue-file-agent .file-preview-new svg{fill:#aaa;margin-top:16%;height:36%}.vue-file-agent .file-preview-new .help-text{color:#aaa;text-align:center;font-size:16px;line-height:20px;height:20px;display:block}.vue-file-agent .file-preview-new .file-preview{z-index:8}.vue-file-agent .file-preview-new .file-preview:after,.vue-file-agent .file-preview-new .file-preview:before{display:none}.vue-file-agent .file-av-wrapper .file-av-action{width:60px;height:60px;left:50%;position:absolute;top:50%;margin-top:-30px;margin-left:-30px;background:transparent;border-radius:50%;z-index:800;cursor:pointer}.vue-file-agent .file-av-wrapper .file-av-play,.vue-file-agent .file-av-wrapper .file-av-stop{width:50%;height:50%;position:absolute;left:25%;top:25%;display:none}.vue-file-agent .file-av-wrapper .file-av-play{height:60%;width:60%;left:20%;top:20%;display:block}.vue-file-agent .file-av-wrapper .file-av-play svg,.vue-file-agent .file-av-wrapper .file-av-stop svg{fill:#fff;width:100%;height:100%}.vue-file-agent .file-av-wrapper audio,.vue-file-agent .file-av-wrapper video{position:absolute;left:0;right:0;z-index:799;top:0;bottom:0;width:100%;height:100%;background:rgba(0,0,0,.75)}.vue-file-agent .file-is-playing-av .file-av-wrapper .file-av-stop{display:block}.vue-file-agent .file-is-playing-av .file-av-wrapper .file-av-play{display:none}.vue-file-agent .file-progress{display:block;height:3px;z-index:3;position:absolute;left:0;right:0;overflow:hidden;top:32px;top:1px;top:0;height:28px;height:4px;margin-top:1px;margin-left:1px;margin-right:1px}.vue-file-agent .file-progress .file-progress-bar{background:#fac525;display:block;height:100%;-webkit-transition:all .1s;transition:all .1s;width:0}.vue-file-agent .file-progress.has-file-progress{background:hsla(0,0%,100%,.5);-webkit-box-shadow:0 2px 10px -1px rgba(0,0,0,.75);box-shadow:0 2px 10px -1px rgba(0,0,0,.75)}.vue-file-agent .file-progress.file-progress-full .file-progress-bar{background:#54d500}.vue-file-agent .file-progress.file-progress-done{width:5px!important;height:5px!important;right:0!important;left:auto!important;border-radius:50%;-webkit-box-shadow:-1px 1px 2px 0 rgba(0,0,0,.75);box-shadow:-1px 1px 2px 0 rgba(0,0,0,.75)}.vue-file-agent .file-progress.file-progress-done .file-progress-bar{background:#54d500}.vue-file-agent .file-input{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;opacity:0;z-index:10;cursor:pointer}.vue-file-agent.file-input-wrapper{position:relative;border:2px dashed #aaa;text-align:center;-webkit-transition:all .6s;transition:all .6s}.is-drag-over .vue-file-agent.file-input-wrapper,.vue-file-agent.file-input-wrapper.is-drag-over{border-color:#f61a1a;-webkit-box-shadow:inset 0 0 20px 1px #f61a1a;box-shadow:inset 0 0 20px 1px #f61a1a}.is-drag-valid.is-drag-over .vue-file-agent.file-input-wrapper,.vue-file-agent.file-input-wrapper.is-drag-valid.is-drag-over{border-color:#54d500;-webkit-box-shadow:inset 0 0 20px 1px #54d500;box-shadow:inset 0 0 20px 1px #54d500}.vue-file-agent .file-error-wrapper{position:absolute;left:0;right:0;color:#fff;bottom:25px;z-index:499;padding:10px;top:28px;font-size:14px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.vue-file-agent .file-error-wrapper .file-error-message{background:#ea2626;width:100%;height:auto;color:#fff;padding:0 5px;display:block}.vue-file-agent .is-editable .file-name{cursor:pointer}.vue-file-agent .is-editable .file-name .file-name-input{color:inherit;background:transparent;font-weight:inherit;padding:inherit;margin:inherit;border:0;outline:0;position:absolute;left:0;width:100%;text-align:inherit;opacity:0;z-index:-5}.vue-file-agent .is-editable .file-name .file-name-edit-icon svg{height:1em;width:1em;margin-right:2px;opacity:.5;fill:currentColor;vertical-align:middle;margin-top:-2px}.vue-file-agent .is-editable.is-edit-input-focused .file-name{border-bottom:1px solid currentColor}.vue-file-agent .is-editable.is-edit-input-focused .file-name .file-name-edit-icon,.vue-file-agent .is-editable.is-edit-input-focused .file-name .file-name-text{display:none}.vue-file-agent .is-editable.is-edit-input-focused .file-name .file-name-input{opacity:1;z-index:2}.is-sorting .vue-file-agent .active-sorting-item,.is-sorting .vue-file-agent .file-preview-wrapper{-webkit-transition-duration:0s;transition-duration:0s}.is-sorting-active .vue-file-agent .file-preview-wrapper{opacity:.75}.is-sorting-active .vue-file-agent .active-sorting-item{opacity:1}.is-sortable-immediately .vue-file-agent .file-preview-wrapper,.is-sortable-immediately .vue-file-agent .file-preview-wrapper *{cursor:move}.vue-file-agent .file-preview-wrapper .file-sortable-handle{position:absolute;z-index:900;cursor:move;border-radius:50%;background:hsla(0,0%,100%,.95);color:#222;margin:0;width:33px;height:33px;left:5px;top:5px;padding:4px}.vue-file-agent .file-preview-wrapper .file-sortable-handle svg{fill:currentColor;width:100%;height:100%;vertical-align:top}.grid-block-wrapper .grid-block{width:50%;border:1px solid transparent;margin:0!important;min-width:156px}.grid-block-wrapper{padding:2px}.grid-block-wrapper .grid-block .file-preview{width:100%;height:0;padding-bottom:75%;padding-bottom:100%}.is-readonly .grid-block-wrapper{padding:0;margin:-1px}@media (min-width:576px){.grid-block-wrapper .grid-block{width:33.3333%;border-width:2px}.grid-block-wrapper{padding:2px}.is-readonly .grid-block-wrapper{padding:0;margin:-2px}}@media (min-width:768px){.grid-block-wrapper .grid-block{width:25%}}@media (min-width:992px){.grid-block-wrapper .grid-block{width:20%}}@media (min-width:1200px){.grid-block-wrapper .grid-block{width:16.6666%}}@media (min-width:1440px){.grid-block-wrapper .grid-block{width:16.6666%}}.grid-block-wrapper.is-compact .grid-block,.theme-list .vue-file-agent .file-preview-wrapper{width:100%}.theme-list .vue-file-agent .file-preview-wrapper .file-preview{height:53px;padding:0}.theme-list .vue-file-agent .file-preview-wrapper .file-preview:after,.theme-list .vue-file-agent .file-preview-wrapper .file-preview:before{-webkit-box-shadow:none;box-shadow:none}.theme-list .vue-file-agent .file-preview-wrapper .file-preview:before{background:#dcdcdf;left:53px;right:0;top:0;bottom:0;height:100%}.theme-list .vue-file-agent .file-preview-wrapper .file-preview .file-icon,.theme-list .vue-file-agent .file-preview-wrapper .file-preview .thumbnail{width:100%;left:0;margin:0;top:0;bottom:0;height:100%;width:53px}.theme-list .vue-file-agent .file-preview-wrapper .file-preview .thumbnail{z-index:12}.theme-list .vue-file-agent .file-preview-wrapper .file-preview .file-icon svg{height:46px;width:46px;margin-top:4px}.theme-list .vue-file-agent .file-preview-wrapper .file-preview .file-progress{z-index:2;top:0;right:0;bottom:0;-webkit-box-shadow:none;box-shadow:none}.theme-list .vue-file-agent .file-preview-wrapper .file-preview .file-ext,.theme-list .vue-file-agent .file-preview-wrapper .file-preview .file-name{background:transparent}.theme-list .vue-file-agent .file-preview-wrapper .file-preview .file-ext,.theme-list .vue-file-agent .file-preview-wrapper .file-preview .file-name,.theme-list .vue-file-agent .file-preview-wrapper .file-preview .file-progress{left:53px;text-align:left;color:#333}.theme-list .vue-file-agent .file-preview-wrapper .file-preview .file-size{color:#333}.theme-list .vue-file-agent .file-preview-wrapper .file-preview .file-name{font-weight:700}.theme-list .vue-file-agent .file-preview-wrapper .file-preview .file-delete{color:#e55353;color:#777;background:transparent}.theme-list .vue-file-agent .file-preview-wrapper .file-preview .image-dimension{left:53px;text-align:left;margin-left:53px;right:auto;width:auto}.theme-list .vue-file-agent .file-preview-wrapper .file-preview .image-dimension,.theme-list .vue-file-agent .file-preview-wrapper .file-preview .image-dimension .image-dimension-width:after{color:#666}.theme-list .vue-file-agent .file-preview-wrapper .file-error-wrapper{top:0;left:0;bottom:0;padding:5px;left:53px;text-align:left;height:100%;color:#ea2626;font-weight:700;background:transparent;display:block}.theme-list .vue-file-agent .file-preview-wrapper.is-deletable .file-error-wrapper{right:17px}.theme-list .vue-file-agent .file-preview-wrapper .file-sortable-handle{margin:0;left:10px;top:10px}.theme-list .vue-file-agent .file-preview-new{padding:0}.theme-list .vue-file-agent .file-preview-new svg{height:36px;width:36px;margin:0;position:absolute;left:10px;top:8px}.theme-list .vue-file-agent .file-preview-new .help-text{padding:5px;text-align:left;position:absolute;top:0;left:53px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;right:0;bottom:0;height:100%}.theme-list .vue-file-agent .file-av-wrapper .file-av-action{width:53px;height:53px;margin:0;left:0;top:0}.theme-list .vue-file-agent .file-av-wrapper .file-av-play,.theme-list .vue-file-agent .file-av-wrapper .file-av-stop{width:50%;height:50%;position:absolute;left:25%;top:25%}.theme-list .grid-box-enter,.theme-list .grid-box-leave-to{-webkit-transform:translate3d(0,-20px,0)!important;transform:translate3d(0,-20px,0)!important;opacity:0!important}.theme-list .grid-box-leave-active{position:absolute!important;left:0!important}.theme-list .grid-block-wrapper .grid-block{border-width:2px}.theme-list.is-readonly .grid-block-wrapper{padding:0;margin:-2px}", ""]);
 
 // exports
 
@@ -39040,6 +39132,3125 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/vue-file-agent/dist/vue-file-agent.css":
+/*!*************************************************************!*\
+  !*** ./node_modules/vue-file-agent/dist/vue-file-agent.css ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../css-loader??ref--6-1!../../postcss-loader/src??ref--6-2!./vue-file-agent.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-file-agent/dist/vue-file-agent.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-file-agent/dist/vue-file-agent.umd.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/vue-file-agent/dist/vue-file-agent.umd.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(true)
+		module.exports = factory(__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"));
+	else {}
+})((typeof self !== 'undefined' ? self : this), function(__WEBPACK_EXTERNAL_MODULE__8bbf__) {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "fb15");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "6816":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_vue_file_agent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("eb77");
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_vue_file_agent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_vue_file_agent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
+/* unused harmony reexport * */
+ /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_vue_file_agent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "8bbf":
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__8bbf__;
+
+/***/ }),
+
+/***/ "eb77":
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ "f6fd":
+/***/ (function(module, exports) {
+
+// document.currentScript polyfill by Adam Miller
+
+// MIT license
+
+(function(document){
+  var currentScript = "currentScript",
+      scripts = document.getElementsByTagName('script'); // Live NodeList collection
+
+  // If browser needs currentScript polyfill, add get currentScript() to the document object
+  if (!(currentScript in document)) {
+    Object.defineProperty(document, currentScript, {
+      get: function(){
+
+        // IE 6-10 supports script readyState
+        // IE 10+ support stack trace
+        try { throw new Error(); }
+        catch (err) {
+
+          // Find the second match for the "at" string to get file src url from stack.
+          // Specifically works with the format of stack traces in IE.
+          var i, res = ((/.*at [^\(]*\((.*):.+:.+\)$/ig).exec(err.stack) || [false])[1];
+
+          // For all scripts on the page, if src matches or if ready state is interactive, return the script tag
+          for(i in scripts){
+            if(scripts[i].src == res || scripts[i].readyState == "interactive"){
+              return scripts[i];
+            }
+          }
+
+          // If no match, return null
+          return null;
+        }
+      }
+    });
+  }
+})(document);
+
+
+/***/ }),
+
+/***/ "fb15":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+
+// CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/setPublicPath.js
+// This file is imported into lib/wc client bundles.
+
+if (typeof window !== 'undefined') {
+  if (true) {
+    __webpack_require__("f6fd")
+  }
+
+  var setPublicPath_i
+  if ((setPublicPath_i = window.document.currentScript) && (setPublicPath_i = setPublicPath_i.src.match(/(.+\/)[^/]+\.js(\?.*)?$/))) {
+    __webpack_require__.p = setPublicPath_i[1] // eslint-disable-line
+  }
+}
+
+// Indicate to webpack that this file can be concatenated
+/* harmony default export */ var setPublicPath = (null);
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"e1d1ff30-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vue-file-icon.vue?vue&type=template&id=61d49b70&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('svg',{attrs:{"viewBox":_vm.viewBoxComputed}},[_vm._l((_vm.icon.paths),function(d,index){return [(d)?_c('path',{key:index,attrs:{"d":d}}):_vm._e()]})],2)}
+var staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/components/vue-file-icon.vue?vue&type=template&id=61d49b70&
+
+// CONCATENATED MODULE: ./node_modules/tslib/tslib.es6.js
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation. All rights reserved.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at http://www.apache.org/licenses/LICENSE-2.0
+
+THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+MERCHANTABLITY OR NON-INFRINGEMENT.
+
+See the Apache Version 2.0 License for specific language governing permissions
+and limitations under the License.
+***************************************************************************** */
+/* global Reflect, Promise */
+
+var extendStatics = function(d, b) {
+    extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return extendStatics(d, b);
+};
+
+function __extends(d, b) {
+    extendStatics(d, b);
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+}
+
+var __assign = function() {
+    __assign = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+        return t;
+    }
+    return __assign.apply(this, arguments);
+}
+
+function __rest(s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+}
+
+function __decorate(decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+}
+
+function __param(paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+}
+
+function __metadata(metadataKey, metadataValue) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(metadataKey, metadataValue);
+}
+
+function __awaiter(thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+}
+
+function __generator(thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+}
+
+function __exportStar(m, exports) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+
+function __values(o) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator], i = 0;
+    if (m) return m.call(o);
+    return {
+        next: function () {
+            if (o && i >= o.length) o = void 0;
+            return { value: o && o[i++], done: !o };
+        }
+    };
+}
+
+function __read(o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+}
+
+function __spread() {
+    for (var ar = [], i = 0; i < arguments.length; i++)
+        ar = ar.concat(__read(arguments[i]));
+    return ar;
+}
+
+function __spreadArrays() {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
+
+function __await(v) {
+    return this instanceof __await ? (this.v = v, this) : new __await(v);
+}
+
+function __asyncGenerator(thisArg, _arguments, generator) {
+    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+    var g = generator.apply(thisArg, _arguments || []), i, q = [];
+    return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i;
+    function verb(n) { if (g[n]) i[n] = function (v) { return new Promise(function (a, b) { q.push([n, v, a, b]) > 1 || resume(n, v); }); }; }
+    function resume(n, v) { try { step(g[n](v)); } catch (e) { settle(q[0][3], e); } }
+    function step(r) { r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r); }
+    function fulfill(value) { resume("next", value); }
+    function reject(value) { resume("throw", value); }
+    function settle(f, v) { if (f(v), q.shift(), q.length) resume(q[0][0], q[0][1]); }
+}
+
+function __asyncDelegator(o) {
+    var i, p;
+    return i = {}, verb("next"), verb("throw", function (e) { throw e; }), verb("return"), i[Symbol.iterator] = function () { return this; }, i;
+    function verb(n, f) { i[n] = o[n] ? function (v) { return (p = !p) ? { value: __await(o[n](v)), done: n === "return" } : f ? f(v) : v; } : f; }
+}
+
+function __asyncValues(o) {
+    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+    var m = o[Symbol.asyncIterator], i;
+    return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i);
+    function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, reject) { v = o[n](v), settle(resolve, reject, v.done, v.value); }); }; }
+    function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ value: v, done: d }); }, reject); }
+}
+
+function __makeTemplateObject(cooked, raw) {
+    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
+    return cooked;
+};
+
+function __importStar(mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result.default = mod;
+    return result;
+}
+
+function __importDefault(mod) {
+    return (mod && mod.__esModule) ? mod : { default: mod };
+}
+
+// CONCATENATED MODULE: ./src/lib/extensions.ts
+/* harmony default export */ var extensions = ({
+    'audio': [
+        'aif',
+        'cda',
+        'mid',
+        'midi',
+        // 'mp3',
+        'mpa',
+        // 'ogg',
+        // 'wav',
+        'wma',
+        'wpl',
+    ],
+    'audio-playable': ['mp3', 'ogg', 'wav'],
+    'archive': ['7z', 'arj', 'deb', 'pkg', 'rar', 'rpm', 'tar.gz', 'z', 'zip'],
+    'disc': [
+        // 'bin',
+        'dmg',
+        'iso',
+        'toast',
+        'vcd',
+    ],
+    'database': [
+        'csv',
+        'dat',
+        'db',
+        'dbf',
+        'log',
+        'mdb',
+        'sav',
+        'sql',
+        'tar',
+    ],
+    'executable': ['apk', 'bat', 'bin', 'cgi', 'pl', 'com', 'exe', 'gadget', 'jar', 'py', 'wsf', 'ipa'],
+    'font': ['fnt', 'fon', 'otf', 'ttf'],
+    'image': ['ai', 'bmp', 'gif', 'ico', 'jpeg', 'jpg', 'png', 'ps', 'psd', 'svg', 'tif', 'tiff'],
+    'markup': [
+        'asp',
+        'aspx',
+        'cer',
+        'cfm',
+        'cgi',
+        'pl',
+        'css',
+        'scss',
+        'htm',
+        'html',
+        'jsp',
+        // 'vue',
+        'part',
+        'php',
+        'py',
+        'rss',
+        'xml',
+        'xhtml',
+    ],
+    'presentation': ['key', 'odp', 'pps', 'ppt', 'pptx'],
+    'script': ['c', 'class', 'cpp', 'cs', 'h', 'java', 'js', 'json', 'sh', 'swift', 'vb'],
+    'sheet': ['ods', 'xlr', 'xls', 'xlsx'],
+    'system': [
+        'bak',
+        'cab',
+        'cfg',
+        'cpl',
+        'cur',
+        'dll',
+        'dmp',
+        'drv',
+        'icns',
+        // 'ico',
+        'ini',
+        'lnk',
+        'msi',
+        'sys',
+        'tmp',
+    ],
+    'video': [
+        '3g2',
+        '3gp',
+        'avi',
+        'flv',
+        'h264',
+        // 'm4v',
+        'mkv',
+        // 'mov',
+        // 'mp4',
+        'mpg',
+        'mpeg',
+        'rm',
+        'swf',
+        'vob',
+        // 'webm',
+        'wmv',
+    ],
+    'video-playable': ['mp4', 'webm', 'mov'],
+    'vue': ['vue'],
+    'doc': [
+        'doc',
+        'docx',
+        'odt',
+        'rtf',
+        'tex',
+        // 'txt',
+        'wks',
+        'wps',
+        'wpd',
+    ],
+    'text': ['txt'],
+    'ebook': ['epub'],
+    'pdf': ['pdf'],
+    'folder': ['folder'],
+    'play': ['play'],
+});
+
+// CONCATENATED MODULE: ./src/lib/icons.ts
+var icons_e_1, icons_a;
+
+
+var SvgIcon = /** @class */ (function () {
+    function SvgIcon(paths, color, viewBox) {
+        this.paths = paths;
+        this.color = color;
+        this.viewBox = viewBox;
+        this.category = '';
+    }
+    return SvgIcon;
+}());
+
+var playIconPaths = ['M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm-4 29V15l12 9-12 9z'];
+var icons = {
+    'folder': new SvgIcon([
+        'M96.5 93.7h-93c-2 0-3.5-1.5-3.5-3.5V35.4h100v54.8c0 2-1.5 3.5-3.5 3.5z',
+        'M44.9 20V9.7c0-2-1.5-3.5-3.5-3.5h-38C1.5 6.3 0 7.8 0 9.7v25.7h100V23.5c0-2-1.5-3.5-3.5-3.5H44.9z',
+    ], '#efce4a'),
+    'audio': new SvgIcon([
+        'M32.5 37.5h-9v25h9L53.6 77V23L32.5 37.5M71.9 50c0 6.8-3.7 12.7-9.1 15.8l2.8 4.9c7.1-4.1 11.9-11.8 11.9-20.7 0-8.8-4.8-16.6-11.9-20.7l-2.8 4.9c5.4 3.1 9.1 9 9.1 15.8z',
+        // tslint:disable-next-line
+        'M62.1 50c0 3.2-1.7 5.9-4.3 7.4l2.7 4.7c4.2-2.4 7-6.9 7-12.1 0-5.2-2.8-9.7-7-12.1l-2.7 4.7c2.6 1.5 4.3 4.2 4.3 7.4z',
+    ], '#039'),
+    'video': new SvgIcon([
+        'M21 26.4v47.1h58V26.4H21zm10.9 43.5h-7.2v-7.2h7.2v7.2zm0-10.8h-7.2v-7.2h7.2v7.2zm0-10.9h-7.2V41h7.2v7.2zm0-10.9h-7.2v-7.2h7.2v7.2zm10.9 25.4V37.3L60.9 50 42.8 62.7zm32.6 7.2h-7.2v-7.2h7.2v7.2zm0-10.8h-7.2v-7.2h7.2v7.2zm0-10.9h-7.2V41h7.2v7.2zm0-10.9h-7.2v-7.2h7.2v7.2z',
+    ], '#ef6f2e'),
+    'audio-playable': new SvgIcon(playIconPaths, '#039', '0 0 48 48'),
+    'video-playable': new SvgIcon(playIconPaths, '#ef6f2e', '0 0 48 48'),
+    'archive': new SvgIcon([
+        'M72.4 38.5h-7.9v-7.9l7.9 7.9zm-21.3-7.9v28.8h21.4v-19h-9.9v-9.9H51.1zm3.3-7.6H30.8v5.6h9.3l-5.9 4.5v4.8l8.6-6.6v-2.7h30.1v-2.3L54.4 23zM42.9 35.1l-8.6 6.6v4.8l8.6-6.6v-4.8zm-8.7 20l8.6-6.6v-4.8l-8.6 6.6v4.8zm8.7 2v-4.8l-8.6 6.6v2.6h-3.4v5.6h5.3v3.8H33c-.6-1-1.6-1.6-2.8-1.6-1.8 0-3.2 1.4-3.2 3.2s1.4 3.2 3.2 3.2c1.2 0 2.2-.6 2.8-1.6h3.1V77h4.8v-2.9H44c.6 1 1.6 1.6 2.8 1.6 1.8 0 3.2-1.4 3.2-3.2s-1.4-3.2-3.2-3.2c-1.2 0-2.2.6-2.8 1.6h-3.1v-3.8h13.5l18.5-3.3v-2.3H37.1l5.8-4.4z',
+    ], '#ba8322'),
+    'system': new SvgIcon([
+        'M73.6 54.8c-2.1-.7-3.4-2.6-3.4-4.8s1.4-4.1 3.4-4.8c.6-.2 1-.9.8-1.5-.6-2.3-1.5-4.4-2.7-6.5-.3-.6-1.1-.8-1.7-.5-.7.4-1.6.6-2.4.6-2.8 0-5-2.3-5-5 0-.8.2-1.7.6-2.4.3-.6.1-1.3-.5-1.7-2-1.2-4.2-2.1-6.5-2.7-.6-.2-1.3.2-1.5.8-.7 2.1-2.6 3.4-4.8 3.4-2.2 0-4.1-1.4-4.8-3.4-.2-.6-.9-1-1.5-.8-2.3.6-4.4 1.5-6.5 2.7-.6.3-.8 1.1-.5 1.7.4.7.6 1.6.6 2.4 0 2.8-2.3 5-5 5-.8 0-1.7-.2-2.4-.6-.6-.3-1.3-.1-1.7.5-1.2 2-2.1 4.2-2.7 6.5-.2.6.2 1.3.8 1.5 2.1.7 3.4 2.6 3.4 4.8s-1.4 4.1-3.4 4.8c-.6.2-1 .9-.8 1.5.6 2.3 1.5 4.4 2.7 6.5.3.6 1.1.8 1.7.5.7-.4 1.6-.6 2.4-.6 2.8 0 5 2.3 5 5 0 .8-.2 1.7-.6 2.4-.3.6-.1 1.3.5 1.7 2 1.2 4.2 2.1 6.5 2.7h.3c.5 0 1-.3 1.2-.9.7-2.1 2.6-3.4 4.8-3.4 2.2 0 4.1 1.4 4.8 3.4.2.6.9 1 1.5.8 2.3-.6 4.4-1.5 6.5-2.7.6-.3.8-1.1.5-1.7-.4-.7-.6-1.6-.6-2.4 0-2.8 2.3-5 5-5 .8 0 1.7.2 2.4.6.6.3 1.3.1 1.7-.5 1.2-2 2.1-4.2 2.7-6.5.2-.5-.1-1.2-.8-1.4zM50 57.6c-4.2 0-7.6-3.4-7.6-7.6 0-4.2 3.4-7.6 7.6-7.6 4.2 0 7.6 3.4 7.6 7.6 0 4.2-3.4 7.6-7.6 7.6z',
+    ], '#999'),
+    'image': new SvgIcon([
+        'm 40.400002,35 a 8,8 0 0 1 -8,8 8,8 0 0 1 -8,-8 8,8 0 0 1 8,-8 8,8 0 0 1 8,8 z',
+        'M78.9 47.3l-9.7-9.6L50 57l-9.6-9.7-19.3 19.3V73h57.8z',
+    ], '#5b2d8d'),
+    'doc': new SvgIcon([
+        'M29.6 53l-5.9-18.2c-.2-.7-.4-1-.5-1-.1-.1-.2-.1-.4-.2l-2.1-.6-.1-2.6h11l.2 2.6-2.1.6v.2c0 .2.1.7.4 1.2l2.2 7 3.9-11.7 3-.1 3.6 11.7 2.5-7c.1-.5.4-1 .4-1.2v-.1l-1.8-.5-.1-2.7h8.6l.2 2.6-2.3.7c-.1 0-.2.1-.4.1 0 .1-.2.2-.4.9L43 52.8l-3.1.2-3.3-11.2-3.9 11-3.1.2z',
+        'M57.8 30.2h21.7v3.4H57.8zm0 9.2h21.7v3.4H57.8zm0 9.4h21.7v3.4H57.8zm-36.2 9.6h57.9v3.4H21.6zm0 9.4h57.9v3.4H21.6z',
+    ], '#2372ba'),
+    'executable': new SvgIcon(['M33.1 29.8l-6.6 6.6L37.2 47 26.5 57.6l6.6 6.6L50.2 47zm18.8 31.1h22.6v9.2H51.9z'], '#333'),
+    'ebook': new SvgIcon([
+        'M75.8 45.7c-.3-.6-.7-1.2-1.3-1.6-.1.5-.3 1-.6 1.5L58.3 69.8c-.6.9-1.9 1.1-2.9.8l-25-7c-1.5-.4-3.3-1.3-3.4-3 0-.6 0-.9.4-1.1.3-.3.8-.2 1.1-.1L52 66c3.4 1 4.4.2 6.9-3.5l14.4-22.2c.7-1.2.9-2.5.5-3.6s-1.4-2-2.7-2.4l-20.6-5.7c-.5-.1-1-.1-1.5-.1v-.1c-3.2-1.9-4.4 1.7-6 3-.6.5-1.4.8-1.7 1.3-.2.5-.1 1-.3 1.4-.6 1.4-2.4 3.6-3.3 4.3-.6.4-1.2.5-1.6 1.1-.3.4-.2 1.1-.4 1.6-.5 1.2-2.1 3.3-3.2 4.4-.4.4-1 .6-1.3 1.1-.3.4-.2 1.1-.4 1.6-.7 1.3-2.2 3.2-3.4 4.3-.6.6-1.3.9-1.6 1.5-.1.3 0 .7-.2 1.1-.2.6-.5 1.1-.7 1.7-.7.9-1 2.1-.9 3.4.2 3.1 2.5 6 5.3 6.8l25 7c2.3.6 5.2-.5 6.6-2.5l14.4-22.2c.7-1.1.9-2.4.5-3.6zm-28.9-7.9l1.1-1.6c.3-.4.9-.7 1.4-.5l16.5 4.6c.5.1.7.6.4 1l-1.1 1.6c-.3.4-.9.7-1.4.5l-16.5-4.6c-.5-.2-.7-.6-.4-1zM42.7 44l1.1-1.6c.3-.4.9-.7 1.4-.5l16.5 4.6c.5.1.7.6.4 1L60.9 49c-.3.4-.9.7-1.4.5L43.1 45c-.5-.1-.7-.6-.4-1z',
+    ], '#963'),
+    'markup': new SvgIcon([
+        'M21.5 48.3l16.2-14v7.1l-11 9.2v.1l11 9.2V67L21.5 53v-4.7zm30.6-17.6h4.3L48 71.3h-4.2l8.3-40.6zM62.3 60l11-9.2v-.1l-11-9.2v-7.1l16.2 14v4.9l-16.2 14V60z',
+    ] /* no color? */),
+    'script': new SvgIcon([
+        'M42.3 44.2h15.4V48H42.3v-3.8zm0 7.7h15.4v3.8H42.3v-3.8zm0 7.7h15.4v3.8H42.3v-3.8zM69.2 25H38.5c-4.2 0-7.7 3.4-7.7 7.7v34.6h-7.7c0 4.2 3.4 7.7 7.7 7.7h30.8c4.2 0 7.7-3.4 7.7-7.7V36.5H77v-3.8c-.1-4.3-3.5-7.7-7.8-7.7zm-3.8 41.6c0 2.5-2 4.5-4.5 4.5H32.7c1.9-1.3 1.9-3.8 1.9-3.8V32.7c0-2.1 1.7-3.8 3.8-3.8s3.8 1.7 3.8 3.8v3.8h23.1v30.1zM46.2 32.7v-3.8h23.1c3.5 0 3.8 2.2 3.8 3.8H46.2z',
+    ] /* no color? */),
+    'disc': new SvgIcon([
+        'M46.9 50c0 .8.3 1.6.9 2.2 1.2 1.2 3.2 1.2 4.4 0 .6-.6.9-1.4.9-2.2 0-.8-.3-1.6-.9-2.2-.6-.6-1.4-.9-2.2-.9-.8 0-1.6.3-2.2.9-.6.6-.9 1.4-.9 2.2z',
+        'M32.3 32.3c-9.8 9.8-9.8 25.6 0 35.4 9.8 9.8 25.6 9.8 35.4 0 9.8-9.8 9.8-25.6 0-35.4-9.8-9.7-25.6-9.7-35.4 0zm37 28.2c-.9 1.7-2.1 3.2-3.5 4.6-1.4 1.4-3 2.6-4.6 3.5l-5.8-11.1s.5-.2 1.6-1.2c1.1-1.1 1.3-1.6 1.3-1.6l11 5.8zM54.4 45.6c1.2 1.2 1.8 2.8 1.8 4.4 0 1.6-.6 3.2-1.8 4.4-2.4 2.4-6.4 2.4-8.8 0-1.2-1.2-1.8-2.8-1.8-4.4 0-1.6.6-3.2 1.8-4.4a6.1 6.1 0 0 1 8.8 0zm-8.5-4.4s-1.2.7-2.2 1.8c-.9 1-1 1.2-1.3 1.7l-11-5.9c.9-1.7 2.1-3.2 3.5-4.6 1.4-1.4 3-2.6 4.6-3.5l6.4 10.5z',
+    ], '#c96'),
+    'text': new SvgIcon(['M69.4 28.6v5.5H21.5v-5.5M30.6 41h47.9v5.6H30.6zm-9.1 12.4h47.9V59H21.5zm9.1 12.5h47.9v5.6H30.6z'], '#6b533b'),
+    'database': new SvgIcon([
+        'M48.1 75.5c-6.5-.3-12.3-2.3-15.4-5.4-.9-.9-1.8-2.1-2.2-2.9l-.3-.5v-6.1c0-6 0-6.1.1-5.6.3 1.3 1.1 2.7 2.3 3.7.8.7 2.5 1.8 3.8 2.5 2.4 1.2 5.2 2 8.4 2.5 1.9.3 2.6.3 5.3.3s3.4 0 5.3-.3c3.1-.5 6-1.3 8.3-2.5 1.4-.7 3-1.7 3.8-2.5 1.1-1 2-2.5 2.3-3.8.1-.5.1-.4.1 5.5v6l-.3.6c-1 1.9-2.6 3.6-4.7 4.8-4.3 2.7-10.5 4-16.8 3.7z',
+        'M48.1 60.4c-5.7-.3-11-1.9-14.3-4.4-.7-.6-1.8-1.6-2.3-2.2-.4-.6-.8-1.2-1.1-1.8l-.3-.5v-6c0-5.9 0-6 .1-5.5.2.9.7 2 1.5 2.9.4.5 1.1 1.2 1.5 1.4.1.1.5.3.7.5 2.7 1.9 6.5 3.3 10.8 3.9 1.9.3 2.6.3 5.3.3s3.4 0 5.3-.3c3.1-.5 6-1.3 8.4-2.5 1.4-.7 3-1.8 3.9-2.5 1.1-1 2-2.4 2.2-3.7.1-.5.1-.4.1 5.5v5.9l-.4.8c-.7 1.2-1.1 1.8-1.9 2.7-.8.8-1.6 1.5-2.7 2.1-4.3 2.4-10.5 3.7-16.8 3.4z',
+        'M47.7 45.4c-3.8-.3-6.8-.9-9.6-2-3.4-1.3-5.8-3.1-7.1-5.2-.3-.4-.5-1-.7-1.6-.2-.6-.3-2-.1-2.7.9-4.3 6.6-7.9 14.5-9 1.9-.3 2.6-.3 5.3-.3s3.4 0 5.3.3c3.1.5 6 1.3 8.4 2.5 3.5 1.7 5.6 4 6.1 6.5.1.7.1 2.1-.1 2.7-.4 1.3-1 2.2-2 3.2-2.8 2.9-7.9 4.9-14.1 5.6-.9-.1-5.1 0-5.9 0z',
+    ], '#a03537'),
+    'pdf': new SvgIcon([
+        'M46.2 21.8c-3.5 0-6.3 2.9-6.3 6.3 0 4.3 2.4 9.6 4.9 14.7-2 6.1-4.1 12.7-7 18.2-5.8 2.3-11 4-14 6.6l-.2.2c-1.1 1.2-1.8 2.7-1.8 4.4 0 3.5 2.9 6.3 6.3 6.3 1.7 0 3.4-.6 4.4-1.8 0 0 .2 0 .2-.2 2.3-2.7 5-7.8 7.5-12.2 5.5-2.1 11.5-4.4 16.9-5.8 4.1 3.4 10.1 5.5 15 5.5 3.5 0 6.3-2.9 6.3-6.3 0-3.5-2.9-6.3-6.3-6.3-4 0-9.6 1.4-13.9 2.9-3.5-3.4-6.7-7.5-9.2-11.9C50.6 37 52.6 32 52.6 28c-.2-3.5-2.9-6.2-6.4-6.2zm0 3.6c1.4 0 2.4 1.1 2.4 2.4 0 1.8-1.1 5.3-2.1 9-1.5-3.7-2.9-7.2-2.9-9 .1-1.2 1.2-2.4 2.6-2.4zm1.1 21.5c1.8 3.1 4.1 5.8 6.6 8.2-3.7 1.1-7.3 2.3-11 3.7 1.8-3.8 3.1-7.9 4.4-11.9zM72 55c1.4 0 2.4 1.1 2.4 2.4 0 1.4-1.1 2.4-2.4 2.4-2.9 0-6.9-1.2-10.1-3.1C65.6 56 69.7 55 72 55zM34.6 66.2c-1.8 3.2-3.5 6.1-4.7 7.6-.5.5-.9.6-1.7.6-1.4 0-2.4-1.1-2.4-2.4 0-.6.3-1.4.6-1.7 1.3-1.2 4.5-2.6 8.2-4.1z',
+    ], '#c11e07'),
+    'sheet': new SvgIcon([
+        'M62.1 30.9h14.1v9.4H62.1zm0 14.5h14.1v9.4H62.1zm0 14.3h14.1v9.4H62.1zm-19.2 0H57v9.4H42.9zm-19 0H38v9.4H23.9zm19.2-14.2h14.1v9.4H43.1zm-19.2 0H38v9.4H23.9zm19.2-14.6h14.1v9.4H43.1zm-19.2 0H38v9.4H23.9z',
+    ], '#30723f'),
+    'presentation': new SvgIcon([
+        'M 73.319289,26.32707 H 26.61477 c -2.335226,0 -4.258353,1.917194 -4.258353,4.245215 v 29.853446 c 0,2.328021 1.923127,4.245215 4.258353,4.245215 h 19.506006 l -1.923128,7.257947 h -2.197859 c -0.961564,0 -1.648395,0.684712 -1.648395,1.643309 0,0.958597 0.686831,1.643309 1.648395,1.643309 h 15.797117 c 0.961563,0 1.648394,-0.684712 1.648394,-1.643309 0,-0.958597 -0.686831,-1.643309 -1.648394,-1.643309 H 55.46168 l -1.923128,-7.39489 h 19.780737 c 2.335226,0 4.258353,-1.917193 4.258353,-4.245214 V 30.572285 c 0,-2.328021 -1.923127,-4.245215 -4.258353,-4.245215 z m 0.412099,34.372546 H 26.202672 V 30.2984 h 47.39135 z',
+        'm 38.428266,48.511741 h 3.846255 v 7.668775 h -3.846255 z m 6.456214,-2.464963 h 3.846254 V 56.180516 H 44.88448 Z m 6.318846,-2.601906 h 3.846255 v 12.735644 h -3.846255 z m 6.318847,-2.464964 h 3.846255 v 15.200608 h -3.846255 z m -0.274732,-5.614639 -6.730946,3.697445 -4.945184,-1.643308 -8.379341,4.519099 1.236296,1.369424 7.417777,-3.834387 4.945185,1.643309 7.692509,-4.245215 1.236296,1.369424 2.88469,-4.792984 -6.593578,0.410827 z',
+    ], '#c24f32'),
+    'font': new SvgIcon([
+        'M40.4 56.2H28.7l-1.4 3.1c-.5 1-.7 1.9-.7 2.6 0 .9.4 1.6 1.1 2 .4.3 1.5.4 3.2.6v.9H20v-.9c1.2-.2 2.2-.6 2.9-1.4.8-.8 1.7-2.4 2.8-4.8l11.8-25.6h.5l12 26.2c1.1 2.5 2.1 4.1 2.8 4.7.6.5 1.3.8 2.3.9v.9h-16v-.9h.7c1.3 0 2.2-.2 2.7-.5.4-.3.5-.6.5-1.1 0-.3 0-.6-.1-.9 0-.1-.3-.7-.7-1.8l-1.8-4zm-.8-1.8l-4.9-11-5.1 11h10z',
+        'M80 44.2l-4.7 15.7-.5 1.9c0 .2-.1.4-.1.5 0 .2.1.4.2.5.1.2.3.2.4.2.3 0 .8-.3 1.4-.8.2-.2.8-.9 1.8-2.2l.9.4c-1.2 2-2.4 3.5-3.7 4.5-1.3.9-2.7 1.4-4.2 1.4-.9 0-1.6-.2-2.1-.7-.5-.5-.7-1-.7-1.8 0-.6.3-1.8.8-3.4l.6-1.9c-1.9 3.1-3.7 5.4-5.4 6.7-1 .8-2.1 1.1-3.2 1.1-1.5 0-2.6-.6-3.2-1.8-.7-1.2-1-2.5-1-4 0-2.2.7-4.8 2.1-7.6 1.4-2.9 3.2-5.2 5.5-6.9 1.9-1.4 3.6-2.2 5.3-2.2.9 0 1.6.3 2.2.8.6.5 1 1.4 1.2 2.8l.9-2.9 5.5-.3zm-7.8 4.5c0-1.3-.2-2.2-.6-2.8-.3-.4-.7-.6-1.2-.6s-1 .2-1.6.7c-1.1 1-2.3 3-3.5 5.9-1.3 3-1.9 5.6-1.9 7.7 0 .8.1 1.4.4 1.8.3.4.6.6.9.6.7 0 1.5-.4 2.2-1.2 1.1-1.2 2-2.6 2.9-4.3 1.6-2.9 2.4-5.5 2.4-7.8z',
+    ], '#7291a1'),
+    'vue': new SvgIcon([
+        'M 66.425365,28.281905 H 56.751974 L 49.707631,39.427061 43.669624,28.281905 H 21.530262 L 49.707631,76.54823 77.885006,28.281905 Z m -37.888497,4.025337 h 6.767604 L 49.707631,57.239179 64.098226,32.307242 h 6.767597 L 49.707631,68.560446 Z',
+    ], '#41B883'),
+    'other': new SvgIcon([
+        'M71 36.3L57.8 23.1c-.4-.4-.9-.6-1.4-.6h-26c-1.1 0-2 .9-2 2v51.1c0 1.1.9 2 2 2h39.3c1.1 0 2-.9 2-2V37.7c-.1-.5-.3-1-.7-1.4zm-3.9 2.3H55.5V27l11.6 11.6zm.1 34.5H32.8V26.9h18.5v13.3c0 1.4 1.2 2.6 2.6 2.6h13.3v30.3z',
+    ] /* no color? */),
+    // system icons
+    'system-close': new SvgIcon(['M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'], undefined, '0 0 24 24'),
+    'system-file-preview-new': new SvgIcon([
+        'M745,353c-5.6,0-11.3,0.2-17.2,0.7C687.4,237.3,577.8,157,451,157c-162.1,0-294,131.9-294,294c0,2.1,0,4.1,0,6.2C72.6,479,10,555.8,10,647c0,108.1,87.9,196,196,196h245V618.3l-63.4,63.4c-9.6,9.6-22.1,14.4-34.6,14.4s-25.1-4.8-34.6-14.4c-19.2-19.2-19.2-50.1,0-69.3l147-147c4.6-4.6,9.9-8.1,16-10.6c12-4.9,25.5-4.9,37.4,0c6,2.5,11.4,6.1,16,10.6l147,147c19.2,19.2,19.2,50.1,0,69.3c-9.6,9.6-22.1,14.4-34.6,14.4s-25.1-4.8-34.6-14.4L549,618.3V843h196c135.1,0,245-109.9,245-245S880.1,353,745,353z',
+    ], undefined, '0 0 1000 1000'),
+    // system icons
+    'system-sortable-handle': new SvgIcon(['M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z'], undefined, '0 0 24 24'),
+    'system-file-av-play': new SvgIcon(['M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm-4 29V15l12 9-12 9z'], undefined, '0 0 48 48'),
+    // M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm-4 29V15l12 9-12 9z
+    'system-file-name-edit': new SvgIcon([
+        'M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z',
+    ], undefined, '0 0 24 24'),
+};
+for (var category in icons) {
+    if (icons.hasOwnProperty(category)) {
+        icons[category].category = category;
+    }
+}
+/* harmony default export */ var lib_icons = (icons);
+var extensionsMap = {};
+for (var cat in extensions) {
+    if (extensions.hasOwnProperty(cat)) {
+        try {
+            for (var icons_b = (icons_e_1 = void 0, __values(extensions[cat])), icons_c = icons_b.next(); !icons_c.done; icons_c = icons_b.next()) {
+                var icons_ext = icons_c.value;
+                extensionsMap[icons_ext] = cat;
+            }
+        }
+        catch (e_1_1) { icons_e_1 = { error: e_1_1 }; }
+        finally {
+            try {
+                if (icons_c && !icons_c.done && (icons_a = icons_b.return)) icons_a.call(icons_b);
+            }
+            finally { if (icons_e_1) throw icons_e_1.error; }
+        }
+    }
+}
+function getIconByName(name) {
+    var svgIcon = icons[name] || icons.other;
+    return svgIcon;
+}
+function getIconFromExt(ext) {
+    ext = ext.toLowerCase();
+    var cat = extensionsMap[ext];
+    return getIconByName(cat);
+}
+
+// EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
+var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("8bbf");
+var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpack_require__.n(external_commonjs_vue_commonjs2_vue_root_Vue_);
+
+// CONCATENATED MODULE: ./node_modules/ts-loader??ref--12-0!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vue-file-icon.vue?vue&type=script&lang=ts&
+
+
+/* harmony default export */ var vue_file_iconvue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
+    props: ['ext', 'name', 'viewBox'],
+    computed: {
+        viewBoxComputed: function () {
+            if (!this.viewBox && this.icon && this.icon.viewBox) {
+                return this.icon.viewBox;
+            }
+            return this.viewBox ? this.viewBox : '0 0 100 100';
+        },
+        icon: function () {
+            if (this.name) {
+                return getIconByName(this.name);
+            }
+            var svgIcon = getIconFromExt(this.ext);
+            return svgIcon;
+        },
+    },
+}));
+
+// CONCATENATED MODULE: ./src/components/vue-file-icon.vue?vue&type=script&lang=ts&
+ /* harmony default export */ var components_vue_file_iconvue_type_script_lang_ts_ = (vue_file_iconvue_type_script_lang_ts_); 
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+function normalizeComponent (
+  scriptExports,
+  render,
+  staticRenderFns,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier, /* server only */
+  shadowMode /* vue-cli only */
+) {
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (render) {
+    options.render = render
+    options.staticRenderFns = staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = 'data-v-' + scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = shadowMode
+      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
+      : injectStyles
+  }
+
+  if (hook) {
+    if (options.functional) {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functional component in vue file
+      var originalRender = options.render
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return originalRender(h, context)
+      }
+    } else {
+      // inject component registration as beforeCreate hook
+      var existing = options.beforeCreate
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    }
+  }
+
+  return {
+    exports: scriptExports,
+    options: options
+  }
+}
+
+// CONCATENATED MODULE: ./src/components/vue-file-icon.vue
+
+
+
+
+
+/* normalize component */
+
+var component = normalizeComponent(
+  components_vue_file_iconvue_type_script_lang_ts_,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var vue_file_icon = (component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"e1d1ff30-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vue-file-preview.vue?vue&type=template&id=44f5f577&
+var vue_file_previewvue_type_template_id_44f5f577_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:[
+    'file-preview-wrapper-' + _vm.fileRecord.ext(),
+    _vm.fileRecord.isImage() ? 'file-preview-wrapper-image' : 'file-preview-wrapper-other',
+    'file-category-' + _vm.fileRecord.icon().category,
+    { 'file-is-playing-av': _vm.fileRecord.isPlayingAv },
+    { 'is-deletable': _vm.deletable === true },
+    { 'is-editable': _vm.editable === true },
+    { 'is-edit-input-focused': _vm.isEditInputFocused },
+    { 'has-error': _vm.fileRecord.error } ]},[(_vm.fileRecord.isPlayableAudio() || _vm.fileRecord.isPlayableVideo())?_c('div',{ref:"wrapper",staticClass:"file-av-wrapper"},[_c('div',{staticClass:"file-av-action",on:{"click":function($event){return _vm.playAv(_vm.fileRecord)}}},[_c('span',{staticClass:"file-av-stop"},[_c('VueFileIcon',{attrs:{"name":"system-close"}})],1),_c('span',{staticClass:"file-av-play"},[_c('VueFileIcon',{attrs:{"name":"system-file-av-play"}})],1)])]):_vm._e(),_c('span',{staticClass:"file-preview",class:{
+      'image-preview': _vm.fileRecord.isImage(),
+      'other-preview': !_vm.fileRecord.isImage(),
+      'dark-content': _vm.fileRecord.isImage() && _vm.fileRecord.isDarkColor(),
+    },style:({
+      'background-color': _vm.fileRecord.color(),
+    })},[(_vm.fileRecord.error)?_c('span',{staticClass:"file-error-wrapper",on:{"click":function($event){return _vm.dismissError()}}},[_c('span',{staticClass:"file-error-message file-error-message-client"},[_vm._v(" "+_vm._s(_vm.fileRecord.getErrorMessage(_vm.errorText))+" ")])]):_vm._e(),_c('span',{staticClass:"file-preview-overlay"}),(_vm.fileRecord.isImage() || _vm.fileRecord.isPlayableVideo())?_c('span',{staticClass:"thumbnail",staticStyle:{"position":"absolute","top":"0","right":"0","bottom":"0","left":"0","overflow":"hidden"}},[(_vm.hasLinkableUrl)?_c('a',{attrs:{"href":_vm.fileRecord.url,"target":"_blank","title":_vm.fileRecord.name()}},[_c('img',{staticClass:"file-preview-img",attrs:{"src":_vm.fileRecord.src()}})]):_c('img',{staticClass:"file-preview-img",attrs:{"src":_vm.fileRecord.src()}})]):_vm._e(),_c('span',{staticClass:"file-ext"},[_vm._v(_vm._s(_vm.fileRecord.ext()))]),_c('span',{staticClass:"file-size"},[_vm._v(_vm._s(_vm.fileRecord.size()))]),(_vm.deletable)?_c('span',{staticClass:"file-delete",on:{"click":function($event){return _vm.removeFileRecord(_vm.fileRecord)},"touchstart":function($event){return _vm.filenameClearPressed()},"mousedown":function($event){return _vm.filenameClearPressed()}}},[_c('VueFileIcon',{attrs:{"name":"system-close"}})],1):_vm._e(),_c('span',{staticClass:"file-name",on:{"click":function($event){return _vm.editFileName()}}},[(_vm.editable === true)?_c('input',{ref:"input",staticClass:"file-name-input",attrs:{"disabled":_vm.disabled === true,"type":"text"},domProps:{"value":_vm.fileRecord.name(true)},on:{"focus":function($event){return _vm.editInputFocused()},"blur":function($event){return _vm.editInputBlured()},"change":function($event){return _vm.filenameChanged()},"input":function($event){return _vm.filenameChanged()},"keyup":[function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.filenameChanged(true)},function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"esc",27,$event.key,["Esc","Escape"])){ return null; }return _vm.filenameChanged(false)}]}}):_vm._e(),(_vm.editable === true)?_c('span',{staticClass:"file-name-edit-icon"},[_c('VueFileIcon',{attrs:{"name":"system-file-name-edit"}})],1):_vm._e(),_c('span',{staticClass:"file-name-text"},[_vm._v(_vm._s(_vm.fileRecord.name(true)))])]),(_vm.fileRecord.dimensions.width && _vm.fileRecord.dimensions.height)?_c('span',{staticClass:"image-dimension"},[_c('span',{staticClass:"image-dimension-width"},[_vm._v(_vm._s(_vm.fileRecord.dimensions.width))]),_c('span',{staticClass:"image-dimension-height"},[_vm._v(_vm._s(_vm.fileRecord.dimensions.height))])]):_vm._e(),(_vm.fileRecord.hasProgress())?_c('span',{staticClass:"file-progress",class:{
+        'file-progress-full': _vm.fileRecord.progress() >= 99.9999,
+        'file-progress-done': _vm.fileRecord.progress() >= 100,
+        'has-file-progress': _vm.fileRecord.progress() > 0,
+      }},[_c('span',{staticClass:"file-progress-bar",style:({ width: _vm.fileRecord.progress() + '%' })})]):_vm._e(),_c('span',{staticClass:"file-icon"},[(_vm.hasLinkableUrl)?_c('a',{attrs:{"href":_vm.fileRecord.url,"target":"_blank","title":_vm.fileRecord.name()}},[_c('VueFileIcon',{attrs:{"ext":_vm.fileRecord.ext()}})],1):_c('VueFileIcon',{attrs:{"ext":_vm.fileRecord.ext()}})],1)])])}
+var vue_file_previewvue_type_template_id_44f5f577_staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/components/vue-file-preview.vue?vue&type=template&id=44f5f577&
+
+// CONCATENATED MODULE: ./src/lib/drop-handler.ts
+
+function getFilesFromDroppedItems(dataTransfer) {
+    return new Promise(function (resolve) {
+        if (!includesFolder(dataTransfer)) {
+            return resolve(dataTransfer.files);
+        }
+        var files = [];
+        var folderReadQueue = [];
+        // tslint:disable-next-line
+        for (var i = 0; i < dataTransfer.items.length; i++) {
+            var item = dataTransfer.items[i];
+            if (item.kind !== 'file') {
+                continue;
+            }
+            var fileSystemEntries = getEntries(item);
+            if (fileSystemEntries) {
+                folderReadQueue.push(fileSystemEntries);
+            }
+            else {
+                var file = item.getAsFile();
+                if (file) {
+                    files.push(file);
+                }
+            }
+        }
+        Promise.all(folderReadQueue).then(function (filesInFolders) {
+            resolve(files.concat.apply(files, __spread(filesInFolders)));
+        });
+    });
+}
+function getEntries(entry) {
+    // convert DataTransferItem to FileSystemEntry first if necessary
+    if (entry.getAsEntry) {
+        return getEntries(entry.getAsEntry());
+    }
+    if (entry.webkitGetAsEntry) {
+        return getEntries(entry.webkitGetAsEntry());
+    }
+    // return if item is from a browser that does not support webkitGetAsEntry
+    if (entry.getAsFile) {
+        return;
+    }
+    // Processing directories with more than 100 files:
+    // https://github.com/lian-yue/vue-upload-component/commit/9c9d8aafbcef005a2cc598454383ec65205d61ee
+    return new Promise(function (resolve) {
+        if (entry.isFile) {
+            entry.file(function (file) { return resolve([file]); });
+            return;
+        }
+        if (entry.isDirectory) {
+            var files_1 = [];
+            var entryReader_1 = entry.createReader();
+            var readEntries_1 = function () {
+                entryReader_1.readEntries(function (entries) {
+                    var iterateEntry = function (i) {
+                        if (!entries[i] && i === 0) {
+                            return resolve(files_1);
+                        }
+                        if (!entries[i]) {
+                            return readEntries_1();
+                        }
+                        getEntries(entries[i]).then(function (entryFiles) {
+                            files_1.push.apply(files_1, __spread(entryFiles));
+                            iterateEntry(i + 1);
+                        });
+                    };
+                    iterateEntry(0);
+                });
+            };
+            readEntries_1();
+        }
+        if (!entry.isFile && !entry.isDirectory) {
+            resolve([]);
+        }
+    });
+}
+function includesFolder(transfer) {
+    var e_1, _a;
+    if (!transfer.files.length) {
+        return true; // if dropping only folders, no files will exist
+    }
+    try {
+        // Loop through the dropped items and log their data
+        for (var _b = __values(transfer.items), _c = _b.next(); !_c.done; _c = _b.next()) {
+            var item = _c.value;
+            if (item.webkitGetAsEntry != null) {
+                var entry = item.webkitGetAsEntry();
+                if (entry && entry.isDirectory) {
+                    return true;
+                }
+            }
+        }
+    }
+    catch (e_1_1) { e_1 = { error: e_1_1 }; }
+    finally {
+        try {
+            if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+        }
+        finally { if (e_1) throw e_1.error; }
+    }
+    var files = transfer.files;
+    // tslint:disable-next-line
+    for (var i = 0; i < files.length; i++) {
+        // A folder has no type and has a size that is a multiple of 4096
+        if (!files[i].type && files[i].size % 4096 === 0) {
+            return true;
+        }
+    }
+    return false;
+}
+
+// CONCATENATED MODULE: ./src/lib/utils.ts
+
+
+var ImageOrientation;
+(function (ImageOrientation) {
+    ImageOrientation[ImageOrientation["NORMAL"] = 1] = "NORMAL";
+    ImageOrientation[ImageOrientation["UPSIDE_DOWN"] = 6] = "UPSIDE_DOWN";
+})(ImageOrientation || (ImageOrientation = {}));
+var utils_Utils = /** @class */ (function () {
+    function Utils() {
+    }
+    Utils.prototype.arrayMove = function (arr, previousIndex, newIndex) {
+        // https://github.com/Jexordexan/vue-slicksort/blob/master/src/utils.js
+        var array = arr.slice(0);
+        if (newIndex >= array.length) {
+            var k = newIndex - array.length;
+            while (k-- + 1) {
+                array.push(undefined);
+            }
+        }
+        array.splice(newIndex, 0, array.splice(previousIndex, 1)[0]);
+        return array;
+    };
+    Utils.prototype.getAverageColor = function (arr) {
+        var bytesPerPixel = 4;
+        var arrLength = arr.length;
+        if (arrLength < bytesPerPixel) {
+            return;
+        }
+        var step = 5;
+        var len = arrLength - (arrLength % bytesPerPixel);
+        var preparedStep = (step || 1) * bytesPerPixel;
+        var redTotal = 0;
+        var greenTotal = 0;
+        var blueTotal = 0;
+        var alphaTotal = 0;
+        var count = 0;
+        for (var i = 0; i < len; i += preparedStep) {
+            var alpha = arr[i + 3];
+            var red = arr[i] * alpha;
+            var green = arr[i + 1] * alpha;
+            var blue = arr[i + 2] * alpha;
+            redTotal += red;
+            greenTotal += green;
+            blueTotal += blue;
+            alphaTotal += alpha;
+            count++;
+        }
+        return alphaTotal
+            ? [
+                Math.round(redTotal / alphaTotal),
+                Math.round(greenTotal / alphaTotal),
+                Math.round(blueTotal / alphaTotal),
+                Math.round(alphaTotal / count),
+            ]
+            : [0, 0, 0, 0];
+    };
+    Utils.prototype.createVideoThumbnail = function (video, canvas, thumbnailSize) {
+        var _this = this;
+        video.setAttribute('crossOrigin', 'anonymous'); // fix cross origin issue
+        return new Promise(function (resolve, reject) {
+            var loadedmetadata = false;
+            var loadeddata = false;
+            var tryGetThumbnail = function () {
+                if (!(loadedmetadata && loadeddata)) {
+                    return;
+                }
+                var context = canvas.getContext('2d');
+                context.drawImage(video, 0, 0, canvas.width, canvas.height);
+                var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+                var url = canvas.toDataURL();
+                resolve({
+                    url: url,
+                    color: _this.getAverageColor(imageData.data),
+                    width: video.videoWidth,
+                    height: video.videoHeight,
+                });
+            };
+            // Load metadata of the video to get video duration and dimensions
+            video.addEventListener('loadedmetadata', function () {
+                // var video_duration = video.duration;
+                canvas.width = thumbnailSize;
+                canvas.height = (canvas.width / video.videoWidth) * video.videoHeight;
+                video.currentTime = 1; // video time
+                loadedmetadata = true;
+                tryGetThumbnail();
+            });
+            video.addEventListener('loadeddata', function () {
+                loadeddata = true;
+                tryGetThumbnail();
+            });
+        });
+    };
+    Utils.prototype.getDataURL = function (file) {
+        return new Promise(function (resolve, reject) {
+            var reader = new FileReader();
+            reader.onload = function (event) {
+                if (!(event.target && event.target.result)) {
+                    return resolve('');
+                }
+                resolve(event.target.result);
+            };
+            reader.readAsDataURL(file);
+        });
+    };
+    Utils.prototype.getImageOrientationFromArrayBuffer = function (buffer) {
+        // -2: not jpeg
+        // -1: not defined
+        var view = new DataView(buffer);
+        if (view.getUint16(0, false) !== 0xffd8) {
+            return -2;
+        }
+        var length = view.byteLength;
+        var offset = 2;
+        while (offset < length) {
+            if (view.getUint16(offset + 2, false) <= 8) {
+                return -1;
+            }
+            var marker = view.getUint16(offset, false);
+            offset += 2;
+            if (marker === 0xffe1) {
+                if (view.getUint32((offset += 2), false) !== 0x45786966) {
+                    return -1;
+                }
+                var little = view.getUint16((offset += 6), false) === 0x4949;
+                offset += view.getUint32(offset + 4, little);
+                var tags = view.getUint16(offset, little);
+                offset += 2;
+                for (var i = 0; i < tags; i++) {
+                    if (view.getUint16(offset + i * 12, little) === 0x0112) {
+                        return view.getUint16(offset + i * 12 + 8, little);
+                    }
+                }
+                // tslint:disable-next-line
+            }
+            else if ((marker & 0xff00) !== 0xff00) {
+                break;
+            }
+            else {
+                offset += view.getUint16(offset, false);
+            }
+        }
+        return -1;
+    };
+    Utils.prototype.getImageOrientation = function (file) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            var reader = new FileReader();
+            if (!reader.readAsArrayBuffer) {
+                return resolve(-3);
+            }
+            reader.onload = function (event) {
+                if (!(event.target && event.target.result)) {
+                    return resolve(-3);
+                }
+                resolve(_this.getImageOrientationFromArrayBuffer(event.target.result));
+            };
+            // https://stackoverflow.com/questions/3248946/what-is-the-maximum-size-of-jpeg-metadata
+            // https://twitter.com/jaffathecake/status/1085443592678752256
+            // reader.readAsArrayBuffer(file);
+            reader.readAsArrayBuffer(file.slice(0, 65536));
+        });
+    };
+    Utils.prototype.rotateCanvas = function (srcOrientation, canvas, ctx, width, height) {
+        // set proper canvas dimensions before transform & export
+        if (4 < srcOrientation && srcOrientation < 9) {
+            canvas.width = height;
+            canvas.height = width;
+        }
+        else {
+            canvas.width = width;
+            canvas.height = height;
+        }
+        // transform context before drawing image
+        switch (srcOrientation) {
+            case 2:
+                ctx.transform(-1, 0, 0, 1, width, 0);
+                break;
+            case 3:
+                ctx.transform(-1, 0, 0, -1, width, height);
+                break;
+            case 4:
+                ctx.transform(1, 0, 0, -1, 0, height);
+                break;
+            case 5:
+                ctx.transform(0, 1, 1, 0, 0, 0);
+                break;
+            case 6:
+                ctx.transform(0, 1, -1, 0, height, 0);
+                break;
+            case 7:
+                ctx.transform(0, -1, -1, 0, height, width);
+                break;
+            case 8:
+                ctx.transform(0, -1, 1, 0, 0, width);
+                break;
+            default:
+                break;
+        }
+    };
+    Utils.prototype.getImageResized = function (image, widthLimit, heightLimit, orientation) {
+        var width = image.width;
+        var height = image.height;
+        var thumbnailSize = widthLimit;
+        if (widthLimit && heightLimit) {
+            width = widthLimit;
+            height = heightLimit;
+        }
+        else {
+            if (width > height) {
+                if (width > thumbnailSize) {
+                    height *= thumbnailSize / width;
+                    width = thumbnailSize;
+                }
+            }
+            else {
+                if (height > thumbnailSize) {
+                    width *= thumbnailSize / height;
+                    height = thumbnailSize;
+                }
+            }
+        }
+        width = Math.floor(width);
+        height = Math.floor(height);
+        var canvas = document.createElement('canvas');
+        var context = canvas.getContext('2d');
+        if (!context) {
+            return null;
+        }
+        canvas.width = width;
+        canvas.height = height;
+        if (orientation !== undefined) {
+            this.rotateCanvas(orientation, canvas, context, width, height);
+        }
+        context.drawImage(image, 0, 0, width, height);
+        var avgColor = null;
+        try {
+            var imageData = context.getImageData(0, 0, width, height);
+            var rgba = this.getAverageColor(imageData.data);
+            if (rgba) {
+                avgColor = rgba;
+            }
+        }
+        catch (e) {
+            /* security error, img on diff domain */
+        }
+        return {
+            image: image,
+            url: canvas.toDataURL('image/png'),
+            color: avgColor,
+        };
+    };
+    Utils.prototype.resizeImageUrl = function (image, url, thumbnailSize) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            image.onload = function () {
+                var resized = _this.getImageResized(image, thumbnailSize);
+                resolve(resized);
+            };
+            image.onerror = function () {
+                reject('Image loading failed: ' + url);
+            };
+            image.src = url;
+        });
+    };
+    Utils.prototype.resizeImageFile = function (image, file, thumbnailSize) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            if (file.type.indexOf('image') === -1) {
+                reject(new Error('Not an image'));
+                return;
+            }
+            var createObjectURL = (window.URL || window.webkitURL || {}).createObjectURL;
+            var revokeObjectURL = (window.URL || window.webkitURL || {}).revokeObjectURL;
+            var shouldRevoke = false;
+            var orientationPromise = _this.getImageOrientation(file);
+            image.onload = function () {
+                orientationPromise.then(function (orientation) {
+                    var resized = _this.getImageResized(image, thumbnailSize, undefined, orientation);
+                    if (shouldRevoke) {
+                        revokeObjectURL(image.src);
+                    }
+                    resolve(resized);
+                });
+            };
+            if (!(file instanceof File)) {
+                return reject('Invalid file object. Use url or a valid instance of File class');
+            }
+            if (createObjectURL && revokeObjectURL) {
+                shouldRevoke = true;
+                image.src = createObjectURL(file);
+                return;
+            }
+            _this.getDataURL(file).then(function (dataUrl) {
+                image.src = dataUrl;
+            });
+        });
+    };
+    Utils.prototype.resizeImage = function (thumbnailSize, file, url) {
+        var image = new Image();
+        image.setAttribute('crossOrigin', 'anonymous');
+        return url
+            ? this.resizeImageUrl(image, url, thumbnailSize)
+            : this.resizeImageFile(image, file, thumbnailSize);
+    };
+    Utils.prototype.getSizeFormatted = function (bytes) {
+        var sizes = ['B', 'KB', 'MB', 'GB', 'TB'];
+        if (bytes === 0) {
+            return '0 B';
+        }
+        var i = Math.floor(Math.log(bytes) / Math.log(1024));
+        i = parseInt('' + i, 10);
+        return Math.round(bytes / Math.pow(1024, i)) + ' ' + sizes[i];
+    };
+    Utils.prototype.getSizeParsed = function (size) {
+        size = ('' + size).toUpperCase();
+        var matches = size.match(/([\d|.]+?)\s*?([A-Z]+)/);
+        var sizes = ['B', 'KB', 'MB', 'GB', 'TB'];
+        if (!matches) {
+            return parseFloat(size);
+        }
+        var i = sizes.indexOf(matches[2]);
+        if (i === -1) {
+            return parseFloat(size);
+        }
+        return parseFloat(matches[1]) * Math.pow(1024, i);
+    };
+    Utils.prototype.getColorForText = function (text) {
+        var getHashCode = function (value) {
+            var hash = 0;
+            if (value.length === 0) {
+                return hash;
+            }
+            for (var i = 0; i < value.length; i++) {
+                // tslint:disable-next-line
+                hash = value.charCodeAt(i) + ((hash << 5) - hash);
+                // tslint:disable-next-line
+                hash = hash & hash; // Convert to 32bit integer
+            }
+            return hash;
+        };
+        var intToHSL = function (value) {
+            var h = value % 360;
+            var s = value % 100;
+            var l = 50;
+            return 'hsl(' + h + ',' + s + '%,' + l + '%, 0.75)';
+        };
+        return intToHSL(getHashCode(text.toLowerCase()));
+    };
+    Utils.prototype.validateType = function (file, accept) {
+        var e_1, _a;
+        // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept
+        // https://gitlab.com/meno/dropzone/blob/master/src/dropzone.js#L2511
+        if (!accept) {
+            return true;
+        } // If there are no accepted mime types, it's OK
+        var acceptedFiles = accept.split(',');
+        var mimeType = file.type;
+        var baseMimeType = mimeType.replace(/\/.*$/, '');
+        try {
+            for (var acceptedFiles_1 = __values(acceptedFiles), acceptedFiles_1_1 = acceptedFiles_1.next(); !acceptedFiles_1_1.done; acceptedFiles_1_1 = acceptedFiles_1.next()) {
+                var validType = acceptedFiles_1_1.value;
+                validType = validType.trim();
+                if (validType.charAt(0) === '.') {
+                    // extension
+                    if (file.name.toLowerCase().indexOf(validType.toLowerCase(), file.name.length - validType.length) !== -1) {
+                        return true;
+                    }
+                }
+                else if (/\/\*$/.test(validType)) {
+                    // This is something like a image/* mime type
+                    if (baseMimeType === validType.replace(/\/.*$/, '')) {
+                        return true;
+                    }
+                }
+                else {
+                    if (mimeType === validType) {
+                        return true;
+                    }
+                }
+            }
+        }
+        catch (e_1_1) { e_1 = { error: e_1_1 }; }
+        finally {
+            try {
+                if (acceptedFiles_1_1 && !acceptedFiles_1_1.done && (_a = acceptedFiles_1.return)) _a.call(acceptedFiles_1);
+            }
+            finally { if (e_1) throw e_1.error; }
+        }
+        return false;
+    };
+    Utils.prototype.validateSize = function (file, maxSize) {
+        if (!maxSize) {
+            return true;
+        }
+        var bytes = this.getSizeParsed(maxSize);
+        return file.size <= bytes;
+    };
+    Utils.prototype.getFilesFromDroppedItems = function (dataTransfer) {
+        return getFilesFromDroppedItems(dataTransfer);
+    };
+    return Utils;
+}());
+/* harmony default export */ var utils = (new utils_Utils());
+
+// CONCATENATED MODULE: ./src/lib/file-record.ts
+
+
+
+var file_record_FileRecord = /** @class */ (function () {
+    function FileRecord(data, options) {
+        this.url = null;
+        this.urlResized = null;
+        this.image = {};
+        this.isPlayingAv = false;
+        this.oldFileName = null;
+        this.oldCustomName = null;
+        this.upload = { data: null, error: false };
+        this.url = null;
+        this.urlResized = null;
+        this.lastKnownSrc = null;
+        this.image = {};
+        this.isPlayingAv = false;
+        this.oldFileName = null;
+        this.oldCustomName = null;
+        this.raw = data;
+        this.file = data.file instanceof File ? data.file : this.createDummyFile(data);
+        this.progressInternal = !isNaN(data.progress) ? data.progress : 0;
+        // this.width = FileRecord.defaultWidth;
+        // this.height = FileRecord.defaultHeight;
+        this.thumbnailSize = options.thumbnailSize || 360;
+        this.read = !!options.read;
+        this.dimensions = data.dimensions || {};
+        this.dimensions.width = this.dimensions.width || 0;
+        this.dimensions.height = this.dimensions.height || 0;
+        this.error = data.error || false;
+        this.options = options;
+        this.maxSize = options.maxSize;
+        this.accept = options.accept;
+        this.id = Math.random() + ':' + new Date().getTime();
+        this.videoThumbnail = data.videoThumbnail;
+        this.imageColor = data.imageColor;
+        this.customName = data.customName;
+        this.validate();
+    }
+    FileRecord.getFromRaw = function (rawFileRecord, options, isSync) {
+        if (isSync === void 0) { isSync = false; }
+        var fileRecord = new FileRecord(rawFileRecord, options);
+        var promise = fileRecord.setUrl(rawFileRecord.url);
+        rawFileRecord.progress = fileRecord.progress.bind(fileRecord); // convert it as a function
+        rawFileRecord.src = fileRecord.src.bind(fileRecord);
+        rawFileRecord.name = fileRecord.name.bind(fileRecord); // convert it as a function
+        if (isSync) {
+            return fileRecord;
+        }
+        return promise;
+    };
+    FileRecord.fromRaw = function (rawFileRecord, options) {
+        return FileRecord.getFromRaw(rawFileRecord, options, false);
+    };
+    FileRecord.fromRawSync = function (rawFileRecord, options) {
+        return FileRecord.getFromRaw(rawFileRecord, options, true);
+    };
+    FileRecord.fromRawArray = function (rawFileRecords, options) {
+        var e_1, _a;
+        var promises = [];
+        try {
+            for (var rawFileRecords_1 = __values(rawFileRecords), rawFileRecords_1_1 = rawFileRecords_1.next(); !rawFileRecords_1_1.done; rawFileRecords_1_1 = rawFileRecords_1.next()) {
+                var rawFileRecord = rawFileRecords_1_1.value;
+                promises.push(FileRecord.fromRaw(rawFileRecord, options));
+            }
+        }
+        catch (e_1_1) { e_1 = { error: e_1_1 }; }
+        finally {
+            try {
+                if (rawFileRecords_1_1 && !rawFileRecords_1_1.done && (_a = rawFileRecords_1.return)) _a.call(rawFileRecords_1);
+            }
+            finally { if (e_1) throw e_1.error; }
+        }
+        return Promise.all(promises);
+    };
+    FileRecord.toRawArray = function (fileRecords) {
+        var e_2, _a;
+        var rawFileRecords = [];
+        try {
+            for (var fileRecords_1 = __values(fileRecords), fileRecords_1_1 = fileRecords_1.next(); !fileRecords_1_1.done; fileRecords_1_1 = fileRecords_1.next()) {
+                var fileRecord = fileRecords_1_1.value;
+                rawFileRecords.push(fileRecord.toRaw());
+            }
+        }
+        catch (e_2_1) { e_2 = { error: e_2_1 }; }
+        finally {
+            try {
+                if (fileRecords_1_1 && !fileRecords_1_1.done && (_a = fileRecords_1.return)) _a.call(fileRecords_1);
+            }
+            finally { if (e_2) throw e_2.error; }
+        }
+        return rawFileRecords;
+    };
+    FileRecord.readFile = function (fileRecord) {
+        return new Promise(function (resolve, reject) {
+            if (!fileRecord.read) {
+                fileRecord.setUrl(null);
+                resolve(fileRecord);
+                return;
+            }
+            utils.getDataURL(fileRecord.file).then(function (dataUrl) {
+                fileRecord.setUrl(dataUrl).then(function () {
+                    resolve(fileRecord);
+                }, reject);
+            }, reject);
+        });
+    };
+    FileRecord.readFiles = function (fileRecords) {
+        var e_3, _a;
+        var promises = [];
+        try {
+            for (var fileRecords_2 = __values(fileRecords), fileRecords_2_1 = fileRecords_2.next(); !fileRecords_2_1.done; fileRecords_2_1 = fileRecords_2.next()) {
+                var fileRecord = fileRecords_2_1.value;
+                promises.push(FileRecord.readFile(fileRecord));
+            }
+        }
+        catch (e_3_1) { e_3 = { error: e_3_1 }; }
+        finally {
+            try {
+                if (fileRecords_2_1 && !fileRecords_2_1.done && (_a = fileRecords_2.return)) _a.call(fileRecords_2);
+            }
+            finally { if (e_3) throw e_3.error; }
+        }
+        return Promise.all(promises);
+    };
+    // populate(data, options = {}) {}
+    FileRecord.prototype.createDummyFile = function (data) {
+        var file = {};
+        file.lastModified = data.lastModified;
+        var d = new Date();
+        if (file.lastModified) {
+            d.setTime(file.lastModified);
+        }
+        file.lastModifiedDate = d;
+        file.name = typeof data.name === 'function' ? data.name() : data.name;
+        file.size = data.size;
+        file.type = data.type;
+        return file;
+    };
+    FileRecord.prototype.hasProgress = function () {
+        return !isNaN(this.progressInternal); // && this._progress <= 100;
+    };
+    FileRecord.prototype.progress = function (value) {
+        if (value !== undefined) {
+            this.progressInternal = value;
+            return;
+        }
+        return this.progressInternal || 0;
+    };
+    FileRecord.prototype.src = function () {
+        if (this.isImage()) {
+            return this.urlResized || this.url || this.file.url;
+        }
+        if (this.isPlayableVideo()) {
+            return this.videoThumbnail || '';
+        }
+        return '';
+    };
+    FileRecord.prototype.size = function () {
+        if (!this.file) {
+            return '';
+        }
+        return utils.getSizeFormatted(this.file.size);
+    };
+    FileRecord.prototype.ext = function () {
+        if (this.file && this.file.name.indexOf('.') !== -1) {
+            return this.file.name.split('.').pop();
+        }
+        return '?';
+        // return this.file.type.split('/').shift();
+    };
+    FileRecord.prototype.name = function (withoutExt) {
+        var ext = this.ext();
+        if (this.customName) {
+            return this.customName + (withoutExt ? '' : ext !== '?' ? '.' + ext : '');
+        }
+        var name = this.file && this.file.name;
+        if (withoutExt) {
+            if (ext !== '?') {
+                return name.substr(0, name.length - (ext.length + 1));
+            }
+        }
+        return name;
+    };
+    FileRecord.prototype.isDarkColor = function () {
+        if (this.imageColor) {
+            var rgb = this.imageColor;
+            var darkPoint = 20;
+            return rgb[0] <= darkPoint && rgb[1] <= darkPoint && rgb[2] <= darkPoint;
+        }
+        return false;
+    };
+    FileRecord.prototype.color = function () {
+        if (this.imageColor) {
+            var rgb = this.imageColor;
+            return 'rgb(' + rgb[0] + ', ' + rgb[1] + ', ' + rgb[2] + ')';
+        }
+        if (this.isImage()) {
+            return 'transparent';
+        }
+        var ext = this.ext();
+        var svgIcon = this.icon();
+        // var svgIcon = getIconFromExt(ext);
+        if (svgIcon.color) {
+            return svgIcon.color;
+        }
+        return utils.getColorForText(ext);
+    };
+    FileRecord.prototype.isImage = function () {
+        return this.file && this.file.type.indexOf('image') !== -1;
+    };
+    FileRecord.prototype.isVideo = function () {
+        return this.file && this.file.type.indexOf('video') !== -1;
+    };
+    FileRecord.prototype.isPlayableVideo = function () {
+        return this.icon().category === 'video-playable';
+    };
+    FileRecord.prototype.isAudio = function () {
+        return this.file && this.file.type.indexOf('audio') !== -1;
+    };
+    FileRecord.prototype.isPlayableAudio = function () {
+        return this.icon().category === 'audio-playable';
+    };
+    FileRecord.prototype.isText = function () {
+        return this.file && this.file.type.indexOf('text') !== -1;
+    };
+    FileRecord.prototype.setUrl = function (url) {
+        var _this = this;
+        this.url = url;
+        return new Promise(function (resolve, reject) {
+            if (_this.isImage()) {
+                _this.resizeImage().then(function () {
+                    resolve(_this);
+                }, function (err) {
+                    resolve(_this);
+                });
+                return;
+            }
+            resolve(_this);
+        });
+    };
+    FileRecord.prototype.imageResized = function (resized) {
+        if (!resized) {
+            return;
+        }
+        this.urlResized = resized.url;
+        this.image = resized.image;
+        if (resized.image && resized.image.width && resized.image.height) {
+            this.dimensions.width = resized.image.width;
+            this.dimensions.height = resized.image.height;
+        }
+        this.lastKnownSrc = this.urlResized;
+        this.imageColor = resized.color;
+    };
+    FileRecord.prototype.resizeImage = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            utils
+                .resizeImage(_this.thumbnailSize, _this.file, _this.url)
+                .then(function (resized) {
+                _this.imageResized(resized);
+                resolve(_this);
+            })
+                .catch(reject);
+        });
+    };
+    FileRecord.prototype.icon = function () {
+        var ext = this.ext();
+        var svgIcon = getIconFromExt(ext);
+        return svgIcon;
+    };
+    FileRecord.prototype.getErrorMessage = function (errorText) {
+        var error = this.error;
+        if (!error) {
+            return '';
+        }
+        errorText = errorText || {};
+        errorText = {
+            common: errorText.common || 'Invalid file.',
+            type: errorText.type || 'Invalid file type.',
+            size: errorText.size || 'Files should not exceed ' + this.maxSize + ' in size',
+        };
+        if (error.type) {
+            return errorText.type;
+        }
+        else if (error.size) {
+            return errorText.size;
+        }
+        else if (error.upload) {
+            return this.upload.error ? this.upload.error : error.upload;
+        }
+        return errorText.common;
+    };
+    FileRecord.prototype.toRaw = function () {
+        var _this = this;
+        var raw = this.raw || {};
+        raw.url = this.url;
+        raw.urlResized = this.urlResized;
+        raw.src = this.src.bind(this);
+        raw.name = this.name.bind(this);
+        raw.lastModified = this.file.lastModified;
+        raw.sizeText = this.size();
+        raw.size = this.file.size;
+        raw.type = this.file.type;
+        raw.ext = this.ext();
+        raw.color = this.color();
+        raw.file = this.file;
+        raw.progress = this.progress.bind(this); // pass it as a function
+        raw.upload = this.upload;
+        if (!('error' in raw)) {
+            Object.defineProperty(raw, 'error', {
+                get: function () {
+                    return _this.error;
+                },
+            });
+        }
+        raw.dimensions = this.dimensions;
+        return raw;
+    };
+    FileRecord.prototype.validate = function () {
+        var validType = utils.validateType(this.file, this.accept);
+        var validSize = utils.validateSize(this.file, this.maxSize);
+        if (!validType || !validSize) {
+            this.error = {
+                type: !validType,
+                size: !validSize,
+            };
+        }
+        else {
+            this.error = false;
+        }
+    };
+    return FileRecord;
+}());
+/* harmony default export */ var file_record = (file_record_FileRecord);
+
+// CONCATENATED MODULE: ./src/components/vue-file-preview-mixin.ts
+
+
+
+
+/* harmony default export */ var vue_file_preview_mixin = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
+    props: ['value', 'deletable', 'editable', 'linkable', 'errorText', 'disabled', 'thumbnailSize'],
+    components: {
+        VueFileIcon: vue_file_icon,
+    },
+    data: function () {
+        return {
+            isEditInputFocused: false,
+            isEditCancelable: true,
+            fileRecord: {},
+        };
+    },
+    computed: {
+        hasLinkableUrl: function () {
+            if (!this.linkable) {
+                return false;
+            }
+            return !!this.fileRecord.url && !this.fileRecord.isPlayableVideo() && !this.fileRecord.isPlayableAudio();
+        },
+    },
+    methods: {
+        updateFileRecord: function () {
+            var _this = this;
+            if (this.value instanceof file_record) {
+                this.fileRecord = this.value;
+                return;
+            }
+            file_record.fromRaw(this.value, {
+                thumbnailSize: this.thumbnailSize,
+            }).then(function (fileRecord) {
+                _this.fileRecord = fileRecord;
+            });
+            this.fileRecord = file_record.fromRawSync(this.value, {
+                thumbnailSize: this.thumbnailSize,
+            });
+        },
+        createThumbnail: function (fileRecord, video) {
+            if (fileRecord.videoThumbnail) {
+                video.poster = fileRecord.src();
+                return;
+            }
+            var canvas = document.createElement('canvas');
+            utils.createVideoThumbnail(video, canvas, this.fileRecord.thumbnailSize).then(function (thumbnail) {
+                fileRecord.imageColor = thumbnail.color;
+                fileRecord.videoThumbnail = thumbnail.url;
+                fileRecord.dimensions.width = thumbnail.width;
+                fileRecord.dimensions.height = thumbnail.height;
+                video.poster = fileRecord.src();
+            });
+        },
+        playAv: function (fileRecord) {
+            if (fileRecord.stopAv) {
+                fileRecord.stopAv();
+                return;
+            }
+            var createObjectURL = (window.URL || window.webkitURL || {}).createObjectURL;
+            var revokeObjectURL = (window.URL || window.webkitURL || {}).revokeObjectURL;
+            var wrapper = this.$refs.wrapper;
+            var player = document.createElement(fileRecord.isAudio() ? 'audio' : 'video');
+            if (player instanceof HTMLVideoElement && fileRecord.isPlayableVideo()) {
+                this.createThumbnail(fileRecord, player);
+            }
+            player.controls = true;
+            // player.style.width = this.prvWidth + 'px';
+            wrapper.appendChild(player);
+            var url = fileRecord.url || createObjectURL(fileRecord.file);
+            player.src = url;
+            player.play();
+            fileRecord.isPlayingAv = true;
+            fileRecord.stopAv = function () {
+                // player.src = null;
+                player.src = '';
+                wrapper.removeChild(player);
+                revokeObjectURL(url);
+                fileRecord.isPlayingAv = false;
+                fileRecord.stopAv = null;
+            };
+        },
+        removeFileRecord: function (fileRecord) {
+            if (this.clearFilename()) {
+                return;
+            }
+            if (this.disabled === true) {
+                return;
+            }
+            this.$emit('remove', fileRecord);
+        },
+        editFileName: function () {
+            if (this.editable !== true) {
+                return;
+            }
+            if (!this.$refs.input) {
+                return;
+            }
+            this.$refs.input.focus();
+        },
+        editInputFocused: function () {
+            this.isEditInputFocused = true;
+            this.isEditCancelable = true;
+        },
+        editInputBlured: function () {
+            var _this = this;
+            this.fileRecord.oldFileName = this.fileRecord.name();
+            var oldValue = this.fileRecord.name(true);
+            var value = this.$refs.input.value;
+            this.fileRecord.customName = value;
+            var newValue = this.fileRecord.name(true);
+            if (newValue !== oldValue) {
+                this.fileRecord.oldCustomName = oldValue;
+                this.$emit('rename', this.fileRecord);
+            }
+            var timeout = 100;
+            setTimeout(function () {
+                _this.$nextTick(function () {
+                    if (!_this.isEditCancelable) {
+                        return;
+                    }
+                    _this.isEditInputFocused = false;
+                });
+            }, timeout);
+        },
+        filenameChanged: function (completed) {
+            if (completed) {
+                this.$refs.input.blur(); // @see editInputBlured method
+            }
+            if (completed === false) {
+                this.clearFilename();
+            }
+        },
+        filenameClearPressed: function () {
+            if (!(this.editable === true && this.isEditInputFocused)) {
+                return;
+            }
+            this.isEditCancelable = false;
+        },
+        clearFilename: function () {
+            if (!(this.editable === true && this.isEditInputFocused)) {
+                return false;
+            }
+            this.$refs.input.value = '';
+            this.isEditCancelable = true;
+            this.editInputBlured();
+            return true;
+        },
+        dismissError: function () {
+            if (this.fileRecord.error && (this.fileRecord.error.size || this.fileRecord.error.type)) {
+                return;
+            }
+            this.fileRecord.error = false;
+        },
+    },
+    created: function () {
+        this.updateFileRecord();
+    },
+    watch: {
+        value: function () {
+            this.updateFileRecord();
+        },
+    },
+}));
+
+// CONCATENATED MODULE: ./node_modules/ts-loader??ref--12-0!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vue-file-preview.vue?vue&type=script&lang=ts&
+
+
+/* harmony default export */ var vue_file_previewvue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
+    mixins: [vue_file_preview_mixin],
+}));
+
+// CONCATENATED MODULE: ./src/components/vue-file-preview.vue?vue&type=script&lang=ts&
+ /* harmony default export */ var components_vue_file_previewvue_type_script_lang_ts_ = (vue_file_previewvue_type_script_lang_ts_); 
+// CONCATENATED MODULE: ./src/components/vue-file-preview.vue
+
+
+
+
+
+/* normalize component */
+
+var vue_file_preview_component = normalizeComponent(
+  components_vue_file_previewvue_type_script_lang_ts_,
+  vue_file_previewvue_type_template_id_44f5f577_render,
+  vue_file_previewvue_type_template_id_44f5f577_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var vue_file_preview = (vue_file_preview_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"e1d1ff30-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vue-file-list.vue?vue&type=template&id=5ef04e06&
+var vue_file_listvue_type_template_id_5ef04e06_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._t("default")],2)}
+var vue_file_listvue_type_template_id_5ef04e06_staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/components/vue-file-list.vue?vue&type=template&id=5ef04e06&
+
+// CONCATENATED MODULE: ./node_modules/ts-loader??ref--12-0!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vue-file-list.vue?vue&type=script&lang=ts&
+
+/* harmony default export */ var vue_file_listvue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
+    props: ['value', 'axis', 'appendTo'],
+}));
+
+// CONCATENATED MODULE: ./src/components/vue-file-list.vue?vue&type=script&lang=ts&
+ /* harmony default export */ var components_vue_file_listvue_type_script_lang_ts_ = (vue_file_listvue_type_script_lang_ts_); 
+// CONCATENATED MODULE: ./src/components/vue-file-list.vue
+
+
+
+
+
+/* normalize component */
+
+var vue_file_list_component = normalizeComponent(
+  components_vue_file_listvue_type_script_lang_ts_,
+  vue_file_listvue_type_template_id_5ef04e06_render,
+  vue_file_listvue_type_template_id_5ef04e06_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var vue_file_list = (vue_file_list_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"e1d1ff30-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vue-file-list-item.vue?vue&type=template&id=00f7ef53&
+var vue_file_list_itemvue_type_template_id_00f7ef53_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._t("default")],2)}
+var vue_file_list_itemvue_type_template_id_00f7ef53_staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/components/vue-file-list-item.vue?vue&type=template&id=00f7ef53&
+
+// CONCATENATED MODULE: ./node_modules/ts-loader??ref--12-0!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vue-file-list-item.vue?vue&type=script&lang=ts&
+
+/* harmony default export */ var vue_file_list_itemvue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
+    props: ['index'],
+}));
+
+// CONCATENATED MODULE: ./src/components/vue-file-list-item.vue?vue&type=script&lang=ts&
+ /* harmony default export */ var components_vue_file_list_itemvue_type_script_lang_ts_ = (vue_file_list_itemvue_type_script_lang_ts_); 
+// CONCATENATED MODULE: ./src/components/vue-file-list-item.vue
+
+
+
+
+
+/* normalize component */
+
+var vue_file_list_item_component = normalizeComponent(
+  components_vue_file_list_itemvue_type_script_lang_ts_,
+  vue_file_list_itemvue_type_template_id_00f7ef53_render,
+  vue_file_list_itemvue_type_template_id_00f7ef53_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var vue_file_list_item = (vue_file_list_item_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"e1d1ff30-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vue-file-agent.vue?vue&type=template&id=237de2f0&
+var vue_file_agentvue_type_template_id_237de2f0_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:[
+    'is-sortable-' + (_vm.isSortable ? 'enabled' : 'disabled'),
+    {
+      'is-sortable-hold': _vm.sortable === 'hold',
+      'is-sortable-handle': _vm.sortable === 'handle',
+      'is-sortable-immediately': _vm.sortable === true,
+      'is-sorting': _vm.isSorting,
+      'is-sorting-active': _vm.isSortingActive,
+      'is-drag-over': _vm.isDragging,
+      'is-disabled': _vm.disabled === true,
+      'is-readonly': _vm.readonly === true,
+      'is-drag-valid': !(_vm.disabled === true || _vm.readonly === true || (_vm.hasMultiple && !_vm.canAddMore)),
+    },
+    'theme-' + _vm.theme ],attrs:{"id":'vfa-' + _vm.uniqueId},on:{"dragover":_vm.dragOver,"dragenter":_vm.dragEnter,"dragleave":_vm.dragLeave,"drop":_vm.drop}},[_vm._t("before-outer"),_c('div',{staticClass:"grid-block-wrapper vue-file-agent file-input-wrapper",class:{
+      'is-compact': !!_vm.compact,
+      'is-single': !_vm.hasMultiple,
+      'has-multiple': _vm.hasMultiple,
+      'no-meta': _vm.meta === false,
+    }},[_vm._t("before-inner"),_c('canvas',{ref:"thumbnailCanvas",staticStyle:{"position":"fixed","visibility":"hidden","z-index":"-3"}}),(_vm.overallProgress)?_c('div',{staticClass:"overall-progress",class:{ 'overall-progress-full': _vm.overallProgress >= 100 }},[_c('div',{staticClass:"overall-progress-bar",style:({ width: _vm.overallProgress + '%' })}),_c('div',{staticClass:"overall-progress-left",style:({ width: 100 - _vm.overallProgress + '%' })})]):_vm._e(),_c(_vm.isSortable ? 'vfa-sortable-list' : 'VueFileList',{tag:"component",attrs:{"axis":_vm.theme == 'list' ? 'y' : 'xy',"appendTo":'#vfa-' + _vm.uniqueId + ' .vue-file-agent',"transitionDuration":_vm.transitionDuration,"pressDelay":_vm.sortable === 'hold' ? 200 : 0,"useDragHandle":_vm.sortable === 'handle',"helperClass":'active-sorting-item'},on:{"sort-start":function($event){return _vm.sortStart()},"sort-end":function($event){return _vm.sortEnd($event)}},model:{value:(_vm.fileRecords),callback:function ($$v) {_vm.fileRecords=$$v},expression:"fileRecords"}},[_c('transition-group',{attrs:{"name":"grid-box","tag":"div"}},[_vm._l((_vm.fileRecords),function(fileRecord,index){return _c(_vm.isSortable ? 'vfa-sortable-item' : 'VueFileListItem',{key:fileRecord.id,tag:"component",staticClass:"file-preview-wrapper grid-box-item grid-block",attrs:{"index":index}},[(_vm.sortable === 'handle')?_c('span',{directives:[{name:"vfa-sortable-handle",rawName:"v-vfa-sortable-handle"}],staticClass:"file-sortable-handle"},[_vm._t("sortable-handle",[_c('VueFileIcon',{attrs:{"name":"system-sortable-handle"}})])],2):_vm._e(),_vm._t("file-preview",[_c('VueFilePreview',{attrs:{"value":fileRecord,"deletable":_vm.isDeletable,"editable":_vm.editable === true,"linkable":_vm.linkable === true,"errorText":_vm.errorText,"disabled":_vm.disabled,"thumbnailSize":_vm.thumbnailSize},on:{"remove":function($event){return _vm.removeFileRecord($event)},"rename":function($event){return _vm.filenameChanged($event)}}})],{"fileRecord":fileRecord,"fileData":fileRecord,"index":index})],2)}),(_vm.canAddMore && _vm.readonly !== true)?[_vm._t("file-preview-new",[_c('div',{key:"new",staticClass:"file-preview-wrapper grid-box-item grid-block file-preview-new"},[_c('span',{staticClass:"file-preview"},[_c('span',{staticStyle:{"position":"absolute","top":"0","right":"0","bottom":"0","left":"0"}},[_c('VueFileIcon',{attrs:{"name":"system-file-preview-new"}}),_c('span',{staticClass:"help-text"},[_vm._v(_vm._s(_vm.helpTextComputed))])],1)])])])]:_vm._e()],2)],1),(_vm.readonly !== true)?_c('input',{ref:"fileInput",staticClass:"file-input",attrs:{"title":"","disabled":_vm.disabled === true || (_vm.hasMultiple && !_vm.canAddMore),"type":"file","multiple":_vm.hasMultiple,"accept":_vm.accept || '*',"capture":_vm.capture || undefined},on:{"change":_vm.filesChanged}}):_vm._e(),_vm._t("after-inner")],2),_vm._t("after-outer")],2)}
+var vue_file_agentvue_type_template_id_237de2f0_staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/components/vue-file-agent.vue?vue&type=template&id=237de2f0&
+
+// CONCATENATED MODULE: ./src/lib/ajax-request.ts
+/* inspired by axios */
+var AjaxRequest = /** @class */ (function () {
+    function AjaxRequest() {
+    }
+    AjaxRequest.prototype.createError = function (message, code, request, response) {
+        var error = new Error(message);
+        error.error = true;
+        if (code) {
+            error.code = code;
+        }
+        error.request = request;
+        error.response = response;
+        return error;
+    };
+    AjaxRequest.prototype.settle = function (resolve, reject, response) {
+        var validateStatus = function (status) {
+            return status >= 200 && status < 300;
+        };
+        // Note: status is not exposed by XDomainRequest
+        if (!response.status || !validateStatus || validateStatus(response.status)) {
+            resolve(response);
+        }
+        else {
+            reject(this.createError('Request failed with status code ' + response.status, null, response.request, response));
+        }
+    };
+    AjaxRequest.prototype.request = function (method, url, formData, configureFn) {
+        var _this = this;
+        if (formData === void 0) { formData = null; }
+        return new Promise(function (resolve, reject) {
+            // tslint:disable-next-line
+            var request = new XMLHttpRequest();
+            var loadEvent = 'onreadystatechange';
+            request.open(method, url, true);
+            // Listen for ready state
+            request[loadEvent] = function () {
+                if (!request || request.readyState !== 4) {
+                    return;
+                }
+                // The request errored out and we didn't get a response, this will be
+                // handled by onerror instead
+                // With one exception: request that using file: protocol, most browsers
+                // will return status as 0 even though it's a successful request
+                if (request.status === 0 && !(request.responseURL && request.responseURL.indexOf('file:') === 0)) {
+                    return;
+                }
+                // Prepare the response
+                var responseHeaders = request.getAllResponseHeaders();
+                var responseData = request.responseText;
+                var contentType = request.getResponseHeader('Content-Type');
+                if (contentType && contentType.indexOf('application/json') !== -1) {
+                    responseData = JSON.parse(responseData);
+                }
+                else {
+                    try {
+                        responseData = JSON.parse(responseData);
+                    }
+                    catch (e) {
+                        /* ignore, possibly non json response */
+                    }
+                }
+                var response = {
+                    data: responseData,
+                    // IE sends 1223 instead of 204 (https://github.com/axios/axios/issues/201)
+                    status: request.status === 1223 ? 204 : request.status,
+                    statusText: request.status === 1223 ? 'No Content' : request.statusText,
+                    headers: responseHeaders,
+                    request: request,
+                };
+                _this.settle(resolve, reject, response);
+                // Clean up request
+                request = null;
+            };
+            // Handle browser request cancellation (as opposed to a manual cancellation)
+            request.onabort = function () {
+                if (!request) {
+                    return;
+                }
+                reject(_this.createError('Request aborted', 'ECONNABORTED', request));
+                // Clean up request
+                request = null;
+            };
+            // Handle low level network errors
+            request.onerror = function () {
+                // Real errors are hidden from us by the browser
+                // onerror should only fire if it's a network error
+                reject(_this.createError('Network Error', null, request));
+                // Clean up request
+                request = null;
+            };
+            // Handle timeout
+            request.ontimeout = function () {
+                reject(_this.createError('timeout exceeded', 'ECONNABORTED', request));
+                // Clean up request
+                request = null;
+            };
+            // // Handle progress if needed
+            // if (typeof config.onDownloadProgress === 'function') {
+            //   request.addEventListener('progress', config.onDownloadProgress);
+            // }
+            // Not all browsers support upload events
+            // if (typeof progressCallback === 'function' && request.upload) {
+            //   request.upload.addEventListener('progress', progressCallback);
+            // }
+            if (typeof configureFn === 'function') {
+                configureFn(request);
+            }
+            request.send(formData);
+        });
+    };
+    AjaxRequest.prototype.post = function (url, formData, configureFn) {
+        return this.request('POST', url, formData, configureFn);
+    };
+    AjaxRequest.prototype.delete = function (url, formData, configureFn) {
+        return this.request('DELETE', url, formData, configureFn);
+    };
+    AjaxRequest.prototype.put = function (url, formData, configureFn) {
+        return this.request('PUT', url, formData, configureFn);
+    };
+    return AjaxRequest;
+}());
+/* harmony default export */ var ajax_request = (new AjaxRequest());
+
+// CONCATENATED MODULE: ./src/lib/upload-helper.ts
+
+
+var upload_helper_UploadHelper = /** @class */ (function () {
+    function UploadHelper() {
+    }
+    // useAxios(axios){
+    //   this.axios = axios;
+    // }
+    UploadHelper.prototype.addHeaders = function (xhr, headers) {
+        xhr.setRequestHeader('Accept', 'application/json');
+        if (headers) {
+            for (var key in headers) {
+                if (headers.hasOwnProperty(key)) {
+                    xhr.setRequestHeader(key, headers[key]);
+                }
+            }
+        }
+        return xhr;
+    };
+    UploadHelper.prototype.doUpload = function (url, headers, formData, progressCallback, configureFn) {
+        var _this = this;
+        return ajax_request.post(url, formData, function (xhr) {
+            _this.addHeaders(xhr, headers);
+            xhr.upload.addEventListener('progress', progressCallback, false);
+            if (typeof configureFn === 'function') {
+                configureFn(xhr);
+            }
+        });
+    };
+    UploadHelper.prototype.doDeleteUpload = function (url, headers, uploadData, configureFn) {
+        var _this = this;
+        if (typeof uploadData !== 'string') {
+            uploadData = JSON.stringify(uploadData);
+        }
+        return ajax_request.delete(url, uploadData, function (xhr) {
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            _this.addHeaders(xhr, headers);
+            if (typeof configureFn === 'function') {
+                configureFn(xhr);
+            }
+        });
+    };
+    UploadHelper.prototype.doUpdateUpload = function (url, headers, uploadData, configureFn) {
+        var _this = this;
+        if (typeof uploadData !== 'string') {
+            uploadData = JSON.stringify(uploadData);
+        }
+        return ajax_request.put(url, uploadData, function (xhr) {
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            _this.addHeaders(xhr, headers);
+            if (typeof configureFn === 'function') {
+                configureFn(xhr);
+            }
+        });
+    };
+    // doUploadAxios(axios, formData, progressCallback){
+    //   return axios.post('/upload', formData, {
+    //     onUploadProgress: progressCallback,
+    //   });
+    // }
+    // doDeleteUploadAxios(axios, data, configureFn){
+    //   return axios.delete('/upload', data, {
+    //   });
+    // }
+    UploadHelper.prototype.prepareUploadError = function (fileRecord, err, timeout) {
+        var errorText = err.message;
+        if (err.response && err.response.data) {
+            try {
+                var errorMsg = err.response.data.error || JSON.parse(err.response.data).error;
+                errorText = errorMsg;
+            }
+            catch (e) {
+                // ignore
+            }
+        }
+        if (!fileRecord.error) {
+            fileRecord.error = {};
+        }
+        fileRecord.error.upload = errorText;
+        fileRecord.upload.data = undefined;
+        fileRecord.upload.error = errorText;
+        if (timeout) {
+            setTimeout(function () {
+                if (!fileRecord.error) {
+                    fileRecord.error = {};
+                }
+                fileRecord.error.upload = false;
+                if (!fileRecord.error.size && !fileRecord.error.type) {
+                    fileRecord.error = false;
+                }
+            }, timeout);
+        }
+    };
+    UploadHelper.prototype.upload = function (url, headers, fileRecords, createFormData, progressFn, configureFn) {
+        var e_1, _a;
+        var _this = this;
+        var updateOverallProgress = function () {
+            /* no op */
+        };
+        if (progressFn) {
+            updateOverallProgress = function () {
+                var e_2, _a;
+                var prgTotal = 0;
+                try {
+                    for (var fileRecords_2 = __values(fileRecords), fileRecords_2_1 = fileRecords_2.next(); !fileRecords_2_1.done; fileRecords_2_1 = fileRecords_2.next()) {
+                        var fileRecord = fileRecords_2_1.value;
+                        prgTotal += fileRecord.progress();
+                    }
+                }
+                catch (e_2_1) { e_2 = { error: e_2_1 }; }
+                finally {
+                    try {
+                        if (fileRecords_2_1 && !fileRecords_2_1.done && (_a = fileRecords_2.return)) _a.call(fileRecords_2);
+                    }
+                    finally { if (e_2) throw e_2.error; }
+                }
+                progressFn(prgTotal / fileRecords.length);
+            };
+        }
+        var promises = [];
+        var failedUploadsCount = 0;
+        var _loop_1 = function (fileRecord) {
+            var formData = void 0;
+            if (typeof createFormData === 'function') {
+                formData = createFormData(fileRecord);
+            }
+            else {
+                formData = new FormData();
+                formData.append('file', fileRecord.file);
+                formData.append('filename', fileRecord.name());
+            }
+            // ((fileRecord) => {
+            var promise = this_1.doUpload(url, headers, formData, function (progressEvent) {
+                var percentCompleted = (progressEvent.loaded * 100) / progressEvent.total;
+                // do not complete until promise resolved
+                fileRecord.progress(percentCompleted >= 100 ? 99.9999 : percentCompleted);
+                updateOverallProgress();
+            }, function (xhr) {
+                fileRecord.xhr = xhr;
+                if (typeof configureFn === 'function') {
+                    configureFn(xhr);
+                }
+            });
+            promises.push(new Promise(function (resolve, reject) {
+                promise.then(function (response) {
+                    delete fileRecord.xhr;
+                    fileRecord.upload.data = response.data;
+                    fileRecord.upload.error = false;
+                    fileRecord.progress(100);
+                    if (fileRecord.xhrQueue) {
+                        fileRecord.xhrQueue();
+                        delete fileRecord.xhrQueue;
+                    }
+                    resolve(response);
+                } /* */, function (err) {
+                    _this.prepareUploadError(fileRecord, err);
+                    resolve(err);
+                    failedUploadsCount++;
+                } /* */);
+            }));
+        };
+        var this_1 = this;
+        try {
+            for (var fileRecords_1 = __values(fileRecords), fileRecords_1_1 = fileRecords_1.next(); !fileRecords_1_1.done; fileRecords_1_1 = fileRecords_1.next()) {
+                var fileRecord = fileRecords_1_1.value;
+                _loop_1(fileRecord);
+            }
+        }
+        catch (e_1_1) { e_1 = { error: e_1_1 }; }
+        finally {
+            try {
+                if (fileRecords_1_1 && !fileRecords_1_1.done && (_a = fileRecords_1.return)) _a.call(fileRecords_1);
+            }
+            finally { if (e_1) throw e_1.error; }
+        }
+        // return Promise.all(promises);
+        return new Promise(function (resolve, reject) {
+            Promise.all(promises).then(function (responses) {
+                if (failedUploadsCount === promises.length) {
+                    // all uploads failed
+                    reject(responses);
+                    return;
+                }
+                resolve(responses);
+            }, reject);
+        });
+    };
+    UploadHelper.prototype.deleteUpload = function (url, headers, fileRecord, uploadData, configureFn) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            if (fileRecord.xhr) {
+                fileRecord.xhr.abort();
+            }
+            if (uploadData === undefined) {
+                uploadData = fileRecord.upload.data;
+            }
+            if (uploadData) {
+                _this.doDeleteUpload(url, headers, uploadData, function (xhr) {
+                    if (typeof configureFn === 'function') {
+                        configureFn(xhr);
+                    }
+                }).then(function (result) {
+                    resolve(result);
+                }, function (err) {
+                    _this.prepareUploadError(fileRecord, err);
+                    reject(err);
+                });
+            }
+        });
+    };
+    UploadHelper.prototype.updateUpload = function (url, headers, fileRecord, uploadData, configureFn) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            if (fileRecord.xhr) {
+                // probably updated while being uploaded.
+                fileRecord.xhrQueue = function () {
+                    _this.updateUpload(url, headers, fileRecord, uploadData);
+                };
+                return resolve();
+            }
+            if (uploadData === undefined) {
+                uploadData = fileRecord.upload.data || {};
+                uploadData.old_filename = fileRecord.oldFileName;
+                uploadData.filename = fileRecord.name();
+            }
+            if (uploadData) {
+                _this.doUpdateUpload(url, headers, uploadData, function (xhr) {
+                    if (typeof configureFn === 'function') {
+                        configureFn(xhr);
+                    }
+                }).then(function (response) {
+                    fileRecord.upload.data = response.data;
+                    fileRecord.upload.error = false;
+                    resolve(response);
+                }, function (err) {
+                    _this.prepareUploadError(fileRecord, err);
+                    reject(err);
+                });
+            }
+        });
+    };
+    UploadHelper.prototype.doTusUpload = function (tus, url, fileRecord, headers, progressCallback) {
+        return new Promise(function (resolve, reject) {
+            if (!tus) {
+                return reject(new Error('tus required. Please install tus-js-client'));
+            }
+            // https://github.com/tus/tus-js-client
+            // Create a new tus upload
+            var file = fileRecord.file;
+            var upload = new tus.Upload(file, {
+                endpoint: url,
+                headers: headers,
+                retryDelays: [0, 3000, 5000, 10000, 20000],
+                metadata: {
+                    filename: file.name,
+                    filetype: file.type,
+                },
+                onError: function (error) {
+                    reject(error);
+                    // console.log("Failed because: " + error)
+                },
+                onProgress: function (bytesUploaded, bytesTotal) {
+                    var event = { loaded: bytesUploaded, total: bytesTotal };
+                    progressCallback(event);
+                },
+                onSuccess: function () {
+                    resolve(upload);
+                },
+            });
+            fileRecord.tusUpload = upload;
+            // Start the upload
+            upload.start();
+        });
+    };
+    UploadHelper.prototype.tusUpload = function (tus, url, headers, fileRecords, progressFn) {
+        var e_3, _a;
+        var _this = this;
+        var updateOverallProgress = function () {
+            /* no op */
+        };
+        if (progressFn) {
+            updateOverallProgress = function () {
+                var e_4, _a;
+                var prgTotal = 0;
+                try {
+                    for (var fileRecords_4 = __values(fileRecords), fileRecords_4_1 = fileRecords_4.next(); !fileRecords_4_1.done; fileRecords_4_1 = fileRecords_4.next()) {
+                        var fileRecord = fileRecords_4_1.value;
+                        prgTotal += fileRecord.progress();
+                    }
+                }
+                catch (e_4_1) { e_4 = { error: e_4_1 }; }
+                finally {
+                    try {
+                        if (fileRecords_4_1 && !fileRecords_4_1.done && (_a = fileRecords_4.return)) _a.call(fileRecords_4);
+                    }
+                    finally { if (e_4) throw e_4.error; }
+                }
+                progressFn(prgTotal / fileRecords.length);
+            };
+        }
+        var promises = [];
+        var _loop_2 = function (fileRecord) {
+            var promise = this_2.doTusUpload(tus, url, fileRecord, headers, function (progressEvent) {
+                var percentCompleted = (progressEvent.loaded * 100) / progressEvent.total;
+                // do not complete until promise resolved
+                fileRecord.progress(percentCompleted >= 100 ? 99.9999 : percentCompleted);
+                updateOverallProgress();
+            });
+            promise.then(function (response) {
+                // delete fileRecord.tusUpload;
+                fileRecord.progress(100);
+            }, function (err) {
+                _this.prepareUploadError(fileRecord, err);
+            });
+            promises.push(promise);
+        };
+        var this_2 = this;
+        try {
+            for (var fileRecords_3 = __values(fileRecords), fileRecords_3_1 = fileRecords_3.next(); !fileRecords_3_1.done; fileRecords_3_1 = fileRecords_3.next()) {
+                var fileRecord = fileRecords_3_1.value;
+                _loop_2(fileRecord);
+            }
+        }
+        catch (e_3_1) { e_3 = { error: e_3_1 }; }
+        finally {
+            try {
+                if (fileRecords_3_1 && !fileRecords_3_1.done && (_a = fileRecords_3.return)) _a.call(fileRecords_3);
+            }
+            finally { if (e_3) throw e_3.error; }
+        }
+        return Promise.all(promises);
+    };
+    UploadHelper.prototype.tusDeleteUpload = function (tus, url, headers, fileRecord) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            if (!tus) {
+                return reject('tus required');
+            }
+            if (!fileRecord.tusUpload) {
+                return resolve();
+            }
+            // const shouldTerminate = true;
+            var abort = function (shouldTerminate) {
+                return new Promise(function (res, rej) {
+                    fileRecord.tusUpload.abort(shouldTerminate, function (err) {
+                        if (err) {
+                            _this.prepareUploadError(fileRecord, err);
+                            rej(err);
+                            return;
+                        }
+                        res();
+                    });
+                });
+            };
+            abort(false).then(function () {
+                setTimeout(function () {
+                    abort(true).then(resolve, reject);
+                }, 1000);
+            });
+        });
+    };
+    return UploadHelper;
+}());
+/* harmony default export */ var upload_helper = (new upload_helper_UploadHelper());
+
+// CONCATENATED MODULE: ./src/lib/plugins.ts
+/* harmony default export */ var plugins = ({
+    tus: null,
+});
+
+// CONCATENATED MODULE: ./src/components/vue-file-agent-mixin.ts
+
+
+
+
+
+
+
+
+
+
+// tslint:disable-next-line
+var dragCounter = 0;
+/* harmony default export */ var vue_file_agent_mixin = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
+    props: [
+        'accept',
+        'auto',
+        'capture',
+        'compact',
+        'deletable',
+        'disabled',
+        'editable',
+        'errorText',
+        'helpText',
+        'linkable',
+        'maxFiles',
+        'maxSize',
+        'meta',
+        'multiple',
+        'progress',
+        'read',
+        'readonly',
+        'resumable',
+        'sortable',
+        'theme',
+        'thumbnailSize',
+        'uploadConfig',
+        'uploadHeaders',
+        'uploadUrl',
+        'uploadWithCredentials',
+        'value',
+    ],
+    components: {
+        VueFileIcon: vue_file_icon,
+        VueFilePreview: vue_file_preview,
+        VueFileList: vue_file_list,
+        VueFileListItem: vue_file_list_item,
+    },
+    directives: {
+        // https://github.com/Jexordexan/vue-slicksort/blob/master/src/HandleDirective.js
+        vfaSortableHandle: {
+            bind: function (el) {
+                el.sortableHandle = true;
+            },
+        },
+    },
+    data: function () {
+        return {
+            fileRecords: [],
+            rawFileRecords: [],
+            isDragging: false,
+            isSorting: false,
+            isSortingActive: false,
+            transitionDuration: 300,
+            overallProgress: 0,
+            uniqueId: '',
+            sortTimeout: 0,
+        };
+    },
+    computed: {
+        canAddMore: function () {
+            if (!this.hasMultiple) {
+                return this.fileRecords.length === 0;
+            }
+            if (!this.maxFiles) {
+                return true;
+            }
+            return this.fileRecords.length < this.maxFiles;
+        },
+        helpTextComputed: function () {
+            if (this.helpText) {
+                return this.helpText;
+            }
+            return 'Choose ' + (this.hasMultiple ? 'files' : 'file') + ' or drag & drop here';
+        },
+        isDeletable: function () {
+            if (typeof this.deletable === 'string') {
+                return this.deletable !== 'false';
+            }
+            return !!this.deletable;
+        },
+        isSortable: function () {
+            return !!this.sortable;
+        },
+        hasMultiple: function () {
+            if (typeof this.multiple === 'string') {
+                return this.multiple !== 'false';
+            }
+            if (this.multiple === undefined) {
+                return Array.isArray(this.value);
+            }
+            return !!this.multiple;
+        },
+        shouldRead: function () {
+            if (typeof this.read === 'string') {
+                return this.read === 'true';
+            }
+            return !!this.read;
+        },
+    },
+    methods: {
+        createThumbnail: function (fileRecord, video) {
+            return new Promise(function (resolve, reject) {
+                var canvas = document.createElement('canvas');
+                utils.createVideoThumbnail(video, canvas, fileRecord.thumbnailSize).then(function (thumbnail) {
+                    fileRecord.imageColor = thumbnail.color;
+                    fileRecord.videoThumbnail = thumbnail.url;
+                    fileRecord.dimensions.width = thumbnail.width;
+                    fileRecord.dimensions.height = thumbnail.height;
+                    resolve();
+                }, reject);
+            });
+        },
+        initVideo: function (fileRecord) {
+            if (!fileRecord.isPlayableVideo()) {
+                return;
+            }
+            var createObjectURL = (window.URL || window.webkitURL || {}).createObjectURL;
+            var revokeObjectURL = (window.URL || window.webkitURL || {}).revokeObjectURL;
+            var video = document.createElement('video');
+            video.src = createObjectURL(fileRecord.file);
+            this.createThumbnail(fileRecord, video).then(function () {
+                revokeObjectURL(video.src);
+            });
+            video.load();
+        },
+        getFileRecordOrRawInstance: function (fileRecordOrRaw, raw) {
+            var i;
+            if (fileRecordOrRaw instanceof file_record) {
+                i = this.fileRecords.indexOf(fileRecordOrRaw);
+            }
+            else {
+                i = this.rawFileRecords.indexOf(fileRecordOrRaw);
+            }
+            if (i === -1) {
+                return fileRecordOrRaw;
+            }
+            return raw ? this.rawFileRecords[i] : this.fileRecords[i];
+        },
+        getFileRecordRawInstance: function (fileRecordOrRaw) {
+            return this.getFileRecordOrRawInstance(fileRecordOrRaw, true);
+        },
+        getFileRecordInstance: function (fileRecordOrRaw) {
+            return this.getFileRecordOrRawInstance(fileRecordOrRaw, false);
+        },
+        prepareConfigureFn: function (configureXhr) {
+            var uploadWithCredentials = this.uploadWithCredentials;
+            if (uploadWithCredentials !== true && uploadWithCredentials !== false) {
+                return configureXhr;
+            }
+            return function (request) {
+                request.withCredentials = uploadWithCredentials;
+                if (typeof configureXhr === 'function') {
+                    configureXhr(request);
+                }
+            };
+        },
+        upload: function (url, headers, fileRecordsOrRaw, createFormData, configureXhr) {
+            var e_1, _a;
+            var _this = this;
+            var validFileRecords = [];
+            var validFilesRawData = [];
+            try {
+                for (var fileRecordsOrRaw_1 = __values(fileRecordsOrRaw), fileRecordsOrRaw_1_1 = fileRecordsOrRaw_1.next(); !fileRecordsOrRaw_1_1.done; fileRecordsOrRaw_1_1 = fileRecordsOrRaw_1.next()) {
+                    var fileRecordOrRaw = fileRecordsOrRaw_1_1.value;
+                    var fileRecord = this.getFileRecordInstance(fileRecordOrRaw);
+                    if (!fileRecord.error) {
+                        validFileRecords.push(fileRecord);
+                        validFilesRawData.push(this.getFileRecordRawInstance(fileRecord));
+                    }
+                }
+            }
+            catch (e_1_1) { e_1 = { error: e_1_1 }; }
+            finally {
+                try {
+                    if (fileRecordsOrRaw_1_1 && !fileRecordsOrRaw_1_1.done && (_a = fileRecordsOrRaw_1.return)) _a.call(fileRecordsOrRaw_1);
+                }
+                finally { if (e_1) throw e_1.error; }
+            }
+            if (this.resumable) {
+                return upload_helper.tusUpload(plugins.tus, url, headers, validFileRecords, function (overallProgress) {
+                    _this.overallProgress = overallProgress;
+                });
+            }
+            return new Promise(function (resolve, reject) {
+                upload_helper
+                    .upload(url, headers, validFileRecords, createFormData, function (overallProgress) {
+                    _this.overallProgress = overallProgress;
+                }, _this.prepareConfigureFn(configureXhr))
+                    .then(function (res) {
+                    for (var i = 0; i < res.length; i++) {
+                        res[i].fileRecord = validFilesRawData[i];
+                    }
+                    _this.$emit('upload', res);
+                    resolve(res);
+                }, function (err) {
+                    for (var i = 0; i < err.length; i++) {
+                        err[i].fileRecord = validFilesRawData[i];
+                    }
+                    _this.$emit('upload:error', err);
+                    reject(err);
+                });
+            });
+        },
+        deleteUpload: function (url, headers, fileRecord, uploadData, configureXhr) {
+            var _this = this;
+            if (this.fileRecords.length < 1) {
+                this.overallProgress = 0;
+            }
+            fileRecord = this.getFileRecordInstance(fileRecord);
+            var rawFileRecord = this.getFileRecordRawInstance(fileRecord);
+            if (this.resumable) {
+                return upload_helper.tusDeleteUpload(plugins.tus, url, headers, fileRecord);
+            }
+            return new Promise(function (resolve, reject) {
+                upload_helper
+                    .deleteUpload(url, headers, fileRecord, uploadData, _this.prepareConfigureFn(configureXhr))
+                    .then(function (res) {
+                    res.fileRecord = rawFileRecord;
+                    _this.$emit('upload:delete', res);
+                    resolve(res);
+                }, function (err) {
+                    err.fileRecord = rawFileRecord;
+                    _this.$emit('upload:delete:error', err);
+                    reject(err);
+                });
+            });
+        },
+        updateUpload: function (url, headers, fileRecord, uploadData, configureXhr) {
+            var _this = this;
+            fileRecord = this.getFileRecordInstance(fileRecord);
+            var rawFileRecord = this.getFileRecordRawInstance(fileRecord);
+            return new Promise(function (resolve, reject) {
+                upload_helper
+                    .updateUpload(url, headers, fileRecord, uploadData, _this.prepareConfigureFn(configureXhr))
+                    .then(function (res) {
+                    res.fileRecords = rawFileRecord;
+                    _this.$emit('upload:update', res);
+                    resolve(res);
+                }, function (err) {
+                    err.fileRecords = rawFileRecord;
+                    _this.$emit('upload:update:error', err);
+                    reject(err);
+                });
+            });
+        },
+        autoUpload: function (fileRecords) {
+            if (!this.uploadUrl || this.auto === false) {
+                return Promise.resolve(false);
+            }
+            return this.upload(this.uploadUrl, this.uploadHeaders, fileRecords, this.uploadConfig);
+        },
+        autoDeleteUpload: function (fileRecord) {
+            if (!this.uploadUrl || this.auto === false) {
+                return Promise.resolve(false);
+            }
+            return this.deleteUpload(this.uploadUrl, this.uploadHeaders, fileRecord, this.uploadConfig);
+        },
+        autoUpdateUpload: function (fileRecord) {
+            if (!this.uploadUrl || this.auto === false) {
+                return Promise.resolve(false);
+            }
+            return this.updateUpload(this.uploadUrl, this.uploadHeaders, fileRecord, this.uploadConfig);
+        },
+        equalFiles: function (file1, file2) {
+            return (  true &&
+                file1.name === file2.name &&
+                file1.size === file2.size &&
+                file1.type === file2.type &&
+                // file1.lastModifiedDate.getTime() === file2.lastModifiedDate.getTime() &&
+                file1.lastModified === file2.lastModified);
+        },
+        isFileAddedAlready: function (file) {
+            var e_2, _a;
+            try {
+                for (var _b = __values(this.fileRecords), _c = _b.next(); !_c.done; _c = _b.next()) {
+                    var fileRecord = _c.value;
+                    if (this.equalFiles(file, fileRecord.file)) {
+                        return true;
+                    }
+                }
+            }
+            catch (e_2_1) { e_2 = { error: e_2_1 }; }
+            finally {
+                try {
+                    if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+                }
+                finally { if (e_2) throw e_2.error; }
+            }
+            return false;
+        },
+        handleFiles: function (files) {
+            var e_3, _a, e_4, _b, _c;
+            var _this = this;
+            if (this.disabled === true || this.readonly === true) {
+                return;
+            }
+            if (this.hasMultiple && !this.canAddMore) {
+                return;
+            }
+            var fileRecords = [];
+            var filesFiltered = [];
+            // tslint:disable-next-line
+            for (var i = 0; i < files.length; i++) {
+                if (this.hasMultiple && this.isFileAddedAlready(files[i])) {
+                    continue;
+                }
+                filesFiltered.push(files[i]);
+            }
+            files = filesFiltered;
+            if (this.maxFiles && files.length > this.maxFiles - this.fileRecords.length) {
+                files = files.slice(0, this.maxFiles - this.fileRecords.length);
+            }
+            try {
+                for (var files_1 = __values(files), files_1_1 = files_1.next(); !files_1_1.done; files_1_1 = files_1.next()) {
+                    var file = files_1_1.value;
+                    fileRecords.push(new file_record({
+                        file: file,
+                    }, {
+                        read: this.shouldRead,
+                        maxSize: this.maxSize,
+                        accept: this.accept,
+                        thumbnailSize: this.thumbnailSize,
+                    }));
+                }
+            }
+            catch (e_3_1) { e_3 = { error: e_3_1 }; }
+            finally {
+                try {
+                    if (files_1_1 && !files_1_1.done && (_a = files_1.return)) _a.call(files_1);
+                }
+                finally { if (e_3) throw e_3.error; }
+            }
+            try {
+                for (var fileRecords_1 = __values(fileRecords), fileRecords_1_1 = fileRecords_1.next(); !fileRecords_1_1.done; fileRecords_1_1 = fileRecords_1.next()) {
+                    var fileRecord = fileRecords_1_1.value;
+                    if (fileRecord.file.size <= 20 * 1024 * 1024) {
+                        // <= 20MB
+                        this.initVideo(fileRecord);
+                    }
+                }
+            }
+            catch (e_4_1) { e_4 = { error: e_4_1 }; }
+            finally {
+                try {
+                    if (fileRecords_1_1 && !fileRecords_1_1.done && (_b = fileRecords_1.return)) _b.call(fileRecords_1);
+                }
+                finally { if (e_4) throw e_4.error; }
+            }
+            if (this.hasMultiple) {
+                // splice: for list transitions to work properly
+                (_c = this.fileRecords).splice.apply(_c, __spread([this.fileRecords.length, 0], fileRecords));
+            }
+            else {
+                this.fileRecords = fileRecords;
+            }
+            file_record.readFiles(fileRecords).then(function (fileRecordsNew) {
+                var allFileRecordsRaw = file_record.toRawArray(_this.fileRecords);
+                _this.rawFileRecords = allFileRecordsRaw;
+                _this.$emit('input', Array.isArray(_this.value) ? allFileRecordsRaw : allFileRecordsRaw[0]);
+                _this.$emit('select', file_record.toRawArray(fileRecordsNew));
+            });
+            this.autoUpload(fileRecords);
+        },
+        filesChanged: function (event) {
+            var files = event.target.files;
+            this.$emit('change', event);
+            if (!files[0]) {
+                return;
+            }
+            this.handleFiles(files);
+            if (this.$refs.fileInput) {
+                this.$refs.fileInput.value = null; // do not use ''
+                // because chrome won't fire change event for same file
+            }
+        },
+        drop: function (event) {
+            var _this = this;
+            event.stopPropagation();
+            event.preventDefault();
+            dragCounter = 0;
+            this.isDragging = false;
+            if (this.disabled === true || this.readonly === true) {
+                return;
+            }
+            if (!event.dataTransfer) {
+                return;
+            }
+            utils.getFilesFromDroppedItems(event.dataTransfer).then(function (files) {
+                _this.$emit('drop', event);
+                if (!files || !files[0]) {
+                    return;
+                }
+                if (!_this.hasMultiple) {
+                    files = [files[0]];
+                }
+                _this.handleFiles(files);
+            });
+        },
+        dragEnter: function (event) {
+            if (!event.dataTransfer) {
+                return;
+            }
+            this.isDragging = true;
+            event.stopPropagation();
+            event.preventDefault();
+            dragCounter++;
+            event.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+        },
+        dragOver: function (event) {
+            if (!event.dataTransfer) {
+                return;
+            }
+            this.isDragging = true;
+            event.stopPropagation();
+            event.preventDefault();
+            event.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+        },
+        dragLeave: function (event) {
+            if (!event.dataTransfer) {
+                return;
+            }
+            dragCounter--;
+            if (dragCounter === 0) {
+                this.isDragging = false;
+            }
+        },
+        removeFileRecord: function (fileRecordOrRaw) {
+            var _this = this;
+            var i;
+            if (fileRecordOrRaw instanceof file_record) {
+                i = this.fileRecords.indexOf(fileRecordOrRaw);
+            }
+            else {
+                i = this.rawFileRecords.indexOf(fileRecordOrRaw);
+            }
+            var fileRecord = this.fileRecords[i];
+            var rawFileRecord = this.rawFileRecords[i];
+            this.$emit('input', this.rawFileRecords);
+            this.$emit('delete', rawFileRecord);
+            fileRecord = this.fileRecords.splice(i, 1)[0];
+            rawFileRecord = this.rawFileRecords.splice(i, 1)[0];
+            this.autoDeleteUpload(fileRecord).then(function (res) {
+                /* no op */
+            }, function (err) {
+                _this.fileRecords.splice(i, 1, fileRecord);
+                _this.rawFileRecords.splice(i, 1, rawFileRecord);
+            });
+        },
+        filenameChanged: function (fileRecord) {
+            this.$emit('rename', file_record.toRawArray([fileRecord])[0]);
+            this.autoUpdateUpload(fileRecord).then(function (res) {
+                /* no op */
+            }, function (err) {
+                fileRecord.customName = fileRecord.oldCustomName;
+            });
+        },
+        checkValue: function () {
+            var _this = this;
+            var rawFileRecords = this.value || [];
+            rawFileRecords = Array.isArray(rawFileRecords) ? rawFileRecords : [rawFileRecords];
+            var fdPromises = [];
+            var rawFileRecordsNew = [];
+            for (var i = 0; i < rawFileRecords.length; i++) {
+                var existingIndex = this.rawFileRecords.indexOf(rawFileRecords[i]);
+                if (existingIndex !== -1) {
+                    fdPromises.push(Promise.resolve(this.fileRecords[existingIndex]));
+                    rawFileRecordsNew[i] = this.rawFileRecords[existingIndex];
+                }
+                else {
+                    fdPromises.push(file_record.fromRaw(rawFileRecords[i], {
+                        read: this.shouldRead,
+                        maxSize: this.maxSize,
+                        accept: this.accept,
+                        thumbnailSize: this.thumbnailSize,
+                    }));
+                    rawFileRecordsNew.push(rawFileRecords[i]);
+                }
+            }
+            this.rawFileRecords = rawFileRecordsNew;
+            Promise.all(fdPromises).then(function (fileRecords) {
+                _this.fileRecords = fileRecords;
+            });
+        },
+        sortStart: function () {
+            if (this.sortTimeout) {
+                clearTimeout(this.sortTimeout);
+            }
+            this.isSorting = true;
+            this.isSortingActive = true;
+        },
+        sortEnd: function (sortData) {
+            var _this = this;
+            this.isSortingActive = false;
+            if (this.sortTimeout) {
+                clearTimeout(this.sortTimeout);
+            }
+            this.sortTimeout = setTimeout(function () {
+                _this.isSorting = false;
+            }, this.transitionDuration + 100);
+            if (sortData.oldIndex !== sortData.newIndex) {
+                this.rawFileRecords = utils.arrayMove(this.rawFileRecords, sortData.oldIndex, sortData.newIndex);
+                this.$nextTick(function () {
+                    _this.$emit('input', _this.rawFileRecords);
+                    _this.$emit('sort', {
+                        oldIndex: sortData.oldIndex,
+                        newIndex: sortData.newIndex,
+                    });
+                });
+            }
+        },
+    },
+    created: function () {
+        this.uniqueId =
+            new Date().getTime().toString(36) +
+                Math.random()
+                    .toString(36)
+                    .slice(2);
+        this.checkValue();
+    },
+    watch: {
+        value: function () {
+            this.checkValue();
+        },
+    },
+}));
+
+// CONCATENATED MODULE: ./node_modules/ts-loader??ref--12-0!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vue-file-agent.vue?vue&type=script&lang=ts&
+
+
+/* harmony default export */ var vue_file_agentvue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
+    mixins: [vue_file_agent_mixin],
+}));
+
+// CONCATENATED MODULE: ./src/components/vue-file-agent.vue?vue&type=script&lang=ts&
+ /* harmony default export */ var components_vue_file_agentvue_type_script_lang_ts_ = (vue_file_agentvue_type_script_lang_ts_); 
+// EXTERNAL MODULE: ./src/components/vue-file-agent.vue?vue&type=style&index=0&lang=scss&
+var vue_file_agentvue_type_style_index_0_lang_scss_ = __webpack_require__("6816");
+
+// CONCATENATED MODULE: ./src/components/vue-file-agent.vue
+
+
+
+
+
+
+/* normalize component */
+
+var vue_file_agent_component = normalizeComponent(
+  components_vue_file_agentvue_type_script_lang_ts_,
+  vue_file_agentvue_type_template_id_237de2f0_render,
+  vue_file_agentvue_type_template_id_237de2f0_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var vue_file_agent = (vue_file_agent_component.exports);
+// CONCATENATED MODULE: ./src/index.ts
+
+
+
+
+
+
+
+
+
+
+var src_VueFileAgentPlugin = /** @class */ (function () {
+    function VueFileAgentPlugin() {
+        this.VueFileIcon = vue_file_icon;
+        this.VueFilePreview = vue_file_preview;
+        this.VueFileAgent = vue_file_agent;
+        this.component = vue_file_agent;
+        this.mixin = vue_file_agent_mixin;
+        this.plugins = plugins;
+        this.VueFileAgentMixin = vue_file_agent_mixin;
+        this.VueFilePreviewMixin = vue_file_preview_mixin;
+        this.install = function (Vue, options) {
+            Vue.component('VueFileIcon', vue_file_icon);
+            Vue.component('VueFilePreview', vue_file_preview);
+            Vue.component('VueFileList', vue_file_list);
+            Vue.component('VueFileListItem', vue_file_list_item);
+            Vue.component('VueFileAgent', vue_file_agent);
+            Vue.prototype.$vueFileAgent = {
+                mixin: vue_file_agent_mixin,
+            };
+        };
+    }
+    return VueFileAgentPlugin;
+}());
+
+var vfaPlugin = new src_VueFileAgentPlugin();
+// auto install
+if (typeof window !== 'undefined' && window.Vue) {
+    vfaPlugin.install(window.Vue, {});
+    window.VueFileAgent = vfaPlugin;
+}
+var mixin = vue_file_agent_mixin;
+
+
+var FileData = file_record; // for backward compatibility
+/* harmony default export */ var src = (vfaPlugin);
+
+// CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/entry-lib.js
+/* concated harmony reexport VueFileAgentPlugin */__webpack_require__.d(__webpack_exports__, "VueFileAgentPlugin", function() { return src_VueFileAgentPlugin; });
+/* concated harmony reexport mixin */__webpack_require__.d(__webpack_exports__, "mixin", function() { return mixin; });
+/* concated harmony reexport VueFileAgentMixin */__webpack_require__.d(__webpack_exports__, "VueFileAgentMixin", function() { return vue_file_agent_mixin; });
+/* concated harmony reexport VueFilePreviewMixin */__webpack_require__.d(__webpack_exports__, "VueFilePreviewMixin", function() { return vue_file_preview_mixin; });
+/* concated harmony reexport utils */__webpack_require__.d(__webpack_exports__, "utils", function() { return utils; });
+/* concated harmony reexport FileRecord */__webpack_require__.d(__webpack_exports__, "FileRecord", function() { return file_record; });
+/* concated harmony reexport plugins */__webpack_require__.d(__webpack_exports__, "plugins", function() { return plugins; });
+/* concated harmony reexport FileData */__webpack_require__.d(__webpack_exports__, "FileData", function() { return FileData; });
+
+
+/* harmony default export */ var entry_lib = __webpack_exports__["default"] = (src);
+
+
+
+/***/ })
+
+/******/ });
+});
+//# sourceMappingURL=vue-file-agent.umd.js.map
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Home.vue?vue&type=template&id=f2b6376c&":
 /*!*******************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Home.vue?vue&type=template&id=f2b6376c& ***!
@@ -39542,11 +42753,7 @@ var render = function() {
                     { staticClass: "my-2", attrs: { "max-width": "374" } },
                     [
                       _c("v-img", {
-                        attrs: {
-                          height: "250",
-                          src:
-                            "https://cdn.vuetifyjs.com/images/cards/cooking.png"
-                        }
+                        attrs: { height: "250", src: "fetchImage" }
                       }),
                       _vm._v(" "),
                       _c("v-card-title", [_vm._v(_vm._s(conference.title))]),
@@ -40033,6 +43240,39 @@ var render = function() {
                       },
                       expression: "conference.image"
                     }
+                  }),
+                  _vm._v(" "),
+                  _c("VueFileAgent", {
+                    ref: "vueFileAgent",
+                    attrs: {
+                      theme: "list",
+                      multiple: true,
+                      deletable: true,
+                      meta: true,
+                      accept: "image/*,.zip",
+                      maxSize: "10MB",
+                      maxFiles: 14,
+                      helpText: "Choose images or zip files",
+                      errorText: {
+                        type: "Invalid file type. Only images or zip Allowed",
+                        size: "Files should not exceed 10MB in size"
+                      }
+                    },
+                    on: {
+                      select: function($event) {
+                        return _vm.filesSelected($event)
+                      },
+                      delete: function($event) {
+                        return _vm.fileDeleted($event)
+                      }
+                    },
+                    model: {
+                      value: _vm.fileRecords,
+                      callback: function($$v) {
+                        _vm.fileRecords = $$v
+                      },
+                      expression: "fileRecords"
+                    }
                   })
                 ],
                 1
@@ -40490,6 +43730,34 @@ var render = function() {
           )
         : _vm._e()
     ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/general/Image.vue?vue&type=template&id=3f4d4b19&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/general/Image.vue?vue&type=template&id=3f4d4b19&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [_c("v-img", { attrs: { height: "250", src: "this.image" } })],
     1
   )
 }
@@ -103075,17 +106343,21 @@ module.exports = function(module) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var material_design_icons_iconfont_dist_material_design_icons_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! material-design-icons-iconfont/dist/material-design-icons.css */ "./node_modules/material-design-icons-iconfont/dist/material-design-icons.css");
 /* harmony import */ var material_design_icons_iconfont_dist_material_design_icons_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(material_design_icons_iconfont_dist_material_design_icons_css__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuetify */ "./node_modules/vuetify/dist/vuetify.js");
-/* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vuetify__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var vue_moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-moment */ "./node_modules/vue-moment/dist/vue-moment.js");
-/* harmony import */ var vue_moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_moment__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./routes */ "./resources/js/routes.js");
-/* harmony import */ var _components_MainApp_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/MainApp.vue */ "./resources/js/components/MainApp.vue");
-/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./store */ "./resources/js/store.js");
+/* harmony import */ var vue_file_agent_dist_vue_file_agent_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-file-agent/dist/vue-file-agent.css */ "./node_modules/vue-file-agent/dist/vue-file-agent.css");
+/* harmony import */ var vue_file_agent_dist_vue_file_agent_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_file_agent_dist_vue_file_agent_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuetify */ "./node_modules/vuetify/dist/vuetify.js");
+/* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vuetify__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var vue_moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-moment */ "./node_modules/vue-moment/dist/vue-moment.js");
+/* harmony import */ var vue_moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_moment__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var vue_file_agent__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-file-agent */ "./node_modules/vue-file-agent/dist/vue-file-agent.umd.js");
+/* harmony import */ var vue_file_agent__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vue_file_agent__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./routes */ "./resources/js/routes.js");
+/* harmony import */ var _components_MainApp_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/MainApp.vue */ "./resources/js/components/MainApp.vue");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./store */ "./resources/js/store.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
@@ -103097,24 +106369,27 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_3___default.a.use(vue_moment__WEBPACK_IMPORTED_MODULE_2___default.a);
-vue__WEBPACK_IMPORTED_MODULE_3___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_4__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_3___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_5__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_3___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_1___default.a);
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_4__["default"]({
-  routes: _routes__WEBPACK_IMPORTED_MODULE_6__["routes"],
+
+
+vue__WEBPACK_IMPORTED_MODULE_4___default.a.use(vue_moment__WEBPACK_IMPORTED_MODULE_3___default.a);
+vue__WEBPACK_IMPORTED_MODULE_4___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_5__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_4___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_7__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_4___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_2___default.a);
+vue__WEBPACK_IMPORTED_MODULE_4___default.a.use(vue_file_agent__WEBPACK_IMPORTED_MODULE_6___default.a);
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_5__["default"]({
+  routes: _routes__WEBPACK_IMPORTED_MODULE_8__["routes"],
   mode: 'history'
 });
-var store = new vuex__WEBPACK_IMPORTED_MODULE_5__["default"].Store(_store__WEBPACK_IMPORTED_MODULE_8__["default"]);
-var vuetify = new vuetify__WEBPACK_IMPORTED_MODULE_1___default.a();
-var app = new vue__WEBPACK_IMPORTED_MODULE_3___default.a({
+var store = new vuex__WEBPACK_IMPORTED_MODULE_7__["default"].Store(_store__WEBPACK_IMPORTED_MODULE_10__["default"]);
+var vuetify = new vuetify__WEBPACK_IMPORTED_MODULE_2___default.a();
+var app = new vue__WEBPACK_IMPORTED_MODULE_4___default.a({
   el: '#app',
   components: {
-    MainApp: _components_MainApp_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
+    MainApp: _components_MainApp_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
   },
   router: router,
   store: store,
-  moment: vue_moment__WEBPACK_IMPORTED_MODULE_2___default.a,
+  moment: vue_moment__WEBPACK_IMPORTED_MODULE_3___default.a,
   vuetify: vuetify
 });
 
@@ -103775,6 +107050,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/general/Image.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/general/Image.vue ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Image_vue_vue_type_template_id_3f4d4b19_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Image.vue?vue&type=template&id=3f4d4b19&scoped=true& */ "./resources/js/components/general/Image.vue?vue&type=template&id=3f4d4b19&scoped=true&");
+/* harmony import */ var _Image_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Image.vue?vue&type=script&lang=js& */ "./resources/js/components/general/Image.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Image_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Image_vue_vue_type_template_id_3f4d4b19_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Image_vue_vue_type_template_id_3f4d4b19_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "3f4d4b19",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/general/Image.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/general/Image.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/general/Image.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Image_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Image.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/general/Image.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Image_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/general/Image.vue?vue&type=template&id=3f4d4b19&scoped=true&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/components/general/Image.vue?vue&type=template&id=3f4d4b19&scoped=true& ***!
+  \**********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Image_vue_vue_type_template_id_3f4d4b19_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Image.vue?vue&type=template&id=3f4d4b19&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/general/Image.vue?vue&type=template&id=3f4d4b19&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Image_vue_vue_type_template_id_3f4d4b19_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Image_vue_vue_type_template_id_3f4d4b19_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/layout/Footer.vue":
 /*!***************************************************!*\
   !*** ./resources/js/components/layout/Footer.vue ***!
@@ -103930,6 +107274,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_conference_Conferences_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/conference/Conferences.vue */ "./resources/js/components/conference/Conferences.vue");
 /* harmony import */ var _components_conference_Conference_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/conference/Conference.vue */ "./resources/js/components/conference/Conference.vue");
 /* harmony import */ var _components_domain_Search_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/domain/Search.vue */ "./resources/js/components/domain/Search.vue");
+/* harmony import */ var _components_general_Image_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/general/Image.vue */ "./resources/js/components/general/Image.vue");
+
 
 
 

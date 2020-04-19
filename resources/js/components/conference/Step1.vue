@@ -110,6 +110,24 @@
             v-model="conference.image"
             :error-messages="asyncErrors.image"
           ></v-file-input>
+          <VueFileAgent
+            ref="vueFileAgent"
+            :theme="'list'"
+            :multiple="true"
+            :deletable="true"
+            :meta="true"
+            :accept="'image/*,.zip'"
+            :maxSize="'10MB'"
+            :maxFiles="14"
+            :helpText="'Choose images or zip files'"
+            :errorText="{
+              type: 'Invalid file type. Only images or zip Allowed',
+              size: 'Files should not exceed 10MB in size',
+            }"
+            @select="filesSelected($event)"
+            @delete="fileDeleted($event)"
+            v-model="fileRecords"
+          ></VueFileAgent>
         </v-col>
         <v-col cols="12" class="py-0">
           <v-btn
@@ -133,6 +151,8 @@ export default {
       conference: {},
       asyncErrors: [],
       valid: false,
+      fileRecords: [],
+      uploadUrl: "",
       tagLineRules: [v => !!v || "Tag line is required"],
       titleRules: [v => !!v || "Title is required"],
       dateRules: [
@@ -185,8 +205,12 @@ export default {
               this.loading = false;
               this.fDateDisabled = false;
               this.conference = this.$store.state.conference;
-              this.conference.start_date = new Date(this.conference.start_date).toISOString().substr(0, 10)
-              this.conference.end_date = new Date(this.conference.end_date).toISOString().substr(0, 10)
+              this.conference.start_date = new Date(this.conference.start_date)
+                .toISOString()
+                .substr(0, 10);
+              this.conference.end_date = new Date(this.conference.end_date)
+                .toISOString()
+                .substr(0, 10);
             });
       }
     }
@@ -197,8 +221,7 @@ export default {
   computed: {
     minDate() {
       return this.conference.start_date;
-    },
-
+    }
   }
 };
 </script>

@@ -33,7 +33,7 @@
                     >
                         <v-img
                             height="250"
-                            src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
+                            src="fetchImage"
                         ></v-img>
                         <v-card-title>{{conference.title}}</v-card-title>
                         <v-card-text>
@@ -113,7 +113,18 @@
                     .then(response => {
                         this.loading = false
                     })
-            }
+            },
+
+            fetchImage(imagePath) {
+            return axios.post('/api/files/image', imagePath)
+                this.loading = true
+                .then(response => {
+                    this.loading = false
+                })
+                .catch(error=> {
+                    this.loading = false
+                })
+        }
         },
     }
 </script>
