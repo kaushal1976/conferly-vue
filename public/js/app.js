@@ -2277,7 +2277,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "conferences",
   data: function data() {
     return {
       loading: false
@@ -2296,11 +2295,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.$store.dispatch('fetchConferences').then(function (response) {
         _this.loading = false;
       });
-    }
-  },
-  watch: {
-    conferences: function conferences(oldVal, newVal) {
-      console.log(newVal);
     }
   }
 });
@@ -2477,6 +2471,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       subjectRules: [function (v) {
         return !!v || "Subject is required";
       }],
+      imageRules: [function (value) {
+        return !!value || "Please select a background image";
+      }],
       start_date: new Date().toISOString().substr(0, 10),
       end_date: new Date().toISOString().substr(0, 10),
       fDateDisabled: true,
@@ -2490,8 +2487,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this2 = this;
 
       if (this.$refs.conferenceForm.validate()) {
-        this.$store.dispatch('addConference', _objectSpread({}, this.conference)).then(function (response) {
-          _this2.$emit('complete');
+        this.$store.dispatch("addConference", _objectSpread({}, this.conference)).then(function (response) {
+          _this2.$emit("complete");
         })["catch"](function (error) {
           _this2.asyncErrors = error.response.data.errors;
         });
@@ -2509,9 +2506,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this3 = this;
 
       if (this.$route.params.id) {
-        this.loading = true, this.$store.dispatch('fetchConference', this.id = this.$route.params.id).then(function (response) {
+        this.loading = true, this.$store.dispatch("fetchConference", this.id = this.$route.params.id).then(function (response) {
           _this3.loading = false;
+          _this3.fDateDisabled = false;
           _this3.conference = _this3.$store.state.conference;
+          _this3.conference.start_date = new Date(_this3.conference.start_date).toISOString().substr(0, 10);
+          _this3.conference.end_date = new Date(_this3.conference.end_date).toISOString().substr(0, 10);
         });
       }
     }
@@ -39487,7 +39487,7 @@ var render = function() {
                   staticClass: "no-uppercase my-2 md-full-width",
                   attrs: {
                     elevation: "0",
-                    href: "/test",
+                    href: "/conference/create",
                     large: "",
                     color: "primary"
                   }
@@ -39528,9 +39528,11 @@ var render = function() {
       _c(
         "v-row",
         { attrs: { justify: "center" } },
-        [
-          _vm._l(_vm.conferences, function(conference) {
-            return [
+        _vm._l(_vm.conferences, function(conference) {
+          return _c(
+            "div",
+            { key: conference.id, attrs: { justify: "center" } },
+            [
               _c(
                 "v-col",
                 { staticClass: "mx-2" },
@@ -39666,10 +39668,11 @@ var render = function() {
                 ],
                 1
               )
-            ]
-          })
-        ],
-        2
+            ],
+            1
+          )
+        }),
+        0
       ),
       _vm._v(" "),
       _c("v-row")
@@ -40014,6 +40017,31 @@ var render = function() {
                 "v-col",
                 { staticClass: "py-0", attrs: { cols: "12" } },
                 [
+                  _c("v-file-input", {
+                    attrs: {
+                      outlined: "",
+                      chips: "",
+                      label: "Background image",
+                      accept: "image/*",
+                      rules: _vm.imageRules,
+                      "error-messages": _vm.asyncErrors.image
+                    },
+                    model: {
+                      value: _vm.conference.image,
+                      callback: function($$v) {
+                        _vm.$set(_vm.conference, "image", $$v)
+                      },
+                      expression: "conference.image"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-col",
+                { staticClass: "py-0", attrs: { cols: "12" } },
+                [
                   _c(
                     "v-btn",
                     {
@@ -40024,7 +40052,7 @@ var render = function() {
                       attrs: { outlined: "", large: "" },
                       on: { click: _vm.addConference }
                     },
-                    [_vm._v("\n                    Next\n                ")]
+                    [_vm._v("Next")]
                   )
                 ],
                 1
@@ -103992,7 +104020,21 @@ __webpack_require__.r(__webpack_exports__);
   actions: {
     addConference: function addConference(_ref, payload) {
       var commit = _ref.commit;
-      return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/conference/', payload).then(function (response) {
+      var conference = new FormData();
+      conference.append('image', payload.image);
+      conference.append('title', payload.title);
+      conference.append('description', payload.description);
+      conference.append('venue', payload.venue);
+      conference.append('subject_area', payload.subject_area);
+      conference.append('start_date', payload.start_date);
+      conference.append('end_date', payload.end_date);
+      conference.append('tag_line', payload.tag_line);
+      var settings = {
+        headers: {
+          'content-type': 'multipart/form-data'
+        }
+      };
+      return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/conference/', conference, settings).then(function (response) {
         commit('ADD_CONFERENCE', payload);
       })["catch"](function (error) {
         throw error;
@@ -104013,7 +104055,6 @@ __webpack_require__.r(__webpack_exports__);
     fetchConferences: function fetchConferences(_ref4) {
       var commit = _ref4.commit;
       return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/conference').then(function (response) {
-        console.log(response.data);
         commit('FETCH_CONFERENCES', response.data);
       })["catch"](function (error) {
         console.log(error);

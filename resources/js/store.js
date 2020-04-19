@@ -38,7 +38,18 @@ export default {
     },
     actions:{
         addConference: ({ commit }, payload) => {
-            return axios.post('/api/conference/', payload)
+            let conference = new FormData();
+            conference.append('image', payload.image)
+            conference.append('title', payload.title)
+            conference.append('description', payload.description)
+            conference.append('venue', payload.venue)
+            conference.append('subject_area', payload.subject_area)
+            conference.append('start_date', payload.start_date)
+            conference.append('end_date', payload.end_date)
+            conference.append('tag_line', payload.tag_line)
+
+            let settings = { headers: { 'content-type': 'multipart/form-data' } }
+            return axios.post('/api/conference/', conference, settings)
                 .then(response => {
                     commit('ADD_CONFERENCE', payload)
                 })
@@ -63,7 +74,6 @@ export default {
         fetchConferences: ({ commit }) => {
             return axios.get('/api/conference')
                 .then(response => {
-                    console.log(response.data)
                     commit('FETCH_CONFERENCES', response.data)
                 })
                 .catch(error=> {

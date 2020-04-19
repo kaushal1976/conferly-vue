@@ -50,11 +50,14 @@ class ConferenceController extends Controller
             'subject_area'=>'required|max:255',
             'start_date' => 'required|date_format:Y-m-d|after:yesterday',
             'end_date' => 'required|date_format:Y-m-d|after:start_date',
+            'image' => 'required|image|max:5000|mimes:jpg,jpeg,bmp,png,svg'
         ]);
         $validatedData['start_date'] = Carbon::parse($validatedData['start_date']);
         $validatedData['end_date'] = Carbon::parse($validatedData['end_date']);
         try {
+            $path = $request->file('image')->store('uploads');
             $conference = Conference::create($validatedData);
+            $conference->image = $path;
             $conference->save();
         } catch (\Exception $exception) {
             abort(403, $exception->getMessage());
@@ -80,7 +83,10 @@ class ConferenceController extends Controller
      */
     public function edit($id)
     {
-        return response()->json(Conference::findOrFail($id));
+        $conference = Conference::findOrFail($id);
+        $conference->start_date = $conference->start_date->format('Y-m-d');
+        $conference->end_date = $conference->end_date->format('Y-m-d');
+        return response()->json($conference);
     }
 
     /**
@@ -100,6 +106,7 @@ class ConferenceController extends Controller
             'subject_area'=>'required|max:255',
             'start_date' => 'required|date_format:d-m-Y',
             'end_date' => 'required|date_format:d-m-Y|after:start_date',
+            'image' => 'required'
         ]);
         $validatedData['start_date'] = Carbon::parse($validatedData['start_date']);
         $validatedData['end_date'] = Carbon::parse($validatedData['end_date']);

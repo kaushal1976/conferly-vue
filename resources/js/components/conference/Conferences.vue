@@ -11,7 +11,7 @@
                 Registrations and payments, managing parallel tracts and many more...
             </p>
             <p>
-                <v-btn class="no-uppercase my-2 md-full-width" elevation="0" href="/test" large color="primary">Create a
+                <v-btn class="no-uppercase my-2 md-full-width" elevation="0" href="/conference/create" large color="primary">Create a
                     new Conference
                 </v-btn>
                 <v-btn class="no-uppercase my-2 md-full-width" elevation="0" href="/conference" large color="primary">
@@ -25,7 +25,7 @@
             type="list-item-avatar-three-line"
         ></v-skeleton-loader>
         <v-row justify="center">
-            <template v-for="conference in conferences">
+            <div v-for="conference in conferences" justify="center" :key="conference.id">
                 <v-col class="mx-2">
                     <v-card
                         class="my-2"
@@ -81,7 +81,7 @@
                         </v-card-actions>
                     </v-card>
                 </v-col>
-            </template>
+            </div>
         </v-row>
         <v-row>
 
@@ -92,7 +92,6 @@
     import {mapState} from 'vuex'
 
     export default {
-        name:"conferences",
         data: function () {
             return {
                 loading: false
@@ -116,11 +115,6 @@
                     })
             }
         },
-        watch: {
-            conferences(oldVal, newVal) {
-                console.log (newVal)
-            }
-        }
     }
 </script>
 <style scoped>
