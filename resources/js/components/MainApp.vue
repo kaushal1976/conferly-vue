@@ -28,9 +28,9 @@
         </v-app-bar>
         <!-- Sizes your content based upon application components -->
         <v-content>
-            <v-container 
+            <v-container
             class="ma-0 pa-0"
-            fluid 
+            fluid
             fill-height
             >
                 <router-view></router-view>
@@ -56,4 +56,4 @@
             Footer
         }
     };
-</script> 
+</script>
