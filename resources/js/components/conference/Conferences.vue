@@ -4,10 +4,7 @@
       <v-row align="center" justify="center" class="grey lighten-5">
         <v-col cols="12" class="px-5">
           <v-card color="grey lighten-2" class="px-5 py-5" flat>
-            <h1 class="font-weight-light">
-              Confer
-              <b>ly</b>
-            </h1>
+            <h1 class="font-weight-light"><span>Confer<b>ly</b></span></h1>
             <p class="lead text-muted">
               Helping to manage academic conferences worldwide. Paper management process, Review process,
               Registrations and payments, managing parallel tracts and many more...

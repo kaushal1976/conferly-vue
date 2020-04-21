@@ -2265,9 +2265,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2310,9 +2307,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
-//
 //
 //
 //
@@ -42720,8 +42714,7 @@ var render = function() {
                     },
                     [
                       _c("h1", { staticClass: "font-weight-light" }, [
-                        _vm._v("\n            Confer\n            "),
-                        _c("b", [_vm._v("ly")])
+                        _c("span", [_vm._v("Confer"), _c("b", [_vm._v("ly")])])
                       ]),
                       _vm._v(" "),
                       _c("p", { staticClass: "lead text-muted" }, [
@@ -42987,6 +42980,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "p-6" },
     [
       _c("h2", [_vm._v("Conference Details")]),
       _vm._v(" "),
@@ -43298,21 +43292,22 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "v-col",
-                { staticClass: "py-0", attrs: { cols: "12" } },
+                { attrs: { cols: "12" } },
                 [
                   _c("VueFileAgent", {
                     ref: "vueFileAgent",
                     attrs: {
                       theme: "list",
-                      multiple: true,
+                      multiple: false,
                       deletable: true,
+                      compact: true,
                       meta: true,
-                      accept: "image/*,.zip",
+                      accept: "image/*",
                       maxSize: "10MB",
-                      maxFiles: 14,
-                      helpText: "Choose images or zip files",
+                      maxFiles: 1,
+                      helpText: "Choose a background images",
                       errorText: {
-                        type: "Invalid file type. Only images or zip Allowed",
+                        type: "Invalid file type. Only images allowed",
                         size: "Files should not exceed 10MB in size"
                       }
                     },
@@ -43331,26 +43326,7 @@ var render = function() {
                       },
                       expression: "fileRecords"
                     }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "v-btn",
-                    {
-                      attrs: { disabled: !_vm.fileRecordsForUpload.length },
-                      on: {
-                        click: function($event) {
-                          return _vm.uploadFiles()
-                        }
-                      }
-                    },
-                    [
-                      _vm._v(
-                        "Upload " +
-                          _vm._s(_vm.fileRecordsForUpload.length) +
-                          " files"
-                      )
-                    ]
-                  )
+                  })
                 ],
                 1
               ),

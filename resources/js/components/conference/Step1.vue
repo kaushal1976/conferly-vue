@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="p-6">
     <h2>Conference Details</h2>
     <v-form v-model="valid" ref="conferenceForm" @submit.stop.prevent class="py-0">
       <v-row class="justify-center py-0 px-5">
@@ -100,29 +100,26 @@
             required
           ></v-textarea>
         </v-col>
-        <v-col cols="12" class="py-0">
+        <v-col cols="12">
           <VueFileAgent
             ref="vueFileAgent"
             :theme="'list'"
-            :multiple="true"
+            :multiple="false"
             :deletable="true"
+            :compact="true"
             :meta="true"
-            :accept="'image/*,.zip'"
+            :accept="'image/*'"
             :maxSize="'10MB'"
-            :maxFiles="14"
-            :helpText="'Choose images or zip files'"
+            :maxFiles="1"
+            :helpText="'Choose a background images'"
             :errorText="{
-              type: 'Invalid file type. Only images or zip Allowed',
+              type: 'Invalid file type. Only images allowed',
               size: 'Files should not exceed 10MB in size',
             }"
             @select="filesSelected($event)"
             @delete="fileDeleted($event)"
             v-model="fileRecords"
           ></VueFileAgent>
-          <v-btn
-            :disabled="!fileRecordsForUpload.length"
-            @click="uploadFiles()"
-          >Upload {{ fileRecordsForUpload.length }} files</v-btn>
         </v-col>
         <v-col cols="12" class="py-0">
           <v-btn
