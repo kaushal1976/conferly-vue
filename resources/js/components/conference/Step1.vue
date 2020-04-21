@@ -101,15 +101,6 @@
           ></v-textarea>
         </v-col>
         <v-col cols="12" class="py-0">
-          <v-file-input
-            outlined
-            chips
-            label="Background image"
-            accept="image/*"
-            :rules="imageRules"
-            v-model="conference.image"
-            :error-messages="asyncErrors.image"
-          ></v-file-input>
           <VueFileAgent
             ref="vueFileAgent"
             :theme="'list'"
@@ -128,6 +119,10 @@
             @delete="fileDeleted($event)"
             v-model="fileRecords"
           ></VueFileAgent>
+          <v-btn
+            :disabled="!fileRecordsForUpload.length"
+            @click="uploadFiles()"
+          >Upload {{ fileRecordsForUpload.length }} files</v-btn>
         </v-col>
         <v-col cols="12" class="py-0">
           <v-btn
@@ -148,11 +143,14 @@ import { mapActions } from "vuex";
 export default {
   data() {
     return {
+      fileRecords: [],
+      uploadUrl: "/api/files/store/",
+      uploadHeaders: { "X-Test-Header": "vue-file-agent" },
+      fileRecordsForUpload: [],
       conference: {},
       asyncErrors: [],
       valid: false,
       fileRecords: [],
-      uploadUrl: "",
       tagLineRules: [v => !!v || "Tag line is required"],
       titleRules: [v => !!v || "Title is required"],
       dateRules: [
@@ -212,6 +210,37 @@ export default {
                 .toISOString()
                 .substr(0, 10);
             });
+      }
+    },
+    uploadFiles: function() {
+        // Using the default uploader. You may use another uploader instead.
+        let newFile = new FormData();
+        newFile.append('file', this.fileRecordsForUpload[0].file)
+        axios.post(this.uploadUrl,newFile, this.uploadHeaders);
+        this.fileRecordsForUpload = [];
+      },
+    deleteUploadedFile: function(fileRecord) {
+      // Using the default uploader. You may use another uploader instead.
+      this.$refs.vueFileAgent.deleteUpload(
+        this.uploadUrl,
+        this.uploadHeaders,
+        fileRecord
+      );
+    },
+    filesSelected: function(fileRecordsNewlySelected) {
+      var validFileRecords = fileRecordsNewlySelected.filter(
+        fileRecord => !fileRecord.error
+      );
+      this.fileRecordsForUpload = this.fileRecordsForUpload.concat(
+        validFileRecords
+      );
+    },
+    fileDeleted: function(fileRecord) {
+      var i = this.fileRecordsForUpload.indexOf(fileRecord);
+      if (i !== -1) {
+        this.fileRecordsForUpload.splice(i, 1);
+      } else {
+        this.deleteUploadedFile(fileRecord);
       }
     }
   },

@@ -50,12 +50,11 @@ class ConferenceController extends Controller
             'subject_area'=>'required|max:255',
             'start_date' => 'required|date_format:Y-m-d|after:yesterday',
             'end_date' => 'required|date_format:Y-m-d|after:start_date',
-            'image' => 'required|image|max:5000|mimes:jpg,jpeg,bmp,png,svg'
         ]);
         $validatedData['start_date'] = Carbon::parse($validatedData['start_date']);
         $validatedData['end_date'] = Carbon::parse($validatedData['end_date']);
         try {
-            $path = $request->file('image')->store('uploads');
+            $path = $request->file('image')->store('public/conference/images');
             $conference = Conference::create($validatedData);
             $conference->image = $path;
             $conference->save();

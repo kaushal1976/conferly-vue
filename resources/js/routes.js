@@ -5,7 +5,7 @@ import ConferenceForm from './components/conference/ConferenceForm.vue'
 import Conferences from './components/conference/Conferences.vue'
 import Conference from './components/conference/Conference.vue'
 import Search from './components/domain/Search.vue'
-import Image from './components/general/Image.vue'
+import Test from './components/test/Test.vue'
 export const routes = [
     //Auth
     {
@@ -15,6 +15,10 @@ export const routes = [
     {
         path: '/login',
         component: Login
+    },
+    {
+        path: '/Test',
+        component: Test
     },
     {
         path: '/logout',

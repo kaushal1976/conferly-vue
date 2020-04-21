@@ -1,47 +1,43 @@
 <template>
-  <v-row no-gutters class="fill-height">
+  <v-row no-gutters
+  class="fill-height" 
+  >
     <v-col cols="12">
-      <v-row align="center" justify="center" class="grey lighten-5">
-        <v-col cols="12" class="px-5">
-          <v-card color="grey lighten-2" class="px-5 py-5" flat>
-            <h1 class="font-weight-light">
-              Confer
-              <b>ly</b>
-            </h1>
-            <p class="lead text-muted">
-              Helping to manage academic conferences worldwide. Paper management process, Review process,
-              Registrations and payments, managing parallel tracts and many more...
-            </p>
-            <p>
-              <v-btn
-                class="no-uppercase my-2 md-full-width"
-                elevation="0"
-                href="/conference/create"
-                large
-                color="primary"
-              >
-                Create a
-                new Conference
-              </v-btn>
-              <v-btn
-                class="no-uppercase my-2 md-full-width"
-                elevation="0"
-                href="/conference"
-                large
-                color="primary"
-              >Search Conferences</v-btn>
-            </p>
-          </v-card>
-        </v-col>
-        <v-responsive v-if="loading" class="p-3">
-          <div class="p-3">
-            <v-skeleton-loader type="list-item-avatar-three-line"></v-skeleton-loader>
-          </div>
-        </v-responsive>
-        <v-row justify="center" v-if="conferences.length">
-          <div class="d-flex" v-for="conference in conferences" justify="center" :key="conference.id">
-            <v-col class="mx-2 d-flex flex-column">
-              <v-card class="my-2 flex" max-width="374">
+      <v-row :align="start" :justify="center">
+        <v-card color="grey lighten-2" class="py-5 px-5" flat>
+          <h1 class="font-weight-light">
+            Confer
+            <b>ly</b>
+          </h1>
+          <p class="lead text-muted">
+            Helping to manage academic conferences worldwide. Paper management process, Review process,
+            Registrations and payments, managing parallel tracts and many more...
+          </p>
+          <p>
+            <v-btn
+              class="no-uppercase my-2 md-full-width"
+              elevation="0"
+              href="/conference/create"
+              large
+              color="primary"
+            >
+              Create a
+              new Conference
+            </v-btn>
+            <v-btn
+              class="no-uppercase my-2 md-full-width"
+              elevation="0"
+              href="/conference"
+              large
+              color="primary"
+            >Search Conferences</v-btn>
+          </p> 
+        </v-card>
+          <v-skeleton-loader v-if="loading" class="mx-auto" type="list-item-avatar-three-line"></v-skeleton-loader>
+        <v-row justify="center">
+          <div v-for="conference in conferences" justify="center" :key="conference.id">
+            <v-col class="mx-2">
+              <v-card class="my-2" max-width="374">
                 <v-img height="250" :src='"/storage/conference/images/"+conference.image'></v-img>
                 <v-card-title>{{conference.title}}</v-card-title>
                 <v-card-text>

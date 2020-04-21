@@ -2,14 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba9d416c-ac0e-419b-bbff-0a49ee5f1007" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/conference/Conferences.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/conference/Conferences.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/conference/Step1.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/conference/Step1.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -221,6 +213,7 @@
       <workItem from="1587287769120" duration="307000" />
       <workItem from="1587303099232" duration="68000" />
       <workItem from="1587327225289" duration="37000" />
+      <workItem from="1587327307304" duration="95000" />
     </task>
     <task id="LOCAL-00001" summary="Store updated">
       <created>1586174799654</created>
@@ -257,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587303190758</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Conference controller actions updated">
+      <created>1587327363508</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1587327363508</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,16 +270,16 @@
     <option name="LAST_COMMIT_MESSAGE" value="Conference controller actions updated" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="265" y="23" key="CommitChangelistDialog2" timestamp="1587303189875">
-      <screen x="0" y="23" width="1280" height="736" />
+    <state x="265" y="23" key="CommitChangelistDialog2" timestamp="1587327361939">
+      <screen x="0" y="23" width="1280" height="737" />
     </state>
     <state x="265" y="23" key="CommitChangelistDialog2/0.23.1280.736@0.23.1280.736" timestamp="1587303189875" />
-    <state x="265" y="23" key="CommitChangelistDialog2/0.23.1280.737@0.23.1280.737" timestamp="1587250587109" />
-    <state x="292" y="131" key="Vcs.Push.Dialog.v2" timestamp="1587303194108">
-      <screen x="0" y="23" width="1280" height="736" />
+    <state x="265" y="23" key="CommitChangelistDialog2/0.23.1280.737@0.23.1280.737" timestamp="1587327361939" />
+    <state x="292" y="131" key="Vcs.Push.Dialog.v2" timestamp="1587327367189">
+      <screen x="0" y="23" width="1280" height="737" />
     </state>
     <state x="292" y="131" key="Vcs.Push.Dialog.v2/0.23.1280.736@0.23.1280.736" timestamp="1587303194108" />
-    <state x="292" y="131" key="Vcs.Push.Dialog.v2/0.23.1280.737@0.23.1280.737" timestamp="1587250590691" />
+    <state x="292" y="131" key="Vcs.Push.Dialog.v2/0.23.1280.737@0.23.1280.737" timestamp="1587327367189" />
     <state x="100" y="123" width="1080" height="536" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1587280131440">
       <screen x="0" y="23" width="1280" height="737" />
     </state>

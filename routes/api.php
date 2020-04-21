@@ -18,6 +18,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('/files/image', 'API\FileController@image')->name('get-image');
+Route::post('/files/store', 'API\FileController@storeFile')->name('store-file');
+
+Route::get('/conference', 'API\ConferenceController@index')->name('get-conferences');
 Route::get('/conference','API\ConferenceController@index')->name('get-conferences');
 Route::get('/conference/{id}','API\ConferenceController@edit')->name('get-conference');
 Route::post('/test','API\AuthController@test')->name('test');

@@ -17,6 +17,6 @@ $factory->define(Conference::class, function (Faker $faker) {
         'end_date'=>$end,
         'venue'=>$faker->address,
         'subject_area'=>$faker->sentence,
-        'image'=>$faker->image(storage_path().'/app/uploads', 640,480, null, true)
+        'image'=>$faker->image(storage_path().'/app/public/conference/images', 640,480, null, false)
     ];
 });

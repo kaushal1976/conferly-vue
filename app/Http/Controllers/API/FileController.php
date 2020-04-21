@@ -16,4 +16,15 @@ class FileController extends Controller
         
     }
 
+    public function storeFile(Request $request)
+    {
+            try {
+                $path = $request->file('file')->store($request->location);
+                return $path;
+            } catch (\Exception $exception) {
+                abort(403, $exception->getMessage());
+            }
+    
+    }
+
 }
