@@ -9,7 +9,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/files/store', 'API\FileController@storeFile')->name('store-file');
+Route::post('/files/store', 'API\FileController@storeConferenceImage')->name('store-file');
 
 Route::get('/conference', 'API\ConferenceController@index')->name('get-conferences');
 Route::get('/conference','API\ConferenceController@index')->name('get-conferences');

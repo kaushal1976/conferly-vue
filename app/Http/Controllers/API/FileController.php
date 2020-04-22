@@ -5,26 +5,21 @@ use Illuminate\Http\Request;
 
 class FileController extends Controller
 {
-    public function image(Request $request)
-    {
-        $path = storage_path('app/' . $request->image);
-        if (file_exists($path)) {
-            return response()->file($path, array('Content-Type' => 'image/jpeg'));
-        }else{
-            abort(404);
-        }
-        
-    }
 
-    public function storeFile(Request $request)
+    public function storeConferenceImage(Request $request)
     {
             try {
-                $path = $request->file('file')->store($request->location);
+                $path = $request->file('image')->store('public/conference/images');
                 return $path;
             } catch (\Exception $exception) {
                 abort(403, $exception->getMessage());
             }
     
+    }
+
+    public function storeImage(Request $request) {
+
+
     }
 
 }

@@ -118,8 +118,13 @@
             }"
             @select="filesSelected($event)"
             @delete="fileDeleted($event)"
+            @upload="onUpload($event)"
+            @upload:error="onUploadError($event)"
             v-model="fileRecords"
           ></VueFileAgent>
+          <button :disabled="!fileRecordsForUpload.length" @click="uploadFiles()">
+            Upload {{ fileRecordsForUpload.length }} files
+          </button>
         </v-col>
         <v-col cols="12" class="py-0">
           <v-btn
@@ -144,10 +149,10 @@ export default {
       uploadUrl: "/api/files/store/",
       uploadHeaders: { "X-Test-Header": "vue-file-agent" },
       fileRecordsForUpload: [],
+      fileRecords: [],
       conference: {},
       asyncErrors: [],
       valid: false,
-      fileRecords: [],
       tagLineRules: [v => !!v || "Tag line is required"],
       titleRules: [v => !!v || "Title is required"],
       dateRules: [
@@ -211,11 +216,10 @@ export default {
     },
     uploadFiles: function() {
         // Using the default uploader. You may use another uploader instead.
-        let newFile = new FormData();
-        newFile.append('file', this.fileRecordsForUpload[0].file)
-        axios.post(this.uploadUrl,newFile, this.uploadHeaders);
+        this.$refs.vueFileAgent.upload(this.uploadUrl, this.uploadHeaders, this.fileRecordsForUpload);
         this.fileRecordsForUpload = [];
       },
+
     deleteUploadedFile: function(fileRecord) {
       // Using the default uploader. You may use another uploader instead.
       this.$refs.vueFileAgent.deleteUpload(
@@ -239,6 +243,20 @@ export default {
       } else {
         this.deleteUploadedFile(fileRecord);
       }
+    },
+    onUpload: function (responses) {
+      alert(responses)
+        for (response of responses) {
+          alert("FS")
+          if (response.error) {
+            alert("F")
+            continue;
+          }
+          alert("SS")
+        }
+      },
+    onUploadError: function (failedResponses) {
+        alert("FF")
     }
   },
   mounted() {
