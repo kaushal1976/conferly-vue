@@ -1,5 +1,5 @@
 <template>
-  <div class="p-6">
+  <div class="pb-6">
     <h2>Conference Details</h2>
     <v-form v-model="valid" ref="conferenceForm" @submit.stop.prevent class="py-0">
       <v-row class="justify-center py-0 px-5">
