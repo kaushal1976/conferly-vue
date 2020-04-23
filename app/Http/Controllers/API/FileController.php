@@ -1,5 +1,7 @@
 <?php
 namespace App\Http\Controllers\API;
+
+use App\File;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -8,21 +10,25 @@ class FileController extends Controller
 
     public function storeConferenceImage(Request $request)
     {
-        if ($request->file('file')) {
+        $validated  = $request->validate([
+            'file' => 'required|image'
+        ]);
+
+       if ($request->file('file')) {
             try {
                 $path = $request->file('file')->store('public/conference/images');
-                return $path;
+                $file = new File;
+                $file->ext = $request->file('file')->extension();
+                $file->size = $request->file('file')->getSize();
+                $file->name = $path;
+                $file->type = $request->file('file')->getClientMimeType();
+                $file->save();
             } catch (\Exception $exception) {
                 abort(403, $exception->getMessage());
             }
         }else{
-            return $request->image;
+            abort(404);
         }
-    }
-
-    public function storeImage(Request $request) {
-
-
     }
 
 }

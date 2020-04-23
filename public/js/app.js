@@ -2450,29 +2450,44 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
-    var _this = this,
-        _ref;
+    var _this = this;
 
-    return _ref = {
-      fileRecords: [],
+    return {
       uploadUrl: "/api/files/store/",
       uploadHeaders: {},
-      fileRecordsForUpload: []
-    }, _defineProperty(_ref, "fileRecords", []), _defineProperty(_ref, "conference", {}), _defineProperty(_ref, "asyncErrors", []), _defineProperty(_ref, "valid", false), _defineProperty(_ref, "tagLineRules", [function (v) {
-      return !!v || "Tag line is required";
-    }]), _defineProperty(_ref, "titleRules", [function (v) {
-      return !!v || "Title is required";
-    }]), _defineProperty(_ref, "dateRules", [function (v) {
-      return !_this.fDateDisabled || "Please check Start and End dates of the Conference";
-    }]), _defineProperty(_ref, "descriptionRules", [function (v) {
-      return !!v || "Description is required";
-    }]), _defineProperty(_ref, "venueRules", [function (v) {
-      return !!v || "Venue is required";
-    }]), _defineProperty(_ref, "subjectRules", [function (v) {
-      return !!v || "Subject is required";
-    }]), _defineProperty(_ref, "imageRules", [function (value) {
-      return !!value || "Please select a background image";
-    }]), _defineProperty(_ref, "start_date", new Date().toISOString().substr(0, 10)), _defineProperty(_ref, "end_date", new Date().toISOString().substr(0, 10)), _defineProperty(_ref, "fDateDisabled", true), _defineProperty(_ref, "sDateMenu", false), _defineProperty(_ref, "fDateMenu", false), _defineProperty(_ref, "modal", false), _ref;
+      fileRecordsForUpload: [],
+      fileRecords: [],
+      conference: {},
+      asyncErrors: [],
+      valid: false,
+      tagLineRules: [function (v) {
+        return !!v || "Tag line is required";
+      }],
+      titleRules: [function (v) {
+        return !!v || "Title is required";
+      }],
+      dateRules: [function (v) {
+        return !_this.fDateDisabled || "Please check Start and End dates of the Conference";
+      }],
+      descriptionRules: [function (v) {
+        return !!v || "Description is required";
+      }],
+      venueRules: [function (v) {
+        return !!v || "Venue is required";
+      }],
+      subjectRules: [function (v) {
+        return !!v || "Subject is required";
+      }],
+      imageRules: [function (value) {
+        return !!value || "Please select a background image";
+      }],
+      start_date: new Date().toISOString().substr(0, 10),
+      end_date: new Date().toISOString().substr(0, 10),
+      fDateDisabled: true,
+      sDateMenu: false,
+      fDateMenu: false,
+      modal: false
+    };
   },
   methods: {
     addConference: function addConference() {

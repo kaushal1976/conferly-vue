@@ -143,7 +143,6 @@ import { mapActions } from "vuex";
 export default {
   data() {
     return {
-      fileRecords: [],
       uploadUrl: "/api/files/store/",
       uploadHeaders:  {},
       fileRecordsForUpload: [],
