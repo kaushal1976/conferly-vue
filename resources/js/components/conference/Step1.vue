@@ -104,13 +104,13 @@
           <VueFileAgent
             ref="vueFileAgent"
             :theme="'list'"
-            :multiple="false"
+            :multiple="true"
             :deletable="true"
             :compact="true"
             :meta="true"
             :accept="'image/*'"
             :maxSize="'10MB'"
-            :maxFiles="1"
+            :maxFiles="10"
             :helpText="'Choose a background images'"
             :errorText="{
               type: 'Invalid file type. Only images allowed',
@@ -118,8 +118,6 @@
             }"
             @select="filesSelected($event)"
             @delete="fileDeleted($event)"
-            @upload="onUpload($event)"
-            @upload:error="onUploadError($event)"
             v-model="fileRecords"
           ></VueFileAgent>
           <button :disabled="!fileRecordsForUpload.length" @click="uploadFiles()">
@@ -147,7 +145,7 @@ export default {
     return {
       fileRecords: [],
       uploadUrl: "/api/files/store/",
-      uploadHeaders: { "X-Test-Header": "vue-file-agent" },
+      uploadHeaders:  {},
       fileRecordsForUpload: [],
       fileRecords: [],
       conference: {},
@@ -244,20 +242,7 @@ export default {
         this.deleteUploadedFile(fileRecord);
       }
     },
-    onUpload: function (responses) {
-      alert(responses)
-        for (response of responses) {
-          alert("FS")
-          if (response.error) {
-            alert("F")
-            continue;
-          }
-          alert("SS")
-        }
-      },
-    onUploadError: function (failedResponses) {
-        alert("FF")
-    }
+    
   },
   mounted() {
     this.fetchConference();
