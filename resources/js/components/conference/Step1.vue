@@ -20,6 +20,7 @@
             :error-messages="asyncErrors.tag_line"
             outlined
             required
+            @input="asyncErrors=''"
           ></v-text-field>
         </v-col>
         <v-col cols="12" sm="6" justify="center" class="py-0">
@@ -79,6 +80,7 @@
             :error-messages="asyncErrors.venue"
             outlined
             required
+            @input="asyncErrors=''"
           ></v-text-field>
           <v-text-field
             label="Enter Subject Area the Conference"
@@ -87,6 +89,7 @@
             :error-messages="asyncErrors.subject_area"
             outlined
             required
+            @input="asyncErrors=''"
           ></v-text-field>
         </v-col>
         <v-col cols="12" class="py-0">
@@ -98,6 +101,7 @@
             :error-messages="asyncErrors.description"
             outlined
             required
+            @input="asyncErrors=''"
           ></v-textarea>
         </v-col>
         <v-col cols="12">
@@ -144,7 +148,7 @@ import { mapActions } from "vuex";
 export default {
   data() {
     return {
-      uploadUrl: "/api/files/store/",
+      uploadUrl: "/api/conference/image",
       uploadHeaders:  {},
       fileRecordsForUpload: [],
       fileRecords: [],
