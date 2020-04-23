@@ -9,7 +9,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/files/store', 'API\FileController@storeConferenceImage')->name('store-file');
+Route::post('/files/store', 'API\FileController@storeConferenceImage')->name('store-conference-image');
+//Route::delete('/files/store', 'API\FileController@removeConferenceImage')->name('remove-conference-image');
 
 Route::get('/conference', 'API\ConferenceController@index')->name('get-conferences');
 Route::get('/conference','API\ConferenceController@index')->name('get-conferences');

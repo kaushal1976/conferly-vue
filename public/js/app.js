@@ -2447,6 +2447,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2524,11 +2525,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     uploadFiles: function uploadFiles() {
       // Using the default uploader. You may use another uploader instead.
-      this.$refs.vueFileAgent.upload(this.uploadUrl, this.uploadHeaders, this.fileRecordsForUpload);
+      this.$refs.vueFileAgent.upload(this.uploadUrl, this.uploadHeaders, this.fileRecordsForUpload).then(function (response) {})["catch"](function (error) {});
       this.fileRecordsForUpload = [];
     },
     deleteUploadedFile: function deleteUploadedFile(fileRecord) {
       // Using the default uploader. You may use another uploader instead.
+      console.log(JSON.stringify(fileRecord));
       this.$refs.vueFileAgent.deleteUpload(this.uploadUrl, this.uploadHeaders, fileRecord);
     },
     filesSelected: function filesSelected(fileRecordsNewlySelected) {
@@ -2545,6 +2547,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       } else {
         this.deleteUploadedFile(fileRecord);
       }
+    },
+    onUploadDeleteError: function onUploadDeleteError(failedResponse) {
+      console.log("Test" + JSON.stringify(failedResponse));
+    },
+    onUploadDelete: function onUploadDelete(fResponse) {
+      console.log("Test" + JSON.stringify(Response));
     }
   },
   mounted: function mounted() {
@@ -43328,6 +43336,9 @@ var render = function() {
                       },
                       delete: function($event) {
                         return _vm.fileDeleted($event)
+                      },
+                      "upload:delete": function($event) {
+                        return _vm.onUploadDelete($event)
                       }
                     },
                     model: {
@@ -107602,8 +107613,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/Kaushal/Sites/blogapp/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/Kaushal/Sites/blogapp/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/kaushal/Sites/conferly/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/kaushal/Sites/conferly/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

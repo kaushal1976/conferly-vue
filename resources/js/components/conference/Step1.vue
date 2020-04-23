@@ -118,6 +118,7 @@
             }"
             @select="filesSelected($event)"
             @delete="fileDeleted($event)"
+            @upload:delete="onUploadDelete($event)"
             v-model="fileRecords"
           ></VueFileAgent>
           <button :disabled="!fileRecordsForUpload.length" @click="uploadFiles()">
@@ -213,17 +214,26 @@ export default {
     },
     uploadFiles: function() {
         // Using the default uploader. You may use another uploader instead.
-        this.$refs.vueFileAgent.upload(this.uploadUrl, this.uploadHeaders, this.fileRecordsForUpload);
+        this.$refs.vueFileAgent.upload(this.uploadUrl, this.uploadHeaders, this.fileRecordsForUpload)
+        .then(response=>{
+
+        })
+        .catch(error=>{
+
+        })
         this.fileRecordsForUpload = [];
       },
 
     deleteUploadedFile: function(fileRecord) {
       // Using the default uploader. You may use another uploader instead.
+      console.log(JSON.stringify(fileRecord))
+
       this.$refs.vueFileAgent.deleteUpload(
         this.uploadUrl,
         this.uploadHeaders,
         fileRecord
-      );
+      )
+
     },
     filesSelected: function(fileRecordsNewlySelected) {
       var validFileRecords = fileRecordsNewlySelected.filter(
@@ -234,14 +244,20 @@ export default {
       );
     },
     fileDeleted: function(fileRecord) {
-      var i = this.fileRecordsForUpload.indexOf(fileRecord);
-      if (i !== -1) {
-        this.fileRecordsForUpload.splice(i, 1);
-      } else {
-        this.deleteUploadedFile(fileRecord);
-      }
+        var i = this.fileRecordsForUpload.indexOf(fileRecord);
+        if (i !== -1) {
+          this.fileRecordsForUpload.splice(i, 1);
+        } else {
+          this.deleteUploadedFile(fileRecord);
+        }
     },
-    
+    onUploadDeleteError(failedResponse) {
+          console.log("Test"+JSON.stringify(failedResponse));
+    },
+    onUploadDelete(fResponse) {
+          console.log("Test"+JSON.stringify(Response));
+    }
+
   },
   mounted() {
     this.fetchConference();

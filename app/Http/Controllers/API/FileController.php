@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 use App\File;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FileController extends Controller
 {
@@ -27,8 +28,14 @@ class FileController extends Controller
                 abort(403, $exception->getMessage());
             }
         }else{
-            abort(404);
+            return response()->json('No file', 404);
         }
+    }
+
+    public function removeConferenceImagesq($data)
+    {
+        return response()->json($data, 403);
+
     }
 
 }
