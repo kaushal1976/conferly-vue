@@ -8,15 +8,15 @@ export default {
         theme:{},
     },
     mutations:{
-        'ADD_CONFERENCE'(state, payload) {
+        ADD_CONFERENCE(state, payload) {
             state.conference = payload
             state.conferences.push(payload)
         },
-        'ADD_THEME'(state, payload) {
+        ADD_THEME(state, payload) {
             state.theme = payload
             state.themes.push(payload)
         },
-        'DO_SEARCH'(state, suggestions) {
+        DO_SEARCH(state, suggestions) {
             Object.keys(suggestions).forEach(key => {
                 let domain = {}
                 domain = suggestions[key]
@@ -27,7 +27,7 @@ export default {
         FETCH_CONFERENCES (state, conferences) {
            state.conferences = conferences
         },
-        FETCH_CONFERENCE (state, conference) {
+        FETCH_CONFERENCE(state, conference) {
             state.conference = conference
         }
     },
@@ -48,7 +48,7 @@ export default {
             conference.append('end_date', payload.end_date)
             conference.append('tag_line', payload.tag_line)
 
-            let settings = { headers: { 'content-type': 'multipart/form-data' } }
+            let settings = { headers: { 'content-type':'multipart/form-data' } }
             return axios.post('/api/conference/', conference, settings)
                 .then(response => {
                     commit('ADD_CONFERENCE', payload)

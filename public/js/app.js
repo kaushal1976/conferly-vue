@@ -108222,15 +108222,15 @@ __webpack_require__.r(__webpack_exports__);
     theme: {}
   },
   mutations: {
-    'ADD_CONFERENCE': function ADD_CONFERENCE(state, payload) {
+    ADD_CONFERENCE: function ADD_CONFERENCE(state, payload) {
       state.conference = payload;
       state.conferences.push(payload);
     },
-    'ADD_THEME': function ADD_THEME(state, payload) {
+    ADD_THEME: function ADD_THEME(state, payload) {
       state.theme = payload;
       state.themes.push(payload);
     },
-    'DO_SEARCH': function DO_SEARCH(state, suggestions) {
+    DO_SEARCH: function DO_SEARCH(state, suggestions) {
       Object.keys(suggestions).forEach(function (key) {
         var domain = {};
         domain = suggestions[key];

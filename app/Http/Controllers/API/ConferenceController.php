@@ -53,10 +53,11 @@ class ConferenceController extends Controller
         ]);
         $validatedData['start_date'] = Carbon::parse($validatedData['start_date']);
         $validatedData['end_date'] = Carbon::parse($validatedData['end_date']);
+        $validatedData['image'] = 'public/conference/images';
         try {
-            $path = $request->file('image')->store('public/conference/images');
+            //$path = $request->file('image')->store('public/conference/images');
             $conference = Conference::create($validatedData);
-            $conference->image = $path;
+            $conference->image = 'public/conference/images';
             $conference->save();
         } catch (\Exception $exception) {
             abort(403, $exception->getMessage());
