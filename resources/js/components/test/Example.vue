@@ -37,11 +37,11 @@
           <el-checkbox label="Online activities" name="type"></el-checkbox>
           <el-checkbox label="Promotion activities" name="type"></el-checkbox>
           <el-checkbox label="Offline activities" name="type"></el-checkbox>
-          <el-checkbox label="Simple brand exposure" name="type"></el-checkbox>
+          <el-checkbox label="Simple brand exposure" name="type"></el-checkbox> 
         </el-checkbox-group>
       </el-form-item>
       <el-form-item label="Resources" prop="resource">
-        <el-radio-group v-model="ruleForm.resource">
+        <el-radio-group v-model="ruleForm.resource"> 
           <el-radio label="Sponsorship"></el-radio>
           <el-radio label="Venue"></el-radio>
         </el-radio-group>

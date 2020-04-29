@@ -8,8 +8,8 @@ class File extends Model
 {
     protected $fillable = [
         'name',
-        'size',
         'url',
+        'size',
         'type',
         'ext',
         'lastModified',
@@ -19,4 +19,10 @@ class File extends Model
         'dimensions'
     ];
     
+    public function getUrlAttribute()
+    {
+        return $this->name;
+
+    }
 }
+

@@ -1,5 +1,6 @@
 <template>
-<div id="profile-pic-demo" class="bg-light pt-3">
+
+  <div id="profile-pic-demo" class="bg-light pt-3">
     <VueFileAgent
       class="profile-pic-upload-block"
       ref="profilePicRef"
@@ -33,44 +34,25 @@
   </div>
 </template>
 <script>
-export default {
+  export default {
     data: function(){
       return {
-        name: 'BdgImage',
+        name: 'Gapal',
         profilePic: null,
         uploaded: false,
-        uploadUrl: '/api/conference/image/',
+        uploadUrl: 'https://www.mocky.io/v2/5d4fb20b3000005c111099e3',
         uploadHeaders: {},
       }
     },
     methods: {
-      loadPic: function(id) {
-        let url = '/api/conference/image/'+id
-        axios.get(url)
-        .then(response=>{
-          this.profilePic = response.data
-          colsole.log(response)
-        })
-        .catch(error=>{
-          colsole.log(error)
-        })
-      
-      },
       removePic: function(){
-       let profilePic = this.profilePic;
-       let uploadUrl = this.uploadUrl+profilePic.upload.data.id
-       let uploadedData={
-         id: profilePic.upload.data.id,
-         data: profilePic.upload.data
-       }
-       console.log(uploadUrl)
-        this.$refs.profilePicRef.deleteUpload(uploadUrl, this.uploadHeaders, uploadedData, [profilePic]);
+       var profilePic = this.profilePic;
+        this.$refs.profilePicRef.deleteUpload(this.uploadUrl, this.uploadHeaders, [profilePic]);
         this.profilePic = null;
         this.uploaded = false;
       },
       upload: function(){
         var self = this;
-        console.log(this.profilePic)
         this.$refs.profilePicRef.upload(this.uploadUrl, this.uploadHeaders, [this.profilePic]).then(function(){
           self.uploaded = true;
           setTimeout(function(){
@@ -81,15 +63,11 @@ export default {
       onSelect: function(fileRecords){
         this.uploaded = false;
       }
-    },
-    mounted: function(){
-  
     }
-
   }
 </script>
 <style>
-#profile-pic-demo .drop-help-text {
+  #profile-pic-demo .drop-help-text {
     display: none;
   }
   #profile-pic-demo .is-drag-over .drop-help-text {
@@ -101,14 +79,15 @@ export default {
     padding-top: 0;
   }
 
-#profile-pic-demo .is-drag-over.profile-pic-upload-block {
-border-color: #AAA;
-}
-#profile-pic-demo .vue-file-agent {
-width: 180px;
-float: left;
-margin: 0 15px 5px 0;
-border: 0;
-box-shadow: none;
-}
+  #profile-pic-demo .is-drag-over.profile-pic-upload-block {
+  border-color: #AAA;
+  }
+
+  #profile-pic-demo .vue-file-agent {
+  width: 180px;
+  float: left;
+  margin: 0 15px 5px 0;
+  border: 0;
+  box-shadow: none;
+  }
 </style>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\File;
+use Illuminate\Support\Facades\Storage;
 
 class ConferenceImageController extends Controller
 {
@@ -27,7 +28,7 @@ class ConferenceImageController extends Controller
     public function store(Request $request)
     {
         $validated  = $request->validate([
-            'file' => 'required|image|mimes:jpeg,bmp,png|size:10000'
+            'file' => 'required|image|mimes:jpeg,bmp,png'
         ]);
 
         if ($request->file('file')) {
@@ -38,7 +39,10 @@ class ConferenceImageController extends Controller
                 $file->size = $request->file('file')->getSize();
                 $file->name = $path;
                 $file->type = $request->file('file')->getClientMimeType();
+                $file->recordId = $request->id;
                 $file->save();
+                return $file;
+                
             } catch (\Exception $exception) {
                 abort(403, $exception->getMessage());
             }
@@ -55,7 +59,8 @@ class ConferenceImageController extends Controller
      */
     public function show($id)
     {
-        //
+        $file = File::findOrFail($id);
+        return response()->json($file->url);
     }
 
     /**
@@ -78,6 +83,18 @@ class ConferenceImageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $file = File::findOrFail($id);
+        if (Storage::exists($file->name)) {
+            Storage::delete($file->name);
+        } else {
+            abort(404, 'File not found');
+        }
+        $file->delete();
+        return response()->json('Deleted');
+    }
+
+    public function download($id) {
+        $file = File::findOrFail($id);
+        return Storage::download($file->name);
     }
 }

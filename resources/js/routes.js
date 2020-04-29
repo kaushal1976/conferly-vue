@@ -6,6 +6,8 @@ import Conferences from './components/conference/Conferences.vue'
 import Conference from './components/conference/Conference.vue'
 import Search from './components/domain/Search.vue'
 import Test from './components/test/Test.vue'
+import Image from './components/conference/ConferenceImage.vue'
+import FileUpload from './components/test/FileUpload.vue'
 export const routes = [
     //Auth
     {
@@ -17,8 +19,16 @@ export const routes = [
         component: Login
     },
     {
-        path: '/Test',
+        path: '/test',
         component: Test
+    },
+    {
+        path: '/upload',
+        component: FileUpload
+    },
+    {
+        path:'/image',
+        component: Image 
     },
     {
         path: '/logout',
