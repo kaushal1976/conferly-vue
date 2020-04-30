@@ -15,14 +15,23 @@ class CreateConferencesTable extends Migration
     {
         Schema::create('conferences', function (Blueprint $table) {
             $table->bigIncrements('id');
+
             $table->string('title');
+
             $table->string('tag_line');
+
             $table->text('description');
+
             $table->date('start_date');
+
             $table->date('end_date');
+
             $table->string('venue');
+
             $table->string('subject_area');
+
             $table->string('image');
+
             $table->timestamps();
         });
 

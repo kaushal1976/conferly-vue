@@ -65,6 +65,7 @@
                 </v-card-text>
                 <v-card-actions>
                   <v-btn color="deep-purple lighten-2" text>Reserve</v-btn>
+                  <v-btn @click="deleteConference(conference.id)" color="deep-purple lighten-2" text>Remove</v-btn>
                 </v-card-actions>
               </v-card>
             </v-col>
@@ -94,6 +95,14 @@ export default {
     fetchConferences() {
       this.loading = true;
       this.$store.dispatch("fetchConferences").then(response => {
+        this.loading = false;
+      });
+    },
+    deleteConference(id) {
+      this.loading = true;
+      this.$store
+      .dispatch("deleteConference", id)
+      .then(response => {
         this.loading = false;
       });
     }

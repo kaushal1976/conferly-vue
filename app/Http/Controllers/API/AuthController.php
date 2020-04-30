@@ -40,12 +40,5 @@ class AuthController extends Controller
     public function logout()
     {
     }
-    public function test(Request $request)
-    {
-        $validatedData = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required|string'
-        ]);
-    }
 
 }

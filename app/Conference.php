@@ -22,4 +22,8 @@ class Conference extends Model
         'end_date',
     ];
 
+    public function themes() {
+        return $this->hasMany(Theme::class);
+    }
+
 }

@@ -117,20 +117,6 @@
             @input="asyncErrors=''"
           ></v-textarea>
         </v-col>
-        <v-col cols="12">
-          <VueFileAgent 
-          ref="vueFileAgent"
-          :theme="'list'"
-          :dense='true'
-          @delete="deleteUploadedFile($event)"
-          @upload="onUpload($event)"
-          @upload:error="onUploadError($event)"
-          :uploadUrl="uploadUrl" 
-          v-model="fileRecords"
-          :deletable="false"
-          :multiple="false"
-          ></VueFileAgent>
-        </v-col>
         <v-col cols="12" class="py-0">
           <v-btn
             @click="addConference"
@@ -149,17 +135,10 @@
 <style scoped>
 </style>
 <script>
-import ConferenceImage from './ConferenceImage.vue'
 import { mapActions } from "vuex";
 export default {
-  components: {
-    ConferenceImage
-  },
   data() {
     return {
-      uploadUrl: "/api/conference/image/",
-      fileRecordsForUpload: [],
-      fileRecords: [],
       conference: {},
       asyncErrors: [],
       valid: false,
@@ -173,7 +152,6 @@ export default {
       descriptionRules: [v => !!v || "Description is required"],
       venueRules: [v => !!v || "Venue is required"],
       subjectRules: [v => !!v || "Subject is required"],
-      imageRules: [value => !!value || "Please select a background image"],
       start_date: new Date().toISOString().substr(0, 10),
       end_date: new Date().toISOString().substr(0, 10),
       fDateDisabled: true,
@@ -224,48 +202,6 @@ export default {
             });
       }
     },
-    deleteUploadedFile: function(fileRecord) {
-      // Using the default uploader. You may use another uploader instead
-      let uploadUrl = this.uploadUrl+fileRecord.upload.data.id
-      let uploadedData={
-         id: fileRecord.upload.data.id,
-         data: fileRecord.upload.data
-       }
-      this.uploadUrl = uploadUrl
-
-      this.$refs.vueFileAgent.deleteUpload(this.uploadUrl, this.uploadHeaders, uploadedData, [fileRecord]);
-
-    },
-  
-    onUploadDeleteError(failedResponse) {
-          //console.log("Test"+JSON.stringify(failedResponse));
-    },
-    onUploadDelete(Response) {
-          //console.log("Test"+JSON.stringify(Response));
-    },
-    onUpload(responses) {
-      //let files = Array.isArray(responses) ? responses : [responses]
-      //for (let file of files) {
-        /*console.log(file)
-        //var backendObj = respObj.result.files.file[0]
-        //let fileRecord = file.data.fil
-        let index = this.fileRecords.indexOf(file)
-
-        this.fileRecords[index] = {
-          name: file.name,
-          size: file.size,
-          type: file.type,
-          ext: file.ext,
-          progress: 100,
-        }
-      */
-      //this.fileRecords = this.fileRecords.slice() // trigger vue change
-      //console.log(this.fileRecords)
-    },
-      
-    onUploadError(failedResponses) {
-        //console.log(JSON.stringify(failedResponse))
-    }
 
   },
   mounted() {

@@ -26,6 +26,7 @@
     },
     "dependencies": {
         "material-design-icons-iconfont": "^5.0.1",
+        "object-to-formdata": "^3.0.9",
         "validate.js": "^0.13.1",
         "vue-file-agent": "^1.6.2",
         "vue-moment": "^4.1.0",

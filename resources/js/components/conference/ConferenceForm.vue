@@ -13,19 +13,14 @@
                     :step="1"
                     class="py-0"
             >
-                <Step1
-                        @complete="nextStep"
-                />
+                <Step1 @complete="nextStep"/>
             </v-stepper-content>
             <v-stepper-content
                     :key="`2-content`"
                     :step="2"
                     class="py-0"
             >
-                <Step2
-                        @complete="nextStep"
-                        @previous="previousStep"
-                />
+                <Step2 @complete="nextStep" @previous="previousStep"/>
             </v-stepper-content>
         </v-stepper>
     </v-layout>

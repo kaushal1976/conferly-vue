@@ -4,13 +4,9 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Conference;
-use App\Paper;
-use App\User;
 use Carbon\Carbon;
-use Illuminate\Http\File;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Storage;
 
 class ConferenceController extends Controller
 {
@@ -20,7 +16,7 @@ class ConferenceController extends Controller
     public function __construct()
     {
         $this->middleware('auth', ['except' => [
-            'index', 'show', 'displayImage', 'edit', 'store'
+            'index', 'show', 'displayImage', 'edit', 'store', 'update', 'destroy'
         ]]);
     }
     /**
@@ -48,31 +44,20 @@ class ConferenceController extends Controller
             'venue'=>'required|max:255',
             'tag_line'=>'required|max:255',
             'subject_area'=>'required|max:255',
-            'start_date' => 'required|date_format:Y-m-d|after:yesterday',
+            'start_date' => 'required|date_format:Y-m-d',
             'end_date' => 'required|date_format:Y-m-d|after:start_date',
         ]);
-        $validatedData['start_date'] = Carbon::parse($validatedData['start_date']);
-        $validatedData['end_date'] = Carbon::parse($validatedData['end_date']);
-        $validatedData['image'] = 'public/conference/images';
+        $validatedData['image'] = 'da7dd6bb339a234cb0c7c12a5b75a91f.jpg';
         try {
-            //$path = $request->file('image')->store('public/conference/images');
             $conference = Conference::create($validatedData);
-            $conference->image = 'public/conference/images';
-            $conference->save();
+                if ($request->hasFile('image')) {
+                $path = $request->file('image')->store('public/conference/images');
+                $conference->image = basename($path);
+                $conference->save();
+                }
         } catch (\Exception $exception) {
             abort(403, $exception->getMessage());
         }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Conference $conference)
-    {
-
     }
 
     /**
@@ -91,22 +76,22 @@ class ConferenceController extends Controller
 
     /**
      * Update the specified resource in storage.
+     * $id is encorded in FormData
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Conference  $conference
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Conference $conference)
+    public function update(Request $request)
     {
+        $conference = Conference::findOrFail($request->id);
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'description'=>'required',
             'venue'=>'required|max:255',
             'tag_line'=>'required|max:255',
             'subject_area'=>'required|max:255',
-            'start_date' => 'required|date_format:d-m-Y',
-            'end_date' => 'required|date_format:d-m-Y|after:start_date',
-            'image' => 'required'
+            'start_date' => 'required|date_format:Y-m-d',
+            'end_date' => 'required|date_format:Y-m-d|after:start_date',
         ]);
         $validatedData['start_date'] = Carbon::parse($validatedData['start_date']);
         $validatedData['end_date'] = Carbon::parse($validatedData['end_date']);
@@ -114,36 +99,25 @@ class ConferenceController extends Controller
         try {
             $conference->update($validatedData);
             if ($request->hasFile('image')) {
-                $path = $request->file('image')->store('uploads');
-                $conference->image = $path;
+                $path = $request->file('image')->store('public/conference/images');
+                $conference->image = basename($path);
                 $conference->save();
             }
-            request()->session()->flash('message', 'Conference updated successfully.');
-            request()->session()->flash('message-type', 'success');
+
         } catch (\Exception $exception) {
             abort(403, $exception->getMessage());
         }
-        return redirect(route('themes', ['conference'=>$conference]));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Conference  $conference
+     * @param  $id (id of the \App\Conference) 
      * @return \Illuminate\Http\Response
      */
-
-    public function destroy(Conference $conference)
+    public function destroy($id)
     {
-        //
-    }
-
-    public function displayImage ($image) {
-        $path = 'uploads/'.$image;
-        if (!Storage::disk('local')->exists($path)) {
-            abort(404);
-        }
-        $content = Storage::get($path);
-        return response($content)->header('Content-Type', 'png');
+        $conference = Conference::findOrFail($id);
+        $conference->delete();
     }
 }

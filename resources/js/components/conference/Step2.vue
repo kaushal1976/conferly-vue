@@ -119,27 +119,6 @@
                 themes: [],
                 editedIndex: -1,
                 users: [
-                    {
-                        value: 1,
-                        text: 'Dr Kaushal Keraminiyage',
-                        email: 'Kera@yahoo.co.uk'
-                    },
-                    {
-                        value: 2,
-                        text: 'Dr Kaushal Keraminiyage',
-                        email: 'Kera@yahoo.co.uk'
-                    },
-                    {
-                        value: 3,
-                        text: 'Dr K iyage',
-                        email: 'Keran@yahoo.co.uk'
-                    },
-                    {
-                        value: 4,
-                        text: 'Dr iyage',
-                        email: 'ferf@oo.co.uk'
-                    }
-
                 ]
             }
         },
@@ -159,16 +138,6 @@
             },
             initialize() {
                     this.themes = [
-                        {
-                            title: 'Test',
-                            description: 'This is a description',
-                            coordinators: [1, 3],
-                        },
-                        {
-                            title: 'Test 2',
-                            description: 'This is a description vfdvfdv',
-                            coordinators: [2]
-                        }
                     ]
             },
             editItem(item) {
