@@ -164,9 +164,11 @@ export default {
   methods: {
     addConference() {
       if (this.$refs.conferenceForm.validate()) { 
+        let data = Object.assign({}, this.conference)
         this.$store
-          .dispatch("addConference", { ...this.conference })
+          .dispatch("addConference", data)
           .then(response => {
+            
             this.$emit("complete");
           })
           .catch(error => {
@@ -185,10 +187,10 @@ export default {
       }
     },
     fetchConference() {
-      if (this.$route.params.id) {
+      if (this.$route.params.conferenceId) {
         (this.loading = true),
           this.$store
-            .dispatch("fetchConference", (this.id = this.$route.params.id))
+            .dispatch("fetchConference", this.$route.params.conferenceId)
             .then(response => {
               this.loading = false;
               this.fDateDisabled = false;
@@ -199,7 +201,11 @@ export default {
               this.conference.end_date = new Date(this.conference.end_date)
                 .toISOString()
                 .substr(0, 10);
-            });
+            })
+            .catch(error=> {
+              this.loading = false;
+              this.$router.push({ name: 'home'})
+            })
       }
     },
 

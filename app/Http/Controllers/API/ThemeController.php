@@ -17,28 +17,32 @@ class ThemeController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
      * Store a newly created resource in storage.
      *
+     * @param $id - Conference ID
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         $validatedData = $request->validate([
             'title' => 'required|unique:themes|max:255',
             'description' => 'required',
         ]);
+        $conference = Conference::findOrFail($id);
         try {
-            $conference = Conference::findOrFail($request->conference);
             $theme = new Theme;
-            $theme->conference()->associate($conference);
             $theme->title = $validatedData['title'];
             $theme->description = $validatedData['description'];
+            $theme->conference()->associate($conference);
             $theme->save();
+
+        return response()->json($theme);
+
         } catch (\Exception $exception) {
             abort(403, $exception->getMessage());
         }

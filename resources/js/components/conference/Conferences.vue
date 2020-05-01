@@ -13,7 +13,7 @@
               <v-btn
                 class="no-uppercase my-2 md-full-width"
                 elevation="0"
-                href="/conference/create"
+                :to="{name: 'create-conference'}"
                 large
                 color="primary"
               >
@@ -23,7 +23,7 @@
               <v-btn
                 class="no-uppercase my-2 md-full-width"
                 elevation="0"
-                href="/conference"
+                :to="{name: 'conferences'}"
                 large
                 color="primary"
               >Search Conferences</v-btn>
@@ -66,6 +66,7 @@
                 <v-card-actions>
                   <v-btn color="deep-purple lighten-2" text>Reserve</v-btn>
                   <v-btn @click="deleteConference(conference.id)" color="deep-purple lighten-2" text>Remove</v-btn>
+                  <v-btn @click="editConference(conference.id)" color="deep-purple lighten-2" text>Edit</v-btn>
                 </v-card-actions>
               </v-card>
             </v-col>
@@ -97,6 +98,9 @@ export default {
       this.$store.dispatch("fetchConferences").then(response => {
         this.loading = false;
       });
+    },
+    editConference(id) {
+      this.$router.push({ name: 'edit-conference', params: { conferenceId: id } })
     },
     deleteConference(id) {
       this.loading = true;

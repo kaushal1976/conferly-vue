@@ -55,6 +55,7 @@ class ConferenceController extends Controller
                 $conference->image = basename($path);
                 $conference->save();
                 }
+            return response()->json($conference);
         } catch (\Exception $exception) {
             abort(403, $exception->getMessage());
         }
@@ -103,7 +104,8 @@ class ConferenceController extends Controller
                 $conference->image = basename($path);
                 $conference->save();
             }
-
+        return response()->json($conference);
+        
         } catch (\Exception $exception) {
             abort(403, $exception->getMessage());
         }

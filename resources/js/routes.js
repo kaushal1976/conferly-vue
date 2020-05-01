@@ -6,27 +6,39 @@ import Conferences from './components/conference/Conferences.vue'
 import Conference from './components/conference/Conference.vue'
 export const routes = [
     {
+        path: '/',
+        component: Conferences,
+        name: 'home'
+    },
+    {
         path: '/login',
-        component: Login
+        component: Login,
+        name: 'login'
     },
     {
         path: '/logout',
-        component: Logout
+        component: Logout,
+        name: 'logout'
     },
     {
-        path: '/conference',
-        component: Conferences
+        path: '/conferences',
+        component: Conferences,
+        name: 'conferences'
     },
     {
-        path: '/conference/create',
-        component: ConferenceForm
+        path: '/conferences/create',
+        component: ConferenceForm,
+        name: 'create-conference'
     },
     {
-        path: '/conference/:id/',
-        component: Conference
+        path: '/conferences/:conferenceId/',
+        component: Conference,
+        name: 'view-conference'
+        
     },
     {
-        path: '/conference/:id/edit',
-        component: ConferenceForm
+        path: '/conferences/:conferenceId/edit',
+        component: ConferenceForm,
+        name: 'edit-conference'
     },
 ];

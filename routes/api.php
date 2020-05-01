@@ -17,4 +17,7 @@ Route::get('/conference/{id}','API\ConferenceController@edit')->name('edit-confe
 Route::put('/conference/{id}','API\ConferenceController@update')->name('update-conference');
 Route::delete('/conference/{id}', 'API\ConferenceController@destroy')->name('remove-conference');
 Route::post('/conference','API\ConferenceController@store')->name('store-conference');
-Route::post('/domain/search','API\DomainController@doSearch')->name('domain-search');
+
+Route::post('/conference/{id}/themes/','API\ThemeController@store')->name('store-theme');
+
+
