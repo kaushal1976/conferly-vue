@@ -19,5 +19,6 @@ Route::delete('/conference/{id}', 'API\ConferenceController@destroy')->name('rem
 Route::post('/conference','API\ConferenceController@store')->name('store-conference');
 
 Route::post('/conference/{id}/themes/','API\ThemeController@store')->name('store-theme');
+Route::get('/conference/{id}/themes/','API\ThemeController@index')->name('get-themes');
 
 

@@ -119,7 +119,7 @@
         </v-col>
         <v-col cols="12" class="py-0">
           <v-btn
-            @click="addConference"
+            @click="setConference"
             :class="{ 'blue darken-4 white--text' : valid, disabled: !valid }"
             :dense='true'
             outlined
@@ -135,40 +135,36 @@
 <style scoped>
 </style>
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 export default {
   data() {
     return {
-      conference: {},
-      asyncErrors: [],
       valid: false,
+      asyncErrors: [],
       tagLineRules: [v => !!v || "Tag line is required"],
       titleRules: [v => !!v || "Title is required"],
-      dateRules: [
-        v =>
-          !this.fDateDisabled ||
-          "Please check Start and End dates of the Conference"
-      ],
+      dateRules: [v =>!!v || "Please check the date"],
       descriptionRules: [v => !!v || "Description is required"],
       venueRules: [v => !!v || "Venue is required"],
       subjectRules: [v => !!v || "Subject is required"],
-      start_date: new Date().toISOString().substr(0, 10),
-      end_date: new Date().toISOString().substr(0, 10),
       fDateDisabled: true,
       sDateMenu: false,
       fDateMenu: false,
-      modal: false 
     };
   },
 
   methods: {
-    addConference() {
+    ...mapActions({
+      fetchConferences: 'conferences/fetchConferences',
+      fetchConference: 'conferences/fetchConference',
+      deleteConference: 'conferences/deleteConference'
+    }),
+    setConference() {
       if (this.$refs.conferenceForm.validate()) { 
         let data = Object.assign({}, this.conference)
         this.$store
-          .dispatch("addConference", data)
+          .dispatch("conferences/setConference", data)
           .then(response => {
-            
             this.$emit("complete");
           })
           .catch(error => {
@@ -180,43 +176,22 @@ export default {
       this.fDateDisabled = false;
       this.sDateMenu = false;
       if (
-        new Date(this.conference.start_date).getTime() >=
-        new Date(this.conference.end_date).getTime()
+        new Date(this.conference.start_date).getTime() >= new Date(this.conference.end_date).getTime()
       ) {
         this.conference.end_date = this.conference.start_date;
       }
     },
-    fetchConference() {
-      if (this.$route.params.conferenceId) {
-        (this.loading = true),
-          this.$store
-            .dispatch("fetchConference", this.$route.params.conferenceId)
-            .then(response => {
-              this.loading = false;
-              this.fDateDisabled = false;
-              this.conference = this.$store.state.conference;
-              this.conference.start_date = new Date(this.conference.start_date)
-                .toISOString()
-                .substr(0, 10);
-              this.conference.end_date = new Date(this.conference.end_date)
-                .toISOString()
-                .substr(0, 10);
-            })
-            .catch(error=> {
-              this.loading = false;
-              this.$router.push({ name: 'home'})
-            })
-      }
-    },
-
   },
   mounted() {
-    this.fetchConference();
+    this.fetchConference(this.$route.params.conferenceId);
   },
   computed: {
     minDate() {
       return this.conference.start_date;
-    }
+    },
+    ...mapGetters({
+      conference:'conferences/getConference',
+    })
   }
 };
 </script>

@@ -23,9 +23,9 @@ class Theme extends Model
     }
 
 
-    public function scopeOfConference($query, $conference)
+    public function scopeOfConference($query, $conferenceId)
     {
-        return $query->where('conference_id', $conference->id);
+        return $query->where('conference_id', $conferenceId);
     }
 
     public function themeLeaders()

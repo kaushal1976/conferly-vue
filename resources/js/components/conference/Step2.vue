@@ -38,7 +38,7 @@
         </v-col>
         <v-col cols="12" class="py-0">
           <v-btn
-            @click="addTheme"
+            @click="setTheme(conference.id)"
             :class="{ 'blue darken-4 white--text' : valid, disabled: !valid }"
             :dense='true'
             outlined
@@ -49,17 +49,20 @@
     </v-form>
   </v-card>
   </v-col>
+  <Themes></Themes>
 </v-row>
 </template>
 <style scoped>
 </style>
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
+import Themes from '../themes/Themes'
 export default {
+  components: {
+    Themes
+  },
   data() {
     return {
-      theme: {},
-      conference:{},
       asyncErrors: [],
       valid: false,
       titleRules: [v => !!v || "Title is required"],
@@ -68,11 +71,16 @@ export default {
   },
 
   methods: {
-    addTheme() {
+    ...mapActions({
+      fetchThemes: 'themes/fetchThemes',
+      deleteTheme: 'themes/deleteTheme'
+    }),
+    setTheme(conferenceId) {
       if (this.$refs.themeForm.validate()) { 
         let data = Object.assign({}, this.theme)
+        data.conferenceId = conferenceId
         this.$store
-          .dispatch("addTheme", data)
+          .dispatch("themes/setTheme", data)
           .then(response => {
             this.$emit("complete");
           })
@@ -86,26 +94,14 @@ export default {
           });
       }
     },
-    fetchThemes() {
-      if (this.$route.params.id) {
-        (this.loading = true),
-          this.$store
-            .dispatch("fetchThemes", this.$route.params.id)
-            .then(response => {
-              this.loading = false;
-            });
-      }
-    },
-    fetchConference() {
-        this.conference = Object.this.$store.state.conference
-    }
-  },
-  mounted() {
-    this.fetchConference()
-    this.fetchThemes();
+    
   },
   computed: {
-   
+    ...mapGetters({
+      conference:'conferences/getConference',
+      themes:'themes/getTheme',
+      theme:'themes/getThemes',
+    })
   }
 };
 </script>

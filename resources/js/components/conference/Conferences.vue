@@ -47,9 +47,9 @@
                     <div class="grey--text ml-4">4.5 (413)</div>
                   </v-row>
                   <div class="my-4 subtitle-1">
-                    <i>{{conference.start_date | moment("dddd, MMMM Do YYYY")}}</i>
+                    <i>{{conference.start_date}}</i>
                     <b>To</b>
-                    <i>{{conference.end_date | moment("dddd, MMMM Do YYYY")}}</i>
+                    <i>{{conference.end_date}}</i>
                   </div>
                   <div>{{conference.description}}</div>
                 </v-card-text>
@@ -66,7 +66,7 @@
                 <v-card-actions>
                   <v-btn color="deep-purple lighten-2" text>Reserve</v-btn>
                   <v-btn @click="deleteConference(conference.id)" color="deep-purple lighten-2" text>Remove</v-btn>
-                  <v-btn @click="editConference(conference.id)" color="deep-purple lighten-2" text>Edit</v-btn>
+                  <v-btn :to="{ name: 'edit-conference', params: { conferenceId: conference.id } }" color="deep-purple lighten-2" text>Edit</v-btn>
                 </v-card-actions>
               </v-card>
             </v-col>
@@ -78,6 +78,8 @@
 </template>
 <script>
 import { mapState } from "vuex";
+import {mapGetters} from "vuex";
+import {mapActions} from "vuex";
 
 export default {
   data: function() {
@@ -86,30 +88,18 @@ export default {
     };
   },
   computed: {
-    ...mapState(["conferences"])
+    ...mapGetters({
+      conferences:'conferences/getConferences',
+    })
   },
   mounted() {
-    this.fetchConferences();
-    this.$store.getters.getConferences;
+    this.fetchConferences()
   },
   methods: {
-    fetchConferences() {
-      this.loading = true;
-      this.$store.dispatch("fetchConferences").then(response => {
-        this.loading = false;
-      });
-    },
-    editConference(id) {
-      this.$router.push({ name: 'edit-conference', params: { conferenceId: id } })
-    },
-    deleteConference(id) {
-      this.loading = true;
-      this.$store
-      .dispatch("deleteConference", id)
-      .then(response => {
-        this.loading = false;
-      });
-    }
+    ...mapActions({
+      fetchConferences: 'conferences/fetchConferences',
+      deleteConference: 'conferences/deleteConference'
+    }),
   }
 };
 </script>

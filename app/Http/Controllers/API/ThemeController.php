@@ -15,8 +15,10 @@ class ThemeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($conferenceId)
     {
+        $themes = Theme::ofConference($conferenceId);
+        return response()->json($themes);
         
     }
 
@@ -40,7 +42,6 @@ class ThemeController extends Controller
             $theme->description = $validatedData['description'];
             $theme->conference()->associate($conference);
             $theme->save();
-
         return response()->json($theme);
 
         } catch (\Exception $exception) {
