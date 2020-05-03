@@ -18,7 +18,6 @@
             >Add a theme</v-btn>
           </v-col>
         </div>
-
         <v-divider class="my-4"></v-divider>
         <v-form v-model="valid" ref="themeForm" @submit.stop.prevent class="py-0">
           <v-row class="justify-center py-0 px-5">
