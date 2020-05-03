@@ -1,6 +1,11 @@
 import { objectToFormData} from 'object-to-formdata';
+import router from "../../../router";
 
 const setTheme = ({commit}, payload) => {
+
+    if (!payload.conferenceId > 0) {
+       router.push({name: 'home'})
+    }
 
     let path = '/api/conference/' + payload.conferenceId + '/themes/'
     const formData = objectToFormData(payload);
@@ -15,24 +20,15 @@ const setTheme = ({commit}, payload) => {
     }
     return axios.post(path, formData, settings)
         .then(response => {
-            commit('SET_THEME', payload)
+            commit('SET_THEME', response.data)
         })
         .catch(error => {
             throw error
         })
 }
 
-const fetchThemes = ({commit}, payload) => {
-        return axios.get('/api/conference/' + payload + '/themes/')
-            .then(response => {
-                commit('FETCH_THEMES', response.data)
-            })
-            .catch(error => {
-                throw error
-            })
-    }
 const deleteTheme = ({commit}, id) => {
-            return axios.delete('/api/theme/' + id)
+            return axios.delete('/api/themes/' + id)
                 .then(response => {
                     commit('DELETE_THEME', id)
                 })
@@ -43,6 +39,5 @@ const deleteTheme = ({commit}, id) => {
 
 export default {
     setTheme,
-    fetchThemes,
     deleteTheme
 }

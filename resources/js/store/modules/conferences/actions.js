@@ -23,11 +23,11 @@ const setConference = ({commit}, payload) => {
 
 }
 
-const fetchConferences = (context) => {
+const fetchConferences = ({commit}) => {
 
     return axios.get('/api/conference')
         .then(response => {
-            context.commit('FETCH_CONFERENCES', response.data)
+            commit('FETCH_CONFERENCES', response.data)
         })
         .catch(error => {
             throw error
@@ -42,6 +42,7 @@ const fetchConference = ({commit}, payload) => {
     return axios.get('/api/conference/' + payload)
         .then(response => {
             commit('FETCH_CONFERENCE', response.data)
+            commit('themes/FETCH_THEMES', response.data.themes, {root: true})
         })
         .catch(error => {
             commit('FETCH_CONFERENCE', {})

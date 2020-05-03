@@ -55,10 +55,10 @@ class ConferenceController extends Controller
                 $conference->image = basename($path);
                 $conference->save();
                 }
-            return response()->json($conference);
         } catch (\Exception $exception) {
             abort(403, $exception->getMessage());
         }
+        return response()->json($conference);
     }
 
     /**
@@ -69,7 +69,7 @@ class ConferenceController extends Controller
      */
     public function edit($id)
     {
-        $conference = Conference::findOrFail($id);
+        $conference = Conference::with('themes')->findOrFail($id);
         $conference->start_date = $conference->start_date->format('Y-m-d');
         $conference->end_date = $conference->end_date->format('Y-m-d');
         return response()->json($conference);
@@ -84,7 +84,7 @@ class ConferenceController extends Controller
      */
     public function update(Request $request)
     {
-        $conference = Conference::findOrFail($request->id);
+        $conference = Conference::with('themes')->findOrFail($request->id);
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'description'=>'required',
@@ -104,11 +104,11 @@ class ConferenceController extends Controller
                 $conference->image = basename($path);
                 $conference->save();
             }
-        return response()->json($conference);
         
         } catch (\Exception $exception) {
             abort(403, $exception->getMessage());
         }
+        return response()->json($conference);
     }
 
     /**

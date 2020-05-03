@@ -42,16 +42,10 @@ class ThemeController extends Controller
             $theme->description = $validatedData['description'];
             $theme->conference()->associate($conference);
             $theme->save();
-        return response()->json($theme);
-
         } catch (\Exception $exception) {
             abort(403, $exception->getMessage());
         }
-        return response()->json([
-            'title' => 'Completed',
-            'message' => 'Theme added sucessfully',
-            'type' => 'success'
-        ], 200);
+        return response()->json($theme);
 
     }
 
@@ -87,13 +81,6 @@ class ThemeController extends Controller
     public function destroy($id)
     {
         $theme = Theme::findOrFail($id);
-        if(count($theme->papers)>0) {
-            return response()->json([
-                'title'=>'Error',
-                'message'=>'Cannot delete this theme as papers have already been allocated',
-                'type'=>'error']
-                , 200);
-        }
         try{
             $theme->conference()->dissociate();
             $theme->delete();

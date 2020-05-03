@@ -20,5 +20,7 @@ Route::post('/conference','API\ConferenceController@store')->name('store-confere
 
 Route::post('/conference/{id}/themes/','API\ThemeController@store')->name('store-theme');
 Route::get('/conference/{id}/themes/','API\ThemeController@index')->name('get-themes');
+Route::delete('/themes/{id}','API\ThemeController@destroy')->name('delete-theme');
+Route::post('/themes/{id}','API\ThemeController@edit')->name('edit-theme');
 
 

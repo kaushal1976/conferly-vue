@@ -1,6 +1,7 @@
 const SET_THEME = (state, payload) => {
         state.theme = payload
         state.themes.push(payload)
+        state.theme = {}
     }
 const FETCH_THEMES = (state, themes) => {
         state.themes = themes
