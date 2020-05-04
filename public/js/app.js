@@ -2474,6 +2474,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -2720,8 +2721,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2787,6 +2786,8 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
 //
 //
 //
@@ -40504,18 +40505,20 @@ var render = function() {
                     "v-col",
                     { attrs: { cols: "12" } },
                     [
-                      _vm.show == false
-                        ? _c(
-                            "v-btn",
-                            {
-                              staticClass:
-                                "no-uppercase my-2 px-6 md-full-width",
-                              attrs: { color: "primary", elevation: "0" },
-                              on: { click: _vm.showToggle }
-                            },
-                            [_vm._v("Add a theme")]
-                          )
-                        : _vm._e(),
+                      _c(
+                        "v-btn",
+                        {
+                          staticClass: "no-uppercase my-2 px-6",
+                          attrs: { color: "primary", elevation: "0", fab: "" },
+                          on: { click: _vm.showToggle }
+                        },
+                        [
+                          _c("v-icon", { attrs: { dark: "" } }, [
+                            _vm._v("mdi-plus")
+                          ])
+                        ],
+                        1
+                      ),
                       _vm._v(" "),
                       _c("v-divider", { staticClass: "my-4" })
                     ],
@@ -40840,13 +40843,6 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _c("v-img", {
-                attrs: {
-                  src: "https://cdn.vuetifyjs.com/images/cards/mountain.jpg",
-                  height: "50"
-                }
-              }),
-              _vm._v(" "),
               _c(
                 "v-card-text",
                 [
@@ -40941,7 +40937,7 @@ var render = function() {
                               _vm._v(" "),
                               _c(
                                 "v-col",
-                                { attrs: { cols: "12" } },
+                                { staticClass: "py-0", attrs: { cols: "12" } },
                                 [_c("ThemeLeader")],
                                 1
                               ),
@@ -40950,18 +40946,17 @@ var render = function() {
                                 "v-col",
                                 { staticClass: "py-0", attrs: { cols: "12" } },
                                 [
+                                  _c("v-divider", { staticClass: "my-4" }),
+                                  _vm._v(" "),
                                   _c(
                                     "v-btn",
                                     {
+                                      staticClass: "no-uppercase",
                                       class: {
                                         "blue darken-4 white--text": _vm.valid,
                                         disabled: !_vm.valid
                                       },
-                                      attrs: {
-                                        dense: true,
-                                        outlined: "",
-                                        large: ""
-                                      },
+                                      attrs: { dense: true, outlined: "" },
                                       on: {
                                         click: function($event) {
                                           return _vm.setTheme(_vm.conference.id)
@@ -40974,18 +40969,13 @@ var render = function() {
                                   _c(
                                     "v-btn",
                                     {
-                                      staticClass: "blue arken-4 white--text",
-                                      attrs: {
-                                        dense: true,
-                                        outlined: "",
-                                        large: ""
-                                      },
+                                      staticClass:
+                                        "blue darken-4 white--text no-uppercase",
+                                      attrs: { dense: true, outlined: "" },
                                       on: { click: _vm.hidden }
                                     },
                                     [_vm._v("Cancel")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("v-divider", { staticClass: "my-4" })
+                                  )
                                 ],
                                 1
                               )
@@ -41039,14 +41029,13 @@ var render = function() {
       _c(
         "v-btn",
         {
-          staticClass: "no-uppercase my-2 px-6 md-full-width",
-          attrs: { color: "primary", elevation: "0" },
+          staticClass: "no-uppercase",
+          attrs: { color: "primary", elevation: "0", fab: "" },
           on: { click: _vm.modalToggle }
         },
-        [_vm._v("Add a Theme Leader")]
+        [_c("v-icon", { attrs: { dark: "" } }, [_vm._v("mdi-plus")])],
+        1
       ),
-      _vm._v(" "),
-      _c("v-divider", { staticClass: "my-4" }),
       _vm._v(" "),
       _c(
         "v-dialog",
@@ -41213,18 +41202,17 @@ var render = function() {
                             "v-col",
                             { staticClass: "py-0", attrs: { cols: "12" } },
                             [
+                              _c("v-divider", { staticClass: "my-4" }),
+                              _vm._v(" "),
                               _c(
                                 "v-btn",
                                 {
+                                  staticClass: "no-uppercase",
                                   class: {
                                     "blue darken-4 white--text": _vm.valid,
                                     disabled: !_vm.valid
                                   },
-                                  attrs: {
-                                    dense: true,
-                                    outlined: "",
-                                    large: ""
-                                  },
+                                  attrs: { dense: true, outlined: "" },
                                   on: {
                                     click: function($event) {
                                       return _vm.setThemeLeader()
@@ -41237,17 +41225,12 @@ var render = function() {
                               _c(
                                 "v-btn",
                                 {
-                                  staticClass: "blue arken-4 white--text",
-                                  attrs: {
-                                    dense: true,
-                                    outlined: "",
-                                    large: ""
-                                  }
+                                  staticClass:
+                                    "blue arken-4 white--text no-uppercase",
+                                  attrs: { dense: true, outlined: "" }
                                 },
                                 [_vm._v("Cancel")]
-                              ),
-                              _vm._v(" "),
-                              _c("v-divider", { staticClass: "my-4" })
+                              )
                             ],
                             1
                           )

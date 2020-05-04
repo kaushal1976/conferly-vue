@@ -10,12 +10,13 @@
         <v-row class="justify-center py-0 px-5">
           <v-col cols="12">
             <v-btn
-              v-if="show==false"
-              class="no-uppercase my-2 px-6 md-full-width"
+              class="no-uppercase my-2 px-6"
               color="primary"
               elevation="0"
               @click="showToggle"
-            >Add a theme</v-btn>
+              fab
+            > <v-icon dark>mdi-plus</v-icon>
+            </v-btn>
             <v-divider class="my-4"></v-divider>
           </v-col>
           <v-col cols="12" v-if="show==true">

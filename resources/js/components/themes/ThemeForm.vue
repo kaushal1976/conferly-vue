@@ -9,7 +9,6 @@
             <v-list-item-subtitle>Add a new theme</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
-        <v-img src="https://cdn.vuetifyjs.com/images/cards/mountain.jpg" height="50"></v-img>
         <v-card-text>
           <v-container>
             <v-form v-model="valid" ref="themeForm" @submit.stop.prevent class="py-0">
@@ -39,25 +38,24 @@
                     @input="asyncErrors=''"
                   ></v-textarea>
                 </v-col>
-                <v-col cols="12">
+                <v-col cols="12" class="py-0">
                   <ThemeLeader></ThemeLeader>
                 </v-col>
                 <v-col cols="12" class="py-0">
+                  <v-divider class="my-4"></v-divider>
                   <v-btn
                     @click="setTheme(conference.id)"
                     :class="{ 'blue darken-4 white--text' : valid, disabled: !valid }"
+                    class="no-uppercase"
                     :dense="true"
                     outlined
-                    large
                   >Add</v-btn>
                   <v-btn
                     @click="hidden"
-                    class="blue arken-4 white--text"
+                    class="blue darken-4 white--text no-uppercase"
                     :dense="true"
                     outlined
-                    large
                   >Cancel</v-btn>
-                  <v-divider class="my-4"></v-divider>
                 </v-col>
               </v-row>
             </v-form>

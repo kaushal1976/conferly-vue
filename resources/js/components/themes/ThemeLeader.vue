@@ -1,12 +1,14 @@
 <template>
   <div>
-    <v-btn
-      class="no-uppercase my-2 px-6 md-full-width"
-      color="primary"
-      elevation="0"
-      @click="modalToggle"
-    >Add a Theme Leader</v-btn>
-    <v-divider class="my-4"></v-divider>
+      <v-btn
+        class="no-uppercase"
+        color="primary"
+        elevation="0"
+        @click="modalToggle"
+        fab
+      >
+        <v-icon dark>mdi-plus</v-icon>
+      </v-btn>
     <v-dialog v-model="themeLeaderModal" max-width="600px">
       <v-card>
         <v-card-title>
@@ -64,15 +66,15 @@
                 ></v-text-field>
               </v-col>
               <v-col cols="12" class="py-0">
+                <v-divider class="my-4"></v-divider>
                 <v-btn
                   @click="setThemeLeader()"
                   :class="{ 'blue darken-4 white--text' : valid, disabled: !valid }"
+                  class="no-uppercase"
                   :dense="true"
                   outlined
-                  large
                 >Add</v-btn>
-                <v-btn class="blue arken-4 white--text" :dense="true" outlined large>Cancel</v-btn>
-                <v-divider class="my-4"></v-divider>
+                <v-btn class="blue arken-4 white--text no-uppercase" :dense="true" outlined>Cancel</v-btn>
               </v-col>
             </v-row>
           </v-container>
