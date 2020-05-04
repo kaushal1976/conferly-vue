@@ -3,9 +3,11 @@ import VueRouter from 'vue-router';
 
 import Login from '../components/auth/Login';
 import Logout from '../components/auth/Logout';
-import ConferenceForm from '../components/conference/ConferenceForm.vue'
+import Stepper from '../components/conference/Stepper.vue'
 import Conferences from '../components/conference/Conferences.vue'
 import Conference from '../components/conference/Conference.vue'
+
+import ThemeForm from '../components/themes/ThemeForm.vue'
 
 Vue.use(VueRouter);
 
@@ -34,7 +36,7 @@ export default new VueRouter({
         },
         {
             path: '/conferences/create',
-            component: ConferenceForm,
+            component: Stepper,
             name: 'create-conference'
         },
         {
@@ -45,8 +47,14 @@ export default new VueRouter({
         },
         {
             path: '/conferences/:conferenceId/edit',
-            component: ConferenceForm,
+            component: Stepper,
             name: 'edit-conference'
+        },
+
+        {
+            path: '/themes/:themeId/edit',
+            component: Stepper,
+            name: 'edit-theme'
         },
     ]
 });

@@ -84,7 +84,7 @@ import {mapActions} from "vuex";
 export default {
   data: function() {
     return {
-      loading: false
+      loading: false,
     };
   },
   computed: {

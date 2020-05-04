@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-row class="justify-center mx-1" v-if="themes">
+    <v-row class="justify-center" v-if="themes">
         <v-col class="pb-2" :sm="12" v-for="theme in themes" justify="center" :key="theme.id">
           <v-card class="my-0 grey lighten-4" :elevation="0" :outlined="true">
             <v-card-title>{{theme.title}}</v-card-title>
@@ -13,11 +13,6 @@
             </v-card-text>
             <v-divider class="mx-4"></v-divider>
             <v-card-actions>
-              <v-btn 
-              color="deep-purple lighten-2" 
-              text
-              class="no-uppercase"
-              >Reserve</v-btn>
               <v-btn @click="deleteTheme(theme.id)" 
               color="deep-purple lighten-2" 
               text
