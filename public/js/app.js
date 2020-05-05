@@ -39502,7 +39502,8 @@ var render = function() {
             color: "indigo darken-2",
             dark: "",
             flat: "",
-            dense: ""
+            dense: "",
+            "hide-on-scroll": "true"
           }
         },
         [
@@ -39539,7 +39540,7 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("v-footer", { attrs: { app: "" } }, [_c("Footer")], 1)
+      _c("v-footer", { attrs: { app: "", absolute: "" } }, [_c("Footer")], 1)
     ],
     1
   )
@@ -39862,7 +39863,7 @@ var render = function() {
                                 "v-card",
                                 {
                                   staticClass: "my-2 flex",
-                                  attrs: { "max-width": "374" }
+                                  attrs: { "max-width": "374", elevation: "0" }
                                 },
                                 [
                                   _c("v-img", {
@@ -104333,15 +104334,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!******************************************************!*\
   !*** ./resources/js/components/conference/Step2.vue ***!
   \******************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Step2_vue_vue_type_template_id_fc9e7644_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Step2.vue?vue&type=template&id=fc9e7644&scoped=true& */ "./resources/js/components/conference/Step2.vue?vue&type=template&id=fc9e7644&scoped=true&");
 /* harmony import */ var _Step2_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Step2.vue?vue&type=script&lang=js& */ "./resources/js/components/conference/Step2.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Step2_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Step2_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _Step2_vue_vue_type_style_index_0_id_fc9e7644_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Step2.vue?vue&type=style&index=0&id=fc9e7644&scoped=true&lang=css& */ "./resources/js/components/conference/Step2.vue?vue&type=style&index=0&id=fc9e7644&scoped=true&lang=css&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Step2_vue_vue_type_style_index_0_id_fc9e7644_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Step2.vue?vue&type=style&index=0&id=fc9e7644&scoped=true&lang=css& */ "./resources/js/components/conference/Step2.vue?vue&type=style&index=0&id=fc9e7644&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -104373,7 +104373,7 @@ component.options.__file = "resources/js/components/conference/Step2.vue"
 /*!*******************************************************************************!*\
   !*** ./resources/js/components/conference/Step2.vue?vue&type=script&lang=js& ***!
   \*******************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

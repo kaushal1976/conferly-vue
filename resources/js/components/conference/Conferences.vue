@@ -38,7 +38,7 @@
         <v-row justify="center" v-if="conferences.length">
           <div class="d-flex" v-for="conference in conferences" justify="center" :key="conference.id">
             <v-col class="mx-2 d-flex flex-column">
-              <v-card class="my-2 flex" max-width="374">
+              <v-card class="my-2 flex" max-width="374" elevation="0" >
                 <v-img height="250" :src='"/storage/conference/images/"+conference.image'></v-img>
                 <v-card-title>{{conference.title}}</v-card-title>
                 <v-card-text>

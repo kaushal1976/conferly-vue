@@ -12,7 +12,7 @@
       </v-list-item>
       <Navigation />
     </v-navigation-drawer>
-    <v-app-bar app color="indigo darken-2" dark flat dense>
+    <v-app-bar app color="indigo darken-2" dark flat dense hide-on-scroll="true">
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title>
         Confer
@@ -21,11 +21,11 @@
     </v-app-bar>
     <!-- Content -->
     <v-content>
-      <v-container class="ma-0 pa-0" fluid fill-height>
+      <v-container class="ma-0 pa-0" fluid fill-height >
         <router-view></router-view>
       </v-container>
     </v-content>
-    <v-footer app>
+    <v-footer app absolute>
       <Footer />
     </v-footer>
   </v-app>
