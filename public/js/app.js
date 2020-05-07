@@ -2473,6 +2473,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 
@@ -2738,6 +2740,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2776,6 +2782,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           }
         });
       }
+    },
+    removeLeader: function removeLeader(leader) {
+      this.$store.dispatch("themes/deleteThemeLeader", leader);
     },
     hide: function hide() {
       this.$refs.themeForm.reset();
@@ -40555,10 +40564,19 @@ var render = function() {
                     1
                   ),
                   _vm._v(" "),
-                  _c("ThemeForm", {
-                    attrs: { showThemeForm: _vm.showThemeForm },
-                    on: { cancelled: _vm.showThemeFormToggle }
-                  }),
+                  _vm.showThemeForm
+                    ? _c(
+                        "v-col",
+                        { attrs: { cols: "12" } },
+                        [
+                          _c("ThemeForm", {
+                            attrs: { showThemeForm: _vm.showThemeForm },
+                            on: { cancelled: _vm.showThemeFormToggle }
+                          })
+                        ],
+                        1
+                      )
+                    : _vm._e(),
                   _vm._v(" "),
                   _c(
                     "v-col",
@@ -40840,7 +40858,7 @@ var render = function() {
       _c(
         "v-dialog",
         {
-          attrs: { "max-width": "800px" },
+          attrs: { persistent: "", "max-width": "800px" },
           model: {
             value: _vm.showThemeForm,
             callback: function($$v) {
@@ -40977,7 +40995,12 @@ var render = function() {
                                     {
                                       key: index,
                                       staticClass: "ma-2",
-                                      attrs: { close: "" }
+                                      attrs: { close: "" },
+                                      on: {
+                                        "click:close": function($event) {
+                                          return _vm.removeLeader(leader)
+                                        }
+                                      }
                                     },
                                     [
                                       _vm._v(
@@ -41074,10 +41097,12 @@ var render = function() {
                         1
                       ),
                       _vm._v(" "),
-                      _c("ThemeLeader", {
-                        attrs: { showLeaderForm: _vm.themeLeaderModal },
-                        on: { hide: _vm.showLeaderFormToggle }
-                      })
+                      _vm.themeLeaderModal
+                        ? _c("ThemeLeader", {
+                            attrs: { showLeaderForm: _vm.themeLeaderModal },
+                            on: { hide: _vm.showLeaderFormToggle }
+                          })
+                        : _vm._e()
                     ],
                     1
                   )
@@ -41122,7 +41147,7 @@ var render = function() {
       _c(
         "v-dialog",
         {
-          attrs: { "max-width": "600px" },
+          attrs: { persistent: "", "max-width": "600px" },
           model: {
             value: _vm.showLeaderForm,
             callback: function($$v) {
@@ -105339,8 +105364,13 @@ var setThemeLeader = function setThemeLeader(_ref2, payload) {
   commit('SET_THEME_LEADER', payload);
 };
 
-var deleteTheme = function deleteTheme(_ref3, id) {
+var deleteThemeLeader = function deleteThemeLeader(_ref3, payload) {
   var commit = _ref3.commit;
+  commit('DELETE_THEME_LEADER', payload);
+};
+
+var deleteTheme = function deleteTheme(_ref4, id) {
+  var commit = _ref4.commit;
   return axios["delete"]('/api/themes/' + id).then(function (response) {
     commit('DELETE_THEME', id);
   })["catch"](function (error) {
@@ -105351,7 +105381,8 @@ var deleteTheme = function deleteTheme(_ref3, id) {
 /* harmony default export */ __webpack_exports__["default"] = ({
   setTheme: setTheme,
   deleteTheme: deleteTheme,
-  setThemeLeader: setThemeLeader
+  setThemeLeader: setThemeLeader,
+  deleteThemeLeader: deleteThemeLeader
 });
 
 /***/ }),
@@ -105458,12 +105489,21 @@ var DELETE_THEME = function DELETE_THEME(state, id) {
   }
 };
 
+var DELETE_THEME_LEADER = function DELETE_THEME_LEADER(state, themeLeader) {
+  var index = state.theme.themeLeaders.indexOf(themeLeader);
+
+  if (index !== -1) {
+    state.theme.themeLeaders.splice(index, 1);
+  }
+};
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   SET_THEME: SET_THEME,
   SET_THEME_LEADER: SET_THEME_LEADER,
   FETCH_THEMES: FETCH_THEMES,
   FETCH_THEME: FETCH_THEME,
-  DELETE_THEME: DELETE_THEME
+  DELETE_THEME: DELETE_THEME,
+  DELETE_THEME_LEADER: DELETE_THEME_LEADER
 });
 
 /***/ }),

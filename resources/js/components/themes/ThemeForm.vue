@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-dialog v-model="showThemeForm" max-width="800px">
+    <v-dialog v-model="showThemeForm" persistent max-width="800px">
       <v-card>
         <v-list-item>
           <v-list-item-avatar color="grey"></v-list-item-avatar>
@@ -44,6 +44,7 @@
                     :key="index"
                     class="ma-2"
                     close
+                    @click:close="removeLeader(leader)"
                   >{{leader.title+' '}}{{leader.firstName+' '}}{{leader.surname}}</v-chip>
                 </v-col>
                 <v-col cols="12" class="py-0">
@@ -75,7 +76,10 @@
                 </v-col>
               </v-row>
             </v-form>
-            <ThemeLeader :showLeaderForm="themeLeaderModal" @hide="showLeaderFormToggle"></ThemeLeader>
+            <ThemeLeader v-if="themeLeaderModal" 
+            :showLeaderForm="themeLeaderModal" 
+            @hide="showLeaderFormToggle">
+            </ThemeLeader>
           </v-container>
         </v-card-text>
       </v-card>
@@ -118,6 +122,10 @@ export default {
             }
           });
       }
+    },
+    removeLeader(leader) {
+      this.$store.dispatch("themes/deleteThemeLeader", leader)
+
     },
     hide() {
       this.$refs.themeForm.reset();

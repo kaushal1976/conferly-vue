@@ -26,7 +26,12 @@ const DELETE_THEME = (state, id) => {
     }
 }
 
-
+const DELETE_THEME_LEADER = (state, themeLeader) => {
+    let index = state.theme.themeLeaders.indexOf(themeLeader)
+    if (index !== (-1)) {
+        state.theme.themeLeaders.splice(index, 1)
+    }
+}
 
 export default {
     SET_THEME,
@@ -34,5 +39,6 @@ export default {
     FETCH_THEMES,
     FETCH_THEME,
     DELETE_THEME,
+    DELETE_THEME_LEADER
 
 }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-dialog v-model="showLeaderForm" max-width="600px">
+    <v-dialog v-model="showLeaderForm" persistent max-width="600px">
       <v-card>
         <v-card-title>
           <span class="headline">Theme Leader</span>
