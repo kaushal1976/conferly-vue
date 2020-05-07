@@ -2473,8 +2473,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
 
 
 
@@ -2494,7 +2492,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       descriptionRules: [function (v) {
         return !!v || "Description is required";
       }],
-      show: false
+      showThemeForm: false
     };
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])({
@@ -2504,8 +2502,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     previous: function previous() {
       this.$emit("previous");
     },
-    showToggle: function showToggle() {
-      this.show = !this.show;
+    showThemeFormToggle: function showThemeFormToggle() {
+      this.showThemeForm = !this.showThemeForm;
     },
     complete: function complete() {
       this.$emit("complete");
@@ -2531,6 +2529,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Step1_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Step1.vue */ "./resources/js/components/conference/Step1.vue");
 /* harmony import */ var _Step2_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Step2.vue */ "./resources/js/components/conference/Step2.vue");
+//
+//
 //
 //
 //
@@ -2721,6 +2721,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2734,8 +2751,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       descriptionRules: [function (v) {
         return !!v || "Description is required";
       }],
-      themeModal: true
+      themeLeaderModal: false
     };
+  },
+  props: {
+    showThemeForm: Boolean
   },
   methods: {
     setTheme: function setTheme(conferenceId) {
@@ -2745,7 +2765,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         var data = Object.assign({}, this.theme);
         data.conferenceId = conferenceId;
         this.$store.dispatch("themes/setTheme", data).then(function (response) {
-          _this.hidden();
+          _this.$refs.themeForm.reset();
+
+          _this.hide();
         })["catch"](function (error) {
           if (error.response.status === 422) {
             _this.asyncErrors = error.response.data.errors;
@@ -2755,8 +2777,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         });
       }
     },
-    hidden: function hidden() {
+    hide: function hide() {
+      this.$refs.themeForm.reset();
       this.$emit("cancelled");
+    },
+    showLeaderFormToggle: function showLeaderFormToggle() {
+      this.themeLeaderModal = !this.themeLeaderModal;
     }
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
@@ -2869,14 +2895,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      themeLeaderModal: false,
-      themeLeader: {},
       asyncErrors: [],
       valid: false,
       emailRules: [function (v) {
@@ -2893,14 +2915,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }]
     };
   },
+  props: {
+    showLeaderForm: Boolean
+  },
   methods: {
     setThemeLeader: function setThemeLeader() {
       var _this = this;
 
       if (this.$refs.themeLeaderForm.validate()) {
-        var data = Object.assign({}, this.themeLeader);
-        this.$store.dispatch("themes/setTheme", data).then(function (response) {
-          _this.hidden();
+        var data = Object.assign({}, this.theme.themeLeader);
+        this.$store.dispatch("themes/setThemeLeader", data).then(function (response) {
+          _this.$refs.themeLeaderForm.reset();
+
+          _this.modalToggle();
         })["catch"](function (error) {
           if (error.response.status === 422) {
             _this.asyncErrors = error.response.data.errors;
@@ -2911,10 +2938,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     },
     modalToggle: function modalToggle() {
-      this.themeLeaderModal = !this.themeLeaderModal;
+      this.$refs.themeLeaderForm.reset();
+      this.$emit('hide');
     }
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({//themeLeader: "themes/getThemeLeader"
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
+    theme: "themes/getTheme"
   }))
 });
 
@@ -39503,7 +39532,7 @@ var render = function() {
             dark: "",
             flat: "",
             dense: "",
-            "hide-on-scroll": "true"
+            "hide-on-scroll": ""
           }
         },
         [
@@ -40511,7 +40540,7 @@ var render = function() {
                         {
                           staticClass: "no-uppercase my-2 px-6",
                           attrs: { color: "primary", elevation: "0", fab: "" },
-                          on: { click: _vm.showToggle }
+                          on: { click: _vm.showThemeFormToggle }
                         },
                         [
                           _c("v-icon", { attrs: { dark: "" } }, [
@@ -40526,16 +40555,10 @@ var render = function() {
                     1
                   ),
                   _vm._v(" "),
-                  _vm.show == true
-                    ? _c(
-                        "v-col",
-                        { attrs: { cols: "12" } },
-                        [
-                          _c("ThemeForm", { on: { cancelled: _vm.showToggle } })
-                        ],
-                        1
-                      )
-                    : _vm._e(),
+                  _c("ThemeForm", {
+                    attrs: { showThemeForm: _vm.showThemeForm },
+                    on: { cancelled: _vm.showThemeFormToggle }
+                  }),
                   _vm._v(" "),
                   _c(
                     "v-col",
@@ -40667,19 +40690,25 @@ var render = function() {
           ),
           _vm._v(" "),
           _c(
-            "v-stepper-content",
-            { key: "1-content", staticClass: "py-0", attrs: { step: 1 } },
-            [_c("Step1", { on: { complete: _vm.nextStep } })],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "v-stepper-content",
-            { key: "2-content", staticClass: "py-0", attrs: { step: 2 } },
+            "v-stepper-items",
             [
-              _c("Step2", {
-                on: { complete: _vm.nextStep, previous: _vm.previousStep }
-              })
+              _c(
+                "v-stepper-content",
+                { key: "1-content", staticClass: "py-0", attrs: { step: 1 } },
+                [_c("Step1", { on: { complete: _vm.nextStep } })],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-stepper-content",
+                { key: "2-content", staticClass: "py-0", attrs: { step: 2 } },
+                [
+                  _c("Step2", {
+                    on: { complete: _vm.nextStep, previous: _vm.previousStep }
+                  })
+                ],
+                1
+              )
             ],
             1
           )
@@ -40813,11 +40842,11 @@ var render = function() {
         {
           attrs: { "max-width": "800px" },
           model: {
-            value: _vm.themeModal,
+            value: _vm.showThemeForm,
             callback: function($$v) {
-              _vm.themeModal = $$v
+              _vm.showThemeForm = $$v
             },
-            expression: "themeModal"
+            expression: "showThemeForm"
           }
         },
         [
@@ -40854,7 +40883,7 @@ var render = function() {
                         "v-form",
                         {
                           ref: "themeForm",
-                          staticClass: "py-0",
+                          staticClass: "py-0 px-0",
                           on: {
                             submit: function($event) {
                               $event.stopPropagation()
@@ -40872,7 +40901,7 @@ var render = function() {
                         [
                           _c(
                             "v-row",
-                            { staticClass: "justify-center py-0 px-3" },
+                            { staticClass: "justify-center py-0" },
                             [
                               _c(
                                 "v-col",
@@ -40938,8 +40967,60 @@ var render = function() {
                               _vm._v(" "),
                               _c(
                                 "v-col",
+                                { staticClass: "py-1", attrs: { cols: "12" } },
+                                _vm._l(_vm.theme.themeLeaders, function(
+                                  leader,
+                                  index
+                                ) {
+                                  return _c(
+                                    "v-chip",
+                                    {
+                                      key: index,
+                                      staticClass: "ma-2",
+                                      attrs: { close: "" }
+                                    },
+                                    [
+                                      _vm._v(
+                                        _vm._s(leader.title + " ") +
+                                          _vm._s(leader.firstName + " ") +
+                                          _vm._s(leader.surname)
+                                      )
+                                    ]
+                                  )
+                                }),
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-col",
                                 { staticClass: "py-0", attrs: { cols: "12" } },
-                                [_c("ThemeLeader")],
+                                [
+                                  _c(
+                                    "v-btn",
+                                    {
+                                      staticClass: "no-uppercase",
+                                      attrs: {
+                                        color: "primary",
+                                        elevation: "0",
+                                        fab: ""
+                                      },
+                                      on: {
+                                        click: function($event) {
+                                          $event.stopPropagation()
+                                          return _vm.showLeaderFormToggle(
+                                            $event
+                                          )
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c("v-icon", { attrs: { dark: "" } }, [
+                                        _vm._v("mdi-plus")
+                                      ])
+                                    ],
+                                    1
+                                  )
+                                ],
                                 1
                               ),
                               _vm._v(" "),
@@ -40960,6 +41041,7 @@ var render = function() {
                                       attrs: { dense: true, outlined: "" },
                                       on: {
                                         click: function($event) {
+                                          $event.stopPropagation()
                                           return _vm.setTheme(_vm.conference.id)
                                         }
                                       }
@@ -40973,7 +41055,12 @@ var render = function() {
                                       staticClass:
                                         "blue darken-4 white--text no-uppercase",
                                       attrs: { dense: true, outlined: "" },
-                                      on: { click: _vm.hidden }
+                                      on: {
+                                        click: function($event) {
+                                          $event.stopPropagation()
+                                          return _vm.hide($event)
+                                        }
+                                      }
                                     },
                                     [_vm._v("Cancel")]
                                   )
@@ -40985,7 +41072,12 @@ var render = function() {
                           )
                         ],
                         1
-                      )
+                      ),
+                      _vm._v(" "),
+                      _c("ThemeLeader", {
+                        attrs: { showLeaderForm: _vm.themeLeaderModal },
+                        on: { hide: _vm.showLeaderFormToggle }
+                      })
                     ],
                     1
                   )
@@ -41028,26 +41120,15 @@ var render = function() {
     "div",
     [
       _c(
-        "v-btn",
-        {
-          staticClass: "no-uppercase",
-          attrs: { color: "primary", elevation: "0", fab: "" },
-          on: { click: _vm.modalToggle }
-        },
-        [_c("v-icon", { attrs: { dark: "" } }, [_vm._v("mdi-plus")])],
-        1
-      ),
-      _vm._v(" "),
-      _c(
         "v-dialog",
         {
           attrs: { "max-width": "600px" },
           model: {
-            value: _vm.themeLeaderModal,
+            value: _vm.showLeaderForm,
             callback: function($$v) {
-              _vm.themeLeaderModal = $$v
+              _vm.showLeaderForm = $$v
             },
-            expression: "themeLeaderModal"
+            expression: "showLeaderForm"
           }
         },
         [
@@ -41067,170 +41148,218 @@ var render = function() {
                     "v-container",
                     [
                       _c(
-                        "v-row",
-                        { staticClass: "justify-center my-2" },
+                        "v-form",
+                        {
+                          ref: "themeLeaderForm",
+                          staticClass: "py-0",
+                          on: {
+                            submit: function($event) {
+                              $event.stopPropagation()
+                              $event.preventDefault()
+                            }
+                          },
+                          model: {
+                            value: _vm.valid,
+                            callback: function($$v) {
+                              _vm.valid = $$v
+                            },
+                            expression: "valid"
+                          }
+                        },
                         [
                           _c(
-                            "v-col",
-                            { staticClass: "py-1", attrs: { cols: "12" } },
+                            "v-row",
+                            { staticClass: "justify-center my-2" },
                             [
-                              _c("v-text-field", {
-                                attrs: {
-                                  label: "Enter the email of the Theme Leader",
-                                  dense: true,
-                                  rules: _vm.emailRules,
-                                  "error-messages": _vm.asyncErrors.title,
-                                  outlined: "",
-                                  required: ""
-                                },
-                                on: {
-                                  input: function($event) {
-                                    _vm.asyncErrors = ""
-                                  }
-                                },
-                                model: {
-                                  value: _vm.themeLeader.email,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.themeLeader, "email", $$v)
-                                  },
-                                  expression: "themeLeader.email"
-                                }
-                              })
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-col",
-                            {
-                              staticClass: "py-1",
-                              attrs: { cols: "12", md: "2" }
-                            },
-                            [
-                              _c("v-text-field", {
-                                attrs: {
-                                  label: "Title",
-                                  dense: true,
-                                  rules: _vm.titleRules,
-                                  "error-messages": _vm.asyncErrors.title,
-                                  outlined: "",
-                                  required: ""
-                                },
-                                on: {
-                                  input: function($event) {
-                                    _vm.asyncErrors = ""
-                                  }
-                                },
-                                model: {
-                                  value: _vm.themeLeader.title,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.themeLeader, "title", $$v)
-                                  },
-                                  expression: "themeLeader.title"
-                                }
-                              })
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-col",
-                            {
-                              staticClass: "py-1",
-                              attrs: { cols: "12", md: "5" }
-                            },
-                            [
-                              _c("v-text-field", {
-                                attrs: {
-                                  label: "First Name",
-                                  dense: true,
-                                  rules: _vm.firstNameRules,
-                                  "error-messages": _vm.asyncErrors.name,
-                                  outlined: "",
-                                  required: ""
-                                },
-                                on: {
-                                  input: function($event) {
-                                    _vm.asyncErrors = ""
-                                  }
-                                },
-                                model: {
-                                  value: _vm.themeLeader.firstName,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.themeLeader, "firstName", $$v)
-                                  },
-                                  expression: "themeLeader.firstName"
-                                }
-                              })
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-col",
-                            {
-                              staticClass: "py-1",
-                              attrs: { cols: "12", md: "5" }
-                            },
-                            [
-                              _c("v-text-field", {
-                                attrs: {
-                                  label: "Surname",
-                                  dense: true,
-                                  rules: _vm.surnameRules,
-                                  "error-messages": _vm.asyncErrors.name,
-                                  outlined: "",
-                                  required: ""
-                                },
-                                on: {
-                                  input: function($event) {
-                                    _vm.asyncErrors = ""
-                                  }
-                                },
-                                model: {
-                                  value: _vm.themeLeader.surname,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.themeLeader, "surname", $$v)
-                                  },
-                                  expression: "themeLeader.surname"
-                                }
-                              })
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-col",
-                            { staticClass: "py-0", attrs: { cols: "12" } },
-                            [
-                              _c("v-divider", { staticClass: "my-4" }),
-                              _vm._v(" "),
                               _c(
-                                "v-btn",
-                                {
-                                  staticClass: "no-uppercase",
-                                  class: {
-                                    "blue darken-4 white--text": _vm.valid,
-                                    disabled: !_vm.valid
-                                  },
-                                  attrs: { dense: true, outlined: "" },
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.setThemeLeader()
+                                "v-col",
+                                { staticClass: "py-1", attrs: { cols: "12" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label:
+                                        "Enter the email of the Theme Leader",
+                                      dense: true,
+                                      rules: _vm.emailRules,
+                                      "error-messages": _vm.asyncErrors.email,
+                                      outlined: "",
+                                      required: ""
+                                    },
+                                    on: {
+                                      input: function($event) {
+                                        _vm.asyncErrors = ""
+                                      }
+                                    },
+                                    model: {
+                                      value: _vm.theme.themeLeader.email,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.theme.themeLeader,
+                                          "email",
+                                          $$v
+                                        )
+                                      },
+                                      expression: "theme.themeLeader.email"
                                     }
-                                  }
-                                },
-                                [_vm._v("Add")]
+                                  })
+                                ],
+                                1
                               ),
                               _vm._v(" "),
                               _c(
-                                "v-btn",
+                                "v-col",
                                 {
-                                  staticClass:
-                                    "blue arken-4 white--text no-uppercase",
-                                  attrs: { dense: true, outlined: "" }
+                                  staticClass: "py-1",
+                                  attrs: { cols: "12", md: "2" }
                                 },
-                                [_vm._v("Cancel")]
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Title",
+                                      dense: true,
+                                      rules: _vm.titleRules,
+                                      "error-messages": _vm.asyncErrors.title,
+                                      outlined: "",
+                                      required: ""
+                                    },
+                                    on: {
+                                      input: function($event) {
+                                        _vm.asyncErrors = ""
+                                      }
+                                    },
+                                    model: {
+                                      value: _vm.theme.themeLeader.title,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.theme.themeLeader,
+                                          "title",
+                                          $$v
+                                        )
+                                      },
+                                      expression: "theme.themeLeader.title"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-col",
+                                {
+                                  staticClass: "py-1",
+                                  attrs: { cols: "12", md: "5" }
+                                },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "First Name",
+                                      dense: true,
+                                      rules: _vm.firstNameRules,
+                                      "error-messages":
+                                        _vm.asyncErrors.firstName,
+                                      outlined: "",
+                                      required: ""
+                                    },
+                                    on: {
+                                      input: function($event) {
+                                        _vm.asyncErrors = ""
+                                      }
+                                    },
+                                    model: {
+                                      value: _vm.theme.themeLeader.firstName,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.theme.themeLeader,
+                                          "firstName",
+                                          $$v
+                                        )
+                                      },
+                                      expression: "theme.themeLeader.firstName"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-col",
+                                {
+                                  staticClass: "py-1",
+                                  attrs: { cols: "12", md: "5" }
+                                },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Surname",
+                                      dense: true,
+                                      rules: _vm.surnameRules,
+                                      "error-messages": _vm.asyncErrors.surname,
+                                      outlined: "",
+                                      required: ""
+                                    },
+                                    on: {
+                                      input: function($event) {
+                                        _vm.asyncErrors = ""
+                                      }
+                                    },
+                                    model: {
+                                      value: _vm.theme.themeLeader.surname,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.theme.themeLeader,
+                                          "surname",
+                                          $$v
+                                        )
+                                      },
+                                      expression: "theme.themeLeader.surname"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-col",
+                                { staticClass: "py-0", attrs: { cols: "12" } },
+                                [
+                                  _c("v-divider", { staticClass: "my-4" }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-btn",
+                                    {
+                                      staticClass: "no-uppercase",
+                                      class: {
+                                        "blue darken-4 white--text": _vm.valid,
+                                        disabled: !_vm.valid
+                                      },
+                                      attrs: { dense: true, outlined: "" },
+                                      on: {
+                                        click: function($event) {
+                                          $event.stopPropagation()
+                                          return _vm.setThemeLeader()
+                                        }
+                                      }
+                                    },
+                                    [_vm._v("Add")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-btn",
+                                    {
+                                      staticClass:
+                                        "blue darken-4 white--text no-uppercase",
+                                      attrs: { dense: true, outlined: "" },
+                                      on: {
+                                        click: function($event) {
+                                          $event.stopPropagation()
+                                          return _vm.modalToggle($event)
+                                        }
+                                      }
+                                    },
+                                    [_vm._v("Cancel")]
+                                  )
+                                ],
+                                1
                               )
                             ],
                             1
@@ -105205,8 +105334,13 @@ var setTheme = function setTheme(_ref, payload) {
   });
 };
 
-var deleteTheme = function deleteTheme(_ref2, id) {
+var setThemeLeader = function setThemeLeader(_ref2, payload) {
   var commit = _ref2.commit;
+  commit('SET_THEME_LEADER', payload);
+};
+
+var deleteTheme = function deleteTheme(_ref3, id) {
+  var commit = _ref3.commit;
   return axios["delete"]('/api/themes/' + id).then(function (response) {
     commit('DELETE_THEME', id);
   })["catch"](function (error) {
@@ -105216,7 +105350,8 @@ var deleteTheme = function deleteTheme(_ref2, id) {
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   setTheme: setTheme,
-  deleteTheme: deleteTheme
+  deleteTheme: deleteTheme,
+  setThemeLeader: setThemeLeader
 });
 
 /***/ }),
@@ -105238,9 +105373,14 @@ var getTheme = function getTheme(state) {
   return state.theme;
 };
 
+var getThemeLeaders = function getThemeLeaders(state) {
+  return state.theme.themeLeaders;
+};
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   getThemes: getThemes,
-  getTheme: getTheme
+  getTheme: getTheme,
+  getThemeLeaders: getThemeLeaders
 });
 
 /***/ }),
@@ -105261,7 +105401,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var state = {
-  theme: {},
+  theme: {
+    themeLeaders: [],
+    themeLeader: {}
+  },
   themes: []
 };
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -105287,6 +105430,14 @@ var SET_THEME = function SET_THEME(state, payload) {
   state.theme = payload;
   state.themes.push(payload);
   state.theme = {};
+  state.theme.themeLeaders = [];
+  state.theme.themeLeader = {};
+};
+
+var SET_THEME_LEADER = function SET_THEME_LEADER(state, payload) {
+  state.theme.themeLeader = payload;
+  state.theme.themeLeaders.push(payload);
+  state.theme.themeLeader = {};
 };
 
 var FETCH_THEMES = function FETCH_THEMES(state, themes) {
@@ -105309,6 +105460,7 @@ var DELETE_THEME = function DELETE_THEME(state, id) {
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   SET_THEME: SET_THEME,
+  SET_THEME_LEADER: SET_THEME_LEADER,
   FETCH_THEMES: FETCH_THEMES,
   FETCH_THEME: FETCH_THEME,
   DELETE_THEME: DELETE_THEME

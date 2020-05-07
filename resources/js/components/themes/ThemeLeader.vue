@@ -1,82 +1,80 @@
 <template>
   <div>
-      <v-btn
-        class="no-uppercase"
-        color="primary"
-        elevation="0"
-        @click="modalToggle"
-        fab
-      >
-        <v-icon dark>mdi-plus</v-icon>
-      </v-btn>
-    <v-dialog v-model="themeLeaderModal" max-width="600px">
+    <v-dialog v-model="showLeaderForm" max-width="600px">
       <v-card>
         <v-card-title>
           <span class="headline">Theme Leader</span>
         </v-card-title>
         <v-card-text>
           <v-container>
-            <v-row class="justify-center my-2">
-              <v-col cols="12" class="py-1">
-                <v-text-field
-                  label="Enter the email of the Theme Leader"
-                  v-model="themeLeader.email"
-                  :dense="true"
-                  :rules="emailRules"
-                  :error-messages="asyncErrors.title"
-                  outlined
-                  required
-                  @input="asyncErrors=''"
-                ></v-text-field>
-              </v-col>
-              <v-col cols="12" md="2" class="py-1">
-                <v-text-field
-                  label="Title"
-                  v-model="themeLeader.title"
-                  :dense="true"
-                  :rules="titleRules"
-                  :error-messages="asyncErrors.title"
-                  outlined
-                  required
-                  @input="asyncErrors=''"
-                ></v-text-field>
-              </v-col>
-              <v-col cols="12" md="5" class="py-1">
-                <v-text-field
-                  label="First Name"
-                  v-model="themeLeader.firstName"
-                  :dense="true"
-                  :rules="firstNameRules"
-                  :error-messages="asyncErrors.name"
-                  outlined
-                  required
-                  @input="asyncErrors=''"
-                ></v-text-field>
-              </v-col>
-              <v-col cols="12" md="5" class="py-1">
-                <v-text-field
-                  label="Surname"
-                  v-model="themeLeader.surname"
-                  :dense="true"
-                  :rules="surnameRules"
-                  :error-messages="asyncErrors.name"
-                  outlined
-                  required
-                  @input="asyncErrors=''"
-                ></v-text-field>
-              </v-col>
-              <v-col cols="12" class="py-0">
-                <v-divider class="my-4"></v-divider>
-                <v-btn
-                  @click="setThemeLeader()"
-                  :class="{ 'blue darken-4 white--text' : valid, disabled: !valid }"
-                  class="no-uppercase"
-                  :dense="true"
-                  outlined
-                >Add</v-btn>
-                <v-btn class="blue arken-4 white--text no-uppercase" :dense="true" outlined>Cancel</v-btn>
-              </v-col>
-            </v-row>
+            <v-form v-model="valid" ref="themeLeaderForm" @submit.stop.prevent class="py-0">
+              <v-row class="justify-center my-2">
+                <v-col cols="12" class="py-1">
+                  <v-text-field
+                    label="Enter the email of the Theme Leader"
+                    v-model="theme.themeLeader.email"
+                    :dense="true"
+                    :rules="emailRules"
+                    :error-messages="asyncErrors.email"
+                    outlined
+                    required
+                    @input="asyncErrors=''"
+                  ></v-text-field>
+                </v-col>
+                <v-col cols="12" md="2" class="py-1">
+                  <v-text-field
+                    label="Title"
+                    v-model="theme.themeLeader.title"
+                    :dense="true"
+                    :rules="titleRules"
+                    :error-messages="asyncErrors.title"
+                    outlined
+                    required
+                    @input="asyncErrors=''"
+                  ></v-text-field>
+                </v-col>
+                <v-col cols="12" md="5" class="py-1">
+                  <v-text-field
+                    label="First Name"
+                    v-model="theme.themeLeader.firstName"
+                    :dense="true"
+                    :rules="firstNameRules"
+                    :error-messages="asyncErrors.firstName"
+                    outlined
+                    required
+                    @input="asyncErrors=''"
+                  ></v-text-field>
+                </v-col>
+                <v-col cols="12" md="5" class="py-1">
+                  <v-text-field
+                    label="Surname"
+                    v-model="theme.themeLeader.surname"
+                    :dense="true"
+                    :rules="surnameRules"
+                    :error-messages="asyncErrors.surname"
+                    outlined
+                    required
+                    @input="asyncErrors=''"
+                  ></v-text-field>
+                </v-col>
+                <v-col cols="12" class="py-0">
+                  <v-divider class="my-4"></v-divider>
+                  <v-btn
+                    @click.stop="setThemeLeader()"
+                    :class="{ 'blue darken-4 white--text' : valid, disabled: !valid }"
+                    class="no-uppercase"
+                    :dense="true"
+                    outlined
+                  >Add</v-btn>
+                  <v-btn
+                    @click.stop="modalToggle"
+                    class="blue darken-4 white--text no-uppercase"
+                    :dense="true"
+                    outlined
+                  >Cancel</v-btn>
+                </v-col>
+              </v-row>
+            </v-form>
           </v-container>
         </v-card-text>
       </v-card>
@@ -88,8 +86,6 @@ import { mapActions, mapGetters } from "vuex";
 export default {
   data() {
     return {
-      themeLeaderModal: false,
-      themeLeader: {},
       asyncErrors: [],
       valid: false,
       emailRules: [v => !!v || "Email is required"],
@@ -98,15 +94,18 @@ export default {
       surnameRules: [v => !!v || "Surname is required"]
     };
   },
-
+  props: {
+    showLeaderForm:Boolean
+  },
   methods: {
     setThemeLeader() {
       if (this.$refs.themeLeaderForm.validate()) {
-        let data = Object.assign({}, this.themeLeader);
+        let data = Object.assign({}, this.theme.themeLeader);
         this.$store
-          .dispatch("themes/setTheme", data)
+          .dispatch("themes/setThemeLeader", data)
           .then(response => {
-            this.hidden();
+            this.$refs.themeLeaderForm.reset();
+            this.modalToggle()
           })
           .catch(error => {
             if (error.response.status === 422) {
@@ -118,12 +117,13 @@ export default {
       }
     },
     modalToggle() {
-      this.themeLeaderModal = !this.themeLeaderModal;
+      this.$refs.themeLeaderForm.reset();
+      this.$emit('hide')
     }
   },
   computed: {
     ...mapGetters({
-      //themeLeader: "themes/getThemeLeader"
+      theme: "themes/getTheme"
     })
   }
 };

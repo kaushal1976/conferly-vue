@@ -12,7 +12,7 @@
       </v-list-item>
       <Navigation />
     </v-navigation-drawer>
-    <v-app-bar app color="indigo darken-2" dark flat dense hide-on-scroll="true">
+    <v-app-bar app color="indigo darken-2" dark flat dense hide-on-scroll> 
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title>
         Confer

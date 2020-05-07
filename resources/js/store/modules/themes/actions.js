@@ -27,6 +27,10 @@ const setTheme = ({commit}, payload) => {
         })
 }
 
+const setThemeLeader = ({commit}, payload) => {
+    commit('SET_THEME_LEADER', payload)
+}
+
 const deleteTheme = ({commit}, id) => {
             return axios.delete('/api/themes/' + id)
                 .then(response => {
@@ -39,5 +43,6 @@ const deleteTheme = ({commit}, id) => {
 
 export default {
     setTheme,
-    deleteTheme
+    deleteTheme,
+    setThemeLeader,
 }

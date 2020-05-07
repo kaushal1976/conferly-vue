@@ -13,15 +13,13 @@
               class="no-uppercase my-2 px-6"
               color="primary"
               elevation="0"
-              @click="showToggle"
+              @click="showThemeFormToggle"
               fab
             > <v-icon dark>mdi-plus</v-icon>
             </v-btn>
             <v-divider class="my-4"></v-divider>
           </v-col>
-          <v-col cols="12" v-if="show==true">
-            <ThemeForm @cancelled="showToggle"></ThemeForm>
-          </v-col>
+            <ThemeForm :showThemeForm="showThemeForm" @cancelled="showThemeFormToggle"></ThemeForm>
           <v-col cols="12" class="py-0">
             <Themes></Themes>
           </v-col>
@@ -65,7 +63,7 @@ export default {
       valid: false,
       titleRules: [v => !!v || "Title is required"],
       descriptionRules: [v => !!v || "Description is required"],
-      show: false
+      showThemeForm: false
     };
   },
 
@@ -79,8 +77,8 @@ export default {
       this.$emit("previous");
     },
 
-    showToggle() {
-      this.show = !this.show;
+    showThemeFormToggle() {
+      this.showThemeForm = !this.showThemeForm;
     },
 
     complete() {

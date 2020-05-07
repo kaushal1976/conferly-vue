@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-dialog v-model="themeModal" max-width="800px">
+    <v-dialog v-model="showThemeForm" max-width="800px">
       <v-card>
         <v-list-item>
           <v-list-item-avatar color="grey"></v-list-item-avatar>
@@ -11,8 +11,8 @@
         </v-list-item>
         <v-card-text>
           <v-container>
-            <v-form v-model="valid" ref="themeForm" @submit.stop.prevent class="py-0">
-              <v-row class="justify-center py-0 px-3">
+            <v-form v-model="valid" ref="themeForm" @submit.stop.prevent class="py-0 px-0">
+              <v-row class="justify-center py-0">
                 <v-col cols="12 py-0">
                   <v-text-field
                     label="Enter a title for the Theme"
@@ -38,20 +38,36 @@
                     @input="asyncErrors=''"
                   ></v-textarea>
                 </v-col>
+                <v-col cols="12" class="py-1">
+                  <v-chip
+                    v-for="(leader,index) in theme.themeLeaders"
+                    :key="index"
+                    class="ma-2"
+                    close
+                  >{{leader.title+' '}}{{leader.firstName+' '}}{{leader.surname}}</v-chip>
+                </v-col>
                 <v-col cols="12" class="py-0">
-                  <ThemeLeader></ThemeLeader>
+                  <v-btn
+                    class="no-uppercase"
+                    color="primary"
+                    elevation="0"
+                    @click.stop="showLeaderFormToggle"
+                    fab
+                  >
+                    <v-icon dark>mdi-plus</v-icon>
+                  </v-btn>
                 </v-col>
                 <v-col cols="12" class="py-0">
                   <v-divider class="my-4"></v-divider>
                   <v-btn
-                    @click="setTheme(conference.id)"
+                    @click.stop="setTheme(conference.id)"
                     :class="{ 'blue darken-4 white--text' : valid, disabled: !valid }"
                     class="no-uppercase"
                     :dense="true"
                     outlined
                   >Add</v-btn>
                   <v-btn
-                    @click="hidden"
+                    @click.stop="hide"
                     class="blue darken-4 white--text no-uppercase"
                     :dense="true"
                     outlined
@@ -59,6 +75,7 @@
                 </v-col>
               </v-row>
             </v-form>
+            <ThemeLeader :showLeaderForm="themeLeaderModal" @hide="showLeaderFormToggle"></ThemeLeader>
           </v-container>
         </v-card-text>
       </v-card>
@@ -75,8 +92,11 @@ export default {
       valid: false,
       titleRules: [v => !!v || "Title is required"],
       descriptionRules: [v => !!v || "Description is required"],
-      themeModal: true
+      themeLeaderModal: false
     };
+  },
+  props: {
+    showThemeForm: Boolean
   },
 
   methods: {
@@ -87,7 +107,8 @@ export default {
         this.$store
           .dispatch("themes/setTheme", data)
           .then(response => {
-            this.hidden();
+            this.$refs.themeForm.reset();
+            this.hide();
           })
           .catch(error => {
             if (error.response.status === 422) {
@@ -98,8 +119,13 @@ export default {
           });
       }
     },
-    hidden() {
+    hide() {
+      this.$refs.themeForm.reset();
       this.$emit("cancelled");
+    },
+
+    showLeaderFormToggle() {
+      this.themeLeaderModal = !this.themeLeaderModal;
     }
   },
   computed: {

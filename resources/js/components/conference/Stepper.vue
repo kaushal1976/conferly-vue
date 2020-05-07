@@ -8,12 +8,14 @@
         <v-divider></v-divider>
         <v-stepper-step step="3">Theme Leaders</v-stepper-step>
       </v-stepper-header>
-      <v-stepper-content :key="`1-content`" :step="1" class="py-0">
+      <v-stepper-items>
+         <v-stepper-content :key="`1-content`" :step="1" class="py-0">
         <Step1 @complete="nextStep" />
       </v-stepper-content>
       <v-stepper-content :key="`2-content`" :step="2" class="py-0">
         <Step2 @complete="nextStep" @previous="previousStep" />
       </v-stepper-content>
+      </v-stepper-items>
     </v-stepper>
   </v-layout>
 </template>
