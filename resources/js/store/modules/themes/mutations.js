@@ -12,6 +12,10 @@ const SET_THEME_LEADER = (state, payload) => {
     state.theme.themeLeader = {}
 }
 
+const SET_THEME_LEADER_USER = (state, payload) => {
+    state.theme.themeLeader.user = payload
+}
+
 const FETCH_THEMES = (state, themes) => {
     state.themes = themes
 }
@@ -39,6 +43,7 @@ export default {
     FETCH_THEMES,
     FETCH_THEME,
     DELETE_THEME,
-    DELETE_THEME_LEADER
+    DELETE_THEME_LEADER,
+    SET_THEME_LEADER_USER
 
 }

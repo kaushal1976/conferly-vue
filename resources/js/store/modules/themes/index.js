@@ -4,11 +4,13 @@ import mutations from './mutations';
 
 const state = {
 
-    theme:{
-        themeLeaders:[],
-        themeLeader:{}
+    theme: {
+        themeLeaders: [],
+        themeLeader: {
+            user: {}
+        }
     },
-    themes:[],
+    themes: [],
 }
 
 export default {

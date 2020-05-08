@@ -31,6 +31,23 @@ const setThemeLeader = ({commit}, payload) => {
     commit('SET_THEME_LEADER', payload)
 }
 
+const findUser = ({commit}, payload) => {
+    const formData = objectToFormData(payload);
+    let settings = {
+        headers: {
+            'content-type': 'multipart/form-data'
+        }
+    }
+    let path = '/api/theme-leaders/find-user' 
+    return axios.post(path, formData, settings)
+        .then(response => {
+            commit('SET_THEME_LEADER_USER', response.data)
+        })
+        .catch(error => {
+            throw error
+        })
+}
+
 const deleteThemeLeader = ({commit}, payload) => {
     commit('DELETE_THEME_LEADER', payload)
 }
@@ -49,5 +66,6 @@ export default {
     setTheme,
     deleteTheme,
     setThemeLeader,
-    deleteThemeLeader
+    deleteThemeLeader,
+    findUser
 }

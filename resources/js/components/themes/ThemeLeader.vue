@@ -9,7 +9,7 @@
           <v-container>
             <v-form v-model="valid" ref="themeLeaderForm" @submit.stop.prevent class="py-0">
               <v-row class="justify-center my-2">
-                <v-col cols="12" class="py-1">
+                <v-col cols="12" sm="10" class="py-1">
                   <v-text-field
                     label="Enter the email of the Theme Leader"
                     v-model="theme.themeLeader.email"
@@ -19,8 +19,20 @@
                     outlined
                     required
                     @input="asyncErrors=''"
-                  ></v-text-field>
+                  >
+                  </v-text-field>
                 </v-col>
+                <v-col cols="12" sm="2" class="py-1">
+                  <v-btn
+                    class="blue darken-4 white--text no-uppercase inline md-full-width"
+                    :dense="true"
+                    outlined
+                    elevation="0"
+                    height="40px"
+                    @click.stop="findUser"
+                  >Search</v-btn>
+                </v-col>
+              <template v-if="!theme.themeLeader.user.id > 0">
                 <v-col cols="12" md="2" class="py-1">
                   <v-text-field
                     label="Title"
@@ -57,6 +69,7 @@
                     @input="asyncErrors=''"
                   ></v-text-field>
                 </v-col>
+                </template>
                 <v-col cols="12" class="py-0">
                   <v-divider class="my-4"></v-divider>
                   <v-btn
@@ -72,7 +85,7 @@
                     :dense="true"
                     outlined
                   >Cancel</v-btn>
-                </v-col>
+                </v-col>         
               </v-row>
             </v-form>
           </v-container>
@@ -95,7 +108,7 @@ export default {
     };
   },
   props: {
-    showLeaderForm:Boolean
+    showLeaderForm: Boolean
   },
   methods: {
     setThemeLeader() {
@@ -105,7 +118,7 @@ export default {
           .dispatch("themes/setThemeLeader", data)
           .then(response => {
             this.$refs.themeLeaderForm.reset();
-            this.modalToggle()
+            this.modalToggle();
           })
           .catch(error => {
             if (error.response.status === 422) {
@@ -118,7 +131,25 @@ export default {
     },
     modalToggle() {
       this.$refs.themeLeaderForm.reset();
-      this.$emit('hide')
+      this.$emit("hide");
+    },
+    findUser() {
+      if (this.$refs.themeLeaderForm.validate()) {
+        let data = this.theme.themeLeader.email;
+        this.$store
+          .dispatch("themes/findUser", data)
+          .then(response => {
+
+          })
+          .catch(error => {
+            if (error.response.status === 422) {
+              this.asyncErrors = error.response.data.errors;
+            } else {
+              console.log(error);
+            }
+          });
+      }
+
     }
   },
   computed: {
