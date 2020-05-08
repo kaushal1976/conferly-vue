@@ -2916,7 +2916,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2934,7 +2933,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }],
       surnameRules: [function (v) {
         return !!v || "Surname is required";
-      }]
+      }],
+      userNotFound: false,
+      searchCompleted: false
     };
   },
   props: {
@@ -2966,16 +2967,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     findUser: function findUser() {
       var _this2 = this;
 
-      if (this.$refs.themeLeaderForm.validate()) {
-        var data = this.theme.themeLeader.email;
-        this.$store.dispatch("themes/findUser", data).then(function (response) {})["catch"](function (error) {
-          if (error.response.status === 422) {
-            _this2.asyncErrors = error.response.data.errors;
-          } else {
-            console.log(error);
-          }
-        });
-      }
+      var data = this.theme.themeLeader;
+      this.$store.dispatch("themes/findUser", data).then(function (response) {
+        _this2.searchCompleted = true;
+      })["catch"](function (error) {
+        if (error.response.status === 422) {
+          _this2.asyncErrors = error.response.data.errors;
+        } else if (error.response.status === 404) {
+          _this2.userNotFound = true;
+          _this2.searchCompleted = true;
+        } else {
+          console.log(error);
+        }
+      });
     }
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
@@ -41225,10 +41229,7 @@ var render = function() {
                             [
                               _c(
                                 "v-col",
-                                {
-                                  staticClass: "py-1",
-                                  attrs: { cols: "12", sm: "10" }
-                                },
+                                { staticClass: "py-1", attrs: { cols: "12" } },
                                 [
                                   _c("v-text-field", {
                                     attrs: {
@@ -41261,38 +41262,7 @@ var render = function() {
                                 1
                               ),
                               _vm._v(" "),
-                              _c(
-                                "v-col",
-                                {
-                                  staticClass: "py-1",
-                                  attrs: { cols: "12", sm: "2" }
-                                },
-                                [
-                                  _c(
-                                    "v-btn",
-                                    {
-                                      staticClass:
-                                        "blue darken-4 white--text no-uppercase inline md-full-width",
-                                      attrs: {
-                                        dense: true,
-                                        outlined: "",
-                                        elevation: "0",
-                                        height: "40px"
-                                      },
-                                      on: {
-                                        click: function($event) {
-                                          $event.stopPropagation()
-                                          return _vm.findUser($event)
-                                        }
-                                      }
-                                    },
-                                    [_vm._v("Search")]
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              !_vm.theme.themeLeader.user.id > 0
+                              _vm.userNotFound
                                 ? [
                                     _c(
                                       "v-col",
@@ -41421,24 +41391,49 @@ var render = function() {
                                 [
                                   _c("v-divider", { staticClass: "my-4" }),
                                   _vm._v(" "),
-                                  _c(
-                                    "v-btn",
-                                    {
-                                      staticClass: "no-uppercase",
-                                      class: {
-                                        "blue darken-4 white--text": _vm.valid,
-                                        disabled: !_vm.valid
-                                      },
-                                      attrs: { dense: true, outlined: "" },
-                                      on: {
-                                        click: function($event) {
-                                          $event.stopPropagation()
-                                          return _vm.setThemeLeader()
-                                        }
-                                      }
-                                    },
-                                    [_vm._v("Add")]
-                                  ),
+                                  _vm.searchCompleted
+                                    ? _c(
+                                        "v-btn",
+                                        {
+                                          staticClass: "no-uppercase",
+                                          class: {
+                                            "blue darken-4 white--text":
+                                              _vm.valid,
+                                            disabled: !_vm.valid
+                                          },
+                                          attrs: { dense: true, outlined: "" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.stopPropagation()
+                                              return _vm.setThemeLeader()
+                                            }
+                                          }
+                                        },
+                                        [_vm._v("Add")]
+                                      )
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  !_vm.searchCompleted
+                                    ? _c(
+                                        "v-btn",
+                                        {
+                                          staticClass:
+                                            "blue darken-4 white--text no-uppercase inline md-full-width",
+                                          attrs: {
+                                            dense: true,
+                                            outlined: "",
+                                            elevation: "0"
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              $event.stopPropagation()
+                                              return _vm.findUser($event)
+                                            }
+                                          }
+                                        },
+                                        [_vm._v("Search")]
+                                      )
+                                    : _vm._e(),
                                   _vm._v(" "),
                                   _c(
                                     "v-btn",
@@ -105438,7 +105433,18 @@ var setThemeLeader = function setThemeLeader(_ref2, payload) {
 
 var findUser = function findUser(_ref3, payload) {
   var commit = _ref3.commit;
-  commit('SET_THEME_LEADER_USER', payload);
+  var formData = Object(object_to_formdata__WEBPACK_IMPORTED_MODULE_0__["objectToFormData"])(payload);
+  var settings = {
+    headers: {
+      'content-type': 'multipart/form-data'
+    }
+  };
+  var path = '/api/theme-leaders/find-user';
+  return axios.post(path, formData, settings).then(function (response) {
+    commit('SET_THEME_LEADER_USER', response.data);
+  })["catch"](function (error) {
+    throw error;
+  });
 };
 
 var deleteThemeLeader = function deleteThemeLeader(_ref4, payload) {
@@ -105543,12 +105549,14 @@ var SET_THEME = function SET_THEME(state, payload) {
   state.theme = {};
   state.theme.themeLeaders = [];
   state.theme.themeLeader = {};
+  state.theme.themeLeader.user = {};
 };
 
 var SET_THEME_LEADER = function SET_THEME_LEADER(state, payload) {
   state.theme.themeLeader = payload;
   state.theme.themeLeaders.push(payload);
   state.theme.themeLeader = {};
+  state.theme.themeLeader.user = {};
 };
 
 var SET_THEME_LEADER_USER = function SET_THEME_LEADER_USER(state, payload) {

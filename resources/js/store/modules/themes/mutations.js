@@ -4,12 +4,14 @@ const SET_THEME = (state, payload) => {
     state.theme = {}
     state.theme.themeLeaders = []
     state.theme.themeLeader = {}
+    state.theme.themeLeader.user = {}
 }
 
 const SET_THEME_LEADER = (state, payload) => {
     state.theme.themeLeader = payload
     state.theme.themeLeaders.push(payload)
     state.theme.themeLeader = {}
+    state.theme.themeLeader.user = {}
 }
 
 const SET_THEME_LEADER_USER = (state, payload) => {

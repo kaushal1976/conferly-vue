@@ -23,4 +23,6 @@ Route::get('/conference/{id}/themes/','API\ThemeController@index')->name('get-th
 Route::delete('/themes/{id}','API\ThemeController@destroy')->name('delete-theme');
 Route::post('/themes/{id}','API\ThemeController@edit')->name('edit-theme');
 
+Route::post('/theme-leaders/find-user','API\ThemeLeaderController@user')->name('find-user-theme-leader');
+
 
