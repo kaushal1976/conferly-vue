@@ -29,7 +29,6 @@
                     :items = "titles"
                     v-model="theme.themeLeader.title"
                     :dense="true"
-                    :rules="titleRules"
                     :error-messages="asyncErrors.title"
                     outlined
                     @input="asyncErrors=''"
@@ -101,7 +100,6 @@ export default {
       asyncErrors: [],
       valid: false,
       emailRules: [v => !!v || "Email is required"],
-      titleRules: [v => !!v || "Title is required"],
       firstNameRules: [v => !!v || "First name is required"],
       surnameRules: [v => !!v || "Surname is required"],
       userNotFound:false,

@@ -2749,7 +2749,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2758,9 +2757,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       valid: false,
       emailRules: [function (v) {
         return !!v || "Email is required";
-      }],
-      titleRules: [function (v) {
-        return !!v || "Title is required";
       }],
       firstNameRules: [function (v) {
         return !!v || "First name is required";
@@ -40988,7 +40984,6 @@ var render = function() {
                                             label: "Title",
                                             items: _vm.titles,
                                             dense: true,
-                                            rules: _vm.titleRules,
                                             "error-messages":
                                               _vm.asyncErrors.title,
                                             outlined: ""
