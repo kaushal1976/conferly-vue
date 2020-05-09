@@ -88,7 +88,7 @@
 </template>
 <script>
 import { mapActions, mapGetters } from "vuex";
-import ThemeLeader from "./ThemeLeader";
+import ThemeLeader from "../theme-leaders/ThemeLeader";
 export default {
   data() {
     return {

@@ -23,19 +23,19 @@
                   </v-text-field>
                 </v-col>
               <template v-if="userNotFound">
-                <v-col cols="12" md="2" class="py-1">
-                  <v-text-field
+                <v-col cols="12" md="3" class="py-1">
+                  <v-select
                     label="Title"
+                    :items = "titles"
                     v-model="theme.themeLeader.title"
                     :dense="true"
                     :rules="titleRules"
                     :error-messages="asyncErrors.title"
                     outlined
-                    required
                     @input="asyncErrors=''"
-                  ></v-text-field>
+                  ></v-select>
                 </v-col>
-                <v-col cols="12" md="5" class="py-1">
+                <v-col cols="12" md="4" class="py-1">
                   <v-text-field
                     label="First Name"
                     v-model="theme.themeLeader.firstName"
@@ -72,7 +72,7 @@
                   >Add</v-btn>
                   <v-btn
                     v-if="!searchCompleted"
-                    class="blue darken-4 white--text no-uppercase inline md-full-width"
+                    class="blue darken-4 white--text no-uppercase"
                     :dense="true"
                     outlined
                     elevation="0"
@@ -105,7 +105,8 @@ export default {
       firstNameRules: [v => !!v || "First name is required"],
       surnameRules: [v => !!v || "Surname is required"],
       userNotFound:false,
-      searchCompleted: false
+      searchCompleted: false,
+      titles:['Dr', 'Prof', 'Mr', 'Mrs', 'Miss', 'Ms']
     };
   },
   props: {
