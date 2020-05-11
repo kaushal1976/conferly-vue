@@ -1,5 +1,5 @@
 <template>
-  <v-row class="no-gutters">
+  <v-row class="no-gutters fill-height">
     <v-stepper v-model="e1" class="elevation-0 flex py-0 grey lighten-3">
       <v-stepper-header class="elevation-0 py-0 white">
         <v-stepper-step :complete="e1 > 1" step="1">Initial Details</v-stepper-step>

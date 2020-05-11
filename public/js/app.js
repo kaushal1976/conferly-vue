@@ -40764,7 +40764,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-row",
-    { staticClass: "no-gutters" },
+    { staticClass: "no-gutters fill-height" },
     [
       _c(
         "v-stepper",
