@@ -2488,7 +2488,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 
@@ -40613,125 +40612,117 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "v-row",
-    { staticClass: "justify-center" },
+    "div",
+    { staticClass: "d-flex justify-center py-3 px-3" },
     [
       _c(
-        "v-col",
-        { staticClass: "pb-6", attrs: { sm: 12, md: 10 } },
+        "v-card",
+        { staticClass: "px-5 py-6", attrs: { outlined: true, width: "920px" } },
         [
+          _c("v-card-title", [
+            _vm._v("Themes for " + _vm._s(_vm.conference.title))
+          ]),
+          _vm._v(" "),
+          _c("v-card-text", [
+            _vm._v(
+              "\n      You can add themes to your conference here. Each theme can have multiple theme\n      leaders who are responsible for managing the reviews, etc.\n    "
+            )
+          ]),
+          _vm._v(" "),
           _c(
-            "v-card",
-            { staticClass: "px-5 py-6", attrs: { outlined: true } },
+            "v-row",
+            { staticClass: "justify-center py-0 px-5" },
             [
-              _c("v-card-title", [
-                _vm._v("Themes for " + _vm._s(_vm.conference.title))
-              ]),
-              _vm._v(" "),
-              _c("v-card-text", [
-                _vm._v(
-                  "\n        You can add themes to your conference here. Each theme can have multiple theme\n        leaders who are responsible for managing the reviews, etc.\n      "
-                )
-              ]),
-              _vm._v(" "),
               _c(
-                "v-row",
-                { staticClass: "justify-center py-0 px-5" },
+                "v-col",
+                { attrs: { cols: "12" } },
                 [
                   _c(
-                    "v-col",
-                    { attrs: { cols: "12" } },
+                    "v-btn",
+                    {
+                      staticClass: "no-uppercase my-2 px-6",
+                      attrs: { color: "primary", elevation: "0", fab: "" },
+                      on: { click: _vm.showThemeFormToggle }
+                    },
                     [
-                      _c(
-                        "v-btn",
-                        {
-                          staticClass: "no-uppercase my-2 px-6",
-                          attrs: { color: "primary", elevation: "0", fab: "" },
-                          on: { click: _vm.showThemeFormToggle }
-                        },
-                        [
-                          _c("v-icon", { attrs: { dark: "" } }, [
-                            _vm._v("mdi-plus")
-                          ])
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("v-divider", { staticClass: "my-4" })
+                      _c("v-icon", { attrs: { dark: "" } }, [
+                        _vm._v("mdi-plus")
+                      ])
                     ],
                     1
                   ),
                   _vm._v(" "),
-                  _vm.showThemeForm
-                    ? _c(
-                        "v-col",
-                        { attrs: { cols: "12" } },
-                        [
-                          _c("ThemeForm", {
-                            attrs: { showThemeForm: _vm.showThemeForm },
-                            on: { cancelled: _vm.showThemeFormToggle }
-                          })
-                        ],
-                        1
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c(
+                  _c("v-divider", { staticClass: "my-4" })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm.showThemeForm
+                ? _c(
                     "v-col",
-                    { staticClass: "py-0", attrs: { cols: "12" } },
-                    [_c("Themes")],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-col",
-                    { staticClass: "py-0", attrs: { cols: "12" } },
+                    { attrs: { cols: "12" } },
                     [
-                      _c("v-divider", { staticClass: "my-4" }),
+                      _c("ThemeForm", {
+                        attrs: { showThemeForm: _vm.showThemeForm },
+                        on: { cancelled: _vm.showThemeFormToggle }
+                      })
+                    ],
+                    1
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _c(
+                "v-col",
+                { staticClass: "py-0", attrs: { cols: "12" } },
+                [_c("Themes")],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-col",
+                { staticClass: "py-0", attrs: { cols: "12" } },
+                [
+                  _c("v-divider", { staticClass: "my-4" }),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-actions",
+                    [
+                      _c(
+                        "v-btn",
+                        {
+                          staticClass: "no-uppercase",
+                          class: {
+                            "blue darken-4 white--text": _vm.valid,
+                            disabled: !_vm.valid
+                          },
+                          attrs: {
+                            rounded: _vm.rounded,
+                            dense: _vm.dense,
+                            large: _vm.btnLarge,
+                            outlined: ""
+                          },
+                          on: { click: _vm.previous }
+                        },
+                        [_vm._v("Previous")]
+                      ),
                       _vm._v(" "),
                       _c(
-                        "v-card-actions",
-                        [
-                          _c(
-                            "v-btn",
-                            {
-                              staticClass: "no-uppercase",
-                              class: {
-                                "blue darken-4 white--text": _vm.valid,
-                                disabled: !_vm.valid
-                              },
-                              attrs: {
-                                rounded: _vm.rounded,
-                                dense: _vm.dense,
-                                large: _vm.btnLarge,
-                                outlined: ""
-                              },
-                              on: { click: _vm.previous }
-                            },
-                            [_vm._v("Previous")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-btn",
-                            {
-                              staticClass: "no-uppercase",
-                              class: {
-                                "blue darken-4 white--text no-uppercase":
-                                  _vm.valid,
-                                disabled: !_vm.valid
-                              },
-                              attrs: {
-                                rounded: _vm.rounded,
-                                dense: _vm.dense,
-                                large: _vm.btnLarge,
-                                outlined: ""
-                              },
-                              on: { click: _vm.complete }
-                            },
-                            [_vm._v("Next")]
-                          )
-                        ],
-                        1
+                        "v-btn",
+                        {
+                          staticClass: "no-uppercase",
+                          class: {
+                            "blue darken-4 white--text no-uppercase": _vm.valid,
+                            disabled: !_vm.valid
+                          },
+                          attrs: {
+                            rounded: _vm.rounded,
+                            dense: _vm.dense,
+                            large: _vm.btnLarge,
+                            outlined: ""
+                          },
+                          on: { click: _vm.complete }
+                        },
+                        [_vm._v("Next")]
                       )
                     ],
                     1
@@ -40773,7 +40764,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-row",
-    { staticClass: "align-top no-gutters" },
+    { staticClass: "no-gutters" },
     [
       _c(
         "v-stepper",

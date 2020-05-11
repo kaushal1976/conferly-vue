@@ -1,57 +1,56 @@
 <template>
-  <v-row class="justify-center">
-    <v-col :sm="12" :md="10" class="pb-6">
-      <v-card class="px-5 py-6" :outlined="true">
-        <v-card-title>Themes for {{conference.title}}</v-card-title>
-        <v-card-text>
-          You can add themes to your conference here. Each theme can have multiple theme
-          leaders who are responsible for managing the reviews, etc.
-        </v-card-text>
-        <v-row class="justify-center py-0 px-5">
-          <v-col cols="12">
+  <div class="d-flex justify-center py-3 px-3">
+    <v-card class="px-5 py-6" :outlined="true" width="920px">
+      <v-card-title>Themes for {{conference.title}}</v-card-title>
+      <v-card-text>
+        You can add themes to your conference here. Each theme can have multiple theme
+        leaders who are responsible for managing the reviews, etc.
+      </v-card-text>
+      <v-row class="justify-center py-0 px-5">
+        <v-col cols="12">
+          <v-btn
+            class="no-uppercase my-2 px-6"
+            color="primary"
+            elevation="0"
+            @click="showThemeFormToggle"
+            fab
+          >
+            <v-icon dark>mdi-plus</v-icon>
+          </v-btn>
+          <v-divider class="my-4"></v-divider>
+        </v-col>
+        <v-col cols="12" v-if="showThemeForm">
+          <ThemeForm :showThemeForm="showThemeForm" @cancelled="showThemeFormToggle"></ThemeForm>
+        </v-col>
+        <v-col cols="12" class="py-0">
+          <Themes></Themes>
+        </v-col>
+        <v-col cols="12" class="py-0">
+          <v-divider class="my-4"></v-divider>
+          <v-card-actions>
             <v-btn
-              class="no-uppercase my-2 px-6"
-              color="primary"
-              elevation="0"
-              @click="showThemeFormToggle"
-              fab
-            > <v-icon dark>mdi-plus</v-icon>
-            </v-btn>
-            <v-divider class="my-4"></v-divider>
-          </v-col>
-          <v-col cols="12" v-if="showThemeForm">
-            <ThemeForm :showThemeForm="showThemeForm" @cancelled="showThemeFormToggle"></ThemeForm>
-          </v-col>
-          <v-col cols="12" class="py-0">
-            <Themes></Themes>
-          </v-col>
-          <v-col cols="12" class="py-0">
-            <v-divider class="my-4"></v-divider>
-            <v-card-actions>
-              <v-btn
-                @click="previous"
-                :class="{ 'blue darken-4 white--text' : valid, disabled: !valid }"
-                class="no-uppercase"
-                :rounded="rounded"
-                :dense="dense"
-                :large="btnLarge"
-                outlined
-              >Previous</v-btn>
-              <v-btn
-                :class="{ 'blue darken-4 white--text no-uppercase' : valid, disabled: !valid }"
-                class="no-uppercase"
-                @click="complete"
-                :rounded="rounded"
-                :dense="dense"
-                :large="btnLarge"
-                outlined
-              >Next</v-btn>
-            </v-card-actions>
-          </v-col>
-        </v-row>
-      </v-card>
-    </v-col>
-  </v-row>
+              @click="previous"
+              :class="{ 'blue darken-4 white--text' : valid, disabled: !valid }"
+              class="no-uppercase"
+              :rounded="rounded"
+              :dense="dense"
+              :large="btnLarge"
+              outlined
+            >Previous</v-btn>
+            <v-btn
+              :class="{ 'blue darken-4 white--text no-uppercase' : valid, disabled: !valid }"
+              class="no-uppercase"
+              @click="complete"
+              :rounded="rounded"
+              :dense="dense"
+              :large="btnLarge"
+              outlined
+            >Next</v-btn>
+          </v-card-actions>
+        </v-col>
+      </v-row>
+    </v-card>
+  </div>
 </template>
 <script>
 import { mapActions, mapGetters } from "vuex";
@@ -65,9 +64,9 @@ export default {
   data() {
     return {
       asyncErrors: [],
-      rounded:false,
-      dense:false,
-      btnLarge:true,
+      rounded: false,
+      dense: false,
+      btnLarge: true,
       valid: false,
       titleRules: [v => !!v || "Title is required"],
       descriptionRules: [v => !!v || "Description is required"],
