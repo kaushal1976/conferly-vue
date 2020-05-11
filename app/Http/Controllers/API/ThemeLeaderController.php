@@ -21,7 +21,7 @@ class ThemeLeaderController extends Controller
     public function index(Theme $theme)
     {
         $themeLeaders = ThemeLeader::ofTheme($theme->id);
-        return ThemeLeaderResource::collection($themeLeaders);
+        return $themeLeaders;
     }
 
     /**
@@ -32,7 +32,6 @@ class ThemeLeaderController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
@@ -77,7 +76,7 @@ class ThemeLeaderController extends Controller
         $email = $request->email;
         $themeLeader = ThemeLeader::ofUserEmail($email)->first();
         if ($themeLeader) {
-            return new ThemeLeaderResource($themeLeader);
+            return response()->json($themeLeader);
         }else{
             return response()->json(['message'=>'No users found']);
         }
@@ -89,6 +88,6 @@ class ThemeLeaderController extends Controller
             'email' => 'required|email',
         ]);
         $user = User::where('email',$validatedData['email'])->firstOrFail();
-        return new UserResource($user);
+        return response()->json($user);
     }
 }

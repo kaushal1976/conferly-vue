@@ -69,7 +69,7 @@ class ConferenceController extends Controller
      */
     public function edit($id)
     {
-        $conference = Conference::with('themes')->findOrFail($id);
+        $conference = Conference::with(['themes','themes.themeLeaders', 'themes.themeLeaders.user'])->findOrFail($id);
         $conference->start_date = $conference->start_date->format('Y-m-d');
         $conference->end_date = $conference->end_date->format('Y-m-d');
         return response()->json($conference);

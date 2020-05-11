@@ -5,6 +5,8 @@ namespace App\Http\Controllers\API;
 use App\Conference;
 use App\Http\Controllers\Controller;
 use App\Theme;
+use App\ThemeLeader;
+use App\User;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -17,9 +19,8 @@ class ThemeController extends Controller
      */
     public function index($conferenceId)
     {
-        $themes = Theme::ofConference($conferenceId);
+        $themes = Theme::with('themeLeaders')->ofConference($conferenceId);
         return response()->json($themes);
-        
     }
 
     /**
@@ -34,6 +35,10 @@ class ThemeController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|unique:themes|max:255',
             'description' => 'required',
+            'themeLeaders.*.user.email' => 'sometimes|required|email',
+            'themeLeaders.*.user.title' => 'sometimes|required',
+            'themeLeaders.*.user.firstName' => 'sometimes|required',
+            'themeLeaders.*.user.surname' => 'sometimes|required'
         ]);
         $conference = Conference::findOrFail($id);
         try {
@@ -42,11 +47,32 @@ class ThemeController extends Controller
             $theme->description = $validatedData['description'];
             $theme->conference()->associate($conference);
             $theme->save();
-        } catch (\Exception $exception) {
-            abort(403, $exception->getMessage());
-        }
-        return response()->json($theme);
 
+            foreach ($request->themeLeaders as $key => $themeLeaderArray) {
+                $themeLeaderData = json_decode(json_encode($themeLeaderArray), FALSE);
+                $themeLeader = new ThemeLeader;
+
+                if (!isset($themeLeaderData->user->id)) {
+
+                    $user = new User;
+                    $user->email = $themeLeaderData->user->email;
+                    $user->name = $themeLeaderData->user->title.' '.$themeLeaderData->user->firstName.' '.$themeLeaderData->user->surname;
+                    $user->password = md5(rand().time());
+                    $user->save();
+                } else {
+                    $user = User::findOrFail($themeLeaderData->user->id);
+                }
+                $themeLeader->user()->associate($user);
+                $themeLeader->theme()->associate($theme);
+                $themeLeader->save();
+            }
+
+        } catch (\Exception $exception) {
+            abort(500, $exception->getMessage());
+        }
+
+        $result = Theme::with(['themeLeaders', 'themeLeaders.user'])->findOrFail($theme->id);
+        return response()->json($result);
     }
 
     /**
@@ -81,16 +107,16 @@ class ThemeController extends Controller
     public function destroy($id)
     {
         $theme = Theme::findOrFail($id);
-        try{
+        try {
             $theme->conference()->dissociate();
             $theme->delete();
-        }catch (Exception $e) {
+        } catch (Exception $e) {
             abort(500, $e->getMessage());
         }
         return response()->json([
-            'title'=>'Completed',
-            'message'=>'Theme deleted sucessfully',
-            'type'=>'success'
-        ],200);
+            'title' => 'Completed',
+            'message' => 'Theme deleted sucessfully',
+            'type' => 'success'
+        ], 200);
     }
 }

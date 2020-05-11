@@ -12,24 +12,25 @@
                 <v-col cols="12" class="py-1">
                   <v-text-field
                     label="Enter the email of the Theme Leader"
-                    v-model="theme.themeLeader.email"
+                    v-model="theme.themeLeader.user.email"
                     :dense="true"
                     :rules="emailRules"
                     :error-messages="asyncErrors.email"
                     outlined
                     required
                     @input="asyncErrors=''"
+                    :disabled="searchCompleted"
                   >
                   </v-text-field>
                 </v-col>
-              <template v-if="userNotFound">
+              <template v-if="searchCompleted && !userFound">
                 <v-col cols="12" md="3" class="py-1">
                   <v-select
                     label="Title"
                     :items = "titles"
-                    v-model="theme.themeLeader.title"
+                    v-model="theme.themeLeader.user.title"
                     :dense="true"
-                    :error-messages="asyncErrors.title"
+                    :error-messages="asyncErrors['user.title']"
                     outlined
                     @input="asyncErrors=''"
                   ></v-select>
@@ -37,10 +38,10 @@
                 <v-col cols="12" md="4" class="py-1">
                   <v-text-field
                     label="First Name"
-                    v-model="theme.themeLeader.firstName"
+                    v-model="theme.themeLeader.user.firstName"
                     :dense="true"
                     :rules="firstNameRules"
-                    :error-messages="asyncErrors.firstName"
+                    :error-messages="asyncErrors['user.firstName']"
                     outlined
                     required
                     @input="asyncErrors=''"
@@ -49,15 +50,18 @@
                 <v-col cols="12" md="5" class="py-1">
                   <v-text-field
                     label="Surname"
-                    v-model="theme.themeLeader.surname"
+                    v-model="theme.themeLeader.user.surname"
                     :dense="true"
                     :rules="surnameRules"
-                    :error-messages="asyncErrors.surname"
+                    :error-messages="asyncErrors['user.surname']"
                     outlined
                     required
                     @input="asyncErrors=''"
                   ></v-text-field>
                 </v-col>
+                </template>
+                <template v-if="searchCompleted && userFound">
+                  <h3>{{theme.themeLeader.user.name}}</h3>
                 </template>
                 <v-col cols="12" class="py-0">
                   <v-divider class="my-4"></v-divider>
@@ -99,10 +103,13 @@ export default {
     return {
       asyncErrors: [],
       valid: false,
-      emailRules: [v => !!v || "Email is required"],
+      emailRules: [
+        v => !!v || "Email is required",
+        v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+        ],
       firstNameRules: [v => !!v || "First name is required"],
       surnameRules: [v => !!v || "Surname is required"],
-      userNotFound:false,
+      userFound:false,
       searchCompleted: false,
       titles:['Dr', 'Prof', 'Mr', 'Mrs', 'Miss', 'Ms']
     };
@@ -134,27 +141,34 @@ export default {
       this.$emit("hide");
     },
     findUser() {
-        let data = this.theme.themeLeader;
+      if (this.themeLeaderExists(this.theme.themeLeader.user.email)) {
+        this.asyncErrors = {'email':'This Theme Leader is already added'}
+        return
+      }
+      if (this.$refs.themeLeaderForm.validate()) {
+        let data = this.theme.themeLeader.user;
         this.$store
           .dispatch("themes/findUser", data)
           .then(response => {
             this.searchCompleted = true
+            this.userFound = true
           })
           .catch(error => {
             if (error.response.status === 422) {
               this.asyncErrors = error.response.data.errors;
             } else if (error.response.status === 404) {
-              this.userNotFound = true
               this.searchCompleted = true
             } else {
               console.log(error);
             }
           });
+      }
     }
   },
   computed: {
     ...mapGetters({
-      theme: "themes/getTheme"
+      theme: "themes/getTheme",
+      themeLeaderExists: "themes/themeLeaderExists"
     })
   }
 };

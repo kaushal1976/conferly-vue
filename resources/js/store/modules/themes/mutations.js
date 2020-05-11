@@ -9,7 +9,7 @@ const SET_THEME = (state, payload) => {
 
 const SET_THEME_LEADER = (state, payload) => {
     state.theme.themeLeader = payload
-    state.theme.themeLeaders.push(payload)
+    state.theme.themeLeaders.push(state.theme.themeLeader)
     state.theme.themeLeader = {}
     state.theme.themeLeader.user = {}
 }

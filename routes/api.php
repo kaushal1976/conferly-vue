@@ -24,5 +24,6 @@ Route::delete('/themes/{id}','API\ThemeController@destroy')->name('delete-theme'
 Route::post('/themes/{id}','API\ThemeController@edit')->name('edit-theme');
 
 Route::post('/theme-leaders/find-user','API\ThemeLeaderController@user')->name('find-user-theme-leader');
+Route::post('/theme-leaders', 'API\ThemeLeaderController@store')->name('store-theme-leader');
 
 

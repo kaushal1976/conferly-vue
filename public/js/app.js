@@ -2749,6 +2749,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2757,6 +2761,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       valid: false,
       emailRules: [function (v) {
         return !!v || "Email is required";
+      }, function (v) {
+        return /.+@.+\..+/.test(v) || 'E-mail must be valid';
       }],
       firstNameRules: [function (v) {
         return !!v || "First name is required";
@@ -2764,7 +2770,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       surnameRules: [function (v) {
         return !!v || "Surname is required";
       }],
-      userNotFound: false,
+      userFound: false,
       searchCompleted: false,
       titles: ['Dr', 'Prof', 'Mr', 'Mrs', 'Miss', 'Ms']
     };
@@ -2798,23 +2804,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     findUser: function findUser() {
       var _this2 = this;
 
-      var data = this.theme.themeLeader;
-      this.$store.dispatch("themes/findUser", data).then(function (response) {
-        _this2.searchCompleted = true;
-      })["catch"](function (error) {
-        if (error.response.status === 422) {
-          _this2.asyncErrors = error.response.data.errors;
-        } else if (error.response.status === 404) {
-          _this2.userNotFound = true;
+      if (this.themeLeaderExists(this.theme.themeLeader.user.email)) {
+        this.asyncErrors = {
+          'email': 'This Theme Leader is already added'
+        };
+        return;
+      }
+
+      if (this.$refs.themeLeaderForm.validate()) {
+        var data = this.theme.themeLeader.user;
+        this.$store.dispatch("themes/findUser", data).then(function (response) {
           _this2.searchCompleted = true;
-        } else {
-          console.log(error);
-        }
-      });
+          _this2.userFound = true;
+        })["catch"](function (error) {
+          if (error.response.status === 422) {
+            _this2.asyncErrors = error.response.data.errors;
+          } else if (error.response.status === 404) {
+            _this2.searchCompleted = true;
+          } else {
+            console.log(error);
+          }
+        });
+      }
     }
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
-    theme: "themes/getTheme"
+    theme: "themes/getTheme",
+    themeLeaderExists: "themes/themeLeaderExists"
   }))
 });
 
@@ -2837,6 +2853,8 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
 //
 //
 //
@@ -3033,11 +3051,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])({
-    fetchThemes: "themes/fetchThemes",
+    //fetchThemes: "themes/fetchThemes",
     deleteTheme: "themes/deleteTheme"
   })),
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
@@ -40947,7 +40964,8 @@ var render = function() {
                                       rules: _vm.emailRules,
                                       "error-messages": _vm.asyncErrors.email,
                                       outlined: "",
-                                      required: ""
+                                      required: "",
+                                      disabled: _vm.searchCompleted
                                     },
                                     on: {
                                       input: function($event) {
@@ -40955,22 +40973,22 @@ var render = function() {
                                       }
                                     },
                                     model: {
-                                      value: _vm.theme.themeLeader.email,
+                                      value: _vm.theme.themeLeader.user.email,
                                       callback: function($$v) {
                                         _vm.$set(
-                                          _vm.theme.themeLeader,
+                                          _vm.theme.themeLeader.user,
                                           "email",
                                           $$v
                                         )
                                       },
-                                      expression: "theme.themeLeader.email"
+                                      expression: "theme.themeLeader.user.email"
                                     }
                                   })
                                 ],
                                 1
                               ),
                               _vm._v(" "),
-                              _vm.userNotFound
+                              _vm.searchCompleted && !_vm.userFound
                                 ? [
                                     _c(
                                       "v-col",
@@ -40985,7 +41003,7 @@ var render = function() {
                                             items: _vm.titles,
                                             dense: true,
                                             "error-messages":
-                                              _vm.asyncErrors.title,
+                                              _vm.asyncErrors["user.title"],
                                             outlined: ""
                                           },
                                           on: {
@@ -40994,16 +41012,17 @@ var render = function() {
                                             }
                                           },
                                           model: {
-                                            value: _vm.theme.themeLeader.title,
+                                            value:
+                                              _vm.theme.themeLeader.user.title,
                                             callback: function($$v) {
                                               _vm.$set(
-                                                _vm.theme.themeLeader,
+                                                _vm.theme.themeLeader.user,
                                                 "title",
                                                 $$v
                                               )
                                             },
                                             expression:
-                                              "theme.themeLeader.title"
+                                              "theme.themeLeader.user.title"
                                           }
                                         })
                                       ],
@@ -41023,7 +41042,7 @@ var render = function() {
                                             dense: true,
                                             rules: _vm.firstNameRules,
                                             "error-messages":
-                                              _vm.asyncErrors.firstName,
+                                              _vm.asyncErrors["user.firstName"],
                                             outlined: "",
                                             required: ""
                                           },
@@ -41034,16 +41053,17 @@ var render = function() {
                                           },
                                           model: {
                                             value:
-                                              _vm.theme.themeLeader.firstName,
+                                              _vm.theme.themeLeader.user
+                                                .firstName,
                                             callback: function($$v) {
                                               _vm.$set(
-                                                _vm.theme.themeLeader,
+                                                _vm.theme.themeLeader.user,
                                                 "firstName",
                                                 $$v
                                               )
                                             },
                                             expression:
-                                              "theme.themeLeader.firstName"
+                                              "theme.themeLeader.user.firstName"
                                           }
                                         })
                                       ],
@@ -41063,7 +41083,7 @@ var render = function() {
                                             dense: true,
                                             rules: _vm.surnameRules,
                                             "error-messages":
-                                              _vm.asyncErrors.surname,
+                                              _vm.asyncErrors["user.surname"],
                                             outlined: "",
                                             required: ""
                                           },
@@ -41074,21 +41094,32 @@ var render = function() {
                                           },
                                           model: {
                                             value:
-                                              _vm.theme.themeLeader.surname,
+                                              _vm.theme.themeLeader.user
+                                                .surname,
                                             callback: function($$v) {
                                               _vm.$set(
-                                                _vm.theme.themeLeader,
+                                                _vm.theme.themeLeader.user,
                                                 "surname",
                                                 $$v
                                               )
                                             },
                                             expression:
-                                              "theme.themeLeader.surname"
+                                              "theme.themeLeader.user.surname"
                                           }
                                         })
                                       ],
                                       1
                                     )
+                                  ]
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.searchCompleted && _vm.userFound
+                                ? [
+                                    _c("h3", [
+                                      _vm._v(
+                                        _vm._s(_vm.theme.themeLeader.user.name)
+                                      )
+                                    ])
                                   ]
                                 : _vm._e(),
                               _vm._v(" "),
@@ -41356,9 +41387,15 @@ var render = function() {
                                     },
                                     [
                                       _vm._v(
-                                        _vm._s(leader.title + " ") +
-                                          _vm._s(leader.firstName + " ") +
-                                          _vm._s(leader.surname)
+                                        "\n                " +
+                                          _vm._s(
+                                            leader.user.title +
+                                              " " +
+                                              leader.user.firstName +
+                                              " " +
+                                              leader.user.surname
+                                          ) +
+                                          "\n                "
                                       )
                                     ]
                                   )
@@ -41521,32 +41558,25 @@ var render = function() {
                       _c(
                         "v-card-text",
                         [
-                          _c(
-                            "v-row",
-                            { staticClass: "mx-0", attrs: { align: "center" } },
-                            [
-                              _c("v-rating", {
-                                attrs: {
-                                  value: 4.5,
-                                  color: "amber",
-                                  dense: "",
-                                  "half-increments": "",
-                                  size: "25"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "grey--text ml-4" }, [
-                                _vm._v("4.5 (413)")
-                              ])
-                            ],
-                            1
-                          ),
+                          _vm._l(theme.theme_leaders, function(themeLeader) {
+                            return _c(
+                              "v-chip",
+                              { key: themeLeader.id, staticClass: "ma-2" },
+                              [
+                                _vm._v(
+                                  "\n              " +
+                                    _vm._s(themeLeader.user.name) +
+                                    "\n            "
+                                )
+                              ]
+                            )
+                          }),
                           _vm._v(" "),
                           _c("div", { staticClass: "my-4 subtitle-1" }, [
                             _vm._v(_vm._s(theme.description))
                           ])
                         ],
-                        1
+                        2
                       ),
                       _vm._v(" "),
                       _c("v-divider", { staticClass: "mx-4" }),
@@ -105403,7 +105433,12 @@ var setTheme = function setTheme(_ref, payload) {
   }
 
   var path = '/api/conference/' + payload.conferenceId + '/themes/';
-  var formData = Object(object_to_formdata__WEBPACK_IMPORTED_MODULE_0__["objectToFormData"])(payload);
+  var options = {
+    indices: true,
+    nullsAsUndefineds: false,
+    booleansAsIntegers: false
+  };
+  var formData = Object(object_to_formdata__WEBPACK_IMPORTED_MODULE_0__["objectToFormData"])(payload, options);
   var settings = {
     headers: {
       'content-type': 'multipart/form-data'
@@ -105488,10 +105523,25 @@ var getThemeLeaders = function getThemeLeaders(state) {
   return state.theme.themeLeaders;
 };
 
+var themeLeaderExists = function themeLeaderExists(state) {
+  return function (email) {
+    var index = state.theme.themeLeaders.findIndex(function (themeLeader) {
+      return themeLeader.user.email === email;
+    });
+
+    if (index == -1) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+};
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   getThemes: getThemes,
   getTheme: getTheme,
-  getThemeLeaders: getThemeLeaders
+  getThemeLeaders: getThemeLeaders,
+  themeLeaderExists: themeLeaderExists
 });
 
 /***/ }),
@@ -105550,7 +105600,7 @@ var SET_THEME = function SET_THEME(state, payload) {
 
 var SET_THEME_LEADER = function SET_THEME_LEADER(state, payload) {
   state.theme.themeLeader = payload;
-  state.theme.themeLeaders.push(payload);
+  state.theme.themeLeaders.push(state.theme.themeLeader);
   state.theme.themeLeader = {};
   state.theme.themeLeader.user = {};
 };

@@ -37,6 +37,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected $appends = array('firstName');
+
+
+    public function getFirstNameAttribute()
+    {
+        return $this->name;
+    }
+
     public function author()
     {
         return $this->hasOne(Author::class);

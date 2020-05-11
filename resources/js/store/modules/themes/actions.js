@@ -8,7 +8,8 @@ const setTheme = ({commit}, payload) => {
     }
 
     let path = '/api/conference/' + payload.conferenceId + '/themes/'
-    const formData = objectToFormData(payload);
+    const options = { indices: true, nullsAsUndefineds: false,booleansAsIntegers: false,};
+    const formData = objectToFormData(payload, options);
     let settings = {
         headers: {
             'content-type': 'multipart/form-data'
@@ -28,7 +29,7 @@ const setTheme = ({commit}, payload) => {
 }
 
 const setThemeLeader = ({commit}, payload) => {
-    commit('SET_THEME_LEADER', payload)
+    commit('SET_THEME_LEADER', payload) 
 }
 
 const findUser = ({commit}, payload) => {

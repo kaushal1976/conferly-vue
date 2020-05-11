@@ -45,7 +45,9 @@
                     class="ma-2"
                     close
                     @click:close="removeLeader(leader)"
-                  >{{leader.title+' '}}{{leader.firstName+' '}}{{leader.surname}}</v-chip>
+                  >
+                  {{leader.user.title+' '+leader.user.firstName+' '+leader.user.surname}}
+                  </v-chip>
                 </v-col>
                 <v-col cols="12" class="py-0">
                   <v-btn
