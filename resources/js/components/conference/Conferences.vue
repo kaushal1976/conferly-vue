@@ -1,7 +1,7 @@
 <template>
   <v-row no-gutters class="fill-height">
     <v-col cols="12">
-      <v-row align="center" justify="center" class="grey lighten-5">
+      <v-row align="center" justify="center" class="grey lighten-3">
         <v-col cols="12" class="px-5">
           <v-card color="grey lighten-2" class="px-5 py-5" flat>
             <h1 class="font-weight-light"><span>Confer<b>ly</b></span></h1>

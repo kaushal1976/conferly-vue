@@ -2344,8 +2344,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -39893,7 +39891,7 @@ var render = function() {
           _c(
             "v-row",
             {
-              staticClass: "grey lighten-5",
+              staticClass: "grey lighten-3",
               attrs: { align: "center", justify: "center" }
             },
             [
@@ -40197,389 +40195,381 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "v-row",
-    { staticClass: "justify-center" },
+    "div",
+    { staticClass: "d-flex justify-center py-3 px-3" },
     [
       _c(
-        "v-col",
-        { staticClass: "pb-6", attrs: { sm: 12, md: 10 } },
+        "v-card",
+        { staticClass: "px-5 py-6", attrs: { outlined: true, width: "920px" } },
         [
+          _c("v-card-title", [_vm._v("Conference Details")]),
+          _vm._v(" "),
           _c(
-            "v-card",
-            { staticClass: "px-5 py-6", attrs: { outlined: true } },
-            [
-              _c("v-card-title", [_vm._v("Conference Details")]),
-              _vm._v(" "),
-              _c(
-                "v-form",
-                {
-                  ref: "conferenceForm",
-                  staticClass: "py-0",
-                  on: {
-                    submit: function($event) {
-                      $event.stopPropagation()
-                      $event.preventDefault()
-                    }
-                  },
-                  model: {
-                    value: _vm.valid,
-                    callback: function($$v) {
-                      _vm.valid = $$v
-                    },
-                    expression: "valid"
-                  }
+            "v-form",
+            {
+              ref: "conferenceForm",
+              staticClass: "py-0",
+              on: {
+                submit: function($event) {
+                  $event.stopPropagation()
+                  $event.preventDefault()
+                }
+              },
+              model: {
+                value: _vm.valid,
+                callback: function($$v) {
+                  _vm.valid = $$v
                 },
+                expression: "valid"
+              }
+            },
+            [
+              _c(
+                "v-row",
+                { staticClass: "justify-center py-0 px-5" },
                 [
                   _c(
-                    "v-row",
-                    { staticClass: "justify-center py-0 px-5" },
+                    "v-col",
+                    { attrs: { cols: "12" } },
+                    [
+                      _c("v-text-field", {
+                        attrs: {
+                          label: "Enter a title for the Conference",
+                          rules: _vm.titleRules,
+                          "error-messages": _vm.asyncErrors.title,
+                          outlined: "",
+                          required: "",
+                          rounded: _vm.rounded,
+                          dense: _vm.dense
+                        },
+                        on: {
+                          input: function($event) {
+                            _vm.asyncErrors = ""
+                          }
+                        },
+                        model: {
+                          value: _vm.conference.title,
+                          callback: function($$v) {
+                            _vm.$set(_vm.conference, "title", $$v)
+                          },
+                          expression: "conference.title"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("v-text-field", {
+                        attrs: {
+                          label: "Enter a Tag Line for the Conference",
+                          dense: _vm.dense,
+                          rules: _vm.tagLineRules,
+                          "error-messages": _vm.asyncErrors.tag_line,
+                          outlined: "",
+                          required: "",
+                          rounded: _vm.rounded
+                        },
+                        on: {
+                          input: function($event) {
+                            _vm.asyncErrors = ""
+                          }
+                        },
+                        model: {
+                          value: _vm.conference.tag_line,
+                          callback: function($$v) {
+                            _vm.$set(_vm.conference, "tag_line", $$v)
+                          },
+                          expression: "conference.tag_line"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-col",
+                    {
+                      staticClass: "py-0",
+                      attrs: { cols: "12", sm: "6", justify: "center" }
+                    },
                     [
                       _c(
-                        "v-col",
-                        { attrs: { cols: "12" } },
-                        [
-                          _c("v-text-field", {
-                            attrs: {
-                              label: "Enter a title for the Conference",
-                              rules: _vm.titleRules,
-                              "error-messages": _vm.asyncErrors.title,
-                              outlined: "",
-                              required: "",
-                              rounded: _vm.rounded,
-                              dense: _vm.dense
-                            },
-                            on: {
-                              input: function($event) {
-                                _vm.asyncErrors = ""
-                              }
-                            },
-                            model: {
-                              value: _vm.conference.title,
-                              callback: function($$v) {
-                                _vm.$set(_vm.conference, "title", $$v)
-                              },
-                              expression: "conference.title"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("v-text-field", {
-                            attrs: {
-                              label: "Enter a Tag Line for the Conference",
-                              dense: _vm.dense,
-                              rules: _vm.tagLineRules,
-                              "error-messages": _vm.asyncErrors.tag_line,
-                              outlined: "",
-                              required: "",
-                              rounded: _vm.rounded
-                            },
-                            on: {
-                              input: function($event) {
-                                _vm.asyncErrors = ""
-                              }
-                            },
-                            model: {
-                              value: _vm.conference.tag_line,
-                              callback: function($$v) {
-                                _vm.$set(_vm.conference, "tag_line", $$v)
-                              },
-                              expression: "conference.tag_line"
-                            }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-col",
+                        "v-menu",
                         {
-                          staticClass: "py-0",
-                          attrs: { cols: "12", sm: "6", justify: "center" }
+                          attrs: {
+                            "close-on-content-click": false,
+                            "nudge-right": 40,
+                            transition: "scale-transition",
+                            "offset-y": "",
+                            "min-width": "290px"
+                          },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "activator",
+                              fn: function(ref) {
+                                var on = ref.on
+                                return [
+                                  _c(
+                                    "v-text-field",
+                                    _vm._g(
+                                      {
+                                        attrs: {
+                                          dense: _vm.dense,
+                                          label: "Start Date",
+                                          "append-icon": "mdi-calendar",
+                                          rules: _vm.dateRules,
+                                          "error-messages":
+                                            _vm.asyncErrors.start_date,
+                                          outlined: "",
+                                          readonly: "",
+                                          rounded: _vm.rounded
+                                        },
+                                        model: {
+                                          value: _vm.conference.start_date,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              _vm.conference,
+                                              "start_date",
+                                              $$v
+                                            )
+                                          },
+                                          expression: "conference.start_date"
+                                        }
+                                      },
+                                      on
+                                    )
+                                  )
+                                ]
+                              }
+                            }
+                          ]),
+                          model: {
+                            value: _vm.sDateMenu,
+                            callback: function($$v) {
+                              _vm.sDateMenu = $$v
+                            },
+                            expression: "sDateMenu"
+                          }
                         },
                         [
-                          _c(
-                            "v-menu",
-                            {
-                              attrs: {
-                                "close-on-content-click": false,
-                                "nudge-right": 40,
-                                transition: "scale-transition",
-                                "offset-y": "",
-                                "min-width": "290px"
+                          _vm._v(" "),
+                          _c("v-date-picker", {
+                            on: { change: _vm.sDateChanged },
+                            model: {
+                              value: _vm.conference.start_date,
+                              callback: function($$v) {
+                                _vm.$set(_vm.conference, "start_date", $$v)
                               },
-                              scopedSlots: _vm._u([
-                                {
-                                  key: "activator",
-                                  fn: function(ref) {
-                                    var on = ref.on
-                                    return [
-                                      _c(
-                                        "v-text-field",
-                                        _vm._g(
-                                          {
-                                            attrs: {
-                                              dense: _vm.dense,
-                                              label: "Start Date",
-                                              "append-icon": "mdi-calendar",
-                                              rules: _vm.dateRules,
-                                              "error-messages":
-                                                _vm.asyncErrors.start_date,
-                                              outlined: "",
-                                              readonly: "",
-                                              rounded: _vm.rounded
-                                            },
-                                            model: {
-                                              value: _vm.conference.start_date,
-                                              callback: function($$v) {
-                                                _vm.$set(
-                                                  _vm.conference,
-                                                  "start_date",
-                                                  $$v
-                                                )
-                                              },
-                                              expression:
-                                                "conference.start_date"
-                                            }
-                                          },
-                                          on
-                                        )
-                                      )
-                                    ]
-                                  }
-                                }
-                              ]),
-                              model: {
-                                value: _vm.sDateMenu,
-                                callback: function($$v) {
-                                  _vm.sDateMenu = $$v
-                                },
-                                expression: "sDateMenu"
-                              }
-                            },
-                            [
-                              _vm._v(" "),
-                              _c("v-date-picker", {
-                                on: { change: _vm.sDateChanged },
-                                model: {
-                                  value: _vm.conference.start_date,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.conference, "start_date", $$v)
-                                  },
-                                  expression: "conference.start_date"
-                                }
-                              })
-                            ],
-                            1
-                          )
+                              expression: "conference.start_date"
+                            }
+                          })
                         ],
                         1
-                      ),
-                      _vm._v(" "),
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-col",
+                    {
+                      staticClass: "py-0",
+                      attrs: { cols: "12", sm: "6", justify: "center" }
+                    },
+                    [
                       _c(
-                        "v-col",
+                        "v-menu",
                         {
-                          staticClass: "py-0",
-                          attrs: { cols: "12", sm: "6", justify: "center" }
+                          attrs: {
+                            "close-on-content-click": false,
+                            "nudge-right": 40,
+                            transition: "scale-transition",
+                            "offset-y": "",
+                            "min-width": "290px"
+                          },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "activator",
+                              fn: function(ref) {
+                                var on = ref.on
+                                return [
+                                  _c(
+                                    "v-text-field",
+                                    _vm._g(
+                                      {
+                                        attrs: {
+                                          dense: _vm.dense,
+                                          label: "End Date",
+                                          "append-icon": "mdi-calendar",
+                                          rules: _vm.dateRules,
+                                          "error-messages":
+                                            _vm.asyncErrors.end_date,
+                                          outlined: "",
+                                          readonly: "",
+                                          rounded: _vm.rounded,
+                                          disabled: _vm.fDateDisabled
+                                        },
+                                        model: {
+                                          value: _vm.conference.end_date,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              _vm.conference,
+                                              "end_date",
+                                              $$v
+                                            )
+                                          },
+                                          expression: "conference.end_date"
+                                        }
+                                      },
+                                      on
+                                    )
+                                  )
+                                ]
+                              }
+                            }
+                          ]),
+                          model: {
+                            value: _vm.fDateMenu,
+                            callback: function($$v) {
+                              _vm.fDateMenu = $$v
+                            },
+                            expression: "fDateMenu"
+                          }
                         },
                         [
+                          _vm._v(" "),
+                          _c("v-date-picker", {
+                            attrs: { min: _vm.minDate },
+                            on: {
+                              change: function($event) {
+                                _vm.fDateMenu = false
+                              }
+                            },
+                            model: {
+                              value: _vm.conference.end_date,
+                              callback: function($$v) {
+                                _vm.$set(_vm.conference, "end_date", $$v)
+                              },
+                              expression: "conference.end_date"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-col",
+                    { attrs: { cols: "12" } },
+                    [
+                      _c("v-text-field", {
+                        attrs: {
+                          label: "Enter the venue of the Conference",
+                          dense: _vm.dense,
+                          rules: _vm.venueRules,
+                          "error-messages": _vm.asyncErrors.venue,
+                          outlined: "",
+                          required: "",
+                          rounded: _vm.rounded
+                        },
+                        on: {
+                          input: function($event) {
+                            _vm.asyncErrors = ""
+                          }
+                        },
+                        model: {
+                          value: _vm.conference.venue,
+                          callback: function($$v) {
+                            _vm.$set(_vm.conference, "venue", $$v)
+                          },
+                          expression: "conference.venue"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("v-text-field", {
+                        attrs: {
+                          label: "Enter Subject Area the Conference",
+                          dense: _vm.dense,
+                          rules: _vm.subjectRules,
+                          "error-messages": _vm.asyncErrors.subject_area,
+                          outlined: "",
+                          required: "",
+                          rounded: _vm.rounded
+                        },
+                        on: {
+                          input: function($event) {
+                            _vm.asyncErrors = ""
+                          }
+                        },
+                        model: {
+                          value: _vm.conference.subject_area,
+                          callback: function($$v) {
+                            _vm.$set(_vm.conference, "subject_area", $$v)
+                          },
+                          expression: "conference.subject_area"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-col",
+                    { staticClass: "py-0", attrs: { cols: "12" } },
+                    [
+                      _c("v-textarea", {
+                        attrs: {
+                          label: "A description for the Conference",
+                          dense: _vm.dense,
+                          rows: "5",
+                          rules: _vm.descriptionRules,
+                          "error-messages": _vm.asyncErrors.description,
+                          outlined: "",
+                          required: "",
+                          rounded: _vm.rounded
+                        },
+                        on: {
+                          input: function($event) {
+                            _vm.asyncErrors = ""
+                          }
+                        },
+                        model: {
+                          value: _vm.conference.description,
+                          callback: function($$v) {
+                            _vm.$set(_vm.conference, "description", $$v)
+                          },
+                          expression: "conference.description"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-col",
+                    { staticClass: "py-0", attrs: { cols: "12" } },
+                    [
+                      _c("v-divider"),
+                      _vm._v(" "),
+                      _c(
+                        "v-card-actions",
+                        [
                           _c(
-                            "v-menu",
+                            "v-btn",
                             {
+                              staticClass: "no-uppercase",
+                              class: {
+                                "blue darken-4 white--text": _vm.valid,
+                                disabled: !_vm.valid
+                              },
                               attrs: {
-                                "close-on-content-click": false,
-                                "nudge-right": 40,
-                                transition: "scale-transition",
-                                "offset-y": "",
-                                "min-width": "290px"
+                                dense: _vm.dense,
+                                outlined: "",
+                                large: _vm.btnLarge,
+                                rounded: _vm.rounded
                               },
-                              scopedSlots: _vm._u([
-                                {
-                                  key: "activator",
-                                  fn: function(ref) {
-                                    var on = ref.on
-                                    return [
-                                      _c(
-                                        "v-text-field",
-                                        _vm._g(
-                                          {
-                                            attrs: {
-                                              dense: _vm.dense,
-                                              label: "End Date",
-                                              "append-icon": "mdi-calendar",
-                                              rules: _vm.dateRules,
-                                              "error-messages":
-                                                _vm.asyncErrors.end_date,
-                                              outlined: "",
-                                              readonly: "",
-                                              rounded: _vm.rounded,
-                                              disabled: _vm.fDateDisabled
-                                            },
-                                            model: {
-                                              value: _vm.conference.end_date,
-                                              callback: function($$v) {
-                                                _vm.$set(
-                                                  _vm.conference,
-                                                  "end_date",
-                                                  $$v
-                                                )
-                                              },
-                                              expression: "conference.end_date"
-                                            }
-                                          },
-                                          on
-                                        )
-                                      )
-                                    ]
-                                  }
-                                }
-                              ]),
-                              model: {
-                                value: _vm.fDateMenu,
-                                callback: function($$v) {
-                                  _vm.fDateMenu = $$v
-                                },
-                                expression: "fDateMenu"
-                              }
+                              on: { click: _vm.setConference }
                             },
-                            [
-                              _vm._v(" "),
-                              _c("v-date-picker", {
-                                attrs: { min: _vm.minDate },
-                                on: {
-                                  change: function($event) {
-                                    _vm.fDateMenu = false
-                                  }
-                                },
-                                model: {
-                                  value: _vm.conference.end_date,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.conference, "end_date", $$v)
-                                  },
-                                  expression: "conference.end_date"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-col",
-                        { attrs: { cols: "12" } },
-                        [
-                          _c("v-text-field", {
-                            attrs: {
-                              label: "Enter the venue of the Conference",
-                              dense: _vm.dense,
-                              rules: _vm.venueRules,
-                              "error-messages": _vm.asyncErrors.venue,
-                              outlined: "",
-                              required: "",
-                              rounded: _vm.rounded
-                            },
-                            on: {
-                              input: function($event) {
-                                _vm.asyncErrors = ""
-                              }
-                            },
-                            model: {
-                              value: _vm.conference.venue,
-                              callback: function($$v) {
-                                _vm.$set(_vm.conference, "venue", $$v)
-                              },
-                              expression: "conference.venue"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("v-text-field", {
-                            attrs: {
-                              label: "Enter Subject Area the Conference",
-                              dense: _vm.dense,
-                              rules: _vm.subjectRules,
-                              "error-messages": _vm.asyncErrors.subject_area,
-                              outlined: "",
-                              required: "",
-                              rounded: _vm.rounded
-                            },
-                            on: {
-                              input: function($event) {
-                                _vm.asyncErrors = ""
-                              }
-                            },
-                            model: {
-                              value: _vm.conference.subject_area,
-                              callback: function($$v) {
-                                _vm.$set(_vm.conference, "subject_area", $$v)
-                              },
-                              expression: "conference.subject_area"
-                            }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-col",
-                        { staticClass: "py-0", attrs: { cols: "12" } },
-                        [
-                          _c("v-textarea", {
-                            attrs: {
-                              label: "A description for the Conference",
-                              dense: _vm.dense,
-                              rows: "5",
-                              rules: _vm.descriptionRules,
-                              "error-messages": _vm.asyncErrors.description,
-                              outlined: "",
-                              required: "",
-                              rounded: _vm.rounded
-                            },
-                            on: {
-                              input: function($event) {
-                                _vm.asyncErrors = ""
-                              }
-                            },
-                            model: {
-                              value: _vm.conference.description,
-                              callback: function($$v) {
-                                _vm.$set(_vm.conference, "description", $$v)
-                              },
-                              expression: "conference.description"
-                            }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-col",
-                        { staticClass: "py-0", attrs: { cols: "12" } },
-                        [
-                          _c("v-divider"),
-                          _vm._v(" "),
-                          _c(
-                            "v-card-actions",
-                            [
-                              _c(
-                                "v-btn",
-                                {
-                                  staticClass: "no-uppercase",
-                                  class: {
-                                    "blue darken-4 white--text": _vm.valid,
-                                    disabled: !_vm.valid
-                                  },
-                                  attrs: {
-                                    dense: _vm.dense,
-                                    outlined: "",
-                                    large: _vm.btnLarge,
-                                    rounded: _vm.rounded
-                                  },
-                                  on: { click: _vm.setConference }
-                                },
-                                [_vm._v("Next")]
-                              )
-                            ],
-                            1
+                            [_vm._v("Next")]
                           )
                         ],
                         1
@@ -40782,13 +40772,13 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "v-layout",
-    { staticClass: "align-top" },
+    "v-row",
+    { staticClass: "align-top no-gutters" },
     [
       _c(
         "v-stepper",
         {
-          staticClass: "elevation-0 flex py-0",
+          staticClass: "elevation-0 flex py-0 grey lighten-3",
           model: {
             value: _vm.e1,
             callback: function($$v) {
@@ -40800,7 +40790,7 @@ var render = function() {
         [
           _c(
             "v-stepper-header",
-            { staticClass: "elevation-0 py-0" },
+            { staticClass: "elevation-0 py-0 white" },
             [
               _c(
                 "v-stepper-step",

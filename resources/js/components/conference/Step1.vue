@@ -1,148 +1,146 @@
 <template>
-  <v-row class="justify-center">
-    <v-col :sm="12" :md="10" class="pb-6">
-      <v-card class="px-5 py-6" :outlined="true">
-        <v-card-title>Conference Details</v-card-title>
-        <v-form v-model="valid" ref="conferenceForm" @submit.stop.prevent class="py-0">
-          <v-row class="justify-center py-0 px-5">
-            <v-col cols="12">
-              <v-text-field
-                label="Enter a title for the Conference"
-                v-model="conference.title"
-                :rules="titleRules"
-                :error-messages="asyncErrors.title"
-                outlined
-                required
-                :rounded="rounded"
-                :dense="dense"
-                @input="asyncErrors=''"
-              ></v-text-field>
-              <v-text-field
-                label="Enter a Tag Line for the Conference"
-                v-model="conference.tag_line"
-                :dense="dense"
-                :rules="tagLineRules"
-                :error-messages="asyncErrors.tag_line"
-                outlined
-                required
-                :rounded="rounded"
-                @input="asyncErrors=''"
-              ></v-text-field>
-            </v-col>
-            <v-col cols="12" sm="6" justify="center" class="py-0">
-              <v-menu
-                v-model="sDateMenu"
-                :close-on-content-click="false"
-                :nudge-right="40"
-                transition="scale-transition"
-                offset-y
-                min-width="290px"
-              >
-                <template v-slot:activator="{ on }">
-                  <v-text-field
-                    v-model="conference.start_date"
-                    :dense="dense"
-                    label="Start Date"
-                    append-icon="mdi-calendar"
-                    :rules="dateRules"
-                    :error-messages="asyncErrors.start_date"
-                    outlined
-                    readonly
-                    :rounded="rounded"
-                    v-on="on"
-                  ></v-text-field>
-                </template>
-                <v-date-picker v-model="conference.start_date" @change="sDateChanged"></v-date-picker>
-              </v-menu>
-            </v-col>
-            <v-col cols="12" sm="6" justify="center" class="py-0">
-              <v-menu
-                v-model="fDateMenu"
-                :close-on-content-click="false"
-                :nudge-right="40"
-                transition="scale-transition"
-                offset-y
-                min-width="290px"
-              >
-                <template v-slot:activator="{ on }">
-                  <v-text-field
-                    v-model="conference.end_date"
-                    :dense="dense"
-                    label="End Date"
-                    append-icon="mdi-calendar"
-                    :rules="dateRules"
-                    :error-messages="asyncErrors.end_date"
-                    outlined
-                    readonly
-                    :rounded="rounded"
-                    v-on="on"
-                    :disabled="fDateDisabled"
-                  ></v-text-field>
-                </template>
-                <v-date-picker
-                  v-model="conference.end_date"
-                  @change="fDateMenu = false"
-                  :min="minDate"
-                ></v-date-picker>
-              </v-menu>
-            </v-col>
-            <v-col cols="12">
-              <v-text-field
-                label="Enter the venue of the Conference"
-                v-model="conference.venue"
-                :dense="dense"
-                :rules="venueRules"
-                :error-messages="asyncErrors.venue"
-                outlined
-                required
-                :rounded="rounded"
-                @input="asyncErrors=''"
-              ></v-text-field>
-              <v-text-field
-                label="Enter Subject Area the Conference"
-                v-model="conference.subject_area"
-                :dense="dense"
-                :rules="subjectRules"
-                :error-messages="asyncErrors.subject_area"
-                outlined
-                required
-                :rounded="rounded"
-                @input="asyncErrors=''"
-              ></v-text-field>
-            </v-col>
-            <v-col cols="12" class="py-0">
-              <v-textarea
-                label="A description for the Conference"
-                :dense="dense"
-                v-model="conference.description"
-                rows="5"
-                :rules="descriptionRules"
-                :error-messages="asyncErrors.description"
-                outlined
-                required
-                :rounded="rounded"
-                @input="asyncErrors=''"
-              ></v-textarea>
-            </v-col>
-            <v-col cols="12" class="py-0">
-              <v-divider></v-divider>
-              <v-card-actions>
-                <v-btn
-                  @click="setConference"
-                  :class="{ 'blue darken-4 white--text' : valid, disabled: !valid }"
-                  :dense="dense"
+      <div class="d-flex justify-center py-3 px-3">
+        <v-card class="px-5 py-6" :outlined="true" width="920px">
+          <v-card-title>Conference Details</v-card-title>
+          <v-form v-model="valid" ref="conferenceForm" @submit.stop.prevent class="py-0">
+            <v-row class="justify-center py-0 px-5">
+              <v-col cols="12">
+                <v-text-field
+                  label="Enter a title for the Conference"
+                  v-model="conference.title"
+                  :rules="titleRules"
+                  :error-messages="asyncErrors.title"
                   outlined
-                  :large="btnLarge"
-                  class="no-uppercase"
+                  required
                   :rounded="rounded"
-                >Next</v-btn>
-              </v-card-actions>
-            </v-col>
-          </v-row>
-        </v-form>
-      </v-card>
-    </v-col>
-  </v-row>
+                  :dense="dense"
+                  @input="asyncErrors=''"
+                ></v-text-field>
+                <v-text-field
+                  label="Enter a Tag Line for the Conference"
+                  v-model="conference.tag_line"
+                  :dense="dense"
+                  :rules="tagLineRules"
+                  :error-messages="asyncErrors.tag_line"
+                  outlined
+                  required
+                  :rounded="rounded"
+                  @input="asyncErrors=''"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" sm="6" justify="center" class="py-0">
+                <v-menu
+                  v-model="sDateMenu"
+                  :close-on-content-click="false"
+                  :nudge-right="40"
+                  transition="scale-transition"
+                  offset-y
+                  min-width="290px"
+                >
+                  <template v-slot:activator="{ on }">
+                    <v-text-field
+                      v-model="conference.start_date"
+                      :dense="dense"
+                      label="Start Date"
+                      append-icon="mdi-calendar"
+                      :rules="dateRules"
+                      :error-messages="asyncErrors.start_date"
+                      outlined
+                      readonly
+                      :rounded="rounded"
+                      v-on="on"
+                    ></v-text-field>
+                  </template>
+                  <v-date-picker v-model="conference.start_date" @change="sDateChanged"></v-date-picker>
+                </v-menu>
+              </v-col>
+              <v-col cols="12" sm="6" justify="center" class="py-0">
+                <v-menu
+                  v-model="fDateMenu"
+                  :close-on-content-click="false"
+                  :nudge-right="40"
+                  transition="scale-transition"
+                  offset-y
+                  min-width="290px"
+                >
+                  <template v-slot:activator="{ on }">
+                    <v-text-field
+                      v-model="conference.end_date"
+                      :dense="dense"
+                      label="End Date"
+                      append-icon="mdi-calendar"
+                      :rules="dateRules"
+                      :error-messages="asyncErrors.end_date"
+                      outlined
+                      readonly
+                      :rounded="rounded"
+                      v-on="on"
+                      :disabled="fDateDisabled"
+                    ></v-text-field>
+                  </template>
+                  <v-date-picker
+                    v-model="conference.end_date"
+                    @change="fDateMenu = false"
+                    :min="minDate"
+                  ></v-date-picker>
+                </v-menu>
+              </v-col>
+              <v-col cols="12">
+                <v-text-field
+                  label="Enter the venue of the Conference"
+                  v-model="conference.venue"
+                  :dense="dense"
+                  :rules="venueRules"
+                  :error-messages="asyncErrors.venue"
+                  outlined
+                  required
+                  :rounded="rounded"
+                  @input="asyncErrors=''"
+                ></v-text-field>
+                <v-text-field
+                  label="Enter Subject Area the Conference"
+                  v-model="conference.subject_area"
+                  :dense="dense"
+                  :rules="subjectRules"
+                  :error-messages="asyncErrors.subject_area"
+                  outlined
+                  required
+                  :rounded="rounded"
+                  @input="asyncErrors=''"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" class="py-0">
+                <v-textarea
+                  label="A description for the Conference"
+                  :dense="dense"
+                  v-model="conference.description"
+                  rows="5"
+                  :rules="descriptionRules"
+                  :error-messages="asyncErrors.description"
+                  outlined
+                  required
+                  :rounded="rounded"
+                  @input="asyncErrors=''"
+                ></v-textarea>
+              </v-col>
+              <v-col cols="12" class="py-0">
+                <v-divider></v-divider>
+                <v-card-actions>
+                  <v-btn
+                    @click="setConference"
+                    :class="{ 'blue darken-4 white--text' : valid, disabled: !valid }"
+                    :dense="dense"
+                    outlined
+                    :large="btnLarge"
+                    class="no-uppercase"
+                    :rounded="rounded"
+                  >Next</v-btn>
+                </v-card-actions>
+              </v-col>
+            </v-row>
+          </v-form>
+        </v-card>
+      </div>
 </template>
 <script>
 import { mapActions, mapGetters } from "vuex";
@@ -162,7 +160,7 @@ export default {
       fDateMenu: false,
       dense: false,
       rounded: false,
-      btnLarge:true,
+      btnLarge: true
     };
   },
 

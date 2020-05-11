@@ -1,7 +1,7 @@
 <template>
-  <v-layout class="align-top">
-    <v-stepper v-model="e1" class="elevation-0 flex py-0">
-      <v-stepper-header class="elevation-0 py-0">
+  <v-row class="align-top no-gutters">
+    <v-stepper v-model="e1" class="elevation-0 flex py-0 grey lighten-3">
+      <v-stepper-header class="elevation-0 py-0 white">
         <v-stepper-step :complete="e1 > 1" step="1">Initial Details</v-stepper-step>
         <v-divider></v-divider>
         <v-stepper-step :complete="e1 > 2" step="2">Themes</v-stepper-step>
@@ -9,15 +9,15 @@
         <v-stepper-step step="3">Theme Leaders</v-stepper-step>
       </v-stepper-header>
       <v-stepper-items>
-         <v-stepper-content :key="`1-content`" :step="1" class="py-0">
-        <Step1 @complete="nextStep" />
-      </v-stepper-content>
-      <v-stepper-content :key="`2-content`" :step="2" class="py-0">
-        <Step2 @complete="nextStep" @previous="previousStep" />
-      </v-stepper-content>
+        <v-stepper-content :key="`1-content`" :step="1" class="py-0">
+          <Step1 @complete="nextStep" />
+        </v-stepper-content>
+        <v-stepper-content :key="`2-content`" :step="2" class="py-0">
+          <Step2 @complete="nextStep" @previous="previousStep" />
+        </v-stepper-content>
       </v-stepper-items>
     </v-stepper>
-  </v-layout>
+  </v-row>
 </template>
 <style scoped>
 </style>
