@@ -77,7 +77,6 @@ export default {
 
   methods: {
     ...mapActions({
-      fetchThemes: "themes/fetchThemes",
       deleteTheme: "themes/deleteTheme"
     }),
 
