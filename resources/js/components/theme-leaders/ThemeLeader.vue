@@ -13,7 +13,8 @@
                   <v-text-field
                     label="Enter the email of the Theme Leader"
                     v-model="theme.themeLeader.user.email"
-                    :dense="true"
+                    :rounded="rounded"
+                    :dense="dense"
                     :rules="emailRules"
                     :error-messages="asyncErrors.email"
                     outlined
@@ -29,7 +30,8 @@
                     label="Title"
                     :items = "titles"
                     v-model="theme.themeLeader.user.title"
-                    :dense="true"
+                    :rounded="rounded"
+                    :dense="dense"
                     :error-messages="asyncErrors['user.title']"
                     outlined
                     @input="asyncErrors=''"
@@ -39,7 +41,8 @@
                   <v-text-field
                     label="First Name"
                     v-model="theme.themeLeader.user.firstName"
-                    :dense="true"
+                    :rounded="rounded"
+                    :dense="dense"
                     :rules="firstNameRules"
                     :error-messages="asyncErrors['user.firstName']"
                     outlined
@@ -51,7 +54,8 @@
                   <v-text-field
                     label="Surname"
                     v-model="theme.themeLeader.user.surname"
-                    :dense="true"
+                    :rounded="rounded"
+                    :dense="dense"
                     :rules="surnameRules"
                     :error-messages="asyncErrors['user.surname']"
                     outlined
@@ -61,7 +65,7 @@
                 </v-col>
                 </template>
                 <template v-if="searchCompleted && userFound">
-                  <h3>{{theme.themeLeader.user.name}}</h3>
+                  <h3>User: {{theme.themeLeader.user.name}}</h3>
                 </template>
                 <v-col cols="12" class="py-0">
                   <v-divider class="my-4"></v-divider>
@@ -70,13 +74,17 @@
                     @click.stop="setThemeLeader()"
                     :class="{ 'blue darken-4 white--text' : valid, disabled: !valid }"
                     class="no-uppercase"
-                    :dense="true"
+                    :rounded="rounded"
+                    :dense="dense"
+                    :large="btnLarge"
                     outlined
                   >Add</v-btn>
                   <v-btn
                     v-if="!searchCompleted"
                     class="blue darken-4 white--text no-uppercase"
-                    :dense="true"
+                    :rounded="rounded"
+                    :dense="dense"
+                    :large="btnLarge"
                     outlined
                     elevation="0"
                     @click.stop="findUser"
@@ -84,7 +92,9 @@
                   <v-btn
                     @click.stop="modalToggle"
                     class="blue darken-4 white--text no-uppercase"
-                    :dense="true"
+                    :rounded="rounded"
+                    :dense="dense"
+                    :large="btnLarge"
                     outlined
                   >Cancel</v-btn>
                 </v-col>         
@@ -101,6 +111,9 @@ import { mapActions, mapGetters } from "vuex";
 export default {
   data() {
     return {
+      rounded:false,
+      dense:false,
+      btnLarge:true,
       asyncErrors: [],
       valid: false,
       emailRules: [

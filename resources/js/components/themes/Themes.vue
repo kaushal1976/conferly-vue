@@ -5,7 +5,14 @@
           <v-card class="my-0 grey lighten-4" :elevation="0" :outlined="true">
             <v-card-title>{{theme.title}}</v-card-title>
             <v-card-text>
-              <v-chip class="ma-2" v-for="themeLeader in theme.theme_leaders" :key="themeLeader.id">
+              <v-chip 
+              class="ma-2" 
+              v-for="themeLeader in theme.theme_leaders" 
+              :key="themeLeader.id"
+              >
+              <v-avatar left>
+                <v-icon>mdi-account-circle</v-icon>
+              </v-avatar>
                 {{themeLeader.user.name}}
               </v-chip>
               <div class="my-4 subtitle-1">{{theme.description}}</div>

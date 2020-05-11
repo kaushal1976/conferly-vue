@@ -9,21 +9,23 @@
               <v-text-field
                 label="Enter a title for the Conference"
                 v-model="conference.title"
-                :dense="true"
                 :rules="titleRules"
                 :error-messages="asyncErrors.title"
                 outlined
                 required
+                :rounded="rounded"
+                :dense="dense"
                 @input="asyncErrors=''"
               ></v-text-field>
               <v-text-field
                 label="Enter a Tag Line for the Conference"
                 v-model="conference.tag_line"
-                :dense="true"
+                :dense="dense"
                 :rules="tagLineRules"
                 :error-messages="asyncErrors.tag_line"
                 outlined
                 required
+                :rounded="rounded"
                 @input="asyncErrors=''"
               ></v-text-field>
             </v-col>
@@ -39,13 +41,14 @@
                 <template v-slot:activator="{ on }">
                   <v-text-field
                     v-model="conference.start_date"
-                    :dense="true"
+                    :dense="dense"
                     label="Start Date"
                     append-icon="mdi-calendar"
                     :rules="dateRules"
                     :error-messages="asyncErrors.start_date"
                     outlined
                     readonly
+                    :rounded="rounded"
                     v-on="on"
                   ></v-text-field>
                 </template>
@@ -64,13 +67,14 @@
                 <template v-slot:activator="{ on }">
                   <v-text-field
                     v-model="conference.end_date"
-                    :dense="true"
+                    :dense="dense"
                     label="End Date"
                     append-icon="mdi-calendar"
                     :rules="dateRules"
                     :error-messages="asyncErrors.end_date"
                     outlined
                     readonly
+                    :rounded="rounded"
                     v-on="on"
                     :disabled="fDateDisabled"
                   ></v-text-field>
@@ -86,34 +90,37 @@
               <v-text-field
                 label="Enter the venue of the Conference"
                 v-model="conference.venue"
-                :dense="true"
+                :dense="dense"
                 :rules="venueRules"
                 :error-messages="asyncErrors.venue"
                 outlined
                 required
+                :rounded="rounded"
                 @input="asyncErrors=''"
               ></v-text-field>
               <v-text-field
                 label="Enter Subject Area the Conference"
                 v-model="conference.subject_area"
-                :dense="true"
+                :dense="dense"
                 :rules="subjectRules"
                 :error-messages="asyncErrors.subject_area"
                 outlined
                 required
+                :rounded="rounded"
                 @input="asyncErrors=''"
               ></v-text-field>
             </v-col>
             <v-col cols="12" class="py-0">
               <v-textarea
                 label="A description for the Conference"
-                :dense="true"
+                :dense="dense"
                 v-model="conference.description"
                 rows="5"
                 :rules="descriptionRules"
                 :error-messages="asyncErrors.description"
                 outlined
                 required
+                :rounded="rounded"
                 @input="asyncErrors=''"
               ></v-textarea>
             </v-col>
@@ -123,9 +130,11 @@
                 <v-btn
                   @click="setConference"
                   :class="{ 'blue darken-4 white--text' : valid, disabled: !valid }"
-                  :dense="true"
+                  :dense="dense"
                   outlined
+                  :large="btnLarge"
                   class="no-uppercase"
+                  :rounded="rounded"
                 >Next</v-btn>
               </v-card-actions>
             </v-col>
@@ -150,7 +159,10 @@ export default {
       subjectRules: [v => !!v || "Subject is required"],
       fDateDisabled: true,
       sDateMenu: false,
-      fDateMenu: false
+      fDateMenu: false,
+      dense: false,
+      rounded: false,
+      btnLarge:true,
     };
   },
 

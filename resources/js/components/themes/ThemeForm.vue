@@ -17,7 +17,8 @@
                   <v-text-field
                     label="Enter a title for the Theme"
                     v-model="theme.title"
-                    :dense="true"
+                    :rounded="rounded"
+                    :dense="dense"
                     :rules="titleRules"
                     :error-messages="asyncErrors.title"
                     outlined
@@ -29,7 +30,8 @@
                   <v-textarea
                     label="A description for the Theme"
                     v-model="theme.description"
-                    :dense="true"
+                    :rounded="rounded"
+                    :dense="dense"
                     :rules="descriptionRules"
                     :error-messages="asyncErrors.description"
                     rows="5"
@@ -42,10 +44,14 @@
                   <v-chip
                     v-for="(leader,index) in theme.themeLeaders"
                     :key="index"
+                    :large="chipLarge"
                     class="ma-2"
                     close
                     @click:close="removeLeader(leader)"
                   >
+                  <v-avatar left>
+                    <v-icon>mdi-account-circle</v-icon>
+                  </v-avatar>
                   {{leader.user.title+' '+leader.user.firstName+' '+leader.user.surname}}
                   </v-chip>
                 </v-col>
@@ -66,13 +72,17 @@
                     @click.stop="setTheme(conference.id)"
                     :class="{ 'blue darken-4 white--text' : valid, disabled: !valid }"
                     class="no-uppercase"
-                    :dense="true"
+                    :rounded="rounded"
+                    :dense="dense"
+                    :large="btnLarge"
                     outlined
                   >Add</v-btn>
                   <v-btn
                     @click.stop="hide"
                     class="blue darken-4 white--text no-uppercase"
-                    :dense="true"
+                    :rounded="rounded"
+                    :dense="dense"
+                    :large="btnLarge"
                     outlined
                   >Cancel</v-btn>
                 </v-col>
@@ -98,7 +108,11 @@ export default {
       valid: false,
       titleRules: [v => !!v || "Title is required"],
       descriptionRules: [v => !!v || "Description is required"],
-      themeLeaderModal: false
+      themeLeaderModal: false,
+      rounded:false,
+      dense:false,
+      btnLarge:true,
+      chipLarge:false
     };
   },
   props: {

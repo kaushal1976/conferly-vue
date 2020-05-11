@@ -32,14 +32,18 @@
                 @click="previous"
                 :class="{ 'blue darken-4 white--text' : valid, disabled: !valid }"
                 class="no-uppercase"
-                :dense='true'
+                :rounded="rounded"
+                :dense="dense"
+                :large="btnLarge"
                 outlined
               >Previous</v-btn>
               <v-btn
                 :class="{ 'blue darken-4 white--text no-uppercase' : valid, disabled: !valid }"
                 class="no-uppercase"
                 @click="complete"
-                :dense="true"
+                :rounded="rounded"
+                :dense="dense"
+                :large="btnLarge"
                 outlined
               >Next</v-btn>
             </v-card-actions>
@@ -61,7 +65,9 @@ export default {
   data() {
     return {
       asyncErrors: [],
-      test:false,
+      rounded:false,
+      dense:false,
+      btnLarge:true,
       valid: false,
       titleRules: [v => !!v || "Title is required"],
       descriptionRules: [v => !!v || "Description is required"],

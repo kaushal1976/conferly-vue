@@ -2337,6 +2337,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2363,7 +2372,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }],
       fDateDisabled: true,
       sDateMenu: false,
-      fDateMenu: false
+      fDateMenu: false,
+      dense: false,
+      rounded: false,
+      btnLarge: true
     };
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])({
@@ -2475,6 +2487,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -2486,7 +2502,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   data: function data() {
     return {
       asyncErrors: [],
-      test: false,
+      rounded: false,
+      dense: false,
+      btnLarge: true,
       valid: false,
       titleRules: [function (v) {
         return !!v || "Title is required";
@@ -2753,10 +2771,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      rounded: false,
+      dense: false,
+      btnLarge: true,
       asyncErrors: [],
       valid: false,
       emailRules: [function (v) {
@@ -2943,6 +2974,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2956,7 +2997,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       descriptionRules: [function (v) {
         return !!v || "Description is required";
       }],
-      themeLeaderModal: false
+      themeLeaderModal: false,
+      rounded: false,
+      dense: false,
+      btnLarge: true,
+      chipLarge: false
     };
   },
   props: {
@@ -3051,10 +3096,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])({
-    //fetchThemes: "themes/fetchThemes",
+    fetchThemes: "themes/fetchThemes",
     deleteTheme: "themes/deleteTheme"
   })),
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
@@ -40190,11 +40242,12 @@ var render = function() {
                           _c("v-text-field", {
                             attrs: {
                               label: "Enter a title for the Conference",
-                              dense: true,
                               rules: _vm.titleRules,
                               "error-messages": _vm.asyncErrors.title,
                               outlined: "",
-                              required: ""
+                              required: "",
+                              rounded: _vm.rounded,
+                              dense: _vm.dense
                             },
                             on: {
                               input: function($event) {
@@ -40213,11 +40266,12 @@ var render = function() {
                           _c("v-text-field", {
                             attrs: {
                               label: "Enter a Tag Line for the Conference",
-                              dense: true,
+                              dense: _vm.dense,
                               rules: _vm.tagLineRules,
                               "error-messages": _vm.asyncErrors.tag_line,
                               outlined: "",
-                              required: ""
+                              required: "",
+                              rounded: _vm.rounded
                             },
                             on: {
                               input: function($event) {
@@ -40264,14 +40318,15 @@ var render = function() {
                                         _vm._g(
                                           {
                                             attrs: {
-                                              dense: true,
+                                              dense: _vm.dense,
                                               label: "Start Date",
                                               "append-icon": "mdi-calendar",
                                               rules: _vm.dateRules,
                                               "error-messages":
                                                 _vm.asyncErrors.start_date,
                                               outlined: "",
-                                              readonly: ""
+                                              readonly: "",
+                                              rounded: _vm.rounded
                                             },
                                             model: {
                                               value: _vm.conference.start_date,
@@ -40348,7 +40403,7 @@ var render = function() {
                                         _vm._g(
                                           {
                                             attrs: {
-                                              dense: true,
+                                              dense: _vm.dense,
                                               label: "End Date",
                                               "append-icon": "mdi-calendar",
                                               rules: _vm.dateRules,
@@ -40356,6 +40411,7 @@ var render = function() {
                                                 _vm.asyncErrors.end_date,
                                               outlined: "",
                                               readonly: "",
+                                              rounded: _vm.rounded,
                                               disabled: _vm.fDateDisabled
                                             },
                                             model: {
@@ -40416,11 +40472,12 @@ var render = function() {
                           _c("v-text-field", {
                             attrs: {
                               label: "Enter the venue of the Conference",
-                              dense: true,
+                              dense: _vm.dense,
                               rules: _vm.venueRules,
                               "error-messages": _vm.asyncErrors.venue,
                               outlined: "",
-                              required: ""
+                              required: "",
+                              rounded: _vm.rounded
                             },
                             on: {
                               input: function($event) {
@@ -40439,11 +40496,12 @@ var render = function() {
                           _c("v-text-field", {
                             attrs: {
                               label: "Enter Subject Area the Conference",
-                              dense: true,
+                              dense: _vm.dense,
                               rules: _vm.subjectRules,
                               "error-messages": _vm.asyncErrors.subject_area,
                               outlined: "",
-                              required: ""
+                              required: "",
+                              rounded: _vm.rounded
                             },
                             on: {
                               input: function($event) {
@@ -40469,12 +40527,13 @@ var render = function() {
                           _c("v-textarea", {
                             attrs: {
                               label: "A description for the Conference",
-                              dense: true,
+                              dense: _vm.dense,
                               rows: "5",
                               rules: _vm.descriptionRules,
                               "error-messages": _vm.asyncErrors.description,
                               outlined: "",
-                              required: ""
+                              required: "",
+                              rounded: _vm.rounded
                             },
                             on: {
                               input: function($event) {
@@ -40510,7 +40569,12 @@ var render = function() {
                                     "blue darken-4 white--text": _vm.valid,
                                     disabled: !_vm.valid
                                   },
-                                  attrs: { dense: true, outlined: "" },
+                                  attrs: {
+                                    dense: _vm.dense,
+                                    outlined: "",
+                                    large: _vm.btnLarge,
+                                    rounded: _vm.rounded
+                                  },
                                   on: { click: _vm.setConference }
                                 },
                                 [_vm._v("Next")]
@@ -40647,7 +40711,12 @@ var render = function() {
                                 "blue darken-4 white--text": _vm.valid,
                                 disabled: !_vm.valid
                               },
-                              attrs: { dense: true, outlined: "" },
+                              attrs: {
+                                rounded: _vm.rounded,
+                                dense: _vm.dense,
+                                large: _vm.btnLarge,
+                                outlined: ""
+                              },
                               on: { click: _vm.previous }
                             },
                             [_vm._v("Previous")]
@@ -40662,7 +40731,12 @@ var render = function() {
                                   _vm.valid,
                                 disabled: !_vm.valid
                               },
-                              attrs: { dense: true, outlined: "" },
+                              attrs: {
+                                rounded: _vm.rounded,
+                                dense: _vm.dense,
+                                large: _vm.btnLarge,
+                                outlined: ""
+                              },
                               on: { click: _vm.complete }
                             },
                             [_vm._v("Next")]
@@ -40960,7 +41034,8 @@ var render = function() {
                                     attrs: {
                                       label:
                                         "Enter the email of the Theme Leader",
-                                      dense: true,
+                                      rounded: _vm.rounded,
+                                      dense: _vm.dense,
                                       rules: _vm.emailRules,
                                       "error-messages": _vm.asyncErrors.email,
                                       outlined: "",
@@ -41001,7 +41076,8 @@ var render = function() {
                                           attrs: {
                                             label: "Title",
                                             items: _vm.titles,
-                                            dense: true,
+                                            rounded: _vm.rounded,
+                                            dense: _vm.dense,
                                             "error-messages":
                                               _vm.asyncErrors["user.title"],
                                             outlined: ""
@@ -41039,7 +41115,8 @@ var render = function() {
                                         _c("v-text-field", {
                                           attrs: {
                                             label: "First Name",
-                                            dense: true,
+                                            rounded: _vm.rounded,
+                                            dense: _vm.dense,
                                             rules: _vm.firstNameRules,
                                             "error-messages":
                                               _vm.asyncErrors["user.firstName"],
@@ -41080,7 +41157,8 @@ var render = function() {
                                         _c("v-text-field", {
                                           attrs: {
                                             label: "Surname",
-                                            dense: true,
+                                            rounded: _vm.rounded,
+                                            dense: _vm.dense,
                                             rules: _vm.surnameRules,
                                             "error-messages":
                                               _vm.asyncErrors["user.surname"],
@@ -41117,7 +41195,10 @@ var render = function() {
                                 ? [
                                     _c("h3", [
                                       _vm._v(
-                                        _vm._s(_vm.theme.themeLeader.user.name)
+                                        "User: " +
+                                          _vm._s(
+                                            _vm.theme.themeLeader.user.name
+                                          )
                                       )
                                     ])
                                   ]
@@ -41139,7 +41220,12 @@ var render = function() {
                                               _vm.valid,
                                             disabled: !_vm.valid
                                           },
-                                          attrs: { dense: true, outlined: "" },
+                                          attrs: {
+                                            rounded: _vm.rounded,
+                                            dense: _vm.dense,
+                                            large: _vm.btnLarge,
+                                            outlined: ""
+                                          },
                                           on: {
                                             click: function($event) {
                                               $event.stopPropagation()
@@ -41158,7 +41244,9 @@ var render = function() {
                                           staticClass:
                                             "blue darken-4 white--text no-uppercase",
                                           attrs: {
-                                            dense: true,
+                                            rounded: _vm.rounded,
+                                            dense: _vm.dense,
+                                            large: _vm.btnLarge,
                                             outlined: "",
                                             elevation: "0"
                                           },
@@ -41178,7 +41266,12 @@ var render = function() {
                                     {
                                       staticClass:
                                         "blue darken-4 white--text no-uppercase",
-                                      attrs: { dense: true, outlined: "" },
+                                      attrs: {
+                                        rounded: _vm.rounded,
+                                        dense: _vm.dense,
+                                        large: _vm.btnLarge,
+                                        outlined: ""
+                                      },
                                       on: {
                                         click: function($event) {
                                           $event.stopPropagation()
@@ -41311,7 +41404,8 @@ var render = function() {
                                   _c("v-text-field", {
                                     attrs: {
                                       label: "Enter a title for the Theme",
-                                      dense: true,
+                                      rounded: _vm.rounded,
+                                      dense: _vm.dense,
                                       rules: _vm.titleRules,
                                       "error-messages": _vm.asyncErrors.title,
                                       outlined: "",
@@ -41341,7 +41435,8 @@ var render = function() {
                                   _c("v-textarea", {
                                     attrs: {
                                       label: "A description for the Theme",
-                                      dense: true,
+                                      rounded: _vm.rounded,
+                                      dense: _vm.dense,
                                       rules: _vm.descriptionRules,
                                       "error-messages":
                                         _vm.asyncErrors.description,
@@ -41378,7 +41473,10 @@ var render = function() {
                                     {
                                       key: index,
                                       staticClass: "ma-2",
-                                      attrs: { close: "" },
+                                      attrs: {
+                                        large: _vm.chipLarge,
+                                        close: ""
+                                      },
                                       on: {
                                         "click:close": function($event) {
                                           return _vm.removeLeader(leader)
@@ -41386,6 +41484,16 @@ var render = function() {
                                       }
                                     },
                                     [
+                                      _c(
+                                        "v-avatar",
+                                        { attrs: { left: "" } },
+                                        [
+                                          _c("v-icon", [
+                                            _vm._v("mdi-account-circle")
+                                          ])
+                                        ],
+                                        1
+                                      ),
                                       _vm._v(
                                         "\n                " +
                                           _vm._s(
@@ -41397,7 +41505,8 @@ var render = function() {
                                           ) +
                                           "\n                "
                                       )
-                                    ]
+                                    ],
+                                    1
                                   )
                                 }),
                                 1
@@ -41450,7 +41559,12 @@ var render = function() {
                                         "blue darken-4 white--text": _vm.valid,
                                         disabled: !_vm.valid
                                       },
-                                      attrs: { dense: true, outlined: "" },
+                                      attrs: {
+                                        rounded: _vm.rounded,
+                                        dense: _vm.dense,
+                                        large: _vm.btnLarge,
+                                        outlined: ""
+                                      },
                                       on: {
                                         click: function($event) {
                                           $event.stopPropagation()
@@ -41466,7 +41580,12 @@ var render = function() {
                                     {
                                       staticClass:
                                         "blue darken-4 white--text no-uppercase",
-                                      attrs: { dense: true, outlined: "" },
+                                      attrs: {
+                                        rounded: _vm.rounded,
+                                        dense: _vm.dense,
+                                        large: _vm.btnLarge,
+                                        outlined: ""
+                                      },
                                       on: {
                                         click: function($event) {
                                           $event.stopPropagation()
@@ -41563,12 +41682,21 @@ var render = function() {
                               "v-chip",
                               { key: themeLeader.id, staticClass: "ma-2" },
                               [
+                                _c(
+                                  "v-avatar",
+                                  { attrs: { left: "" } },
+                                  [
+                                    _c("v-icon", [_vm._v("mdi-account-circle")])
+                                  ],
+                                  1
+                                ),
                                 _vm._v(
                                   "\n              " +
                                     _vm._s(themeLeader.user.name) +
                                     "\n            "
                                 )
-                              ]
+                              ],
+                              1
                             )
                           }),
                           _vm._v(" "),
