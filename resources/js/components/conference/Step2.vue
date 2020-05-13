@@ -1,6 +1,6 @@
 <template>
   <v-row justify="center" align="start" class="fill-height">
-    <v-col cols="12" lg="10" xl="8">
+    <v-col cols="12" lg="10" xl="7">
       <v-card class="px-5 py-6" :outlined="true">
         <ThemeForm
           v-if="showThemeForm"

@@ -7,7 +7,7 @@
         <v-list-item-subtitle>Manage themes</v-list-item-subtitle>
         <v-spacer></v-spacer>
       </v-list-item-content>
-      <v-btn class="no-uppercase my-3" color="primary" elevation="0" @click.stop="themeForm">
+      <v-btn class="no-uppercase my-3" color="primary" elevation="0" rounded @click.stop="themeForm">
         <b>Add a theme
         <v-icon dark>mdi-plus</v-icon>
         </b>

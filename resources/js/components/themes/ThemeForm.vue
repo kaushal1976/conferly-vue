@@ -56,14 +56,15 @@
                   </template>
                 </v-col>
                 <v-col cols="12" class="py-0">
-                  <ThemeLeader v-if="themeLeaderModal" 
-                    :showLeaderForm="themeLeaderModal" 
+                  <ThemeLeader v-if="themeLeaderModal"
+                    :showLeaderForm="themeLeaderModal"
                     @hide="showLeaderFormToggle">
                   </ThemeLeader>
                   <v-btn
                     class="no-uppercase my-3"
                     color="primary"
                     elevation="0"
+                    rounded
                     @click.stop="showLeaderFormToggle"
                   >
                     Add a theme Leader

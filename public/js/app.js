@@ -2974,6 +2974,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -40394,7 +40395,7 @@ var render = function() {
     [
       _c(
         "v-col",
-        { attrs: { cols: "12", lg: "10", xl: "8" } },
+        { attrs: { cols: "12", lg: "10", xl: "7" } },
         [
           _c(
             "v-card",
@@ -40848,7 +40849,7 @@ var render = function() {
     [
       _c(
         "v-col",
-        { attrs: { cols: "12", lg: "10", xl: "8" } },
+        { attrs: { cols: "12", lg: "10", xl: "7" } },
         [
           _c(
             "v-card",
@@ -41717,7 +41718,11 @@ var render = function() {
                             "v-btn",
                             {
                               staticClass: "no-uppercase my-3",
-                              attrs: { color: "primary", elevation: "0" },
+                              attrs: {
+                                color: "primary",
+                                elevation: "0",
+                                rounded: ""
+                              },
                               on: {
                                 click: function($event) {
                                   $event.stopPropagation()
@@ -41857,7 +41862,7 @@ var render = function() {
             "v-btn",
             {
               staticClass: "no-uppercase my-3",
-              attrs: { color: "primary", elevation: "0" },
+              attrs: { color: "primary", elevation: "0", rounded: "" },
               on: {
                 click: function($event) {
                   $event.stopPropagation()
@@ -106110,8 +106115,8 @@ var DELETE_THEME_LEADER = function DELETE_THEME_LEADER(state, themeLeader) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/Kaushal/Sites/conferly-vue/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/Kaushal/Sites/conferly-vue/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/kaushal/Sites/conferly-vue/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/kaushal/Sites/conferly-vue/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
