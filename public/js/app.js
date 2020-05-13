@@ -2768,6 +2768,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2871,6 +2874,8 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
 //
 //
 //
@@ -41409,16 +41414,13 @@ var render = function() {
                                         "v-btn",
                                         {
                                           staticClass: "no-uppercase",
-                                          class: {
-                                            "blue darken-4 white--text":
-                                              _vm.valid,
-                                            disabled: !_vm.valid
-                                          },
                                           attrs: {
                                             rounded: _vm.rounded,
                                             dense: _vm.dense,
                                             large: _vm.btnLarge,
-                                            outlined: ""
+                                            disabled: !_vm.valid,
+                                            elevation: 0,
+                                            color: "primary"
                                           },
                                           on: {
                                             click: function($event) {
@@ -41435,14 +41437,14 @@ var render = function() {
                                     ? _c(
                                         "v-btn",
                                         {
-                                          staticClass:
-                                            "blue darken-4 white--text no-uppercase",
+                                          staticClass: "no-uppercase",
                                           attrs: {
+                                            color: "primary",
                                             rounded: _vm.rounded,
                                             dense: _vm.dense,
                                             large: _vm.btnLarge,
-                                            outlined: "",
-                                            elevation: "0"
+                                            disabled: !_vm.valid,
+                                            elevation: 0
                                           },
                                           on: {
                                             click: function($event) {
@@ -41458,13 +41460,13 @@ var render = function() {
                                   _c(
                                     "v-btn",
                                     {
-                                      staticClass:
-                                        "blue darken-4 white--text no-uppercase",
+                                      staticClass: "no-uppercase",
                                       attrs: {
+                                        color: "primary",
                                         rounded: _vm.rounded,
                                         dense: _vm.dense,
                                         large: _vm.btnLarge,
-                                        outlined: ""
+                                        elevation: 0
                                       },
                                       on: {
                                         click: function($event) {
@@ -41747,15 +41749,15 @@ var render = function() {
                             "v-btn",
                             {
                               staticClass: "no-uppercase",
-                              class: {
-                                "blue darken-4 white--text": _vm.valid,
-                                disabled: !_vm.valid
-                              },
                               attrs: {
+                                color: "primary",
                                 rounded: _vm.rounded,
                                 dense: _vm.dense,
                                 large: _vm.btnLarge,
-                                outlined: ""
+                                disabled:
+                                  !_vm.valid ||
+                                  !_vm.theme.themeLeaders.length > 0,
+                                elevation: 0
                               },
                               on: {
                                 click: function($event) {
@@ -41770,13 +41772,13 @@ var render = function() {
                           _c(
                             "v-btn",
                             {
-                              staticClass:
-                                "blue darken-4 white--text no-uppercase",
+                              staticClass: "no-uppercase",
                               attrs: {
+                                color: "primary",
                                 rounded: _vm.rounded,
                                 dense: _vm.dense,
                                 large: _vm.btnLarge,
-                                outlined: ""
+                                elevation: 0
                               },
                               on: {
                                 click: function($event) {

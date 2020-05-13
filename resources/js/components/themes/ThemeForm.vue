@@ -74,20 +74,22 @@
                   <v-divider class="my-4"></v-divider>
                   <v-btn
                     @click.stop="setTheme(conference.id)"
-                    :class="{ 'blue darken-4 white--text' : valid, disabled: !valid }"
+                    color="primary"
                     class="no-uppercase"
                     :rounded="rounded"
                     :dense="dense"
                     :large="btnLarge"
-                    outlined
+                    :disabled="((!valid)||(!theme.themeLeaders.length  > 0))"
+                    :elevation="0"
                   >Add</v-btn>
                   <v-btn
                     @click.stop="hide"
-                    class="blue darken-4 white--text no-uppercase"
+                    class="no-uppercase"
+                    color="primary"
                     :rounded="rounded"
                     :dense="dense"
                     :large="btnLarge"
-                    outlined
+                    :elevation="0"
                   >Cancel</v-btn>
                 </v-col>
               </v-row>

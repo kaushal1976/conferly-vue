@@ -76,30 +76,33 @@
                   <v-btn
                     v-if="searchCompleted"
                     @click.stop="setThemeLeader()"
-                    :class="{ 'blue darken-4 white--text' : valid, disabled: !valid }"
                     class="no-uppercase"
                     :rounded="rounded"
                     :dense="dense"
                     :large="btnLarge"
-                    outlined
+                    :disabled="!valid"
+                    :elevation="0"
+                    color="primary"
                   >Add</v-btn>
                   <v-btn
                     v-if="!searchCompleted"
-                    class="blue darken-4 white--text no-uppercase"
+                    class="no-uppercase"
+                    color="primary"
                     :rounded="rounded"
                     :dense="dense"
                     :large="btnLarge"
-                    outlined
-                    elevation="0"
+                    :disabled="!valid"
+                    :elevation="0"
                     @click.stop="findUser"
                   >Search</v-btn>
                   <v-btn
                     @click.stop="modalToggle"
-                    class="blue darken-4 white--text no-uppercase"
+                    class="no-uppercase"
+                    color="primary"
                     :rounded="rounded"
                     :dense="dense"
                     :large="btnLarge"
-                    outlined
+                    :elevation="0"
                   >Cancel</v-btn>
                 </v-col>         
               </v-row>
