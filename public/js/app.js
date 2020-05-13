@@ -3104,9 +3104,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -41956,17 +41953,6 @@ var render = function() {
                   _c(
                     "v-list-item-action",
                     [
-                      _c(
-                        "v-btn",
-                        { attrs: { icon: "" } },
-                        [
-                          _c("v-icon", { attrs: { color: "grey lighten-1" } }, [
-                            _vm._v("mdi-file-edit-outline")
-                          ])
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
                       _c(
                         "v-btn",
                         { attrs: { icon: "" } },
@@ -106115,8 +106101,8 @@ var DELETE_THEME_LEADER = function DELETE_THEME_LEADER(state, themeLeader) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/kaushal/Sites/conferly-vue/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/kaushal/Sites/conferly-vue/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/Kaushal/Sites/conferly-vue/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/Kaushal/Sites/conferly-vue/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

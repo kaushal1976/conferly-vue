@@ -37,9 +37,6 @@
           </v-list-item-content>
           <v-list-item-action>
             <v-btn icon>
-              <v-icon color="grey lighten-1">mdi-file-edit-outline</v-icon>
-            </v-btn>
-            <v-btn icon>
               <v-icon @click.stop="deleteTheme(theme.id)" color="grey lighten-1">mdi-delete</v-icon>
             </v-btn>
           </v-list-item-action>
