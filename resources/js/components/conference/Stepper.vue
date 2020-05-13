@@ -1,6 +1,7 @@
 <template>
-  <v-row class="no-gutters fill-height">
-    <v-stepper v-model="e1" class="elevation-0 flex py-0 grey lighten-3">
+<v-container fluid fill-height class="px-0 py-0">
+  <v-row class="fill-height mx-0">
+      <v-stepper v-model="e1" class="elevation-0 flex py-0 grey lighten-3">
       <v-stepper-header class="elevation-0 py-0 white">
         <v-stepper-step :complete="e1 > 1" step="1">Initial Details</v-stepper-step>
         <v-divider></v-divider>
@@ -18,6 +19,7 @@
       </v-stepper-items>
     </v-stepper>
   </v-row>
+  </v-container>
 </template>
 <style scoped>
 </style>

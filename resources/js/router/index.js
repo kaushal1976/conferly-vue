@@ -8,6 +8,7 @@ import Conferences from '../components/conference/Conferences.vue'
 import Conference from '../components/conference/Conference.vue'
 
 import ThemeForm from '../components/themes/ThemeForm.vue'
+import Test from '../components/Test.vue'
 
 Vue.use(VueRouter);
 
@@ -55,6 +56,12 @@ export default new VueRouter({
             path: '/themes/:themeId/edit',
             component: Stepper,
             name: 'edit-theme'
+        },
+
+        {
+            path: '/test',
+            component: Test,
+            name: 'test'
         },
     ]
 });

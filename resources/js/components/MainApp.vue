@@ -21,9 +21,7 @@
     </v-app-bar>
     <!-- Content -->
     <v-content>
-      <v-container class="ma-0 pa-0" fluid fill-height >
         <router-view></router-view>
-      </v-container>
     </v-content>
     <v-footer app absolute>
       <Footer />

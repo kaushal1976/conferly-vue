@@ -1,5 +1,4 @@
 <template>
-  <div>
     <v-dialog v-model="showThemeForm" persistent max-width="800px">
       <v-card>
         <v-list-item>
@@ -10,10 +9,9 @@
           </v-list-item-content>
         </v-list-item>
         <v-card-text>
-          <v-container>
             <v-form v-model="valid" ref="themeForm" @submit.stop.prevent class="py-0 px-0">
-              <v-row class="justify-center py-0">
-                <v-col cols="12 py-0">
+              <v-row class="py-0" justify="center">
+                <v-col cols="12" class="py-0">
                   <v-text-field
                     label="Enter a title for the Theme"
                     v-model="theme.title"
@@ -40,8 +38,9 @@
                     @input="asyncErrors=''"
                   ></v-textarea>
                 </v-col>
-                <v-col cols="12" class="py-1">
-                  <v-chip
+                <v-col cols="12" class="py-0">
+                  <template v-if="theme.themeLeaders.length">
+                    <v-chip
                     v-for="(leader,index) in theme.themeLeaders"
                     :key="index"
                     :large="chipLarge"
@@ -54,15 +53,20 @@
                   </v-avatar>
                   {{leader.user.title+' '+leader.user.firstName+' '+leader.user.surname}}
                   </v-chip>
+                  </template>
                 </v-col>
                 <v-col cols="12" class="py-0">
+                  <ThemeLeader v-if="themeLeaderModal" 
+                    :showLeaderForm="themeLeaderModal" 
+                    @hide="showLeaderFormToggle">
+                  </ThemeLeader>
                   <v-btn
-                    class="no-uppercase"
+                    class="no-uppercase my-3"
                     color="primary"
                     elevation="0"
                     @click.stop="showLeaderFormToggle"
-                    fab
                   >
+                    Add a theme Leader
                     <v-icon dark>mdi-plus</v-icon>
                   </v-btn>
                 </v-col>
@@ -88,15 +92,9 @@
                 </v-col>
               </v-row>
             </v-form>
-            <ThemeLeader v-if="themeLeaderModal" 
-            :showLeaderForm="themeLeaderModal" 
-            @hide="showLeaderFormToggle">
-            </ThemeLeader>
-          </v-container>
         </v-card-text>
       </v-card>
     </v-dialog>
-  </div>
 </template>
 <script>
 import { mapActions, mapGetters } from "vuex";

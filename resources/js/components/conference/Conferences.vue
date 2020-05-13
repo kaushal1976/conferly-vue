@@ -1,9 +1,8 @@
 <template>
-  <v-row no-gutters class="fill-height">
-    <v-col cols="12">
-      <v-row align="center" justify="center" class="grey lighten-3">
-        <v-col cols="12" class="px-5">
-          <v-card color="grey lighten-2" class="px-5 py-5" flat>
+<v-container fluid fill-height class="px-0 py-0">
+      <v-row align="start" justify="center" class="grey lighten-3 mx-0 fill-height">
+        <v-col cols="12">
+          <v-card color="grey lighten-2" class="px-3 py-3" flat>
             <h1 class="font-weight-light"><span>Confer<b>ly</b></span></h1>
             <p class="lead text-muted">
               Helping to manage academic conferences worldwide. Paper management process, Review process,
@@ -30,15 +29,12 @@
             </p>
           </v-card>
         </v-col>
-        <v-responsive v-if="loading" class="p-3">
-          <div class="p-3">
-            <v-skeleton-loader type="list-item-avatar-three-line"></v-skeleton-loader>
-          </div>
-        </v-responsive>
-        <v-row justify="center" v-if="conferences.length">
-          <div class="d-flex" v-for="conference in conferences" justify="center" :key="conference.id">
-            <v-col class="mx-2 d-flex flex-column">
-              <v-card class="my-2 flex" max-width="374" elevation="0" >
+        <v-col v-if="loading" cols="12">
+          <v-skeleton-loader type="list-item-avatar-three-line"></v-skeleton-loader>
+        </v-col>
+        <v-col cols="12" v-if="conferences.length">
+          <v-row justify="center">
+              <v-card v-for="conference in conferences" class="my-2 mx-2" max-width="374" elevation="0" :key="conference.id" >
                 <v-img height="250" :src='"/storage/conference/images/"+conference.image'></v-img>
                 <v-card-title>{{conference.title}}</v-card-title>
                 <v-card-text>
@@ -69,12 +65,10 @@
                   <v-btn :to="{ name: 'edit-conference', params: { conferenceId: conference.id } }" color="deep-purple lighten-2" text>Edit</v-btn>
                 </v-card-actions>
               </v-card>
-            </v-col>
-          </div>
-        </v-row>
+          </v-row>
+        </v-col>
       </v-row>
-    </v-col>
-  </v-row>
+</v-container>
 </template>
 <script>
 import { mapState } from "vuex";

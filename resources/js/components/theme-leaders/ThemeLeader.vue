@@ -2,9 +2,13 @@
   <div>
     <v-dialog v-model="showLeaderForm" persistent max-width="600px">
       <v-card>
-        <v-card-title>
-          <span class="headline">Theme Leader</span>
-        </v-card-title>
+        <v-list-item>
+          <v-list-item-avatar color="grey"></v-list-item-avatar>
+          <v-list-item-content>
+            <v-list-item-title class="headline">Theme Leader</v-list-item-title>
+            <v-list-item-subtitle>Add a new theme Leader</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
         <v-card-text>
           <v-container>
             <v-form v-model="valid" ref="themeLeaderForm" @submit.stop.prevent class="py-0">

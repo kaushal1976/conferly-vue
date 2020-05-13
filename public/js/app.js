@@ -1940,8 +1940,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2155,12 +2153,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 
@@ -2200,6 +2192,16 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2471,23 +2473,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -2545,6 +2530,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Step1_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Step1.vue */ "./resources/js/components/conference/Step1.vue");
 /* harmony import */ var _Step2_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Step2.vue */ "./resources/js/components/conference/Step2.vue");
+//
+//
 //
 //
 //
@@ -2669,6 +2656,10 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
 //
 //
 //
@@ -2978,8 +2969,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3099,12 +3088,32 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {};
+  },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])({
     fetchThemes: "themes/fetchThemes",
     deleteTheme: "themes/deleteTheme"
-  })),
+  }), {
+    themeForm: function themeForm() {
+      this.$emit("themeForm");
+    }
+  }),
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
     conference: "conferences/getConference",
     themes: "themes/getThemes",
@@ -7678,6 +7687,25 @@ exports = module.exports = __webpack_require__(/*! ../../css-loader/lib/css-base
 
 // module
 exports.push([module.i, ".vue-file-agent,.vue-file-agent *{-webkit-box-sizing:border-box;box-sizing:border-box}.is-drag-over *{pointer-events:none!important}.is-drag-over:before{content:\" \"}.is-disabled .vue-file-agent{opacity:.65;pointer-events:none}.grid-box-item{-webkit-transition-duration:.6s;transition-duration:.6s}.grid-box-enter,.grid-box-leave-to{opacity:0!important;-webkit-transform:translateZ(0) scale(.25)!important;transform:translateZ(0) scale(.25)!important}.grid-box-leave-active{position:absolute!important}.is-readonly .vue-file-agent.file-input-wrapper{border:0}.vue-file-agent .file-preview-wrapper{display:inline-block;margin:5px;position:relative;vertical-align:top;margin:16px;margin:8px}.vue-file-agent .file-preview-wrapper:before{content:\" \";position:absolute;left:0;top:0;right:0;bottom:0;background:rgba(0,0,0,.25)}.vue-file-agent .file-category-video-playable .file-preview .file-preview-overlay,.vue-file-agent .file-preview-wrapper-image .file-preview .file-preview-overlay{content:\" \";background:rgba(0,0,0,.25);position:absolute;top:0;right:0;bottom:0;left:0;z-index:-1}.vue-file-agent .file-category-video-playable .file-preview:before,.vue-file-agent .file-preview-wrapper-image .file-preview:before{-webkit-box-shadow:inset 0 40px 20px -25px rgba(0,0,0,.5);box-shadow:inset 0 40px 20px -25px rgba(0,0,0,.5);height:40px}.vue-file-agent .file-category-video-playable .file-preview:after,.vue-file-agent .file-preview-wrapper-image .file-preview:after{-webkit-box-shadow:inset 0 -40px 20px -25px rgba(0,0,0,.5);box-shadow:inset 0 -40px 20px -25px rgba(0,0,0,.5);height:40px}.vue-file-agent .file-category-audio-playable .file-preview .file-icon,.vue-file-agent .file-category-video-playable .file-preview .file-icon,.vue-file-agent .file-preview-wrapper-image .file-preview .file-icon{display:none}.vue-file-agent .file-category-video-playable .file-preview .file-preview-overlay{z-index:1}.vue-file-agent .file-preview-wrapper-image .file-preview.dark-content .file-preview-overlay{background:hsla(0,0%,100%,.25)}.vue-file-agent .file-preview{position:relative;z-index:1;float:left;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;z-index:9}.vue-file-agent .file-preview:after,.vue-file-agent .file-preview:before{content:\" \";position:absolute;left:0;top:0;right:0;bottom:0;z-index:2;top:auto;height:25px}.vue-file-agent .file-preview:before{height:28px;top:0;bottom:auto}.vue-file-agent .file-preview .file-preview-img{max-width:100%;max-height:100%;background:url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\"><rect x=\"0\" y=\"0\" width=\"100%\" height=\"100%\" fill=\"rgba(255, 255, 255, 0.1)\" /><rect x=\"50%\" y=\"0\" width=\"50%\" height=\"50%\" fill=\"rgba(0, 0, 0, 0.075)\" /><rect x=\"0\" y=\"50%\" width=\"50%\" height=\"50%\" fill=\"rgba(0, 0, 0, 0.075)\" /></svg>');background-repeat:repeat;position:absolute;left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}.vue-file-agent .file-preview .file-preview-img-clone{position:absolute;top:0;right:0;bottom:0;left:0;-o-object-fit:cover;object-fit:cover;-webkit-filter:blur(10px);filter:blur(10px);height:100%;width:100%}.vue-file-agent .file-preview .file-name{position:absolute;top:0;left:0;right:0;padding:0 5px;z-index:4;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:28px;height:28px;font-size:16px}.vue-file-agent .file-preview .file-delete{cursor:pointer;position:absolute;right:0;top:0;padding:0;font-size:16px;background:transparent;height:28px;width:22px;display:block;color:#fff;color:hsla(0,0%,100%,.75);z-index:500}.vue-file-agent .file-preview .file-delete svg{width:1em;height:1em;fill:currentColor;vertical-align:middle}.vue-file-agent .file-preview .file-icon{z-index:455;position:absolute;top:50%;height:72px;width:72px;margin-top:-36px;left:50%;margin-left:-36px}.vue-file-agent .file-preview .file-icon svg{width:72px;height:72px;fill:#fff}.vue-file-agent .file-preview .file-ext{text-align:left;left:0;z-index:3}.vue-file-agent .file-preview .file-ext,.vue-file-agent .file-preview .file-size{position:absolute;font-size:16px;text-transform:uppercase;display:block;right:0;bottom:0;line-height:25px;padding:0 5px}.vue-file-agent .file-preview .file-size{text-align:right;z-index:4}.vue-file-agent .file-preview .image-dimension .image-dimension-height,.vue-file-agent .file-preview .image-dimension .image-dimension-width{display:inline-block}.vue-file-agent .file-preview .image-dimension .image-dimension-width:after{content:\"x\"}.vue-file-agent .file-preview .image-dimension{position:absolute;font-size:12px;text-align:center;display:block;width:100%;right:0;bottom:0;line-height:25px;padding:0 5px;z-index:4}.vue-file-agent .file-preview .file-ext,.vue-file-agent .file-preview .file-name,.vue-file-agent .file-preview .file-size,.vue-file-agent .file-preview .image-dimension,.vue-file-agent .file-preview .image-dimension .image-dimension-width:after{color:#fff}.vue-file-agent.has-multiple .file-preview,.vue-file-agent.is-single .is-deletable .file-preview{z-index:11}.vue-file-agent .is-deletable .file-preview .file-name{padding-right:20px}.vue-file-agent.no-meta .file-preview .file-ext,.vue-file-agent.no-meta .file-preview .file-name,.vue-file-agent.no-meta .file-preview .file-size,.vue-file-agent.no-meta .file-preview .image-dimension,.vue-file-agent.no-meta .file-preview:after{display:none}.vue-file-agent .file-preview-new{text-align:center;padding:8px;z-index:1}.vue-file-agent .file-preview-new:before{background:rgba(0,0,0,.05)}.vue-file-agent .file-preview-new svg{fill:#aaa;margin-top:16%;height:36%}.vue-file-agent .file-preview-new .help-text{color:#aaa;text-align:center;font-size:16px;line-height:20px;height:20px;display:block}.vue-file-agent .file-preview-new .file-preview{z-index:8}.vue-file-agent .file-preview-new .file-preview:after,.vue-file-agent .file-preview-new .file-preview:before{display:none}.vue-file-agent .file-av-wrapper .file-av-action{width:60px;height:60px;left:50%;position:absolute;top:50%;margin-top:-30px;margin-left:-30px;background:transparent;border-radius:50%;z-index:800;cursor:pointer}.vue-file-agent .file-av-wrapper .file-av-play,.vue-file-agent .file-av-wrapper .file-av-stop{width:50%;height:50%;position:absolute;left:25%;top:25%;display:none}.vue-file-agent .file-av-wrapper .file-av-play{height:60%;width:60%;left:20%;top:20%;display:block}.vue-file-agent .file-av-wrapper .file-av-play svg,.vue-file-agent .file-av-wrapper .file-av-stop svg{fill:#fff;width:100%;height:100%}.vue-file-agent .file-av-wrapper audio,.vue-file-agent .file-av-wrapper video{position:absolute;left:0;right:0;z-index:799;top:0;bottom:0;width:100%;height:100%;background:rgba(0,0,0,.75)}.vue-file-agent .file-is-playing-av .file-av-wrapper .file-av-stop{display:block}.vue-file-agent .file-is-playing-av .file-av-wrapper .file-av-play{display:none}.vue-file-agent .file-progress{display:block;height:3px;z-index:3;position:absolute;left:0;right:0;overflow:hidden;top:32px;top:1px;top:0;height:28px;height:4px;margin-top:1px;margin-left:1px;margin-right:1px}.vue-file-agent .file-progress .file-progress-bar{background:#fac525;display:block;height:100%;-webkit-transition:all .1s;transition:all .1s;width:0}.vue-file-agent .file-progress.has-file-progress{background:hsla(0,0%,100%,.5);-webkit-box-shadow:0 2px 10px -1px rgba(0,0,0,.75);box-shadow:0 2px 10px -1px rgba(0,0,0,.75)}.vue-file-agent .file-progress.file-progress-full .file-progress-bar{background:#54d500}.vue-file-agent .file-progress.file-progress-done{width:5px!important;height:5px!important;right:0!important;left:auto!important;border-radius:50%;-webkit-box-shadow:-1px 1px 2px 0 rgba(0,0,0,.75);box-shadow:-1px 1px 2px 0 rgba(0,0,0,.75)}.vue-file-agent .file-progress.file-progress-done .file-progress-bar{background:#54d500}.vue-file-agent .file-input{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;opacity:0;z-index:10;cursor:pointer}.vue-file-agent.file-input-wrapper{position:relative;border:2px dashed #aaa;text-align:center;-webkit-transition:all .6s;transition:all .6s}.is-drag-over .vue-file-agent.file-input-wrapper,.vue-file-agent.file-input-wrapper.is-drag-over{border-color:#f61a1a;-webkit-box-shadow:inset 0 0 20px 1px #f61a1a;box-shadow:inset 0 0 20px 1px #f61a1a}.is-drag-valid.is-drag-over .vue-file-agent.file-input-wrapper,.vue-file-agent.file-input-wrapper.is-drag-valid.is-drag-over{border-color:#54d500;-webkit-box-shadow:inset 0 0 20px 1px #54d500;box-shadow:inset 0 0 20px 1px #54d500}.vue-file-agent .file-error-wrapper{position:absolute;left:0;right:0;color:#fff;bottom:25px;z-index:499;padding:10px;top:28px;font-size:14px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.vue-file-agent .file-error-wrapper .file-error-message{background:#ea2626;width:100%;height:auto;color:#fff;padding:0 5px;display:block}.vue-file-agent .is-editable .file-name{cursor:pointer}.vue-file-agent .is-editable .file-name .file-name-input{color:inherit;background:transparent;font-weight:inherit;padding:inherit;margin:inherit;border:0;outline:0;position:absolute;left:0;width:100%;text-align:inherit;opacity:0;z-index:-5}.vue-file-agent .is-editable .file-name .file-name-edit-icon svg{height:1em;width:1em;margin-right:2px;opacity:.5;fill:currentColor;vertical-align:middle;margin-top:-2px}.vue-file-agent .is-editable.is-edit-input-focused .file-name{border-bottom:1px solid currentColor}.vue-file-agent .is-editable.is-edit-input-focused .file-name .file-name-edit-icon,.vue-file-agent .is-editable.is-edit-input-focused .file-name .file-name-text{display:none}.vue-file-agent .is-editable.is-edit-input-focused .file-name .file-name-input{opacity:1;z-index:2}.is-sorting .vue-file-agent .active-sorting-item,.is-sorting .vue-file-agent .file-preview-wrapper{-webkit-transition-duration:0s;transition-duration:0s}.is-sorting-active .vue-file-agent .file-preview-wrapper{opacity:.75}.is-sorting-active .vue-file-agent .active-sorting-item{opacity:1}.is-sortable-immediately .vue-file-agent .file-preview-wrapper,.is-sortable-immediately .vue-file-agent .file-preview-wrapper *{cursor:move}.vue-file-agent .file-preview-wrapper .file-sortable-handle{position:absolute;z-index:900;cursor:move;border-radius:50%;background:hsla(0,0%,100%,.95);color:#222;margin:0;width:33px;height:33px;left:5px;top:5px;padding:4px}.vue-file-agent .file-preview-wrapper .file-sortable-handle svg{fill:currentColor;width:100%;height:100%;vertical-align:top}.grid-block-wrapper .grid-block{width:50%;border:1px solid transparent;margin:0!important;min-width:156px}.grid-block-wrapper{padding:2px}.grid-block-wrapper .grid-block .file-preview{width:100%;height:0;padding-bottom:75%;padding-bottom:100%}.is-readonly .grid-block-wrapper{padding:0;margin:-1px}@media (min-width:576px){.grid-block-wrapper .grid-block{width:33.3333%;border-width:2px}.grid-block-wrapper{padding:2px}.is-readonly .grid-block-wrapper{padding:0;margin:-2px}}@media (min-width:768px){.grid-block-wrapper .grid-block{width:25%}}@media (min-width:992px){.grid-block-wrapper .grid-block{width:20%}}@media (min-width:1200px){.grid-block-wrapper .grid-block{width:16.6666%}}@media (min-width:1440px){.grid-block-wrapper .grid-block{width:16.6666%}}.grid-block-wrapper.is-compact .grid-block,.theme-list .vue-file-agent .file-preview-wrapper{width:100%}.theme-list .vue-file-agent .file-preview-wrapper .file-preview{height:53px;padding:0}.theme-list .vue-file-agent .file-preview-wrapper .file-preview:after,.theme-list .vue-file-agent .file-preview-wrapper .file-preview:before{-webkit-box-shadow:none;box-shadow:none}.theme-list .vue-file-agent .file-preview-wrapper .file-preview:before{background:#dcdcdf;left:53px;right:0;top:0;bottom:0;height:100%}.theme-list .vue-file-agent .file-preview-wrapper .file-preview .file-icon,.theme-list .vue-file-agent .file-preview-wrapper .file-preview .thumbnail{width:100%;left:0;margin:0;top:0;bottom:0;height:100%;width:53px}.theme-list .vue-file-agent .file-preview-wrapper .file-preview .thumbnail{z-index:12}.theme-list .vue-file-agent .file-preview-wrapper .file-preview .file-icon svg{height:46px;width:46px;margin-top:4px}.theme-list .vue-file-agent .file-preview-wrapper .file-preview .file-progress{z-index:2;top:0;right:0;bottom:0;-webkit-box-shadow:none;box-shadow:none}.theme-list .vue-file-agent .file-preview-wrapper .file-preview .file-ext,.theme-list .vue-file-agent .file-preview-wrapper .file-preview .file-name{background:transparent}.theme-list .vue-file-agent .file-preview-wrapper .file-preview .file-ext,.theme-list .vue-file-agent .file-preview-wrapper .file-preview .file-name,.theme-list .vue-file-agent .file-preview-wrapper .file-preview .file-progress{left:53px;text-align:left;color:#333}.theme-list .vue-file-agent .file-preview-wrapper .file-preview .file-size{color:#333}.theme-list .vue-file-agent .file-preview-wrapper .file-preview .file-name{font-weight:700}.theme-list .vue-file-agent .file-preview-wrapper .file-preview .file-delete{color:#e55353;color:#777;background:transparent}.theme-list .vue-file-agent .file-preview-wrapper .file-preview .image-dimension{left:53px;text-align:left;margin-left:53px;right:auto;width:auto}.theme-list .vue-file-agent .file-preview-wrapper .file-preview .image-dimension,.theme-list .vue-file-agent .file-preview-wrapper .file-preview .image-dimension .image-dimension-width:after{color:#666}.theme-list .vue-file-agent .file-preview-wrapper .file-error-wrapper{top:0;left:0;bottom:0;padding:5px;left:53px;text-align:left;height:100%;color:#ea2626;font-weight:700;background:transparent;display:block}.theme-list .vue-file-agent .file-preview-wrapper.is-deletable .file-error-wrapper{right:17px}.theme-list .vue-file-agent .file-preview-wrapper .file-sortable-handle{margin:0;left:10px;top:10px}.theme-list .vue-file-agent .file-preview-new{padding:0}.theme-list .vue-file-agent .file-preview-new svg{height:36px;width:36px;margin:0;position:absolute;left:10px;top:8px}.theme-list .vue-file-agent .file-preview-new .help-text{padding:5px;text-align:left;position:absolute;top:0;left:53px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;right:0;bottom:0;height:100%}.theme-list .vue-file-agent .file-av-wrapper .file-av-action{width:53px;height:53px;margin:0;left:0;top:0}.theme-list .vue-file-agent .file-av-wrapper .file-av-play,.theme-list .vue-file-agent .file-av-wrapper .file-av-stop{width:50%;height:50%;position:absolute;left:25%;top:25%}.theme-list .grid-box-enter,.theme-list .grid-box-leave-to{-webkit-transform:translate3d(0,-20px,0)!important;transform:translate3d(0,-20px,0)!important;opacity:0!important}.theme-list .grid-box-leave-active{position:absolute!important;left:0!important}.theme-list .grid-block-wrapper .grid-block{border-width:2px}.theme-list.is-readonly .grid-block-wrapper{padding:0;margin:-2px}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Test.vue?vue&type=style&index=0&id=5f45227d&scoped=true&lang=css&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Test.vue?vue&type=style&index=0&id=5f45227d&scoped=true&lang=css& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.no-uppercase[data-v-5f45227d] {\n  text-transform: none;\n  letter-spacing: normal;\n}\n@media (max-width: 768px) {\n.md-full-width[data-v-5f45227d] {\n    width: 100%;\n}\n}\n", ""]);
 
 // exports
 
@@ -38751,6 +38779,36 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Test.vue?vue&type=style&index=0&id=5f45227d&scoped=true&lang=css&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Test.vue?vue&type=style&index=0&id=5f45227d&scoped=true&lang=css& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./Test.vue?vue&type=style&index=0&id=5f45227d&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Test.vue?vue&type=style&index=0&id=5f45227d&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/conference/Conferences.vue?vue&type=style&index=0&id=50aaaf62&scoped=true&lang=css&":
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/conference/Conferences.vue?vue&type=style&index=0&id=50aaaf62&scoped=true&lang=css& ***!
@@ -39655,23 +39713,184 @@ var render = function() {
         1
       ),
       _vm._v(" "),
+      _c("v-content", [_c("router-view")], 1),
+      _vm._v(" "),
+      _c("v-footer", { attrs: { app: "", absolute: "" } }, [_c("Footer")], 1)
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Test.vue?vue&type=template&id=5f45227d&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Test.vue?vue&type=template&id=5f45227d&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-container",
+    { staticClass: "px-0 py-0", attrs: { fluid: "", "fill-height": "" } },
+    [
       _c(
-        "v-content",
+        "v-row",
+        {
+          staticClass: "grey lighten-4 mx-0",
+          attrs: { justify: "center", align: "center" }
+        },
         [
           _c(
-            "v-container",
-            {
-              staticClass: "ma-0 pa-0",
-              attrs: { fluid: "", "fill-height": "" }
-            },
-            [_c("router-view")],
+            "v-col",
+            { staticClass: "grey lighten-3", attrs: { cols: "12" } },
+            [
+              _c(
+                "v-card",
+                { staticClass: "red" },
+                [_c("btn", { staticClass: "block" }, [_vm._v("Test")])],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-col",
+            { staticClass: "grey lighten-3", attrs: { cols: "12" } },
+            [
+              _c(
+                "v-card",
+                { staticClass: "red" },
+                [_c("btn", { staticClass: "block" }, [_vm._v("Test")])],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-col",
+            { attrs: { cols: "12" } },
+            [
+              _c(
+                "v-row",
+                {
+                  staticClass: "px-2 py-2",
+                  attrs: { align: "start", justify: "center" }
+                },
+                [
+                  _c(
+                    "v-col",
+                    { staticClass: "red", attrs: { cols: "4", width: "374" } },
+                    [
+                      _c(
+                        "btn",
+                        { staticClass: "block", attrs: { width: "374" } },
+                        [_vm._v("Test")]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-col",
+                    { staticClass: "red", attrs: { cols: "4", width: "324" } },
+                    [
+                      _c(
+                        "btn",
+                        { staticClass: "block", attrs: { width: "374" } },
+                        [_vm._v("Test")]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-col",
+                    { staticClass: "red", attrs: { cols: "4", width: "324" } },
+                    [
+                      _c(
+                        "btn",
+                        { staticClass: "block", attrs: { width: "374" } },
+                        [_vm._v("Test")]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-col",
+                    { staticClass: "red", attrs: { cols: "4", width: "324" } },
+                    [
+                      _c(
+                        "btn",
+                        { staticClass: "block", attrs: { width: "374" } },
+                        [_vm._v("Test")]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-col",
+                    { staticClass: "red", attrs: { cols: "4", width: "324" } },
+                    [
+                      _c(
+                        "btn",
+                        { staticClass: "block", attrs: { width: "374" } },
+                        [_vm._v("Test")]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-col",
+                    { staticClass: "red", attrs: { cols: "4", width: "324" } },
+                    [
+                      _c(
+                        "btn",
+                        { staticClass: "block", attrs: { width: "374" } },
+                        [_vm._v("Test")]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-col",
+                    { staticClass: "red", attrs: { cols: "4", width: "324" } },
+                    [
+                      _c(
+                        "btn",
+                        { staticClass: "block", attrs: { width: "374" } },
+                        [_vm._v("Test")]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
             1
           )
         ],
         1
-      ),
-      _vm._v(" "),
-      _c("v-footer", { attrs: { app: "", absolute: "" } }, [_c("Footer")], 1)
+      )
     ],
     1
   )
@@ -39880,276 +40099,244 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "v-row",
-    { staticClass: "fill-height", attrs: { "no-gutters": "" } },
+    "v-container",
+    { staticClass: "px-0 py-0", attrs: { fluid: "", "fill-height": "" } },
     [
       _c(
-        "v-col",
-        { attrs: { cols: "12" } },
+        "v-row",
+        {
+          staticClass: "grey lighten-3 mx-0 fill-height",
+          attrs: { align: "start", justify: "center" }
+        },
         [
           _c(
-            "v-row",
-            {
-              staticClass: "grey lighten-3",
-              attrs: { align: "center", justify: "center" }
-            },
+            "v-col",
+            { attrs: { cols: "12" } },
             [
               _c(
-                "v-col",
-                { staticClass: "px-5", attrs: { cols: "12" } },
+                "v-card",
+                {
+                  staticClass: "px-3 py-3",
+                  attrs: { color: "grey lighten-2", flat: "" }
+                },
                 [
+                  _c("h1", { staticClass: "font-weight-light" }, [
+                    _c("span", [_vm._v("Confer"), _c("b", [_vm._v("ly")])])
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "lead text-muted" }, [
+                    _vm._v(
+                      "\n              Helping to manage academic conferences worldwide. Paper management process, Review process,\n              Registrations and payments, managing parallel tracts and many more...\n            "
+                    )
+                  ]),
+                  _vm._v(" "),
                   _c(
-                    "v-card",
-                    {
-                      staticClass: "px-5 py-5",
-                      attrs: { color: "grey lighten-2", flat: "" }
-                    },
+                    "p",
                     [
-                      _c("h1", { staticClass: "font-weight-light" }, [
-                        _c("span", [_vm._v("Confer"), _c("b", [_vm._v("ly")])])
-                      ]),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "lead text-muted" }, [
-                        _vm._v(
-                          "\n            Helping to manage academic conferences worldwide. Paper management process, Review process,\n            Registrations and payments, managing parallel tracts and many more...\n          "
-                        )
-                      ]),
+                      _c(
+                        "v-btn",
+                        {
+                          staticClass: "no-uppercase my-2 md-full-width",
+                          attrs: {
+                            elevation: "0",
+                            to: { name: "create-conference" },
+                            large: "",
+                            color: "primary"
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                Create a\n                new Conference\n              "
+                          )
+                        ]
+                      ),
                       _vm._v(" "),
                       _c(
-                        "p",
-                        [
-                          _c(
-                            "v-btn",
-                            {
-                              staticClass: "no-uppercase my-2 md-full-width",
-                              attrs: {
-                                elevation: "0",
-                                to: { name: "create-conference" },
-                                large: "",
-                                color: "primary"
-                              }
-                            },
-                            [
-                              _vm._v(
-                                "\n              Create a\n              new Conference\n            "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-btn",
-                            {
-                              staticClass: "no-uppercase my-2 md-full-width",
-                              attrs: {
-                                elevation: "0",
-                                to: { name: "conferences" },
-                                large: "",
-                                color: "primary"
-                              }
-                            },
-                            [_vm._v("Search Conferences")]
-                          )
-                        ],
-                        1
+                        "v-btn",
+                        {
+                          staticClass: "no-uppercase my-2 md-full-width",
+                          attrs: {
+                            elevation: "0",
+                            to: { name: "conferences" },
+                            large: "",
+                            color: "primary"
+                          }
+                        },
+                        [_vm._v("Search Conferences")]
                       )
-                    ]
+                    ],
+                    1
                   )
+                ]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _vm.loading
+            ? _c(
+                "v-col",
+                { attrs: { cols: "12" } },
+                [
+                  _c("v-skeleton-loader", {
+                    attrs: { type: "list-item-avatar-three-line" }
+                  })
                 ],
                 1
-              ),
-              _vm._v(" "),
-              _vm.loading
-                ? _c("v-responsive", { staticClass: "p-3" }, [
-                    _c(
-                      "div",
-                      { staticClass: "p-3" },
-                      [
-                        _c("v-skeleton-loader", {
-                          attrs: { type: "list-item-avatar-three-line" }
-                        })
-                      ],
-                      1
-                    )
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.conferences.length
-                ? _c(
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.conferences.length
+            ? _c(
+                "v-col",
+                { attrs: { cols: "12" } },
+                [
+                  _c(
                     "v-row",
                     { attrs: { justify: "center" } },
                     _vm._l(_vm.conferences, function(conference) {
                       return _c(
-                        "div",
+                        "v-card",
                         {
                           key: conference.id,
-                          staticClass: "d-flex",
-                          attrs: { justify: "center" }
+                          staticClass: "my-2 mx-2",
+                          attrs: { "max-width": "374", elevation: "0" }
                         },
                         [
+                          _c("v-img", {
+                            attrs: {
+                              height: "250",
+                              src:
+                                "/storage/conference/images/" + conference.image
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("v-card-title", [
+                            _vm._v(_vm._s(conference.title))
+                          ]),
+                          _vm._v(" "),
                           _c(
-                            "v-col",
-                            { staticClass: "mx-2 d-flex flex-column" },
+                            "v-card-text",
                             [
                               _c(
-                                "v-card",
+                                "v-row",
                                 {
-                                  staticClass: "my-2 flex",
-                                  attrs: { "max-width": "374", elevation: "0" }
+                                  staticClass: "mx-0",
+                                  attrs: { align: "center" }
                                 },
                                 [
-                                  _c("v-img", {
+                                  _c("v-rating", {
                                     attrs: {
-                                      height: "250",
-                                      src:
-                                        "/storage/conference/images/" +
-                                        conference.image
+                                      value: 4.5,
+                                      color: "amber",
+                                      dense: "",
+                                      "half-increments": "",
+                                      size: "25"
                                     }
                                   }),
                                   _vm._v(" "),
-                                  _c("v-card-title", [
-                                    _vm._v(_vm._s(conference.title))
-                                  ]),
-                                  _vm._v(" "),
                                   _c(
-                                    "v-card-text",
-                                    [
-                                      _c(
-                                        "v-row",
-                                        {
-                                          staticClass: "mx-0",
-                                          attrs: { align: "center" }
-                                        },
-                                        [
-                                          _c("v-rating", {
-                                            attrs: {
-                                              value: 4.5,
-                                              color: "amber",
-                                              dense: "",
-                                              "half-increments": "",
-                                              size: "25"
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            { staticClass: "grey--text ml-4" },
-                                            [_vm._v("4.5 (413)")]
-                                          )
-                                        ],
-                                        1
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "div",
-                                        { staticClass: "my-4 subtitle-1" },
-                                        [
-                                          _c("i", [
-                                            _vm._v(
-                                              _vm._s(conference.start_date)
-                                            )
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("b", [_vm._v("To")]),
-                                          _vm._v(" "),
-                                          _c("i", [
-                                            _vm._v(_vm._s(conference.end_date))
-                                          ])
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("div", [
-                                        _vm._v(_vm._s(conference.description))
-                                      ])
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c("v-divider", { staticClass: "mx-4" }),
-                                  _vm._v(" "),
-                                  _c("v-card-title", [
-                                    _vm._v("Tonight's availability")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "v-card-text",
-                                    [
-                                      _c(
-                                        "v-chip-group",
-                                        {
-                                          attrs: {
-                                            "active-class":
-                                              "deep-purple accent-4 white--text",
-                                            column: ""
-                                          }
-                                        },
-                                        [
-                                          _c("v-chip", [_vm._v("5:30PM")]),
-                                          _vm._v(" "),
-                                          _c("v-chip", [_vm._v("7:30PM")]),
-                                          _vm._v(" "),
-                                          _c("v-chip", [_vm._v("8:00PM")]),
-                                          _vm._v(" "),
-                                          _c("v-chip", [_vm._v("9:00PM")])
-                                        ],
-                                        1
-                                      )
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "v-card-actions",
-                                    [
-                                      _c(
-                                        "v-btn",
-                                        {
-                                          attrs: {
-                                            color: "deep-purple lighten-2",
-                                            text: ""
-                                          }
-                                        },
-                                        [_vm._v("Reserve")]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "v-btn",
-                                        {
-                                          attrs: {
-                                            color: "deep-purple lighten-2",
-                                            text: ""
-                                          },
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.deleteConference(
-                                                conference.id
-                                              )
-                                            }
-                                          }
-                                        },
-                                        [_vm._v("Remove")]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "v-btn",
-                                        {
-                                          attrs: {
-                                            to: {
-                                              name: "edit-conference",
-                                              params: {
-                                                conferenceId: conference.id
-                                              }
-                                            },
-                                            color: "deep-purple lighten-2",
-                                            text: ""
-                                          }
-                                        },
-                                        [_vm._v("Edit")]
-                                      )
-                                    ],
-                                    1
+                                    "div",
+                                    { staticClass: "grey--text ml-4" },
+                                    [_vm._v("4.5 (413)")]
                                   )
                                 ],
                                 1
+                              ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "my-4 subtitle-1" }, [
+                                _c("i", [
+                                  _vm._v(_vm._s(conference.start_date))
+                                ]),
+                                _vm._v(" "),
+                                _c("b", [_vm._v("To")]),
+                                _vm._v(" "),
+                                _c("i", [_vm._v(_vm._s(conference.end_date))])
+                              ]),
+                              _vm._v(" "),
+                              _c("div", [
+                                _vm._v(_vm._s(conference.description))
+                              ])
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("v-divider", { staticClass: "mx-4" }),
+                          _vm._v(" "),
+                          _c("v-card-title", [
+                            _vm._v("Tonight's availability")
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "v-card-text",
+                            [
+                              _c(
+                                "v-chip-group",
+                                {
+                                  attrs: {
+                                    "active-class":
+                                      "deep-purple accent-4 white--text",
+                                    column: ""
+                                  }
+                                },
+                                [
+                                  _c("v-chip", [_vm._v("5:30PM")]),
+                                  _vm._v(" "),
+                                  _c("v-chip", [_vm._v("7:30PM")]),
+                                  _vm._v(" "),
+                                  _c("v-chip", [_vm._v("8:00PM")]),
+                                  _vm._v(" "),
+                                  _c("v-chip", [_vm._v("9:00PM")])
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-card-actions",
+                            [
+                              _c(
+                                "v-btn",
+                                {
+                                  attrs: {
+                                    color: "deep-purple lighten-2",
+                                    text: ""
+                                  }
+                                },
+                                [_vm._v("Reserve")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-btn",
+                                {
+                                  attrs: {
+                                    color: "deep-purple lighten-2",
+                                    text: ""
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.deleteConference(conference.id)
+                                    }
+                                  }
+                                },
+                                [_vm._v("Remove")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-btn",
+                                {
+                                  attrs: {
+                                    to: {
+                                      name: "edit-conference",
+                                      params: { conferenceId: conference.id }
+                                    },
+                                    color: "deep-purple lighten-2",
+                                    text: ""
+                                  }
+                                },
+                                [_vm._v("Edit")]
                               )
                             ],
                             1
@@ -40158,12 +40345,12 @@ var render = function() {
                         1
                       )
                     }),
-                    0
+                    1
                   )
-                : _vm._e()
-            ],
-            1
-          )
+                ],
+                1
+              )
+            : _vm._e()
         ],
         1
       )
@@ -40194,381 +40381,417 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "div",
-    { staticClass: "d-flex justify-center py-3 px-3" },
+    "v-row",
+    {
+      staticClass: "fill-height",
+      attrs: { justify: "center", align: "start" }
+    },
     [
       _c(
-        "v-card",
-        { staticClass: "px-5 py-6", attrs: { outlined: true, width: "920px" } },
+        "v-col",
+        { attrs: { cols: "12", lg: "10", xl: "8" } },
         [
-          _c("v-card-title", [_vm._v("Conference Details")]),
-          _vm._v(" "),
           _c(
-            "v-form",
-            {
-              ref: "conferenceForm",
-              staticClass: "py-0",
-              on: {
-                submit: function($event) {
-                  $event.stopPropagation()
-                  $event.preventDefault()
-                }
-              },
-              model: {
-                value: _vm.valid,
-                callback: function($$v) {
-                  _vm.valid = $$v
-                },
-                expression: "valid"
-              }
-            },
+            "v-card",
+            { staticClass: "px-5 py-6", attrs: { outlined: true } },
             [
               _c(
-                "v-row",
-                { staticClass: "justify-center py-0 px-5" },
+                "v-list-item",
+                [
+                  _c("v-list-item-avatar", { attrs: { color: "grey" } }),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item-content",
+                    [
+                      _c("v-list-item-title", { staticClass: "headline" }, [
+                        _vm._v("Conference")
+                      ]),
+                      _vm._v(" "),
+                      _c("v-list-item-subtitle", [
+                        _vm._v("Add a new Conference")
+                      ])
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("v-divider"),
+              _vm._v(" "),
+              _c(
+                "v-form",
+                {
+                  ref: "conferenceForm",
+                  staticClass: "py-0",
+                  on: {
+                    submit: function($event) {
+                      $event.stopPropagation()
+                      $event.preventDefault()
+                    }
+                  },
+                  model: {
+                    value: _vm.valid,
+                    callback: function($$v) {
+                      _vm.valid = $$v
+                    },
+                    expression: "valid"
+                  }
+                },
                 [
                   _c(
-                    "v-col",
-                    { attrs: { cols: "12" } },
-                    [
-                      _c("v-text-field", {
-                        attrs: {
-                          label: "Enter a title for the Conference",
-                          rules: _vm.titleRules,
-                          "error-messages": _vm.asyncErrors.title,
-                          outlined: "",
-                          required: "",
-                          rounded: _vm.rounded,
-                          dense: _vm.dense
-                        },
-                        on: {
-                          input: function($event) {
-                            _vm.asyncErrors = ""
-                          }
-                        },
-                        model: {
-                          value: _vm.conference.title,
-                          callback: function($$v) {
-                            _vm.$set(_vm.conference, "title", $$v)
-                          },
-                          expression: "conference.title"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("v-text-field", {
-                        attrs: {
-                          label: "Enter a Tag Line for the Conference",
-                          dense: _vm.dense,
-                          rules: _vm.tagLineRules,
-                          "error-messages": _vm.asyncErrors.tag_line,
-                          outlined: "",
-                          required: "",
-                          rounded: _vm.rounded
-                        },
-                        on: {
-                          input: function($event) {
-                            _vm.asyncErrors = ""
-                          }
-                        },
-                        model: {
-                          value: _vm.conference.tag_line,
-                          callback: function($$v) {
-                            _vm.$set(_vm.conference, "tag_line", $$v)
-                          },
-                          expression: "conference.tag_line"
-                        }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-col",
-                    {
-                      staticClass: "py-0",
-                      attrs: { cols: "12", sm: "6", justify: "center" }
-                    },
+                    "v-row",
+                    { staticClass: "justify-center py-0 px-5" },
                     [
                       _c(
-                        "v-menu",
-                        {
-                          attrs: {
-                            "close-on-content-click": false,
-                            "nudge-right": 40,
-                            transition: "scale-transition",
-                            "offset-y": "",
-                            "min-width": "290px"
-                          },
-                          scopedSlots: _vm._u([
-                            {
-                              key: "activator",
-                              fn: function(ref) {
-                                var on = ref.on
-                                return [
-                                  _c(
-                                    "v-text-field",
-                                    _vm._g(
-                                      {
-                                        attrs: {
-                                          dense: _vm.dense,
-                                          label: "Start Date",
-                                          "append-icon": "mdi-calendar",
-                                          rules: _vm.dateRules,
-                                          "error-messages":
-                                            _vm.asyncErrors.start_date,
-                                          outlined: "",
-                                          readonly: "",
-                                          rounded: _vm.rounded
-                                        },
-                                        model: {
-                                          value: _vm.conference.start_date,
-                                          callback: function($$v) {
-                                            _vm.$set(
-                                              _vm.conference,
-                                              "start_date",
-                                              $$v
-                                            )
-                                          },
-                                          expression: "conference.start_date"
-                                        }
-                                      },
-                                      on
-                                    )
-                                  )
-                                ]
-                              }
-                            }
-                          ]),
-                          model: {
-                            value: _vm.sDateMenu,
-                            callback: function($$v) {
-                              _vm.sDateMenu = $$v
-                            },
-                            expression: "sDateMenu"
-                          }
-                        },
+                        "v-col",
+                        { attrs: { cols: "12" } },
                         [
-                          _vm._v(" "),
-                          _c("v-date-picker", {
-                            on: { change: _vm.sDateChanged },
-                            model: {
-                              value: _vm.conference.start_date,
-                              callback: function($$v) {
-                                _vm.$set(_vm.conference, "start_date", $$v)
-                              },
-                              expression: "conference.start_date"
-                            }
-                          })
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-col",
-                    {
-                      staticClass: "py-0",
-                      attrs: { cols: "12", sm: "6", justify: "center" }
-                    },
-                    [
-                      _c(
-                        "v-menu",
-                        {
-                          attrs: {
-                            "close-on-content-click": false,
-                            "nudge-right": 40,
-                            transition: "scale-transition",
-                            "offset-y": "",
-                            "min-width": "290px"
-                          },
-                          scopedSlots: _vm._u([
-                            {
-                              key: "activator",
-                              fn: function(ref) {
-                                var on = ref.on
-                                return [
-                                  _c(
-                                    "v-text-field",
-                                    _vm._g(
-                                      {
-                                        attrs: {
-                                          dense: _vm.dense,
-                                          label: "End Date",
-                                          "append-icon": "mdi-calendar",
-                                          rules: _vm.dateRules,
-                                          "error-messages":
-                                            _vm.asyncErrors.end_date,
-                                          outlined: "",
-                                          readonly: "",
-                                          rounded: _vm.rounded,
-                                          disabled: _vm.fDateDisabled
-                                        },
-                                        model: {
-                                          value: _vm.conference.end_date,
-                                          callback: function($$v) {
-                                            _vm.$set(
-                                              _vm.conference,
-                                              "end_date",
-                                              $$v
-                                            )
-                                          },
-                                          expression: "conference.end_date"
-                                        }
-                                      },
-                                      on
-                                    )
-                                  )
-                                ]
-                              }
-                            }
-                          ]),
-                          model: {
-                            value: _vm.fDateMenu,
-                            callback: function($$v) {
-                              _vm.fDateMenu = $$v
+                          _c("v-text-field", {
+                            attrs: {
+                              label: "Enter a title for the Conference",
+                              rules: _vm.titleRules,
+                              "error-messages": _vm.asyncErrors.title,
+                              outlined: "",
+                              required: "",
+                              rounded: _vm.rounded,
+                              dense: _vm.dense
                             },
-                            expression: "fDateMenu"
-                          }
-                        },
-                        [
-                          _vm._v(" "),
-                          _c("v-date-picker", {
-                            attrs: { min: _vm.minDate },
                             on: {
-                              change: function($event) {
-                                _vm.fDateMenu = false
+                              input: function($event) {
+                                _vm.asyncErrors = ""
                               }
                             },
                             model: {
-                              value: _vm.conference.end_date,
+                              value: _vm.conference.title,
                               callback: function($$v) {
-                                _vm.$set(_vm.conference, "end_date", $$v)
+                                _vm.$set(_vm.conference, "title", $$v)
                               },
-                              expression: "conference.end_date"
+                              expression: "conference.title"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("v-text-field", {
+                            attrs: {
+                              label: "Enter a Tag Line for the Conference",
+                              dense: _vm.dense,
+                              rules: _vm.tagLineRules,
+                              "error-messages": _vm.asyncErrors.tag_line,
+                              outlined: "",
+                              required: "",
+                              rounded: _vm.rounded
+                            },
+                            on: {
+                              input: function($event) {
+                                _vm.asyncErrors = ""
+                              }
+                            },
+                            model: {
+                              value: _vm.conference.tag_line,
+                              callback: function($$v) {
+                                _vm.$set(_vm.conference, "tag_line", $$v)
+                              },
+                              expression: "conference.tag_line"
                             }
                           })
                         ],
                         1
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-col",
-                    { attrs: { cols: "12" } },
-                    [
-                      _c("v-text-field", {
-                        attrs: {
-                          label: "Enter the venue of the Conference",
-                          dense: _vm.dense,
-                          rules: _vm.venueRules,
-                          "error-messages": _vm.asyncErrors.venue,
-                          outlined: "",
-                          required: "",
-                          rounded: _vm.rounded
-                        },
-                        on: {
-                          input: function($event) {
-                            _vm.asyncErrors = ""
-                          }
-                        },
-                        model: {
-                          value: _vm.conference.venue,
-                          callback: function($$v) {
-                            _vm.$set(_vm.conference, "venue", $$v)
-                          },
-                          expression: "conference.venue"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("v-text-field", {
-                        attrs: {
-                          label: "Enter Subject Area the Conference",
-                          dense: _vm.dense,
-                          rules: _vm.subjectRules,
-                          "error-messages": _vm.asyncErrors.subject_area,
-                          outlined: "",
-                          required: "",
-                          rounded: _vm.rounded
-                        },
-                        on: {
-                          input: function($event) {
-                            _vm.asyncErrors = ""
-                          }
-                        },
-                        model: {
-                          value: _vm.conference.subject_area,
-                          callback: function($$v) {
-                            _vm.$set(_vm.conference, "subject_area", $$v)
-                          },
-                          expression: "conference.subject_area"
-                        }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-col",
-                    { staticClass: "py-0", attrs: { cols: "12" } },
-                    [
-                      _c("v-textarea", {
-                        attrs: {
-                          label: "A description for the Conference",
-                          dense: _vm.dense,
-                          rows: "5",
-                          rules: _vm.descriptionRules,
-                          "error-messages": _vm.asyncErrors.description,
-                          outlined: "",
-                          required: "",
-                          rounded: _vm.rounded
-                        },
-                        on: {
-                          input: function($event) {
-                            _vm.asyncErrors = ""
-                          }
-                        },
-                        model: {
-                          value: _vm.conference.description,
-                          callback: function($$v) {
-                            _vm.$set(_vm.conference, "description", $$v)
-                          },
-                          expression: "conference.description"
-                        }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-col",
-                    { staticClass: "py-0", attrs: { cols: "12" } },
-                    [
-                      _c("v-divider"),
+                      ),
                       _vm._v(" "),
                       _c(
-                        "v-card-actions",
+                        "v-col",
+                        {
+                          staticClass: "py-0",
+                          attrs: { cols: "12", sm: "6", justify: "center" }
+                        },
                         [
                           _c(
-                            "v-btn",
+                            "v-menu",
                             {
-                              staticClass: "no-uppercase",
-                              class: {
-                                "blue darken-4 white--text": _vm.valid,
-                                disabled: !_vm.valid
-                              },
                               attrs: {
-                                dense: _vm.dense,
-                                outlined: "",
-                                large: _vm.btnLarge,
-                                rounded: _vm.rounded
+                                "close-on-content-click": false,
+                                "nudge-right": 40,
+                                transition: "scale-transition",
+                                "offset-y": "",
+                                "min-width": "290px"
                               },
-                              on: { click: _vm.setConference }
+                              scopedSlots: _vm._u([
+                                {
+                                  key: "activator",
+                                  fn: function(ref) {
+                                    var on = ref.on
+                                    return [
+                                      _c(
+                                        "v-text-field",
+                                        _vm._g(
+                                          {
+                                            attrs: {
+                                              dense: _vm.dense,
+                                              label: "Start Date",
+                                              "append-icon": "mdi-calendar",
+                                              rules: _vm.dateRules,
+                                              "error-messages":
+                                                _vm.asyncErrors.start_date,
+                                              outlined: "",
+                                              readonly: "",
+                                              rounded: _vm.rounded
+                                            },
+                                            model: {
+                                              value: _vm.conference.start_date,
+                                              callback: function($$v) {
+                                                _vm.$set(
+                                                  _vm.conference,
+                                                  "start_date",
+                                                  $$v
+                                                )
+                                              },
+                                              expression:
+                                                "conference.start_date"
+                                            }
+                                          },
+                                          on
+                                        )
+                                      )
+                                    ]
+                                  }
+                                }
+                              ]),
+                              model: {
+                                value: _vm.sDateMenu,
+                                callback: function($$v) {
+                                  _vm.sDateMenu = $$v
+                                },
+                                expression: "sDateMenu"
+                              }
                             },
-                            [_vm._v("Next")]
+                            [
+                              _vm._v(" "),
+                              _c("v-date-picker", {
+                                on: { change: _vm.sDateChanged },
+                                model: {
+                                  value: _vm.conference.start_date,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.conference, "start_date", $$v)
+                                  },
+                                  expression: "conference.start_date"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        {
+                          staticClass: "py-0",
+                          attrs: { cols: "12", sm: "6", justify: "center" }
+                        },
+                        [
+                          _c(
+                            "v-menu",
+                            {
+                              attrs: {
+                                "close-on-content-click": false,
+                                "nudge-right": 40,
+                                transition: "scale-transition",
+                                "offset-y": "",
+                                "min-width": "290px"
+                              },
+                              scopedSlots: _vm._u([
+                                {
+                                  key: "activator",
+                                  fn: function(ref) {
+                                    var on = ref.on
+                                    return [
+                                      _c(
+                                        "v-text-field",
+                                        _vm._g(
+                                          {
+                                            attrs: {
+                                              dense: _vm.dense,
+                                              label: "End Date",
+                                              "append-icon": "mdi-calendar",
+                                              rules: _vm.dateRules,
+                                              "error-messages":
+                                                _vm.asyncErrors.end_date,
+                                              outlined: "",
+                                              readonly: "",
+                                              rounded: _vm.rounded,
+                                              disabled: _vm.fDateDisabled
+                                            },
+                                            model: {
+                                              value: _vm.conference.end_date,
+                                              callback: function($$v) {
+                                                _vm.$set(
+                                                  _vm.conference,
+                                                  "end_date",
+                                                  $$v
+                                                )
+                                              },
+                                              expression: "conference.end_date"
+                                            }
+                                          },
+                                          on
+                                        )
+                                      )
+                                    ]
+                                  }
+                                }
+                              ]),
+                              model: {
+                                value: _vm.fDateMenu,
+                                callback: function($$v) {
+                                  _vm.fDateMenu = $$v
+                                },
+                                expression: "fDateMenu"
+                              }
+                            },
+                            [
+                              _vm._v(" "),
+                              _c("v-date-picker", {
+                                attrs: { min: _vm.minDate },
+                                on: {
+                                  change: function($event) {
+                                    _vm.fDateMenu = false
+                                  }
+                                },
+                                model: {
+                                  value: _vm.conference.end_date,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.conference, "end_date", $$v)
+                                  },
+                                  expression: "conference.end_date"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "12" } },
+                        [
+                          _c("v-text-field", {
+                            attrs: {
+                              label: "Enter the venue of the Conference",
+                              dense: _vm.dense,
+                              rules: _vm.venueRules,
+                              "error-messages": _vm.asyncErrors.venue,
+                              outlined: "",
+                              required: "",
+                              rounded: _vm.rounded
+                            },
+                            on: {
+                              input: function($event) {
+                                _vm.asyncErrors = ""
+                              }
+                            },
+                            model: {
+                              value: _vm.conference.venue,
+                              callback: function($$v) {
+                                _vm.$set(_vm.conference, "venue", $$v)
+                              },
+                              expression: "conference.venue"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("v-text-field", {
+                            attrs: {
+                              label: "Enter Subject Area the Conference",
+                              dense: _vm.dense,
+                              rules: _vm.subjectRules,
+                              "error-messages": _vm.asyncErrors.subject_area,
+                              outlined: "",
+                              required: "",
+                              rounded: _vm.rounded
+                            },
+                            on: {
+                              input: function($event) {
+                                _vm.asyncErrors = ""
+                              }
+                            },
+                            model: {
+                              value: _vm.conference.subject_area,
+                              callback: function($$v) {
+                                _vm.$set(_vm.conference, "subject_area", $$v)
+                              },
+                              expression: "conference.subject_area"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { staticClass: "py-0", attrs: { cols: "12" } },
+                        [
+                          _c("v-textarea", {
+                            attrs: {
+                              label: "A description for the Conference",
+                              dense: _vm.dense,
+                              rows: "5",
+                              rules: _vm.descriptionRules,
+                              "error-messages": _vm.asyncErrors.description,
+                              outlined: "",
+                              required: "",
+                              rounded: _vm.rounded
+                            },
+                            on: {
+                              input: function($event) {
+                                _vm.asyncErrors = ""
+                              }
+                            },
+                            model: {
+                              value: _vm.conference.description,
+                              callback: function($$v) {
+                                _vm.$set(_vm.conference, "description", $$v)
+                              },
+                              expression: "conference.description"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { staticClass: "py-0", attrs: { cols: "12" } },
+                        [
+                          _c("v-divider"),
+                          _vm._v(" "),
+                          _c(
+                            "v-card-actions",
+                            [
+                              _c(
+                                "v-btn",
+                                {
+                                  staticClass: "no-uppercase",
+                                  attrs: {
+                                    color: "primary",
+                                    dense: _vm.dense,
+                                    disabled: !_vm.valid,
+                                    large: _vm.btnLarge,
+                                    rounded: _vm.rounded,
+                                    elevation: "0"
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      $event.stopPropagation()
+                                      return _vm.setConference($event)
+                                    }
+                                  }
+                                },
+                                [_vm._v("Next")]
+                              )
+                            ],
+                            1
                           )
                         ],
                         1
@@ -40612,120 +40835,77 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "div",
-    { staticClass: "d-flex justify-center py-3 px-3" },
+    "v-row",
+    {
+      staticClass: "fill-height",
+      attrs: { justify: "center", align: "start" }
+    },
     [
       _c(
-        "v-card",
-        { staticClass: "px-5 py-6", attrs: { outlined: true, width: "920px" } },
+        "v-col",
+        { attrs: { cols: "12", lg: "10", xl: "8" } },
         [
-          _c("v-card-title", [
-            _vm._v("Themes for " + _vm._s(_vm.conference.title))
-          ]),
-          _vm._v(" "),
-          _c("v-card-text", [
-            _vm._v(
-              "\n      You can add themes to your conference here. Each theme can have multiple theme\n      leaders who are responsible for managing the reviews, etc.\n    "
-            )
-          ]),
-          _vm._v(" "),
           _c(
-            "v-row",
-            { staticClass: "justify-center py-0 px-5" },
+            "v-card",
+            { staticClass: "px-5 py-6", attrs: { outlined: true } },
             [
+              _vm.showThemeForm
+                ? _c("ThemeForm", {
+                    attrs: { showThemeForm: _vm.showThemeForm },
+                    on: { cancelled: _vm.showThemeFormToggle }
+                  })
+                : _vm._e(),
+              _vm._v(" "),
+              _c("Themes", { on: { themeForm: _vm.showThemeFormToggle } }),
+              _vm._v(" "),
+              _c("v-divider", { staticClass: "my-4" }),
+              _vm._v(" "),
               _c(
-                "v-col",
-                { attrs: { cols: "12" } },
+                "v-card-actions",
                 [
                   _c(
                     "v-btn",
                     {
-                      staticClass: "no-uppercase my-2 px-6",
-                      attrs: { color: "primary", elevation: "0", fab: "" },
-                      on: { click: _vm.showThemeFormToggle }
+                      staticClass: "no-uppercase",
+                      attrs: {
+                        color: "primary",
+                        rounded: _vm.rounded,
+                        dense: _vm.dense,
+                        large: _vm.btnLarge,
+                        elevation: "0"
+                      },
+                      on: {
+                        click: function($event) {
+                          $event.stopPropagation()
+                          return _vm.previous($event)
+                        }
+                      }
                     },
-                    [
-                      _c("v-icon", { attrs: { dark: "" } }, [
-                        _vm._v("mdi-plus")
-                      ])
-                    ],
-                    1
+                    [_vm._v("Previous")]
                   ),
                   _vm._v(" "),
-                  _c("v-divider", { staticClass: "my-4" })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _vm.showThemeForm
-                ? _c(
-                    "v-col",
-                    { attrs: { cols: "12" } },
-                    [
-                      _c("ThemeForm", {
-                        attrs: { showThemeForm: _vm.showThemeForm },
-                        on: { cancelled: _vm.showThemeFormToggle }
-                      })
-                    ],
-                    1
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _c(
-                "v-col",
-                { staticClass: "py-0", attrs: { cols: "12" } },
-                [_c("Themes")],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "v-col",
-                { staticClass: "py-0", attrs: { cols: "12" } },
-                [
-                  _c("v-divider", { staticClass: "my-4" }),
+                  _c("v-spacer"),
                   _vm._v(" "),
                   _c(
-                    "v-card-actions",
-                    [
-                      _c(
-                        "v-btn",
-                        {
-                          staticClass: "no-uppercase",
-                          class: {
-                            "blue darken-4 white--text": _vm.valid,
-                            disabled: !_vm.valid
-                          },
-                          attrs: {
-                            rounded: _vm.rounded,
-                            dense: _vm.dense,
-                            large: _vm.btnLarge,
-                            outlined: ""
-                          },
-                          on: { click: _vm.previous }
-                        },
-                        [_vm._v("Previous")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-btn",
-                        {
-                          staticClass: "no-uppercase",
-                          class: {
-                            "blue darken-4 white--text no-uppercase": _vm.valid,
-                            disabled: !_vm.valid
-                          },
-                          attrs: {
-                            rounded: _vm.rounded,
-                            dense: _vm.dense,
-                            large: _vm.btnLarge,
-                            outlined: ""
-                          },
-                          on: { click: _vm.complete }
-                        },
-                        [_vm._v("Next")]
-                      )
-                    ],
-                    1
+                    "v-btn",
+                    {
+                      staticClass: "no-uppercase",
+                      attrs: {
+                        color: "primary",
+                        rounded: _vm.rounded,
+                        dense: _vm.dense,
+                        large: _vm.btnLarge,
+                        elevation: "0",
+                        disabled: !_vm.themes.length
+                      },
+                      on: {
+                        click: function($event) {
+                          $event.stopPropagation()
+                          return _vm.complete($event)
+                        }
+                      }
+                    },
+                    [_vm._v("Next")]
                   )
                 ],
                 1
@@ -40763,66 +40943,84 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "v-row",
-    { staticClass: "no-gutters fill-height" },
+    "v-container",
+    { staticClass: "px-0 py-0", attrs: { fluid: "", "fill-height": "" } },
     [
       _c(
-        "v-stepper",
-        {
-          staticClass: "elevation-0 flex py-0 grey lighten-3",
-          model: {
-            value: _vm.e1,
-            callback: function($$v) {
-              _vm.e1 = $$v
-            },
-            expression: "e1"
-          }
-        },
+        "v-row",
+        { staticClass: "fill-height mx-0" },
         [
           _c(
-            "v-stepper-header",
-            { staticClass: "elevation-0 py-0 white" },
+            "v-stepper",
+            {
+              staticClass: "elevation-0 flex py-0 grey lighten-3",
+              model: {
+                value: _vm.e1,
+                callback: function($$v) {
+                  _vm.e1 = $$v
+                },
+                expression: "e1"
+              }
+            },
             [
               _c(
-                "v-stepper-step",
-                { attrs: { complete: _vm.e1 > 1, step: "1" } },
-                [_vm._v("Initial Details")]
-              ),
-              _vm._v(" "),
-              _c("v-divider"),
-              _vm._v(" "),
-              _c(
-                "v-stepper-step",
-                { attrs: { complete: _vm.e1 > 2, step: "2" } },
-                [_vm._v("Themes")]
-              ),
-              _vm._v(" "),
-              _c("v-divider"),
-              _vm._v(" "),
-              _c("v-stepper-step", { attrs: { step: "3" } }, [
-                _vm._v("Theme Leaders")
-              ])
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "v-stepper-items",
-            [
-              _c(
-                "v-stepper-content",
-                { key: "1-content", staticClass: "py-0", attrs: { step: 1 } },
-                [_c("Step1", { on: { complete: _vm.nextStep } })],
+                "v-stepper-header",
+                { staticClass: "elevation-0 py-0 white" },
+                [
+                  _c(
+                    "v-stepper-step",
+                    { attrs: { complete: _vm.e1 > 1, step: "1" } },
+                    [_vm._v("Initial Details")]
+                  ),
+                  _vm._v(" "),
+                  _c("v-divider"),
+                  _vm._v(" "),
+                  _c(
+                    "v-stepper-step",
+                    { attrs: { complete: _vm.e1 > 2, step: "2" } },
+                    [_vm._v("Themes")]
+                  ),
+                  _vm._v(" "),
+                  _c("v-divider"),
+                  _vm._v(" "),
+                  _c("v-stepper-step", { attrs: { step: "3" } }, [
+                    _vm._v("Theme Leaders")
+                  ])
+                ],
                 1
               ),
               _vm._v(" "),
               _c(
-                "v-stepper-content",
-                { key: "2-content", staticClass: "py-0", attrs: { step: 2 } },
+                "v-stepper-items",
                 [
-                  _c("Step2", {
-                    on: { complete: _vm.nextStep, previous: _vm.previousStep }
-                  })
+                  _c(
+                    "v-stepper-content",
+                    {
+                      key: "1-content",
+                      staticClass: "py-0",
+                      attrs: { step: 1 }
+                    },
+                    [_c("Step1", { on: { complete: _vm.nextStep } })],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-stepper-content",
+                    {
+                      key: "2-content",
+                      staticClass: "py-0",
+                      attrs: { step: 2 }
+                    },
+                    [
+                      _c("Step2", {
+                        on: {
+                          complete: _vm.nextStep,
+                          previous: _vm.previousStep
+                        }
+                      })
+                    ],
+                    1
+                  )
                 ],
                 1
               )
@@ -40970,11 +41168,27 @@ var render = function() {
           _c(
             "v-card",
             [
-              _c("v-card-title", [
-                _c("span", { staticClass: "headline" }, [
-                  _vm._v("Theme Leader")
-                ])
-              ]),
+              _c(
+                "v-list-item",
+                [
+                  _c("v-list-item-avatar", { attrs: { color: "grey" } }),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item-content",
+                    [
+                      _c("v-list-item-title", { staticClass: "headline" }, [
+                        _vm._v("Theme Leader")
+                      ]),
+                      _vm._v(" "),
+                      _c("v-list-item-subtitle", [
+                        _vm._v("Add a new theme Leader")
+                      ])
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
               _vm._v(" "),
               _c(
                 "v-card-text",
@@ -41309,275 +41523,213 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "div",
+    "v-dialog",
+    {
+      attrs: { persistent: "", "max-width": "800px" },
+      model: {
+        value: _vm.showThemeForm,
+        callback: function($$v) {
+          _vm.showThemeForm = $$v
+        },
+        expression: "showThemeForm"
+      }
+    },
     [
       _c(
-        "v-dialog",
-        {
-          attrs: { persistent: "", "max-width": "800px" },
-          model: {
-            value: _vm.showThemeForm,
-            callback: function($$v) {
-              _vm.showThemeForm = $$v
-            },
-            expression: "showThemeForm"
-          }
-        },
+        "v-card",
         [
           _c(
-            "v-card",
+            "v-list-item",
             [
-              _c(
-                "v-list-item",
-                [
-                  _c("v-list-item-avatar", { attrs: { color: "grey" } }),
-                  _vm._v(" "),
-                  _c(
-                    "v-list-item-content",
-                    [
-                      _c("v-list-item-title", { staticClass: "headline" }, [
-                        _vm._v("Theme")
-                      ]),
-                      _vm._v(" "),
-                      _c("v-list-item-subtitle", [_vm._v("Add a new theme")])
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
+              _c("v-list-item-avatar", { attrs: { color: "grey" } }),
               _vm._v(" "),
               _c(
-                "v-card-text",
+                "v-list-item-content",
+                [
+                  _c("v-list-item-title", { staticClass: "headline" }, [
+                    _vm._v("Theme")
+                  ]),
+                  _vm._v(" "),
+                  _c("v-list-item-subtitle", [_vm._v("Add a new theme")])
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-card-text",
+            [
+              _c(
+                "v-form",
+                {
+                  ref: "themeForm",
+                  staticClass: "py-0 px-0",
+                  on: {
+                    submit: function($event) {
+                      $event.stopPropagation()
+                      $event.preventDefault()
+                    }
+                  },
+                  model: {
+                    value: _vm.valid,
+                    callback: function($$v) {
+                      _vm.valid = $$v
+                    },
+                    expression: "valid"
+                  }
+                },
                 [
                   _c(
-                    "v-container",
+                    "v-row",
+                    { staticClass: "py-0", attrs: { justify: "center" } },
                     [
                       _c(
-                        "v-form",
-                        {
-                          ref: "themeForm",
-                          staticClass: "py-0 px-0",
-                          on: {
-                            submit: function($event) {
-                              $event.stopPropagation()
-                              $event.preventDefault()
-                            }
-                          },
-                          model: {
-                            value: _vm.valid,
-                            callback: function($$v) {
-                              _vm.valid = $$v
-                            },
-                            expression: "valid"
-                          }
-                        },
+                        "v-col",
+                        { staticClass: "py-0", attrs: { cols: "12" } },
                         [
+                          _c("v-text-field", {
+                            attrs: {
+                              label: "Enter a title for the Theme",
+                              rounded: _vm.rounded,
+                              dense: _vm.dense,
+                              rules: _vm.titleRules,
+                              "error-messages": _vm.asyncErrors.title,
+                              outlined: "",
+                              required: ""
+                            },
+                            on: {
+                              input: function($event) {
+                                _vm.asyncErrors = ""
+                              }
+                            },
+                            model: {
+                              value: _vm.theme.title,
+                              callback: function($$v) {
+                                _vm.$set(_vm.theme, "title", $$v)
+                              },
+                              expression: "theme.title"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { staticClass: "py-0", attrs: { cols: "12" } },
+                        [
+                          _c("v-textarea", {
+                            attrs: {
+                              label: "A description for the Theme",
+                              rounded: _vm.rounded,
+                              dense: _vm.dense,
+                              rules: _vm.descriptionRules,
+                              "error-messages": _vm.asyncErrors.description,
+                              rows: "5",
+                              outlined: "",
+                              required: ""
+                            },
+                            on: {
+                              input: function($event) {
+                                _vm.asyncErrors = ""
+                              }
+                            },
+                            model: {
+                              value: _vm.theme.description,
+                              callback: function($$v) {
+                                _vm.$set(_vm.theme, "description", $$v)
+                              },
+                              expression: "theme.description"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { staticClass: "py-0", attrs: { cols: "12" } },
+                        [
+                          _vm.theme.themeLeaders.length
+                            ? _vm._l(_vm.theme.themeLeaders, function(
+                                leader,
+                                index
+                              ) {
+                                return _c(
+                                  "v-chip",
+                                  {
+                                    key: index,
+                                    staticClass: "ma-2",
+                                    attrs: { large: _vm.chipLarge, close: "" },
+                                    on: {
+                                      "click:close": function($event) {
+                                        return _vm.removeLeader(leader)
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "v-avatar",
+                                      { attrs: { left: "" } },
+                                      [
+                                        _c("v-icon", [
+                                          _vm._v("mdi-account-circle")
+                                        ])
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(
+                                      "\n              " +
+                                        _vm._s(
+                                          leader.user.title +
+                                            " " +
+                                            leader.user.firstName +
+                                            " " +
+                                            leader.user.surname
+                                        ) +
+                                        "\n              "
+                                    )
+                                  ],
+                                  1
+                                )
+                              })
+                            : _vm._e()
+                        ],
+                        2
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { staticClass: "py-0", attrs: { cols: "12" } },
+                        [
+                          _vm.themeLeaderModal
+                            ? _c("ThemeLeader", {
+                                attrs: { showLeaderForm: _vm.themeLeaderModal },
+                                on: { hide: _vm.showLeaderFormToggle }
+                              })
+                            : _vm._e(),
+                          _vm._v(" "),
                           _c(
-                            "v-row",
-                            { staticClass: "justify-center py-0" },
+                            "v-btn",
+                            {
+                              staticClass: "no-uppercase my-3",
+                              attrs: { color: "primary", elevation: "0" },
+                              on: {
+                                click: function($event) {
+                                  $event.stopPropagation()
+                                  return _vm.showLeaderFormToggle($event)
+                                }
+                              }
+                            },
                             [
-                              _c(
-                                "v-col",
-                                { attrs: { cols: "12 py-0" } },
-                                [
-                                  _c("v-text-field", {
-                                    attrs: {
-                                      label: "Enter a title for the Theme",
-                                      rounded: _vm.rounded,
-                                      dense: _vm.dense,
-                                      rules: _vm.titleRules,
-                                      "error-messages": _vm.asyncErrors.title,
-                                      outlined: "",
-                                      required: ""
-                                    },
-                                    on: {
-                                      input: function($event) {
-                                        _vm.asyncErrors = ""
-                                      }
-                                    },
-                                    model: {
-                                      value: _vm.theme.title,
-                                      callback: function($$v) {
-                                        _vm.$set(_vm.theme, "title", $$v)
-                                      },
-                                      expression: "theme.title"
-                                    }
-                                  })
-                                ],
-                                1
+                              _vm._v(
+                                "\n                Add a theme Leader\n                "
                               ),
-                              _vm._v(" "),
-                              _c(
-                                "v-col",
-                                { staticClass: "py-0", attrs: { cols: "12" } },
-                                [
-                                  _c("v-textarea", {
-                                    attrs: {
-                                      label: "A description for the Theme",
-                                      rounded: _vm.rounded,
-                                      dense: _vm.dense,
-                                      rules: _vm.descriptionRules,
-                                      "error-messages":
-                                        _vm.asyncErrors.description,
-                                      rows: "5",
-                                      outlined: "",
-                                      required: ""
-                                    },
-                                    on: {
-                                      input: function($event) {
-                                        _vm.asyncErrors = ""
-                                      }
-                                    },
-                                    model: {
-                                      value: _vm.theme.description,
-                                      callback: function($$v) {
-                                        _vm.$set(_vm.theme, "description", $$v)
-                                      },
-                                      expression: "theme.description"
-                                    }
-                                  })
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-col",
-                                { staticClass: "py-1", attrs: { cols: "12" } },
-                                _vm._l(_vm.theme.themeLeaders, function(
-                                  leader,
-                                  index
-                                ) {
-                                  return _c(
-                                    "v-chip",
-                                    {
-                                      key: index,
-                                      staticClass: "ma-2",
-                                      attrs: {
-                                        large: _vm.chipLarge,
-                                        close: ""
-                                      },
-                                      on: {
-                                        "click:close": function($event) {
-                                          return _vm.removeLeader(leader)
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "v-avatar",
-                                        { attrs: { left: "" } },
-                                        [
-                                          _c("v-icon", [
-                                            _vm._v("mdi-account-circle")
-                                          ])
-                                        ],
-                                        1
-                                      ),
-                                      _vm._v(
-                                        "\n                " +
-                                          _vm._s(
-                                            leader.user.title +
-                                              " " +
-                                              leader.user.firstName +
-                                              " " +
-                                              leader.user.surname
-                                          ) +
-                                          "\n                "
-                                      )
-                                    ],
-                                    1
-                                  )
-                                }),
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-col",
-                                { staticClass: "py-0", attrs: { cols: "12" } },
-                                [
-                                  _c(
-                                    "v-btn",
-                                    {
-                                      staticClass: "no-uppercase",
-                                      attrs: {
-                                        color: "primary",
-                                        elevation: "0",
-                                        fab: ""
-                                      },
-                                      on: {
-                                        click: function($event) {
-                                          $event.stopPropagation()
-                                          return _vm.showLeaderFormToggle(
-                                            $event
-                                          )
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c("v-icon", { attrs: { dark: "" } }, [
-                                        _vm._v("mdi-plus")
-                                      ])
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-col",
-                                { staticClass: "py-0", attrs: { cols: "12" } },
-                                [
-                                  _c("v-divider", { staticClass: "my-4" }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "v-btn",
-                                    {
-                                      staticClass: "no-uppercase",
-                                      class: {
-                                        "blue darken-4 white--text": _vm.valid,
-                                        disabled: !_vm.valid
-                                      },
-                                      attrs: {
-                                        rounded: _vm.rounded,
-                                        dense: _vm.dense,
-                                        large: _vm.btnLarge,
-                                        outlined: ""
-                                      },
-                                      on: {
-                                        click: function($event) {
-                                          $event.stopPropagation()
-                                          return _vm.setTheme(_vm.conference.id)
-                                        }
-                                      }
-                                    },
-                                    [_vm._v("Add")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "v-btn",
-                                    {
-                                      staticClass:
-                                        "blue darken-4 white--text no-uppercase",
-                                      attrs: {
-                                        rounded: _vm.rounded,
-                                        dense: _vm.dense,
-                                        large: _vm.btnLarge,
-                                        outlined: ""
-                                      },
-                                      on: {
-                                        click: function($event) {
-                                          $event.stopPropagation()
-                                          return _vm.hide($event)
-                                        }
-                                      }
-                                    },
-                                    [_vm._v("Cancel")]
-                                  )
-                                ],
-                                1
-                              )
+                              _c("v-icon", { attrs: { dark: "" } }, [
+                                _vm._v("mdi-plus")
+                              ])
                             ],
                             1
                           )
@@ -41585,12 +41737,59 @@ var render = function() {
                         1
                       ),
                       _vm._v(" "),
-                      _vm.themeLeaderModal
-                        ? _c("ThemeLeader", {
-                            attrs: { showLeaderForm: _vm.themeLeaderModal },
-                            on: { hide: _vm.showLeaderFormToggle }
-                          })
-                        : _vm._e()
+                      _c(
+                        "v-col",
+                        { staticClass: "py-0", attrs: { cols: "12" } },
+                        [
+                          _c("v-divider", { staticClass: "my-4" }),
+                          _vm._v(" "),
+                          _c(
+                            "v-btn",
+                            {
+                              staticClass: "no-uppercase",
+                              class: {
+                                "blue darken-4 white--text": _vm.valid,
+                                disabled: !_vm.valid
+                              },
+                              attrs: {
+                                rounded: _vm.rounded,
+                                dense: _vm.dense,
+                                large: _vm.btnLarge,
+                                outlined: ""
+                              },
+                              on: {
+                                click: function($event) {
+                                  $event.stopPropagation()
+                                  return _vm.setTheme(_vm.conference.id)
+                                }
+                              }
+                            },
+                            [_vm._v("Add")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-btn",
+                            {
+                              staticClass:
+                                "blue darken-4 white--text no-uppercase",
+                              attrs: {
+                                rounded: _vm.rounded,
+                                dense: _vm.dense,
+                                large: _vm.btnLarge,
+                                outlined: ""
+                              },
+                              on: {
+                                click: function($event) {
+                                  $event.stopPropagation()
+                                  return _vm.hide($event)
+                                }
+                              }
+                            },
+                            [_vm._v("Cancel")]
+                          )
+                        ],
+                        1
+                      )
                     ],
                     1
                   )
@@ -41630,33 +41829,94 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "div",
+    "v-col",
+    { staticClass: "mx-auto", attrs: { cols: "12" } },
     [
-      _vm.themes
-        ? _c(
-            "v-row",
-            { staticClass: "justify-center" },
-            _vm._l(_vm.themes, function(theme) {
-              return _c(
-                "v-col",
-                {
-                  key: theme.id,
-                  staticClass: "pb-2",
-                  attrs: { sm: 12, justify: "center" }
-                },
+      _c(
+        "v-list-item",
+        [
+          _c("v-list-item-avatar", { attrs: { color: "grey" } }),
+          _vm._v(" "),
+          _c(
+            "v-list-item-content",
+            [
+              _c("v-list-item-title", { staticClass: "headline" }, [
+                _vm._v("Themes for " + _vm._s(_vm.conference.title))
+              ]),
+              _vm._v(" "),
+              _c("v-list-item-subtitle", [_vm._v("Manage themes")]),
+              _vm._v(" "),
+              _c("v-spacer")
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-btn",
+            {
+              staticClass: "no-uppercase my-3",
+              attrs: { color: "primary", elevation: "0" },
+              on: {
+                click: function($event) {
+                  $event.stopPropagation()
+                  return _vm.themeForm($event)
+                }
+              }
+            },
+            [
+              _c(
+                "b",
+                [
+                  _vm._v("Add a theme\n      "),
+                  _c("v-icon", { attrs: { dark: "" } }, [_vm._v("mdi-plus")])
+                ],
+                1
+              )
+            ]
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("v-divider"),
+      _vm._v(" "),
+      _c(
+        "v-list",
+        { attrs: { "two-line": "", subheader: "" } },
+        [
+          _vm._l(_vm.themes, function(theme, index) {
+            return [
+              _c(
+                "v-list-item",
+                { key: "theme" + theme.id },
                 [
                   _c(
-                    "v-card",
-                    {
-                      staticClass: "my-0 grey lighten-4",
-                      attrs: { elevation: 0, outlined: true }
-                    },
+                    "v-list-item-avatar",
                     [
-                      _c("v-card-title", [_vm._v(_vm._s(theme.title))]),
+                      _c("v-icon", { class: ["blue white--text"] }, [
+                        _vm._v("mdi-view-module")
+                      ])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item-content",
+                    [
+                      _c("v-list-item-title", {
+                        domProps: { textContent: _vm._s(theme.title) }
+                      }),
+                      _vm._v(" "),
+                      _c("v-list-item-subtitle", {
+                        domProps: { textContent: _vm._s(theme.description) }
+                      }),
                       _vm._v(" "),
                       _c(
-                        "v-card-text",
+                        "div",
+                        { staticClass: "inline" },
                         [
+                          _c("span", [_c("i", [_vm._v("Theme Leaders:")])]),
+                          _vm._v(" "),
                           _vm._l(theme.theme_leaders, function(themeLeader) {
                             return _c(
                               "v-chip",
@@ -41678,51 +41938,44 @@ var render = function() {
                               ],
                               1
                             )
-                          }),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "my-4 subtitle-1" }, [
-                            _vm._v(_vm._s(theme.description))
-                          ])
+                          })
                         ],
                         2
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item-action",
+                    [
+                      _c(
+                        "v-btn",
+                        { attrs: { icon: "" } },
+                        [
+                          _c("v-icon", { attrs: { color: "grey lighten-1" } }, [
+                            _vm._v("mdi-file-edit-outline")
+                          ])
+                        ],
+                        1
                       ),
                       _vm._v(" "),
-                      _c("v-divider", { staticClass: "mx-4" }),
-                      _vm._v(" "),
                       _c(
-                        "v-card-actions",
+                        "v-btn",
+                        { attrs: { icon: "" } },
                         [
                           _c(
-                            "v-btn",
+                            "v-icon",
                             {
-                              staticClass: "no-uppercase",
-                              attrs: {
-                                color: "deep-purple lighten-2",
-                                text: ""
-                              },
+                              attrs: { color: "grey lighten-1" },
                               on: {
                                 click: function($event) {
+                                  $event.stopPropagation()
                                   return _vm.deleteTheme(theme.id)
                                 }
                               }
                             },
-                            [_vm._v("Remove")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-btn",
-                            {
-                              staticClass: "no-uppercase",
-                              attrs: {
-                                to: {
-                                  name: "edit-theme",
-                                  params: { themeId: theme.id }
-                                },
-                                color: "deep-purple lighten-2",
-                                text: ""
-                              }
-                            },
-                            [_vm._v("Edit")]
+                            [_vm._v("mdi-delete")]
                           )
                         ],
                         1
@@ -41732,11 +41985,16 @@ var render = function() {
                   )
                 ],
                 1
-              )
-            }),
-            1
-          )
-        : _vm._e()
+              ),
+              _vm._v(" "),
+              index + 1 < _vm.themes.length
+                ? _c("v-divider", { key: index })
+                : _vm._e()
+            ]
+          })
+        ],
+        2
+      )
     ],
     1
   )
@@ -104357,6 +104615,77 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Test.vue":
+/*!******************************************!*\
+  !*** ./resources/js/components/Test.vue ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Test_vue_vue_type_template_id_5f45227d_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Test.vue?vue&type=template&id=5f45227d&scoped=true& */ "./resources/js/components/Test.vue?vue&type=template&id=5f45227d&scoped=true&");
+/* harmony import */ var _Test_vue_vue_type_style_index_0_id_5f45227d_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Test.vue?vue&type=style&index=0&id=5f45227d&scoped=true&lang=css& */ "./resources/js/components/Test.vue?vue&type=style&index=0&id=5f45227d&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  script,
+  _Test_vue_vue_type_template_id_5f45227d_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Test_vue_vue_type_template_id_5f45227d_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "5f45227d",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Test.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Test.vue?vue&type=style&index=0&id=5f45227d&scoped=true&lang=css&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/components/Test.vue?vue&type=style&index=0&id=5f45227d&scoped=true&lang=css& ***!
+  \***************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Test_vue_vue_type_style_index_0_id_5f45227d_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./Test.vue?vue&type=style&index=0&id=5f45227d&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Test.vue?vue&type=style&index=0&id=5f45227d&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Test_vue_vue_type_style_index_0_id_5f45227d_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Test_vue_vue_type_style_index_0_id_5f45227d_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Test_vue_vue_type_style_index_0_id_5f45227d_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Test_vue_vue_type_style_index_0_id_5f45227d_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Test_vue_vue_type_style_index_0_id_5f45227d_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Test.vue?vue&type=template&id=5f45227d&scoped=true&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/Test.vue?vue&type=template&id=5f45227d&scoped=true& ***!
+  \*************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Test_vue_vue_type_template_id_5f45227d_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Test.vue?vue&type=template&id=5f45227d&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Test.vue?vue&type=template&id=5f45227d&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Test_vue_vue_type_template_id_5f45227d_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Test_vue_vue_type_template_id_5f45227d_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/auth/Login.vue":
 /*!************************************************!*\
   !*** ./resources/js/components/auth/Login.vue ***!
@@ -105258,6 +105587,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_conference_Conferences_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/conference/Conferences.vue */ "./resources/js/components/conference/Conferences.vue");
 /* harmony import */ var _components_conference_Conference_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/conference/Conference.vue */ "./resources/js/components/conference/Conference.vue");
 /* harmony import */ var _components_themes_ThemeForm_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/themes/ThemeForm.vue */ "./resources/js/components/themes/ThemeForm.vue");
+/* harmony import */ var _components_Test_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/Test.vue */ "./resources/js/components/Test.vue");
+
 
 
 
@@ -105301,6 +105632,10 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     path: '/themes/:themeId/edit',
     component: _components_conference_Stepper_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
     name: 'edit-theme'
+  }, {
+    path: '/test',
+    component: _components_Test_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
+    name: 'test'
   }]
 }));
 

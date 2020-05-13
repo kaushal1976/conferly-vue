@@ -1,56 +1,39 @@
 <template>
-  <div class="d-flex justify-center py-3 px-3">
-    <v-card class="px-5 py-6" :outlined="true" width="920px">
-      <v-card-title>Themes for {{conference.title}}</v-card-title>
-      <v-card-text>
-        You can add themes to your conference here. Each theme can have multiple theme
-        leaders who are responsible for managing the reviews, etc.
-      </v-card-text>
-      <v-row class="justify-center py-0 px-5">
-        <v-col cols="12">
+  <v-row justify="center" align="start" class="fill-height">
+    <v-col cols="12" lg="10" xl="8">
+      <v-card class="px-5 py-6" :outlined="true">
+        <ThemeForm
+          v-if="showThemeForm"
+          :showThemeForm="showThemeForm"
+          @cancelled="showThemeFormToggle"
+        ></ThemeForm>
+        <Themes @themeForm="showThemeFormToggle"></Themes>
+        <v-divider class="my-4"></v-divider>
+        <v-card-actions>
           <v-btn
-            class="no-uppercase my-2 px-6"
+            @click.stop="previous"
+            class="no-uppercase"
             color="primary"
+            :rounded="rounded"
+            :dense="dense"
+            :large="btnLarge"
             elevation="0"
-            @click="showThemeFormToggle"
-            fab
-          >
-            <v-icon dark>mdi-plus</v-icon>
-          </v-btn>
-          <v-divider class="my-4"></v-divider>
-        </v-col>
-        <v-col cols="12" v-if="showThemeForm">
-          <ThemeForm :showThemeForm="showThemeForm" @cancelled="showThemeFormToggle"></ThemeForm>
-        </v-col>
-        <v-col cols="12" class="py-0">
-          <Themes></Themes>
-        </v-col>
-        <v-col cols="12" class="py-0">
-          <v-divider class="my-4"></v-divider>
-          <v-card-actions>
-            <v-btn
-              @click="previous"
-              :class="{ 'blue darken-4 white--text' : valid, disabled: !valid }"
-              class="no-uppercase"
-              :rounded="rounded"
-              :dense="dense"
-              :large="btnLarge"
-              outlined
-            >Previous</v-btn>
-            <v-btn
-              :class="{ 'blue darken-4 white--text no-uppercase' : valid, disabled: !valid }"
-              class="no-uppercase"
-              @click="complete"
-              :rounded="rounded"
-              :dense="dense"
-              :large="btnLarge"
-              outlined
-            >Next</v-btn>
-          </v-card-actions>
-        </v-col>
-      </v-row>
-    </v-card>
-  </div>
+          >Previous</v-btn>
+          <v-spacer></v-spacer>
+          <v-btn
+            class="no-uppercase"
+            color="primary"
+            @click.stop="complete"
+            :rounded="rounded"
+            :dense="dense"
+            :large="btnLarge"
+            elevation="0"
+            :disabled="!themes.length"
+          >Next</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-col>
+  </v-row>
 </template>
 <script>
 import { mapActions, mapGetters } from "vuex";
