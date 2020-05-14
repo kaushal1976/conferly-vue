@@ -58,7 +58,7 @@ class ConferenceController extends Controller
         } catch (\Exception $exception) {
             abort(403, $exception->getMessage());
         }
-        return response()->json($conference);
+        return response()->json($conference->id);
     }
 
     /**
@@ -104,17 +104,17 @@ class ConferenceController extends Controller
                 $conference->image = basename($path);
                 $conference->save();
             }
-        
+
         } catch (\Exception $exception) {
             abort(403, $exception->getMessage());
         }
-        return response()->json($conference);
+        return response()->json($conference->id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  $id (id of the \App\Conference) 
+     * @param  $id (id of the \App\Conference)
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

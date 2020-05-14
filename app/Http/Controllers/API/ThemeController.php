@@ -19,7 +19,7 @@ class ThemeController extends Controller
      */
     public function index($conferenceId)
     {
-        $themes = Theme::with('themeLeaders')->ofConference($conferenceId);
+        $themes = Theme::with('themeLeaders')->ofConference($conferenceId)->get();
         return response()->json($themes);
     }
 
@@ -70,9 +70,7 @@ class ThemeController extends Controller
         } catch (\Exception $exception) {
             abort(500, $exception->getMessage());
         }
-
-        $result = Theme::with(['themeLeaders', 'themeLeaders.user'])->findOrFail($theme->id);
-        return response()->json($result);
+        return response()->json($theme->id);
     }
 
     /**
