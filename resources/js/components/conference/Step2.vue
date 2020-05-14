@@ -8,7 +8,7 @@
           @cancelled="showThemeFormToggle"
         ></ThemeForm>
         <Themes @themeForm="showThemeFormToggle"></Themes>
-        <v-divider class="my-4"></v-divider>
+        <v-divider></v-divider>
         <v-card-actions>
           <v-btn
             @click.stop="previous"
@@ -18,8 +18,8 @@
             :dense="dense"
             :large="btnLarge"
             elevation="0"
-          >Previous</v-btn>
-          <v-spacer></v-spacer>
+          >Previous
+          </v-btn>
           <v-btn
             class="no-uppercase"
             color="primary"

@@ -16,7 +16,7 @@
     <v-divider></v-divider>
     <v-list two-line subheader>
       <template v-for="(theme, index) in themes">
-        <v-list-item :key="'theme'+theme.id">
+        <v-list-item :key="'theme'+theme.id" @click.stop="">
           <v-list-item-avatar>
             <v-icon :class="['blue white--text']">mdi-view-module</v-icon>
           </v-list-item-avatar>
