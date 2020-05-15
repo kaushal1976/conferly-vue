@@ -55,7 +55,6 @@ export default {
 
   methods: {
     ...mapActions({
-      fetchThemes: "themes/fetchThemes",
       deleteTheme: "themes/deleteTheme"
     }),
 
@@ -68,7 +67,6 @@ export default {
     ...mapGetters({
       conference: "conferences/getConference",
       themes: "themes/getThemes",
-      theme: "themes/getTheme"
     })
   }
 };

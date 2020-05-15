@@ -76,9 +76,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      conference: "conferences/getConference",
       themes: "themes/getThemes",
-      theme: "themes/getTheme"
     })
   }
 };

@@ -88,6 +88,8 @@ class ThemeLeaderController extends Controller
             'email' => 'required|email',
         ]);
         $user = User::where('email',$validatedData['email'])->firstOrFail();
+        $user->makeVisible(['email']);
+        $user->makeVisible(['id']);
         return response()->json($user);
     }
 }

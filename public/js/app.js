@@ -2520,7 +2520,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])({
-    fetchConferences: "conferences/fetchConferences",
     fetchConference: "conferences/fetchConference",
     deleteConference: "conferences/deleteConference"
   }), {
@@ -2652,9 +2651,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   }),
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
-    conference: "conferences/getConference",
-    themes: "themes/getThemes",
-    theme: "themes/getTheme"
+    themes: "themes/getThemes"
   }))
 });
 
@@ -3262,7 +3259,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {};
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])({
-    fetchThemes: "themes/fetchThemes",
     deleteTheme: "themes/deleteTheme"
   }), {
     themeForm: function themeForm() {
@@ -3271,8 +3267,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }),
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
     conference: "conferences/getConference",
-    themes: "themes/getThemes",
-    theme: "themes/getTheme"
+    themes: "themes/getThemes"
   }))
 });
 

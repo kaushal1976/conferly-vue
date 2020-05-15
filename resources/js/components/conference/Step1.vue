@@ -176,7 +176,6 @@ export default {
 
   methods: {
     ...mapActions({
-      fetchConferences: "conferences/fetchConferences",
       fetchConference: "conferences/fetchConference",
       deleteConference: "conferences/deleteConference"
     }),

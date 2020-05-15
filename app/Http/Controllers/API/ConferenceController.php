@@ -59,7 +59,8 @@ class ConferenceController extends Controller
         } catch (\Exception $exception) {
             abort(403, $exception->getMessage());
         }
-        return response()->json($conference->id);
+        $result = Conference::with(['themes', 'themes.themeLeaders', 'themes.themeLeaders.user'])->findOrFail($conference->id);
+        return response()->json($result);
     }
 
     /**
@@ -109,7 +110,8 @@ class ConferenceController extends Controller
         } catch (\Exception $exception) {
             abort(403, $exception->getMessage());
         }
-        return response()->json($conference->id);
+        $result = Conference::with(['themes', 'themes.themeLeaders', 'themes.themeLeaders.user'])->findOrFail($conference->id);
+        return response()->json($result);
     }
 
     /**

@@ -70,7 +70,8 @@ class ThemeController extends Controller
         } catch (\Exception $exception) {
             abort(500, $exception->getMessage());
         }
-        return response()->json($theme->id);
+        $result = Theme::with(['themeLeaders', 'themeLeaders.user'])->findOrFail($theme->id);
+        return response()->json($result);
     }
 
     /**
