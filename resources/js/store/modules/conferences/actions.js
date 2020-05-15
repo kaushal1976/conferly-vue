@@ -25,7 +25,7 @@ const setConference = ({commit}, payload) => {
 
 const fetchConferences = ({commit}) => {
 
-    return axios.get('/api/conference')
+    return axios.get('/api/conferences')
         .then(response => {
             commit('FETCH_CONFERENCES', response.data)
         })

@@ -2297,7 +2297,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 
 
-
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -106266,7 +106265,7 @@ var setConference = function setConference(_ref, payload) {
 
 var fetchConferences = function fetchConferences(_ref2) {
   var commit = _ref2.commit;
-  return axios.get('/api/conference').then(function (response) {
+  return axios.get('/api/conferences').then(function (response) {
     commit('FETCH_CONFERENCES', response.data);
   })["catch"](function (error) {
     throw error;
@@ -106667,8 +106666,8 @@ var DELETE_THEME_LEADER = function DELETE_THEME_LEADER(state, themeLeader) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/kaushal/Sites/conferly-vue/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/kaushal/Sites/conferly-vue/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/Kaushal/Sites/conferly-vue/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/Kaushal/Sites/conferly-vue/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

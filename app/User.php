@@ -15,9 +15,13 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
+    protected $visible = [
+        'name', 'author', 'viewer', 'themeLeader'
+    ];
+     protected $fillable = [
         'name', 'email', 'password',
     ];
+    protected $appends = array('firstName');
 
     /**
      * The attributes that should be hidden for arrays.
@@ -36,28 +40,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    protected $appends = array('firstName');
-
-
     public function getFirstNameAttribute()
     {
         return $this->name;
     }
-
     public function author()
     {
         return $this->hasOne(Author::class);
     }
-
     public function reviewer()
     {
         return $this->hasOne(Reviewer::class);
     }
-
     public function themeLeader()
     {
         return $this->hasOne(ThemeLeader::class);
     }
-
 }

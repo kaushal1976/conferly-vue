@@ -12,7 +12,7 @@ Route::delete('/conference/image/{id}', 'API\ConferenceImageController@destroy')
 Route::get('/conference/image/{id}', 'API\ConferenceImageController@show')->name('show-conference-image');
 Route::get('/conference/image/download/{id}', 'API\ConferenceImageController@download')->name('download-conference-image');
 
-Route::get('/conference','API\ConferenceController@index')->name('get-conferences');
+Route::get('/conferences','API\ConferenceController@index')->name('get-conferences');
 Route::get('/conference/{id}','API\ConferenceController@edit')->name('edit-conference');
 Route::put('/conference/{id}','API\ConferenceController@update')->name('update-conference');
 Route::delete('/conference/{id}', 'API\ConferenceController@destroy')->name('remove-conference');

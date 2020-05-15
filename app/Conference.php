@@ -6,6 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Conference extends Model
 {
+
+    protected $visible = [
+        'id',
+        'title',
+        'description',
+        'venue',
+        'tag_line',
+        'subject_area',
+        'start_date',
+        'end_date',
+        'image',
+        'themes'
+    ];
+
     protected $fillable = [
         'title',
         'description',

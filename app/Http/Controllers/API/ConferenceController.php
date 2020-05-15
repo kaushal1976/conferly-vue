@@ -27,6 +27,7 @@ class ConferenceController extends Controller
     public function index()
     {
         $conferences = Conference::all();
+        $conferences->loadMissing('themes.themeLeaders.user');
         return response()->json($conferences);
     }
 
