@@ -42485,7 +42485,7 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              index + 1 < _vm.themes.length
+              index + 1 < _vm.conference.themes.length
                 ? _c("v-divider", { key: index })
                 : _vm._e()
             ]

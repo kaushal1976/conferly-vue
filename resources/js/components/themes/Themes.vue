@@ -41,7 +41,7 @@
             </v-btn>
           </v-list-item-action>
         </v-list-item>
-        <v-divider v-if="index + 1 < themes.length" :key="index"></v-divider>
+        <v-divider v-if="index + 1 < conference.themes.length" :key="index"></v-divider>
       </template>
     </v-list>
   </v-col>
