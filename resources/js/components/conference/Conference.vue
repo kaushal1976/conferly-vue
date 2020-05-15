@@ -13,12 +13,18 @@
           </v-list-item-content>
         </v-list-item>
         <v-divider></v-divider>
-        <v-card-text>
+        <v-card-title>
+            {{ conference.title }}
+            <v-spacer></v-spacer>
+            <v-btn icon>
+              <v-icon @click.stop="" color="grey lighten-1">mdi-file-edit</v-icon>
+            </v-btn>
+          </v-card-title>
+        <v-card-text class="grey lighten-4">
           <v-row align="center" class="mx-0">
             <v-rating :value="4.5" color="amber" dense half-increments size="25"></v-rating>
             <div class="grey--text ml-4">4.5 (413)</div>
           </v-row>
-          <v-card-title>{{ conference.title }}</v-card-title>
           <div class="my-4 subtitle-1">
             <i>{{ conference.start_date }}</i>
             <b>To</b>
@@ -26,11 +32,17 @@
           </div>
           <div>{{ conference.description }}</div>
         </v-card-text>
-        <v-divider></v-divider>
-        <v-card-title>Themes</v-card-title>
+        <v-card-title>
+          Themes
+          <v-spacer></v-spacer>
+          <v-btn icon>
+            <v-icon @click.stop="" color="grey lighten-1">mdi-file-edit</v-icon>
+          </v-btn>
+        </v-card-title>
         <v-card-text>
+            <v-divider></v-divider>
           <template v-for="(theme, index) in themes">
-            <v-list-item :key="'theme' + theme.id" @click.stop="">
+            <v-list-item :key="'theme' + theme.id" @click.stop>
               <v-list-item-avatar>
                 <v-icon :class="['blue white--text']">mdi-view-module</v-icon>
               </v-list-item-avatar>
@@ -53,11 +65,6 @@
                   </v-chip>
                 </div>
               </v-list-item-content>
-              <v-list-item-action>
-                <v-btn icon>
-                  <v-icon @click.stop="deleteTheme(theme.id)" color="grey lighten-1">mdi-delete</v-icon>
-                </v-btn>
-              </v-list-item-action>
             </v-list-item>
             <v-divider v-if="index + 1 < themes.length" :key="index"></v-divider>
           </template>

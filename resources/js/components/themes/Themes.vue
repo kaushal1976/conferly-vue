@@ -7,27 +7,25 @@
         <v-list-item-subtitle>Manage themes</v-list-item-subtitle>
         <v-spacer></v-spacer>
       </v-list-item-content>
-      <v-btn class="no-uppercase my-3" color="primary" elevation="0" rounded @click.stop="themeForm">
-        <b>Add a theme
-        <v-icon dark>mdi-plus</v-icon>
-        </b>
+      <v-btn icon x-large>
+        <v-icon @click.stop="themeForm" color="grey lighten-1">mdi-plus-circle</v-icon>
       </v-btn>
     </v-list-item>
     <v-divider></v-divider>
     <v-list two-line subheader>
       <template v-for="(theme, index) in themes">
-        <v-list-item :key="'theme'+theme.id" @click.stop="">
+        <v-list-item :key="'theme'+theme.id" @click.stop>
           <v-list-item-avatar>
             <v-icon :class="['blue white--text']">mdi-view-module</v-icon>
           </v-list-item-avatar>
           <v-list-item-content>
             <v-list-item-title v-text="theme.title"></v-list-item-title>
             <v-list-item-subtitle v-text="theme.description"></v-list-item-subtitle>
-            <div class="inline">
+            <div class="inline" v-if="theme.theme_leaders.length">
               <span>
                 <i>Theme Leaders:</i>
               </span>
-              <v-chip class="ma-2" v-for="themeLeader in theme.theme_leaders" :key="themeLeader.id">
+              <v-chip class="my-1 mx-1" v-for="themeLeader in theme.theme_leaders" :key="themeLeader.id">
                 <v-avatar left>
                   <v-icon>mdi-account-circle</v-icon>
                 </v-avatar>
@@ -66,7 +64,7 @@ export default {
   computed: {
     ...mapGetters({
       conference: "conferences/getConference",
-      themes: "themes/getThemes",
+      themes: "themes/getThemes"
     })
   }
 };

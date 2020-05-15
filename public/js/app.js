@@ -2182,6 +2182,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -3119,11 +3126,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3205,8 +3207,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
 //
 //
 //
@@ -40339,7 +40339,41 @@ var render = function() {
               _c("v-divider"),
               _vm._v(" "),
               _c(
+                "v-card-title",
+                [
+                  _vm._v(
+                    "\n          " +
+                      _vm._s(_vm.conference.title) +
+                      "\n          "
+                  ),
+                  _c("v-spacer"),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    { attrs: { icon: "" } },
+                    [
+                      _c(
+                        "v-icon",
+                        {
+                          attrs: { color: "grey lighten-1" },
+                          on: {
+                            click: function($event) {
+                              $event.stopPropagation()
+                            }
+                          }
+                        },
+                        [_vm._v("mdi-file-edit")]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
                 "v-card-text",
+                { staticClass: "grey lighten-4" },
                 [
                   _c(
                     "v-row",
@@ -40362,8 +40396,6 @@ var render = function() {
                     1
                   ),
                   _vm._v(" "),
-                  _c("v-card-title", [_vm._v(_vm._s(_vm.conference.title))]),
-                  _vm._v(" "),
                   _c("div", { staticClass: "my-4 subtitle-1" }, [
                     _c("i", [_vm._v(_vm._s(_vm.conference.start_date))]),
                     _vm._v(" "),
@@ -40377,13 +40409,40 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _c("v-divider"),
-              _vm._v(" "),
-              _c("v-card-title", [_vm._v("Themes")]),
+              _c(
+                "v-card-title",
+                [
+                  _vm._v("\n        Themes\n        "),
+                  _c("v-spacer"),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    { attrs: { icon: "" } },
+                    [
+                      _c(
+                        "v-icon",
+                        {
+                          attrs: { color: "grey lighten-1" },
+                          on: {
+                            click: function($event) {
+                              $event.stopPropagation()
+                            }
+                          }
+                        },
+                        [_vm._v("mdi-file-edit")]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
               _vm._v(" "),
               _c(
                 "v-card-text",
                 [
+                  _c("v-divider"),
+                  _vm._v(" "),
                   _vm._l(_vm.themes, function(theme, index) {
                     return [
                       _c(
@@ -40459,33 +40518,6 @@ var render = function() {
                                   })
                                 ],
                                 2
-                              )
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-list-item-action",
-                            [
-                              _c(
-                                "v-btn",
-                                { attrs: { icon: "" } },
-                                [
-                                  _c(
-                                    "v-icon",
-                                    {
-                                      attrs: { color: "grey lighten-1" },
-                                      on: {
-                                        click: function($event) {
-                                          $event.stopPropagation()
-                                          return _vm.deleteTheme(theme.id)
-                                        }
-                                      }
-                                    },
-                                    [_vm._v("mdi-delete")]
-                                  )
-                                ],
-                                1
                               )
                             ],
                             1
@@ -42159,7 +42191,7 @@ var render = function() {
                                   "v-chip",
                                   {
                                     key: index,
-                                    staticClass: "ma-2",
+                                    staticClass: "my-1 mx-1",
                                     attrs: { large: _vm.chipLarge, close: "" },
                                     on: {
                                       "click:close": function($event) {
@@ -42179,7 +42211,7 @@ var render = function() {
                                       1
                                     ),
                                     _vm._v(
-                                      "\n              " +
+                                      "\n                " +
                                         _vm._s(
                                           leader.user.title +
                                             " " +
@@ -42209,29 +42241,25 @@ var render = function() {
                               })
                             : _vm._e(),
                           _vm._v(" "),
+                          _c("v-label", [_vm._v("Add a Theme Leader")]),
+                          _vm._v(" "),
                           _c(
                             "v-btn",
-                            {
-                              staticClass: "no-uppercase my-3",
-                              attrs: {
-                                color: "primary",
-                                elevation: "0",
-                                rounded: ""
-                              },
-                              on: {
-                                click: function($event) {
-                                  $event.stopPropagation()
-                                  return _vm.showLeaderFormToggle($event)
-                                }
-                              }
-                            },
+                            { attrs: { icon: "", "x-large": "" } },
                             [
-                              _vm._v(
-                                "\n                Add a theme Leader\n                "
-                              ),
-                              _c("v-icon", { attrs: { dark: "" } }, [
-                                _vm._v("mdi-plus")
-                              ])
+                              _c(
+                                "v-icon",
+                                {
+                                  attrs: { color: "grey lighten-1" },
+                                  on: {
+                                    click: function($event) {
+                                      $event.stopPropagation()
+                                      return _vm.showLeaderFormToggle($event)
+                                    }
+                                  }
+                                },
+                                [_vm._v("mdi-plus-circle")]
+                              )
                             ],
                             1
                           )
@@ -42243,7 +42271,7 @@ var render = function() {
                         "v-col",
                         { staticClass: "py-0", attrs: { cols: "12" } },
                         [
-                          _c("v-divider", { staticClass: "my-4" }),
+                          _c("v-divider", { staticClass: "my-2" }),
                           _vm._v(" "),
                           _c(
                             "v-btn",
@@ -42355,26 +42383,23 @@ var render = function() {
           _vm._v(" "),
           _c(
             "v-btn",
-            {
-              staticClass: "no-uppercase my-3",
-              attrs: { color: "primary", elevation: "0", rounded: "" },
-              on: {
-                click: function($event) {
-                  $event.stopPropagation()
-                  return _vm.themeForm($event)
-                }
-              }
-            },
+            { attrs: { icon: "", "x-large": "" } },
             [
               _c(
-                "b",
-                [
-                  _vm._v("Add a theme\n      "),
-                  _c("v-icon", { attrs: { dark: "" } }, [_vm._v("mdi-plus")])
-                ],
-                1
+                "v-icon",
+                {
+                  attrs: { color: "grey lighten-1" },
+                  on: {
+                    click: function($event) {
+                      $event.stopPropagation()
+                      return _vm.themeForm($event)
+                    }
+                  }
+                },
+                [_vm._v("mdi-plus-circle")]
               )
-            ]
+            ],
+            1
           )
         ],
         1
@@ -42420,37 +42445,46 @@ var render = function() {
                         domProps: { textContent: _vm._s(theme.description) }
                       }),
                       _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "inline" },
-                        [
-                          _c("span", [_c("i", [_vm._v("Theme Leaders:")])]),
-                          _vm._v(" "),
-                          _vm._l(theme.theme_leaders, function(themeLeader) {
-                            return _c(
-                              "v-chip",
-                              { key: themeLeader.id, staticClass: "ma-2" },
-                              [
-                                _c(
-                                  "v-avatar",
-                                  { attrs: { left: "" } },
+                      theme.theme_leaders.length
+                        ? _c(
+                            "div",
+                            { staticClass: "inline" },
+                            [
+                              _c("span", [_c("i", [_vm._v("Theme Leaders:")])]),
+                              _vm._v(" "),
+                              _vm._l(theme.theme_leaders, function(
+                                themeLeader
+                              ) {
+                                return _c(
+                                  "v-chip",
+                                  {
+                                    key: themeLeader.id,
+                                    staticClass: "my-1 mx-1"
+                                  },
                                   [
-                                    _c("v-icon", [_vm._v("mdi-account-circle")])
+                                    _c(
+                                      "v-avatar",
+                                      { attrs: { left: "" } },
+                                      [
+                                        _c("v-icon", [
+                                          _vm._v("mdi-account-circle")
+                                        ])
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(
+                                      "\n              " +
+                                        _vm._s(themeLeader.user.name) +
+                                        "\n            "
+                                    )
                                   ],
                                   1
-                                ),
-                                _vm._v(
-                                  "\n              " +
-                                    _vm._s(themeLeader.user.name) +
-                                    "\n            "
                                 )
-                              ],
-                              1
-                            )
-                          })
-                        ],
-                        2
-                      )
+                              })
+                            ],
+                            2
+                          )
+                        : _vm._e()
                     ],
                     1
                   ),
@@ -106661,8 +106695,8 @@ var DELETE_THEME_LEADER = function DELETE_THEME_LEADER(state, themeLeader) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/Kaushal/Sites/conferly-vue/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/Kaushal/Sites/conferly-vue/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/kaushal/Sites/conferly-vue/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/kaushal/Sites/conferly-vue/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
