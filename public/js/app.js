@@ -2559,7 +2559,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return this.conference.start_date;
     }
   }, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
-    conference: "conferences/getConference"
+    conference: "conferences/getConference",
+    themes: "themes/getThemes",
+    theme: "themes/getTheme"
   }))
 });
 
@@ -2658,7 +2660,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   }),
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
-    themes: "themes/getThemes"
+    conference: "conferences/getConference",
+    themes: "themes/getThemes",
+    theme: "themes/getTheme"
   }))
 });
 
@@ -106306,6 +106310,9 @@ var fetchConference = function fetchConference(_ref3, payload) {
 
   if (!payload > 0) {
     commit('FETCH_CONFERENCE', {});
+    commit('themes/FETCH_THEMES', [], {
+      root: true
+    });
     return;
   }
 

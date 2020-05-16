@@ -37,6 +37,7 @@ const fetchConferences = ({commit}) => {
 const fetchConference = ({commit}, payload) => {
     if (!payload > 0) {
         commit('FETCH_CONFERENCE', {})
+        commit('themes/FETCH_THEMES', [], {root: true})
         return
     }
     return axios.get('/api/conference/' + payload)

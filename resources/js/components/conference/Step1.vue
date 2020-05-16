@@ -211,7 +211,9 @@ export default {
       return this.conference.start_date;
     },
     ...mapGetters({
-      conference: "conferences/getConference"
+      conference: "conferences/getConference",
+      themes: "themes/getThemes",
+      theme: "themes/getTheme",
     })
   }
 };

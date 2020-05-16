@@ -128,7 +128,7 @@ export default {
   computed: {
     ...mapGetters({
       conference: "conferences/getConference",
-      themes: "themes/getThemes"
+      themes: "themes/getThemes",
     })
   }
 };
