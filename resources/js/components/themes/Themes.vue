@@ -7,8 +7,8 @@
         <v-list-item-subtitle>Manage themes</v-list-item-subtitle>
         <v-spacer></v-spacer>
       </v-list-item-content>
-      <v-btn icon x-large>
-        <v-icon @click.stop="themeForm" color="grey lighten-1">mdi-plus-circle</v-icon>
+      <v-btn icon x-large @click.stop="themeForm">
+        <v-icon color="grey lighten-1">mdi-plus-circle</v-icon>
       </v-btn>
     </v-list-item>
     <v-divider></v-divider>

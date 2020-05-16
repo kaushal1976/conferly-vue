@@ -2551,7 +2551,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     }
   }),
-  mounted: function mounted() {
+  created: function created() {
     this.fetchConference(this.$route.params.conferenceId);
   },
   computed: _objectSpread({
@@ -40946,9 +40946,9 @@ var render = function() {
                 {
                   ref: "conferenceForm",
                   staticClass: "py-0",
+                  attrs: { "lazy-validation": "" },
                   on: {
                     submit: function($event) {
-                      $event.stopPropagation()
                       $event.preventDefault()
                     }
                   },
@@ -42249,19 +42249,19 @@ var render = function() {
                           _vm._v(" "),
                           _c(
                             "v-btn",
-                            { attrs: { icon: "", "x-large": "" } },
+                            {
+                              attrs: { icon: "", "x-large": "" },
+                              on: {
+                                click: function($event) {
+                                  $event.stopPropagation()
+                                  return _vm.showLeaderFormToggle($event)
+                                }
+                              }
+                            },
                             [
                               _c(
                                 "v-icon",
-                                {
-                                  attrs: { color: "grey lighten-1" },
-                                  on: {
-                                    click: function($event) {
-                                      $event.stopPropagation()
-                                      return _vm.showLeaderFormToggle($event)
-                                    }
-                                  }
-                                },
+                                { attrs: { color: "grey lighten-1" } },
                                 [_vm._v("mdi-plus-circle")]
                               )
                             ],
@@ -42387,21 +42387,19 @@ var render = function() {
           _vm._v(" "),
           _c(
             "v-btn",
-            { attrs: { icon: "", "x-large": "" } },
+            {
+              attrs: { icon: "", "x-large": "" },
+              on: {
+                click: function($event) {
+                  $event.stopPropagation()
+                  return _vm.themeForm($event)
+                }
+              }
+            },
             [
-              _c(
-                "v-icon",
-                {
-                  attrs: { color: "grey lighten-1" },
-                  on: {
-                    click: function($event) {
-                      $event.stopPropagation()
-                      return _vm.themeForm($event)
-                    }
-                  }
-                },
-                [_vm._v("mdi-plus-circle")]
-              )
+              _c("v-icon", { attrs: { color: "grey lighten-1" } }, [
+                _vm._v("mdi-plus-circle")
+              ])
             ],
             1
           )
@@ -106702,8 +106700,8 @@ var DELETE_THEME_LEADER = function DELETE_THEME_LEADER(state, themeLeader) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/kaushal/Sites/conferly-vue/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/kaushal/Sites/conferly-vue/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/Kaushal/Sites/conferly-vue/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/Kaushal/Sites/conferly-vue/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

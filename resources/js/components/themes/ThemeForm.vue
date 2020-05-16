@@ -62,8 +62,8 @@
                 @hide="showLeaderFormToggle"
               ></ThemeLeader>
               <v-label>Add a Theme Leader</v-label>
-              <v-btn icon x-large>
-                <v-icon @click.stop="showLeaderFormToggle" color="grey lighten-1">mdi-plus-circle</v-icon>
+              <v-btn icon x-large @click.stop="showLeaderFormToggle">
+                <v-icon color="grey lighten-1">mdi-plus-circle</v-icon>
               </v-btn>
             </v-col>
             <v-col cols="12" class="py-0">

@@ -10,7 +10,7 @@
           </v-list-item-content>
         </v-list-item>
         <v-divider></v-divider>
-        <v-form v-model="valid" ref="conferenceForm" @submit.stop.prevent class="py-0">
+        <v-form v-model="valid" ref="conferenceForm" @submit.prevent class="py-0" lazy-validation>
           <v-row class="justify-center py-0 px-5">
             <v-col cols="12">
               <v-text-field
@@ -203,7 +203,7 @@ export default {
       }
     }
   },
-  mounted() {
+  created() {
     this.fetchConference(this.$route.params.conferenceId);
   },
   computed: {
